@@ -22,21 +22,21 @@ const Button: React.FC<ButtonProps> = ({
     ...props
 }) => {
     // 1. Style cốt lõi áp dụng cho mọi nút
-    const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseStyles = 'inline-flex items-center justify-center font-bold rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
 
     // 2. Định nghĩa các kiểu màu sắc (Variant)
     const variants = {
-        primary: 'bg-[#0070F3] hover:bg-blue-600 text-white shadow-sm',
-        secondary: 'bg-slate-900 hover:bg-black text-white shadow-sm',
-        outline: 'bg-transparent border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700',
+        primary: 'bg-[#0070F3] hover:bg-blue-600 text-white',
+        secondary: 'bg-slate-900 hover:bg-black text-white',
+        outline: 'bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700',
         ghost: 'bg-transparent hover:bg-slate-100 text-slate-700',
     };
 
     // 3. Định nghĩa 3 kích cỡ chuẩn (Size)
     const sizes = {
-        sm: 'px-3 py-1.5 text-sm',             // Cỡ nhỏ: Viền ngắn, chữ nhỏ
+        sm: 'px-3 py-1.5 text-base',             // Cỡ nhỏ: Viền ngắn, chữ nhỏ
         md: 'px-4 py-2 text-base',             // Cỡ vừa: Chuẩn mực cho menu, form
-        lg: 'px-6 py-3 text-lg md:text-xl',   // Cỡ lớn: Dùng cho Hero Banner, CTA to
+        lg: 'px-6 py-3 text-base md:text-xl',   // Cỡ lớn: Dùng cho Hero Banner, CTA to
     };
 
     const widthClass = fullWidth ? 'w-full' : '';

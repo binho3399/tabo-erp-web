@@ -5,6 +5,18 @@
   --color-tabo-primary: #1d4ed8;
   --color-tabo-secondary: #0f172a;
   --color-tabo-accent: #f59e0b;
+
+  --animate-marquee: marquee 25s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 body {

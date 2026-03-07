@@ -19,9 +19,9 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className="absolute top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
-            <div className="bg-white/80 backdrop-blur-md border border-slate-200/60 shadow-sm rounded-full px-6 sm:px-8">
-                <div className="flex justify-between items-center h-16">
+        <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
+            <div className="bg-white/80 backdrop-blur-md border border-slate-200/60 shadow-sm rounded-full pl-6 pr-4">
+                <div className="flex justify-between items-center h-[72px]">
                     {/* Logo */}
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center">
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
                     {/* Desktop Button */}
                     <div className="hidden lg:flex items-center">
                         <Button to="/contact" variant="primary" size="md">
-                            Liên Hệ Ngay
+                            Liên hệ ngay
                         </Button>
                     </div>
 
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
                                 size="md"
                                 fullWidth
                             >
-                                Liên Hệ Ngay
+                                Liên hệ ngay
                             </Button>
                         </div>
                     </div>

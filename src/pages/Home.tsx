@@ -5,148 +5,83 @@ import Button from '../components/common/Button';
 
 
 
-interface ServiceCardProps {
-    variant?: "split" | "solid-blue" | "solid-white";
-    icon: React.ReactNode;
-    title: React.ReactNode;
-    items: string[];
-    linkText?: string;
-}
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ variant = "solid-white", icon, title, items, linkText = "Tìm Hiểu Thêm" }) => {
-    if (variant === "split") {
-        return (
-            <div className="bg-[#F7F8F8] rounded-xl hover:-translate-y-2 transition-transform duration-300 overflow-hidden shadow-sm group flex flex-col border border-slate-200/60 h-full">
-                <div className="bg-white p-10 flex flex-col justify-between">
-                    <div className="mb-14 h-14 w-14 flex items-center">{icon}</div>
-                    <h4 className="text-[32px] font-medium text-slate-900 leading-tight font-sans tracking-tight">{title}</h4>
-                </div>
-                <div className="p-10 flex-1 flex flex-col justify-between">
-                    <ul className="space-y-4 mb-10 text-slate-700 font-medium text-[15px]">
-                        {items.map((item, i) => (
-                            <li key={i} className="flex items-start">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-500 mt-0.5 mr-4 shrink-0"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
-                    <Link to="#" className="w-full bg-white flex items-center justify-between text-slate-900 font-medium px-6 py-4 rounded-lg group-hover:text-primary-600 transition-colors shadow-sm border border-slate-100">
-                        {linkText}
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-600"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                    </Link>
-                </div>
-            </div>
-        );
-    }
-
-    if (variant === "solid-blue") {
-        return (
-            <div className="bg-primary-600 rounded-xl hover:-translate-y-2 transition-transform duration-300 shadow-lg group border border-transparent flex flex-col h-full container-smooth">
-                <div className="p-10 pb-6 flex flex-col justify-between">
-                    <div className="mb-14 h-14 w-14 flex items-center">{icon}</div>
-                    <h4 className="text-[32px] font-medium text-white leading-tight font-sans tracking-tight">{title}</h4>
-                </div>
-                <div className="p-10 pt-4 flex-1 flex flex-col justify-between">
-                    <ul className="space-y-4 mb-10 text-white font-medium text-[15px] opacity-90">
-                        {items.map((item, i) => (
-                            <li key={i} className="flex items-start">
-                                <span className="flex items-center justify-center h-[18px] w-[18px] rounded-full border border-blue-400 shrink-0 mr-4 mt-0.5">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                </span>
-                                {item}
-                            </li>
-                        ))}
-                    </ul>
-                    <Link to="#" className="w-full bg-transparent flex items-center justify-between text-blue-700 font-medium py-2 rounded-lg group-hover:text-blue-200 transition-colors">
-                        {linkText}
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-700 group-hover:text-blue-200 transition-colors"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                    </Link>
-                </div>
-            </div>
-        );
-    }
-
-    return (
-        <div className="bg-white rounded-xl hover:-translate-y-2 transition-transform duration-300 border border-slate-100 shadow-sm group flex flex-col h-full">
-            <div className="p-10 pb-6 flex flex-col justify-between">
-                <div className="mb-14 h-14 w-14 flex items-center">{icon}</div>
-                <h4 className="text-[32px] font-medium text-primary-600 leading-tight font-sans tracking-tight">{title}</h4>
-            </div>
-            <div className="p-10 pt-4 flex-1 flex flex-col justify-between">
-                <ul className="space-y-4 mb-10 text-slate-700 font-medium text-[15px]">
-                    {items.map((item, i) => (
-                        <li key={i} className="flex items-start">
-                            <span className="flex items-center justify-center h-[18px] w-[18px] rounded-full border border-slate-200 shrink-0 mr-4 mt-0.5">
-                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-slate-300"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            </span>
-                            {item}
-                        </li>
-                    ))}
-                </ul>
-                <Link to="#" className="w-full bg-transparent flex items-center justify-between text-primary-600 font-medium py-2 rounded-lg group-hover:text-blue-500 transition-colors">
-                    {linkText}
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-600 group-hover:text-blue-500 transition-colors"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                </Link>
-            </div>
-        </div>
-    );
-};
 
 const Home: React.FC = () => {
     return (
         <div className="font-sans text-gray-900 bg-[#F7F8F8]">
             {/* 1. Hero Section */}
             {/* 1. Hero Section */}
-            <section className="relative bg-[#FAFAFA] pt-40 pb-32 lg:pt-48 lg:pb-40 overflow-hidden min-h-screen flex items-center justify-center">
-                {/* Vertical Grid Lines Background */}
-                <div className="absolute inset-0 z-0 flex justify-evenly pointer-events-none opacity-[0.03]">
-                    <div className="w-[1px] h-full bg-slate-900"></div>
-                    <div className="w-[1px] h-full bg-slate-900"></div>
-                    <div className="w-[1px] h-full bg-slate-900"></div>
-                    <div className="w-[1px] h-full bg-slate-900"></div>
-                    <div className="w-[1px] h-full bg-slate-900"></div>
-                    <div className="w-[1px] h-full bg-slate-900"></div>
+            <section className="relative bg-slate-50 pt-40 pb-32 lg:pt-48 lg:pb-40 overflow-hidden min-h-screen flex items-center justify-center">
+                {/* Ambient Blurry Blobs */}
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
+                <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
+                <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full bg-purple-300/10 blur-[100px] pointer-events-none mix-blend-multiply"></div>
+
+                {/* Small Floating Decorations with Animations */}
+                <div className="absolute top-[15%] left-[15%] w-2 h-2 bg-blue-500 rounded-full opacity-40 pointer-events-none animate-bounce" style={{ animationDuration: '4s' }}></div>
+                <div className="absolute bottom-[25%] right-[15%] border-[1.5px] border-indigo-400 w-3 h-3 rounded-sm opacity-30 rotate-45 pointer-events-none animate-[spin]" style={{ animationDuration: '6s' }}></div>
+                <div className="absolute top-[25%] right-[20%] opacity-30 text-blue-600 pointer-events-none animate-pulse" style={{ animationDuration: '3s' }}>
+                    <Icon name="star" className="text-[18px]" />
                 </div>
+                <div className="absolute bottom-[35%] left-[10%] opacity-30 text-cyan-600 pointer-events-none -rotate-12 animate-bounce" style={{ animationDuration: '5s', animationDelay: '1s' }}>
+                    <Icon name="change_history" className="text-[20px]" />
+                </div>
+                <div className="absolute top-[10%] left-[80%] w-2 h-2 bg-orange-400 rounded-full opacity-40 pointer-events-none animate-pulse" style={{ animationDuration: '2s' }}></div>
+
+                {/* Subtle Grid Pattern Overlay */}
+                <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
 
                     {/* Centered Content */}
-                    <div className="text-center max-w-4xl mx-auto flex flex-col items-center relative z-20">
+                    <div className="text-center max-w-3xl mx-auto flex flex-col items-center relative z-20">
                         {/* Sparkles Decoration */}
                         <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
-
-                        <span className="bg-[#E4F8DD] text-[#4A8A34] font-medium text-xs px-4 py-1.5 rounded-full mb-8 inline-block">Tính Năng ERP</span>
-
-                        <h1 className="text-5xl md:text-[68px] leading-[1.1] font-medium tracking-tight mb-6 text-slate-900 font-sans">
-                            Cập nhật hệ thống thông qua <span className="text-blue-500">giải pháp</span> quản trị lõi.
+                        <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-8 inline-flex items-center shadow-sm">
+                            Hệ điều hành doanh nghiệp
+                        </span>
+                        <h1 className="text-4xl sm:text-5xl md:text-[56px] leading-[1.15] font-medium tracking-tight mb-6 text-slate-900 font-sans max-w-[90%] md:max-w-full">
+                            Cập nhật hệ thống thông qua <br className="hidden md:block" /><span className="text-blue-500">giải pháp</span> quản trị lõi.
                         </h1>
 
-                        <p className="text-lg md:text-xl text-slate-500 mb-10 max-w-2xl font-light">
+                        <p className="text-base text-slate-500 mb-10 max-w-2xl font-light">
                             Luôn cập nhật dữ liệu tài chính, kho bãi và tiến độ công việc theo thời gian thực để đưa ra các quyết định chiến lược chuẩn xác nhất.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                            <Button to="/contact" variant="primary" size="lg" className="shadow-lg shadow-blue-500/30">
+                            <Button to="/contact" variant="primary" size="lg">
                                 Bắt đầu ngay
                             </Button>
-                            <Button to="/about" variant="outline" size="lg" className="bg-white">
+                            <Button to="/about" variant="outline" size="lg">
                                 Dùng thử miễn phí
                             </Button>
                         </div>
 
-                        {/* Trusted by */}
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <div className="flex -space-x-3">
-                                <img src="https://i.pravatar.cc/100?img=11" alt="User" className="w-10 h-10 rounded-full border-2 border-[#FAFAFA] object-cover" />
-                                <img src="https://i.pravatar.cc/100?img=12" alt="User" className="w-10 h-10 rounded-full border-2 border-[#FAFAFA] object-cover" />
-                                <img src="https://i.pravatar.cc/100?img=33" alt="User" className="w-10 h-10 rounded-full border-2 border-[#FAFAFA] object-cover" />
-                                <div className="w-10 h-10 rounded-full border-2 border-[#FAFAFA] bg-[#A4F455] flex items-center justify-center text-xs font-bold text-slate-800">
-                                    99+
-                                </div>
-                            </div>
-                            <div className="text-left text-xs text-slate-500">
-                                <p className="font-bold text-slate-700">Được tin dùng bởi 20k+</p>
-                                <p>Doanh nghiệp tự hào sử dụng</p>
+                        {/* Auto-scrolling Features Ticker */}
+                        <div
+                            className="relative w-full max-w-2xl mx-auto overflow-hidden mt-2"
+                            style={{
+                                maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+                                WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+                            }}
+                        >
+                            <div className="flex gap-10 whitespace-nowrap animate-[marquee_25s_linear_infinite] w-max">
+                                {[...Array(2)].map((_, i) => (
+                                    <div key={i} className="flex gap-10 items-center">
+                                        {[
+                                            { text: "Chiến Lược Dữ Liệu", icon: "pie_chart" },
+                                            { text: "Kết Quả Thực Tế", icon: "track_changes" },
+                                            { text: "Tăng Trưởng Mở Rộng", icon: "trending_up" },
+                                            { text: "Chuyên Môn Tin Cậy", icon: "gpp_good" }
+                                        ].map((item, index) => (
+                                            <div key={`${i}-${index}`} className="flex items-center text-slate-400 hover:text-primary-600 transition-colors cursor-default">
+                                                <Icon name={item.icon} className="text-[24px] mr-2 opacity-70" />
+                                                <span className="font-medium text-base leading-6 uppercase tracking-wider">{item.text}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -183,124 +118,194 @@ const Home: React.FC = () => {
                         <p className="text-[10px] text-slate-400">Khách hàng hài lòng</p>
                     </div>
 
-                    {/* Floating Element: Right Top Card (Profile Balance) */}
-                    <div className="hidden lg:block absolute right-[-2%] top-[15%] rotate-6 bg-[#1A1A1A] p-5 rounded-[24px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-72 transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-30">
-                        <div className="flex items-center gap-3 mb-6">
-                            <img src="https://i.pravatar.cc/100?img=11" alt="Profile" className="w-12 h-12 rounded-full border border-slate-700 object-cover" />
+                    {/* Floating Element: Right Top Card (Corporate Fund) */}
+                    <div className="hidden lg:block absolute right-[-2%] top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[24px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-30">
+                        <div className="flex items-center gap-3 mb-5">
+                            <div className="w-11 h-11 rounded-full border border-blue-500/30 bg-blue-500/10 flex items-center justify-center shrink-0">
+                                <Icon name="account_balance_wallet" className="text-blue-400 text-[22px]" />
+                            </div>
                             <div>
-                                <h4 className="font-medium text-white text-[15px]">Nguyễn Trần</h4>
-                                <p className="text-slate-400 text-xs">Giám đốc Tài chính</p>
+                                <h4 className="font-bold text-white text-[15px] leading-tight">Sổ quỹ doanh nghiệp</h4>
+                                <p className="text-slate-400 text-[11px] mt-0.5">Tiền mặt & Ngân hàng</p>
                             </div>
                         </div>
-                        <div className="w-full h-px bg-slate-700/50 mb-4"></div>
-                        <p className="text-slate-400 text-xs mb-1">Số dư hiện tại</p>
-                        <h3 className="font-medium text-white text-2xl tracking-tight">$2,454,500.00</h3>
-                    </div>
-
-                    {/* Floating Element: Right Bottom Card (Line Chart) */}
-                    <div className="hidden lg:block absolute right-[3%] bottom-[15%] -rotate-6 bg-white p-5 rounded-[24px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-64 transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-30">
-                        <div className="relative h-20 w-full flex items-end">
-                            <svg className="w-full h-full" viewBox="0 0 100 40" preserveAspectRatio="none">
-                                <path d="M0 35 Q 5 25, 10 30 T 20 20 T 30 35 T 40 10 T 50 25 T 60 15 T 70 30 T 80 5 T 90 20 T 100 15" fill="none" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            <div className="absolute right-8 top-0 bg-[#1A1A1A] text-white text-[9px] px-2.5 py-1 rounded-full font-bold shadow-lg">
-                                $108.00
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            {/* 2. Trust Bar */}
-            <section className="bg-blue-500 py-6 border-b border-primary-600/10">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-                        <div className="text-sm font-bold tracking-widest text-primary-600 uppercase shrink-0">
-                            Điểm Tựa Vững Chắc
-                        </div>
-                        <div className="flex flex-wrap justify-center lg:justify-end gap-x-12 gap-y-4 w-full">
-                            {[
-                                { text: "Chiến Lược Dữ Liệu", icon: "pie_chart" },
-                                { text: "Kết Quả Thực Tế", icon: "track_changes" },
-                                { text: "Tăng Trưởng Mở Rộng", icon: "trending_up" },
-                                { text: "Chuyên Môn Tin Cậy", icon: "gpp_good" }
-                            ].map((item, index) => (
-                                <div key={index} className="flex items-center text-primary-600">
-                                    <Icon name={item.icon} className="text-[20px] mr-3 opacity-80" />
-                                    <span className="font-semibold">{item.text}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* 3. Expert Advice / Services */}
-            <section className="py-24 bg-[#F7F8F8]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="mb-16 max-w-3xl">
-                        <h2 className="text-sm font-bold tracking-widest text-slate-500 uppercase mb-4">Dịch Vụ Của Chúng Tôi</h2>
-                        <h3 className="text-4xl md:text-5xl font-bold text-primary-600 leading-tight mb-6 font-serif">
-                            Chuyên Môn Tư Vấn, Xây Dựng Cho Bạn
+                        <div className="w-full h-px bg-slate-700/50 mb-3.5"></div>
+                        <p className="text-slate-400 text-[11px] mb-1 uppercase tracking-wider font-semibold">Số dư hiện tại</p>
+                        <h3 className="font-bold text-white text-[24px] tracking-tight">
+                            4.250.500.000 <span className="text-slate-400 font-medium text-lg ml-0.5">₫</span>
                         </h3>
-                        <p className="text-lg text-slate-600 leading-relaxed">
-                            Với nhiều năm kinh nghiệm và phương pháp tiếp cận tập trung vào kết quả, chúng tôi trang bị cho doanh nghiệp khả năng điều hướng sự phức tạp và đạt được mục tiêu.
-                        </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <ServiceCard
-                            variant="split"
-                            icon={(
-                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                                    <path d="M16 16L32 32" stroke="#009AE4" strokeWidth="3" strokeLinecap="round" />
-                                    <path d="M16 48L32 32M32 32L48 48" stroke="#009AE4" strokeWidth="3" strokeLinecap="round" />
-                                    <path d="M32 32L48 16" stroke="#3b82f6" strokeWidth="3" strokeLinecap="round" />
-                                </svg>
-                            )}
-                            title={<>Tư Vấn<br />Doanh Nghiệp</>}
-                            items={[
-                                "Phát triển chiến lược & tăng trưởng",
-                                "Nghiên cứu thị trường & đối thủ",
-                                "Quản lý rủi ro"
-                            ]}
-                        />
-                        <ServiceCard
-                            variant="split"
-                            icon={(
-                                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-[#009AE4]">
-                                    <path d="M16 48L48 16" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M48 48V16H16" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            )}
-                            title={<>Marketing,<br />Bán Hàng &<br />Giữ Chân</>}
-                            items={[
-                                "Định vị thương hiệu & thông điệp",
-                                "Tạo khách hàng tiềm năng & sales",
-                                "Lòng trung thành khách hàng"
-                            ]}
-                        />
-                        <ServiceCard
-                            variant="split"
-                            icon={<Icon name="bolt" className="text-[56px] text-blue-500 font-light" />}
-                            title={<>Quản Trị<br />Vận Hành</>}
-                            items={[
-                                "Tối ưu hóa quy trình làm việc",
-                                "Giảm chi phí & tăng hiệu quả",
-                                "Theo dõi KPI & Insights"
-                            ]}
-                        />
-                        <ServiceCard
-                            variant="split"
-                            icon={<Icon name="group" className="text-[56px] text-blue-500 font-light" />}
-                            title={<>Quản Lý<br />Nhân Tài</>}
-                            items={[
-                                "Tuyển dụng & khai thác nguồn",
-                                "Xây dựng thương hiệu tuyển dụng",
-                                "Lên kế hoạch lực lượng lao động"
-                            ]}
-                        />
+                    {/* Floating Element: Right Bottom Card (Branch Management) */}
+                    <div className="hidden lg:block absolute right-[3%] bottom-[5%] -rotate-6 bg-white p-4 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[230px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-30">
+                        <div className="flex items-center gap-2.5 mb-3">
+                            <div className="w-9 h-9 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">
+                                <Icon name="storefront" className="text-indigo-500 text-[18px]" />
+                            </div>
+                            <div>
+                                <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Mạng lưới chi nhánh</h4>
+                                <p className="text-slate-400 text-[9px] mt-0.5">Đồng bộ thời gian thực</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-1.5">
+                            <div className="flex items-center justify-between bg-slate-50 px-2.5 py-2 rounded-lg border border-slate-100">
+                                <span className="text-slate-600 text-[11px] flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                                    Chi nhánh HCM
+                                </span>
+                                <span className="text-slate-800 text-[11px] font-semibold text-right">Mở cửa</span>
+                            </div>
+                            <div className="flex items-center justify-between bg-slate-50 px-2.5 py-2 rounded-lg border border-slate-100">
+                                <span className="text-slate-600 text-[11px] flex items-center gap-1.5">
+                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+                                    Chi nhánh Hà Nội
+                                </span>
+                                <span className="text-slate-800 text-[11px] font-semibold text-right">Mở cửa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+
+            {/* 3. Phân hệ & Tính năng (Modules & Features) */}
+            <section className="py-24 bg-white">
+                <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Header Row */}
+                    <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-16 gap-10">
+                        <div className="max-w-md lg:w-[40%]">
+                            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
+                                Đa dạng phân hệ,<br />
+                                <span className="text-[#BCA38F] font-light">tùy biến linh hoạt.</span>
+                            </h2>
+                            <p className="text-slate-500 text-[15px] leading-relaxed max-w-sm">
+                                Chọn từ hàng chục phân hệ quản trị được thiết kế riêng. Mở rộng trơn tru khi doanh nghiệp của bạn lớn mạnh.
+                            </p>
+                        </div>
+
+                        <div className="lg:w-[60%] flex flex-wrap justify-center lg:justify-end gap-3 lg:gap-4 lg:pl-10 pb-4">
+                            {/* Badges */}
+                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:-translate-y-6 shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100/50">
+                                    <Icon name="account_balance" className="text-blue-500 text-xl" />
+                                </div>
+                                <div className="">
+                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Tài chính</h4>
+                                    <p className="text-slate-400 text-[10px] mt-0.5">Kế toán tổng hợp</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:translate-y-4 shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center border border-orange-100/50">
+                                    <Icon name="inventory_2" className="text-orange-500 text-xl" />
+                                </div>
+                                <div className="">
+                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Kho bãi</h4>
+                                    <p className="text-slate-400 text-[10px] mt-0.5">Kiểm soát vật tư</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:-translate-y-2 shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-100/50">
+                                    <Icon name="groups" className="text-emerald-500 text-xl" />
+                                </div>
+                                <div className="">
+                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Nhân sự</h4>
+                                    <p className="text-slate-400 text-[10px] mt-0.5">Chấm công & lương</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:translate-y-8 shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center border border-purple-100/50">
+                                    <Icon name="local_shipping" className="text-purple-500 text-xl" />
+                                </div>
+                                <div className="">
+                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Mua hàng</h4>
+                                    <p className="text-slate-400 text-[10px] mt-0.5">Quản lý nhà cung cấp</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:-translate-y-4 shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center border border-pink-100/50">
+                                    <Icon name="point_of_sale" className="text-pink-500 text-xl" />
+                                </div>
+                                <div className="">
+                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Bán hàng</h4>
+                                    <p className="text-slate-400 text-[10px] mt-0.5">Đơn hàng & Doanh thu</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:translate-y-2 shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center border border-cyan-100/50">
+                                    <Icon name="pie_chart" className="text-cyan-500 text-xl" />
+                                </div>
+                                <div className="">
+                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Báo cáo</h4>
+                                    <p className="text-slate-400 text-[10px] mt-0.5">Phân tích đa chiều</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Grid Images Row */}
+                    <div className="flex flex-col lg:flex-row gap-6 lg:h-[450px]">
+                        {/* Col 1 */}
+                        <div className="flex flex-col gap-6 w-full lg:w-[22%]">
+                            <div className="relative flex-1 rounded-[32px] overflow-hidden group min-h-[200px] border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070" alt="Office Workers" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
+                            </div>
+                            <div className="relative flex-1 rounded-[32px] overflow-hidden group min-h-[200px] border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
+                                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070" alt="Meeting" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
+                            </div>
+                        </div>
+
+                        {/* Col 2 */}
+                        <div className="w-full lg:w-[22%]">
+                            <div className="relative h-full rounded-[32px] overflow-hidden group min-h-[300px] border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=988" alt="Professional" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
+                            </div>
+                        </div>
+
+                        {/* Col 3: Feature Card */}
+                        <div className="w-full lg:w-[34%] bg-white rounded-[32px] p-8 lg:p-10 border border-slate-100 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] flex flex-col justify-between">
+                            <div>
+                                <p className="text-slate-500 text-[13px] mb-3 font-medium">Kết nối toàn cầu</p>
+                                <h3 className="text-2xl lg:text-[32px] font-medium text-slate-900 leading-[1.2] tracking-tight">
+                                    Thích ứng bản địa<br />cho hơn 30 ngôn ngữ.
+                                </h3>
+                            </div>
+
+                            <div className="bg-[#FAF9F6] rounded-[24px] p-6 mt-8">
+                                <p className="text-slate-500 text-sm mb-4">Lựa chọn ngôn ngữ</p>
+                                <div className="flex flex-wrap gap-3">
+                                    <div className="bg-white flex items-center gap-2.5 px-4 py-2.5 rounded-full shadow-sm border border-slate-100/50">
+                                        <img src="https://flagcdn.com/w40/vn.png" alt="VN" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                        <span className="text-slate-700 text-[13px] font-semibold">Vietnamese</span>
+                                    </div>
+                                    <div className="bg-white flex items-center gap-2.5 px-4 py-2.5 rounded-full shadow-sm border border-slate-100/50">
+                                        <img src="https://flagcdn.com/w40/us.png" alt="EN" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                        <span className="text-slate-700 text-[13px] font-semibold">English</span>
+                                    </div>
+                                    <div className="bg-white flex items-center gap-2.5 px-4 py-2.5 rounded-full shadow-sm border border-slate-100/50">
+                                        <img src="https://flagcdn.com/w40/cn.png" alt="CN" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                        <span className="text-slate-700 text-[13px] font-semibold">Chinese</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Col 4 */}
+                        <div className="w-full lg:w-[22%]">
+                            <div className="relative h-full rounded-[32px] overflow-hidden group min-h-[300px] border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
+                                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1974" alt="Leader" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
+                                <div className="absolute inset-0 bg-[#D3BCAC]/20 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
