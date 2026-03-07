@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../common/Icon';
+import Button from '../common/Button';
 import logo from '../../assets/logo.png';
 
 const Navbar: React.FC = () => {
@@ -18,13 +19,13 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className="absolute w-full top-0 z-50 bg-transparent text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20 border-b border-white/10">
+        <nav className="absolute top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
+            <div className="bg-white/80 backdrop-blur-md border border-slate-200/60 shadow-sm rounded-full px-6 sm:px-8">
+                <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center">
-                            <img src={logo} alt="Tabo ERP Logo" className="h-[40px] w-auto object-contain" />
+                            <img src={logo} alt="Tabo ERP Logo" className="h-[32px] w-auto object-contain" />
                         </Link>
                     </div>
 
@@ -34,26 +35,26 @@ const Navbar: React.FC = () => {
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className="text-sm text-slate-200 hover:text-white font-medium transition-colors"
+                                className="text-base text-slate-500 hover:text-slate-900 font-medium transition-colors flex items-center"
                             >
                                 {link.name}
+                                <Icon name="add" className="ml-1 text-[18px] text-blue-700 opacity-90" />
                             </Link>
                         ))}
+                    </div>
 
-                        <Link
-                            to="/contact"
-                            className="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-sm font-semibold text-sm inline-flex items-center transition-all group"
-                        >
+                    {/* Desktop Button */}
+                    <div className="hidden lg:flex items-center">
+                        <Button to="/contact" variant="primary" size="md">
                             Liên Hệ Ngay
-                            <Icon name="arrow_forward" className="ml-2 text-[16px] transform group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        </Button>
                     </div>
 
                     {/* Mobile menu button */}
                     <div className="flex items-center lg:hidden">
                         <button
                             onClick={toggleMenu}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none"
+                            className="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-slate-900 hover:bg-slate-100 focus:outline-none"
                         >
                             <span className="sr-only">Open main menu</span>
                             {isOpen ? (
@@ -68,27 +69,28 @@ const Navbar: React.FC = () => {
 
             {/* Mobile menu dropdown */}
             {isOpen && (
-                <div className="lg:hidden absolute top-20 left-0 w-full bg-slate-900 border-b border-white/10 shadow-xl">
+                <div className="lg:hidden absolute top-20 left-1/2 -translate-x-1/2 w-full bg-white border border-slate-200/60 shadow-xl rounded-2xl overflow-hidden mt-2">
                     <div className="px-4 pt-2 pb-6 space-y-1">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className="block px-3 py-3 text-base text-slate-200 hover:text-white hover:bg-white/5 rounded-md"
+                                className="block px-3 py-3 text-base text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}
                             </Link>
                         ))}
                         <div className="px-3 pt-4">
-                            <Link
+                            <Button
                                 to="/contact"
                                 onClick={() => setIsOpen(false)}
-                                className="w-full bg-blue-700 hover:bg-blue-800 text-white px-4 py-3 rounded-sm font-semibold inline-flex items-center justify-center transition-all"
+                                variant="primary"
+                                size="md"
+                                fullWidth
                             >
                                 Liên Hệ Ngay
-                                <Icon name="arrow_forward" className="ml-2 text-[16px]" />
-                            </Link>
+                            </Button>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../components/common/Icon';
+import Button from '../components/common/Button';
 
 
 
@@ -125,12 +126,12 @@ const Home: React.FC = () => {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                            <Link to="/contact" className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-3.5 px-8 rounded-full transition-colors duration-300 shadow-lg shadow-blue-500/30">
+                            <Button to="/contact" variant="primary" size="lg" className="shadow-lg shadow-blue-500/30">
                                 Bắt đầu ngay
-                            </Link>
-                            <Link to="/about" className="bg-white hover:bg-slate-50 text-slate-700 font-medium py-3.5 px-8 rounded-full border border-slate-200 transition-colors duration-300 shadow-sm">
+                            </Button>
+                            <Button to="/about" variant="outline" size="lg" className="bg-white">
                                 Dùng thử miễn phí
-                            </Link>
+                            </Button>
                         </div>
 
                         {/* Trusted by */}
