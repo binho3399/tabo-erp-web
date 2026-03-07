@@ -41,7 +41,7 @@ const Home: React.FC = () => {
                         <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-8 inline-flex items-center shadow-sm">
                             Hệ điều hành doanh nghiệp
                         </span>
-                        <h1 className="text-4xl sm:text-5xl md:text-[56px] leading-[1.15] font-medium tracking-tight mb-6 text-slate-900 font-sans max-w-[90%] md:max-w-full">
+                        <h1 className="text-4xl sm:text-5xl md:text-[56px] leading-[1.15] font-normal tracking-tight mb-6 text-slate-900 font-sans max-w-[90%] md:max-w-full">
                             Cập nhật hệ thống thông qua <br className="hidden md:block" /><span className="text-blue-500">giải pháp</span> quản trị lõi.
                         </h1>
 
@@ -176,9 +176,9 @@ const Home: React.FC = () => {
                     {/* Header Row */}
                     <div className="flex flex-col lg:flex-row items-center lg:items-end mb-16 gap-y-10 lg:gap-5">
                         <div className="max-w-md lg:w-[30%]">
-                            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
+                            <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
                                 Đa dạng phân hệ,<br />
-                                <span className="text-[#BCA38F] font-light">tùy biến linh hoạt.</span>
+                                <span className="text-blue-500 font-normal">tùy biến linh hoạt.</span>
                             </h2>
                             <p className="text-slate-500 text-[15px] leading-relaxed max-w-sm">
                                 Chọn từ hàng chục phân hệ quản trị được thiết kế riêng. Mở rộng trơn tru khi doanh nghiệp của bạn lớn mạnh.
@@ -315,27 +315,63 @@ const Home: React.FC = () => {
                         {/* Col 3: Feature Card */}
                         <div className="w-full lg:w-[34%] bg-white rounded-[32px] p-8 lg:p-10 border border-slate-100 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] flex flex-col justify-between">
                             <div>
-                                <p className="text-slate-500 text-[13px] mb-3 font-medium">Kết nối toàn cầu</p>
-                                <h3 className="text-2xl lg:text-[32px] font-medium text-slate-900 leading-[1.2] tracking-tight">
+                                <p className="text-slate-400 text-[13.5px] mb-4 font-normal">Kết nối toàn cầu</p>
+                                <h3 className="text-[30px] lg:text-[32px] font-normal text-slate-900 leading-[1.25] tracking-tight">
                                     Thích ứng bản địa<br />cho hơn 30 ngôn ngữ.
                                 </h3>
                             </div>
 
-                            <div className="bg-[#FAF9F6] rounded-[24px] p-6 mt-8">
-                                <p className="text-slate-500 text-sm mb-4">Lựa chọn ngôn ngữ</p>
-                                <div className="flex flex-wrap gap-3">
-                                    <div className="bg-white flex items-center gap-2.5 px-4 py-2.5 rounded-full shadow-sm border border-slate-100/50">
-                                        <img src="https://flagcdn.com/w40/vn.png" alt="VN" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                        <span className="text-slate-700 text-[13px] font-semibold">Vietnamese</span>
+                            <div className="bg-[#FAF9F6] rounded-[24px] p-6 mt-8 overflow-hidden relative">
+                                <p className="text-slate-500 text-sm mb-5">Lựa chọn ngôn ngữ</p>
+                                <div className="relative overflow-hidden w-full">
+                                    <div className="flex animate-marquee whitespace-nowrap gap-3">
+                                        {/* Original items */}
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/vn.png" alt="VN" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">Vietnamese</span>
+                                        </div>
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/us.png" alt="EN" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">English</span>
+                                        </div>
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/kr.png" alt="KR" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">Korean</span>
+                                        </div>
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/jp.png" alt="JP" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">Japanese</span>
+                                        </div>
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/de.png" alt="DE" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">German</span>
+                                        </div>
+
+                                        {/* Duplicate items for seamless scroll */}
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/vn.png" alt="VN" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">Vietnamese</span>
+                                        </div>
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/us.png" alt="EN" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">English</span>
+                                        </div>
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/kr.png" alt="KR" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">Korean</span>
+                                        </div>
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/jp.png" alt="JP" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">Japanese</span>
+                                        </div>
+                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                            <img src="https://flagcdn.com/w40/de.png" alt="DE" className="w-5 h-5 rounded-full object-cover shrink-0" />
+                                            <span className="text-slate-700 text-[13px] font-medium">German</span>
+                                        </div>
                                     </div>
-                                    <div className="bg-white flex items-center gap-2.5 px-4 py-2.5 rounded-full shadow-sm border border-slate-100/50">
-                                        <img src="https://flagcdn.com/w40/us.png" alt="EN" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                        <span className="text-slate-700 text-[13px] font-semibold">English</span>
-                                    </div>
-                                    <div className="bg-white flex items-center gap-2.5 px-4 py-2.5 rounded-full shadow-sm border border-slate-100/50">
-                                        <img src="https://flagcdn.com/w40/cn.png" alt="CN" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                        <span className="text-slate-700 text-[13px] font-semibold">Chinese</span>
-                                    </div>
+                                    {/* Gradient Shadows */}
+                                    <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10"></div>
+                                    <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10"></div>
                                 </div>
                             </div>
                         </div>

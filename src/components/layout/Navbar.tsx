@@ -54,7 +54,9 @@ const Navbar: React.FC = () => {
                                 className="text-base text-slate-500 hover:text-slate-900 font-medium transition-colors flex items-center"
                             >
                                 {link.name}
-                                <Icon name="add" className="ml-1 text-[18px] text-blue-700 opacity-90" />
+                                {link.name === 'Tính Năng' && (
+                                    <Icon name="add" className="ml-1 text-[18px] text-blue-700 opacity-90" />
+                                )}
                             </Link>
                         ))}
                     </div>
