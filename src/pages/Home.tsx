@@ -174,8 +174,8 @@ const Home: React.FC = () => {
             <section className="py-24 bg-white">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header Row */}
-                    <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end mb-16 gap-10">
-                        <div className="max-w-md lg:w-[40%]">
+                    <div className="flex flex-col lg:flex-row items-center lg:items-end mb-16 gap-y-10 lg:gap-5">
+                        <div className="max-w-md lg:w-[30%]">
                             <h2 className="text-4xl md:text-5xl font-medium text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
                                 Đa dạng phân hệ,<br />
                                 <span className="text-[#BCA38F] font-light">tùy biến linh hoạt.</span>
@@ -185,65 +185,106 @@ const Home: React.FC = () => {
                             </p>
                         </div>
 
-                        <div className="lg:w-[60%] flex flex-wrap justify-center lg:justify-end gap-3 lg:gap-4 lg:pl-10 pb-4">
-                            {/* Badges */}
-                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:-translate-y-6 shrink-0">
-                                <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100/50">
-                                    <Icon name="account_balance" className="text-blue-500 text-xl" />
+                        <div className="w-full lg:w-[70%] flex flex-col items-center gap-3 lg:gap-4 pb-4">
+                            {/* Row 1: 3 items */}
+                            <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center border border-blue-100/50">
+                                        <Icon name="account_balance" className="text-blue-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Tài chính</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Kế toán tổng hợp</p>
+                                    </div>
                                 </div>
-                                <div className="">
-                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Tài chính</h4>
-                                    <p className="text-slate-400 text-[10px] mt-0.5">Kế toán tổng hợp</p>
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center border border-orange-100/50">
+                                        <Icon name="inventory_2" className="text-orange-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Kho bãi</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Kiểm soát vật tư</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:translate-y-4 shrink-0">
-                                <div className="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center border border-orange-100/50">
-                                    <Icon name="inventory_2" className="text-orange-500 text-xl" />
-                                </div>
-                                <div className="">
-                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Kho bãi</h4>
-                                    <p className="text-slate-400 text-[10px] mt-0.5">Kiểm soát vật tư</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:-translate-y-2 shrink-0">
-                                <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-100/50">
-                                    <Icon name="groups" className="text-emerald-500 text-xl" />
-                                </div>
-                                <div className="">
-                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Nhân sự</h4>
-                                    <p className="text-slate-400 text-[10px] mt-0.5">Chấm công & lương</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:translate-y-8 shrink-0">
-                                <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center border border-purple-100/50">
-                                    <Icon name="local_shipping" className="text-purple-500 text-xl" />
-                                </div>
-                                <div className="">
-                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Mua hàng</h4>
-                                    <p className="text-slate-400 text-[10px] mt-0.5">Quản lý nhà cung cấp</p>
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-100/50">
+                                        <Icon name="groups" className="text-emerald-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Nhân sự</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Chấm công & lương</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:-translate-y-4 shrink-0">
-                                <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center border border-pink-100/50">
-                                    <Icon name="point_of_sale" className="text-pink-500 text-xl" />
+                            {/* Row 2: 4 items */}
+                            <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center border border-purple-100/50">
+                                        <Icon name="local_shipping" className="text-purple-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Mua hàng</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Quản lý nhà cung cấp</p>
+                                    </div>
                                 </div>
-                                <div className="">
-                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Bán hàng</h4>
-                                    <p className="text-slate-400 text-[10px] mt-0.5">Đơn hàng & Doanh thu</p>
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center border border-pink-100/50">
+                                        <Icon name="point_of_sale" className="text-pink-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Bán hàng</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Đơn hàng & Doanh thu</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center border border-cyan-100/50">
+                                        <Icon name="pie_chart" className="text-cyan-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Báo cáo</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Phân tích đa chiều</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center border border-red-100/50">
+                                        <Icon name="precision_manufacturing" className="text-red-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Sản xuất</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Kế hoạch & Vận hành</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default transform lg:translate-y-2 shrink-0">
-                                <div className="w-10 h-10 rounded-full bg-cyan-50 flex items-center justify-center border border-cyan-100/50">
-                                    <Icon name="pie_chart" className="text-cyan-500 text-xl" />
+                            {/* Row 3: 3 items */}
+                            <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center border border-teal-100/50">
+                                        <Icon name="support_agent" className="text-teal-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">CRM</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Chăm sóc khách hàng</p>
+                                    </div>
                                 </div>
-                                <div className="">
-                                    <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Báo cáo</h4>
-                                    <p className="text-slate-400 text-[10px] mt-0.5">Phân tích đa chiều</p>
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center border border-indigo-100/50">
+                                        <Icon name="task" className="text-indigo-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Dự án</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Quản lý tiến độ</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
+                                    <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center border border-amber-100/50">
+                                        <Icon name="category" className="text-amber-500 text-xl" />
+                                    </div>
+                                    <div className="">
+                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Tài sản</h4>
+                                        <p className="text-slate-400 text-[10px] mt-0.5">Khấu hao & Bảo trì</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

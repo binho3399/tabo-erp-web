@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
     ...props
 }) => {
     // 1. Style cốt lõi áp dụng cho mọi nút
-    const baseStyles = 'inline-flex items-center justify-center font-bold rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
+    const baseStyles = 'inline-flex items-center justify-center font-medium text-base rounded-full transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
 
     // 2. Định nghĩa các kiểu màu sắc (Variant)
     const variants = {
@@ -34,9 +34,9 @@ const Button: React.FC<ButtonProps> = ({
 
     // 3. Định nghĩa 3 kích cỡ chuẩn (Size)
     const sizes = {
-        sm: 'px-3 py-1.5 text-base',             // Cỡ nhỏ: Viền ngắn, chữ nhỏ
-        md: 'px-4 py-2 text-base',             // Cỡ vừa: Chuẩn mực cho menu, form
-        lg: 'px-6 py-3 text-base md:text-xl',   // Cỡ lớn: Dùng cho Hero Banner, CTA to
+        sm: 'px-4 py-2',             // Cỡ nhỏ: Viền ngắn
+        md: 'px-6 py-2.5',             // Cỡ vừa: Chuẩn mực cho menu, form
+        lg: 'px-8 py-3.5',   // Cỡ lớn: Dùng cho Hero Banner, CTA to
     };
 
     const widthClass = fullWidth ? 'w-full' : '';

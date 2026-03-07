@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../common/Icon';
 import Button from '../common/Button';
@@ -6,6 +6,22 @@ import logo from '../../assets/logo.png';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -19,8 +35,8 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50">
-            <div className="bg-white/80 backdrop-blur-md border border-slate-200/60 shadow-sm rounded-full pl-6 pr-4">
+        <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-[1216px] z-50">
+            <div className={`transition-all duration-300 rounded-full pl-6 pr-4 border ${isScrolled ? 'bg-white/80 backdrop-blur-md border-slate-200/60 shadow-sm' : 'bg-transparent border-transparent'}`}>
                 <div className="flex justify-between items-center h-[72px]">
                     {/* Logo */}
                     <div className="flex items-center">
