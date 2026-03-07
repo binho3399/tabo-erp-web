@@ -11,8 +11,7 @@ const Home: React.FC = () => {
     return (
         <div className="font-sans text-gray-900 bg-[#F7F8F8]">
             {/* 1. Hero Section */}
-            {/* 1. Hero Section */}
-            <section className="relative bg-slate-50 pt-40 pb-32 lg:pt-48 lg:pb-40 overflow-hidden min-h-screen flex items-center justify-center">
+            <section className="relative bg-slate-50 pt-40 pb-32 lg:pt-32 lg:pb-24 overflow-hidden min-h-screen lg:min-h-[80vh] flex items-center justify-center">
                 {/* Ambient Blurry Blobs */}
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
                 <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
@@ -29,8 +28,61 @@ const Home: React.FC = () => {
                 </div>
                 <div className="absolute top-[10%] left-[80%] w-2 h-2 bg-orange-400 rounded-full opacity-40 pointer-events-none animate-pulse" style={{ animationDuration: '2s' }}></div>
 
-                {/* Subtle Grid Pattern Overlay */}
-                <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+                {/* Subtle Grid Pattern Overlay with Animated SVG Beams */}
+                <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                    <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+
+                    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="beamGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stopColor="transparent" />
+                                <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.35" />
+                                <stop offset="100%" stopColor="transparent" />
+                            </linearGradient>
+                        </defs>
+
+                        {/* Randomized snaking paths flowing top-to-bottom */}
+                        <path
+                            d="M 15 0 V 25 H 30 V 45 H 10 V 70 H 25 V 100"
+                            fill="none"
+                            stroke="url(#beamGradient)"
+                            strokeWidth="0.04"
+                            pathLength="1"
+                            strokeDasharray="0.12 0.88"
+                            className="animate-grid-dash"
+                        />
+                        <path
+                            d="M 85 0 V 35 H 70 V 65 H 90 V 85 H 75 V 100"
+                            fill="none"
+                            stroke="url(#beamGradient)"
+                            strokeWidth="0.04"
+                            pathLength="1"
+                            strokeDasharray="0.15 0.85"
+                            className="animate-grid-dash"
+                            style={{ animationDelay: '3s', animationDuration: '20s' }}
+                        />
+                        <path
+                            d="M 45 0 V 15 H 55 V 35 H 40 V 60 H 60 V 80 H 50 V 100"
+                            fill="none"
+                            stroke="url(#beamGradient)"
+                            strokeWidth="0.025"
+                            pathLength="1"
+                            strokeDasharray="0.1 0.9"
+                            className="animate-grid-dash"
+                            style={{ animationDelay: '6s', animationDuration: '25s' }}
+                        />
+                        <path
+                            d="M 65 0 V 45 H 55 V 100"
+                            fill="none"
+                            stroke="url(#beamGradient)"
+                            strokeWidth="0.025"
+                            pathLength="1"
+                            strokeDasharray="0.08 0.92"
+                            className="animate-grid-dash"
+                            style={{ animationDelay: '9s', animationDuration: '30s' }}
+                        />
+                    </svg>
+                </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
 
@@ -77,7 +129,7 @@ const Home: React.FC = () => {
                                         ].map((item, index) => (
                                             <div key={`${i}-${index}`} className="flex items-center text-slate-400 hover:text-primary-600 transition-colors cursor-default">
                                                 <Icon name={item.icon} className="text-[24px] mr-2 opacity-70" />
-                                                <span className="font-medium text-base leading-6 uppercase tracking-wider">{item.text}</span>
+                                                <span className="font-normal text-base leading-6 uppercase tracking-wider">{item.text}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -87,7 +139,7 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Floating Element: Left Top Card (Sales total) */}
-                    <div className="hidden lg:block absolute left-[-2%] top-[5%] -rotate-[8deg] bg-white p-5 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-30">
+                    <div className="hidden lg:block absolute left-[-2%] top-[5%] -rotate-[8deg] bg-white p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-30">
                         <div className="flex justify-between items-center mb-1">
                             <h4 className="font-bold text-slate-800 text-sm">Doanh thu tổng</h4>
                             <span className="text-[10px] text-slate-400">20%</span>
@@ -108,7 +160,7 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Floating Element: Left Bottom Card (Satisfied users) */}
-                    <div className="hidden lg:flex absolute left-[5%] bottom-[5%] rotate-12 bg-[#1A1A1A] p-5 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-30">
+                    <div className="hidden lg:flex absolute left-[5%] bottom-[5%] rotate-12 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-30">
                         <div className="flex justify-center -space-x-2 mb-3">
                             <img src="https://i.pravatar.cc/100?img=4" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] object-cover" />
                             <img src="https://i.pravatar.cc/100?img=5" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] object-cover" />
@@ -119,7 +171,7 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Floating Element: Right Top Card (Corporate Fund) */}
-                    <div className="hidden lg:block absolute right-[-2%] top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[24px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-30">
+                    <div className="hidden lg:block absolute right-[-2%] top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-30">
                         <div className="flex items-center gap-3 mb-5">
                             <div className="w-11 h-11 rounded-full border border-blue-500/30 bg-blue-500/10 flex items-center justify-center shrink-0">
                                 <Icon name="account_balance_wallet" className="text-blue-400 text-[22px]" />
@@ -166,6 +218,9 @@ const Home: React.FC = () => {
                     </div>
 
                 </div>
+
+                {/* Bottom Gradient for smooth transition */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
             </section>
 
 
@@ -193,7 +248,7 @@ const Home: React.FC = () => {
                                         <Icon name="account_balance" className="text-blue-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Tài chính</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Tài chính</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Kế toán tổng hợp</p>
                                     </div>
                                 </div>
@@ -202,7 +257,7 @@ const Home: React.FC = () => {
                                         <Icon name="inventory_2" className="text-orange-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Kho bãi</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Kho bãi</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Kiểm soát vật tư</p>
                                     </div>
                                 </div>
@@ -211,7 +266,7 @@ const Home: React.FC = () => {
                                         <Icon name="groups" className="text-emerald-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Nhân sự</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Nhân sự</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Chấm công & lương</p>
                                     </div>
                                 </div>
@@ -224,7 +279,7 @@ const Home: React.FC = () => {
                                         <Icon name="local_shipping" className="text-purple-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Mua hàng</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Mua hàng</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Quản lý nhà cung cấp</p>
                                     </div>
                                 </div>
@@ -233,7 +288,7 @@ const Home: React.FC = () => {
                                         <Icon name="point_of_sale" className="text-pink-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Bán hàng</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Bán hàng</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Đơn hàng & Doanh thu</p>
                                     </div>
                                 </div>
@@ -242,7 +297,7 @@ const Home: React.FC = () => {
                                         <Icon name="pie_chart" className="text-cyan-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Báo cáo</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Báo cáo</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Phân tích đa chiều</p>
                                     </div>
                                 </div>
@@ -251,7 +306,7 @@ const Home: React.FC = () => {
                                         <Icon name="precision_manufacturing" className="text-red-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Sản xuất</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Sản xuất</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Kế hoạch & Vận hành</p>
                                     </div>
                                 </div>
@@ -264,7 +319,7 @@ const Home: React.FC = () => {
                                         <Icon name="support_agent" className="text-teal-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">CRM</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">CRM</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Chăm sóc khách hàng</p>
                                     </div>
                                 </div>
@@ -273,7 +328,7 @@ const Home: React.FC = () => {
                                         <Icon name="task" className="text-indigo-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Dự án</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Dự án</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Quản lý tiến độ</p>
                                     </div>
                                 </div>
@@ -282,7 +337,7 @@ const Home: React.FC = () => {
                                         <Icon name="category" className="text-amber-500 text-xl" />
                                     </div>
                                     <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-bold leading-tight">Tài sản</h4>
+                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">Tài sản</h4>
                                         <p className="text-slate-400 text-[10px] mt-0.5">Khấu hao & Bảo trì</p>
                                     </div>
                                 </div>
@@ -291,14 +346,14 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Grid Images Row */}
-                    <div className="flex flex-col lg:flex-row gap-6 lg:h-[450px]">
+                    <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
                         {/* Col 1 */}
                         <div className="flex flex-col gap-6 w-full lg:w-[22%]">
-                            <div className="relative flex-1 rounded-[32px] overflow-hidden group min-h-[200px] border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
+                            <div className="relative flex-1 rounded-[20px] overflow-hidden group border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
                                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070" alt="Office Workers" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                 <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
                             </div>
-                            <div className="relative flex-1 rounded-[32px] overflow-hidden group min-h-[200px] border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
+                            <div className="relative flex-1 rounded-[20px] overflow-hidden group border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
                                 <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070" alt="Meeting" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                 <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
                             </div>
@@ -306,79 +361,98 @@ const Home: React.FC = () => {
 
                         {/* Col 2 */}
                         <div className="w-full lg:w-[22%]">
-                            <div className="relative h-full rounded-[32px] overflow-hidden group min-h-[300px] border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
+                            <div className="relative h-full rounded-[20px] overflow-hidden group border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
                                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=988" alt="Professional" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                                 <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
                             </div>
                         </div>
 
                         {/* Col 3: Feature Card */}
-                        <div className="w-full lg:w-[34%] bg-white rounded-[32px] p-8 lg:p-10 border border-slate-100 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] flex flex-col justify-between">
+                        <div className="w-full lg:w-[34%] bg-white rounded-[20px] p-4 border border-slate-100 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] flex flex-col gap-6">
                             <div>
-                                <p className="text-slate-400 text-[13.5px] mb-4 font-normal">Kết nối toàn cầu</p>
+                                <p className="text-slate-400 text-[13px] mb-4 font-normal">Giải pháp ngành hàng</p>
                                 <h3 className="text-[30px] lg:text-[32px] font-normal text-slate-900 leading-[1.25] tracking-tight">
-                                    Thích ứng bản địa<br />cho hơn 30 ngôn ngữ.
+                                    Tối ưu hóa cho mọi<br />lĩnh vực kinh doanh.
                                 </h3>
                             </div>
 
-                            <div className="bg-[#FAF9F6] rounded-[24px] p-6 mt-8 overflow-hidden relative">
-                                <p className="text-slate-500 text-sm mb-5">Lựa chọn ngôn ngữ</p>
-                                <div className="relative overflow-hidden w-full">
+                            <div className="bg-[#FAF9F6] rounded-[12px] p-6 overflow-hidden relative">
+                                <p className="text-slate-500 text-sm mb-5">Đa dạng ngành nghề</p>
+                                <div className="relative overflow-hidden w-full flex flex-col gap-4">
+                                    {/* Row 1 */}
                                     <div className="flex animate-marquee whitespace-nowrap gap-3">
-                                        {/* Original items */}
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/vn.png" alt="VN" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">Vietnamese</span>
-                                        </div>
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/us.png" alt="EN" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">English</span>
-                                        </div>
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/kr.png" alt="KR" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">Korean</span>
-                                        </div>
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/jp.png" alt="JP" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">Japanese</span>
-                                        </div>
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/de.png" alt="DE" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">German</span>
-                                        </div>
-
-                                        {/* Duplicate items for seamless scroll */}
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/vn.png" alt="VN" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">Vietnamese</span>
-                                        </div>
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/us.png" alt="EN" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">English</span>
-                                        </div>
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/kr.png" alt="KR" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">Korean</span>
-                                        </div>
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/jp.png" alt="JP" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">Japanese</span>
-                                        </div>
-                                        <div className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                            <img src="https://flagcdn.com/w40/de.png" alt="DE" className="w-5 h-5 rounded-full object-cover shrink-0" />
-                                            <span className="text-slate-700 text-[13px] font-medium">German</span>
-                                        </div>
+                                        {[
+                                            { name: "Thời trang", icon: "checkroom" },
+                                            { name: "Điện thoại & Máy tính", icon: "devices" },
+                                            { name: "Vật liệu xây dựng", icon: "construction" },
+                                            { name: "Nhà thuốc", icon: "medical_services" },
+                                            { name: "Mẹ & Bé", icon: "child_care" },
+                                            { name: "Sách & Văn phòng phẩm", icon: "menu_book" },
+                                            { name: "Sản xuất", icon: "factory" },
+                                            { name: "Tạp hóa & Siêu thị", icon: "shopping_cart" },
+                                            { name: "Mỹ phẩm", icon: "brush" },
+                                            { name: "Nông sản & Thực phẩm", icon: "grass" }
+                                        ].concat([
+                                            { name: "Thời trang", icon: "checkroom" },
+                                            { name: "Điện thoại & Máy tính", icon: "devices" },
+                                            { name: "Vật liệu xây dựng", icon: "construction" },
+                                            { name: "Nhà thuốc", icon: "medical_services" },
+                                            { name: "Mẹ & Bé", icon: "child_care" },
+                                            { name: "Sách & Văn phòng phẩm", icon: "menu_book" },
+                                            { name: "Sản xuất", icon: "factory" },
+                                            { name: "Tạp hóa & Siêu thị", icon: "shopping_cart" },
+                                            { name: "Mỹ phẩm", icon: "brush" },
+                                            { name: "Nông sản & Thực phẩm", icon: "grass" }
+                                        ]).map((sector, idx) => (
+                                            <div key={idx} className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                                <Icon name={sector.icon} className="text-blue-500 text-lg" />
+                                                <span className="text-slate-700 text-[13px] font-medium">{sector.name}</span>
+                                            </div>
+                                        ))}
                                     </div>
+
+                                    {/* Row 2 */}
+                                    <div className="flex animate-marquee whitespace-nowrap gap-3" style={{ animationDirection: 'reverse' }}>
+                                        {[
+                                            { name: "Xe, Máy móc", icon: "directions_bike" },
+                                            { name: "Nội thất & Gia dụng", icon: "weekend" },
+                                            { name: "Hoa & Quà tặng", icon: "card_giftcard" },
+                                            { name: "Nhà hàng", icon: "restaurant" },
+                                            { name: "Quán ăn", icon: "ramen_dining" },
+                                            { name: "Cafe, Trà sữa", icon: "coffee" },
+                                            { name: "Karaoke, Bida", icon: "mic" },
+                                            { name: "Bar, Pub & Club", icon: "local_bar" },
+                                            { name: "Căng tin & Trạm nghỉ", icon: "bakery_dining" },
+                                            { name: "Khác", icon: "apps" }
+                                        ].concat([
+                                            { name: "Xe, Máy móc", icon: "directions_bike" },
+                                            { name: "Nội thất & Gia dụng", icon: "weekend" },
+                                            { name: "Hoa & Quà tặng", icon: "card_giftcard" },
+                                            { name: "Nhà hàng", icon: "restaurant" },
+                                            { name: "Quán ăn", icon: "ramen_dining" },
+                                            { name: "Cafe, Trà sữa", icon: "coffee" },
+                                            { name: "Karaoke, Bida", icon: "mic" },
+                                            { name: "Bar, Pub & Club", icon: "local_bar" },
+                                            { name: "Căng tin & Trạm nghỉ", icon: "bakery_dining" },
+                                            { name: "Khác", icon: "apps" }
+                                        ]).map((sector, idx) => (
+                                            <div key={idx} className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                                <Icon name={sector.icon} className="text-blue-500 text-lg" />
+                                                <span className="text-slate-700 text-[13px] font-medium">{sector.name}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+
                                     {/* Gradient Shadows */}
-                                    <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10"></div>
-                                    <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10"></div>
+                                    <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
+                                    <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Col 4 */}
                         <div className="w-full lg:w-[22%]">
-                            <div className="relative h-full rounded-[32px] overflow-hidden group min-h-[300px] border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
+                            <div className="relative h-full rounded-[20px] overflow-hidden group border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
                                 <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1974" alt="Leader" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
                                 <div className="absolute inset-0 bg-[#D3BCAC]/20 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
                             </div>

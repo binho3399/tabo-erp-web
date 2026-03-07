@@ -6,7 +6,12 @@
   --color-tabo-secondary: #0f172a;
   --color-tabo-accent: #f59e0b;
 
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
   --animate-marquee: marquee 25s linear infinite;
+  --animate-grid-flow-x: grid-flow-x 8s linear infinite;
+  --animate-grid-flow-y: grid-flow-y 8s linear infinite;
+  --animate-grid-dash: grid-dash 15s linear infinite;
 
   @keyframes marquee {
     0% {
@@ -17,8 +22,51 @@
       transform: translateX(-50%);
     }
   }
+
+  @keyframes grid-flow-x {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translateX(200%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes grid-flow-y {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translateY(200%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes grid-dash {
+    0% {
+      stroke-dashoffset: 2;
+    }
+
+    100% {
+      stroke-dashoffset: -2;
+    }
+  }
 }
 
 body {
   min-height: 100vh;
+  font-family: var(--font-sans);
 }
