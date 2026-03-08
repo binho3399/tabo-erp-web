@@ -11,7 +11,7 @@ const Home: React.FC = () => {
     return (
         <div className="font-sans text-gray-900 bg-[#F7F8F8]">
             {/* 1. Hero Section */}
-            <section className="relative bg-slate-50 pt-40 pb-32 lg:pt-32 lg:pb-24 overflow-hidden min-h-screen lg:min-h-[80vh] flex items-center justify-center">
+            <section className="relative bg-slate-50 pt-32 pb-20 lg:pt-32 lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center">
                 {/* Ambient Blurry Blobs */}
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
                 <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
@@ -93,12 +93,12 @@ const Home: React.FC = () => {
                         <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-8 inline-flex items-center shadow-sm">
                             Hệ điều hành doanh nghiệp
                         </span>
-                        <h1 className="text-4xl sm:text-5xl md:text-[56px] leading-[1.15] font-normal tracking-tight mb-6 text-slate-900 font-sans max-w-[90%] md:max-w-full">
-                            Cập nhật hệ thống thông qua <br className="hidden md:block" /><span className="text-blue-500">giải pháp</span> quản trị lõi.
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-8 text-slate-900 font-sans max-w-[95%] md:max-w-full">
+                            Quản lý <span className="text-blue-500">bán hàng</span> và <br className="hidden md:block" /><span className="text-blue-500">vận hành</span> doanh nghiệp trên <br className="hidden md:block" />một <span className="text-blue-500">nền tảng duy nhất.</span>
                         </h1>
 
                         <p className="text-base text-slate-500 mb-10 max-w-2xl font-light">
-                            Luôn cập nhật dữ liệu tài chính, kho bãi và tiến độ công việc theo thời gian thực để đưa ra các quyết định chiến lược chuẩn xác nhất.
+                            Luôn cập nhật dữ liệu tài chính, kho bãi và tiến độ công việc theo thời gian thực <br className="hidden md:block" />để đưa ra các quyết định chiến lược chuẩn xác nhất.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -231,8 +231,8 @@ const Home: React.FC = () => {
             <section className="py-24 bg-white">
                 <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Header Row */}
-                    <div className="flex flex-col lg:flex-row items-center lg:items-end mb-16 gap-y-10 lg:gap-5">
-                        <div className="max-w-md lg:w-[30%]">
+                    <div className="flex flex-col lg:flex-row items-center lg:items-end mb-16 gap-y-10 lg:gap-5 text-center lg:text-left">
+                        <div className="max-w-md lg:w-[30%] flex flex-col items-center lg:items-start">
                             <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
                                 Đa dạng phân hệ,<br />
                                 <span className="text-blue-500 font-normal">tùy biến linh hoạt.</span>
@@ -352,9 +352,9 @@ const Home: React.FC = () => {
                         {/* Col 1: Horizontal Cards */}
                         <div className="flex flex-col gap-6 w-full lg:w-[48%]">
                             {/* Kế toán Card */}
-                            <div className="bg-white rounded-[20px] p-4 flex flex-row items-center h-[175px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-6">
+                            <div className="bg-white rounded-[20px] p-6 lg:p-4 flex flex-col lg:flex-row items-center h-auto lg:h-[175px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-6">
                                 <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
-                                <div className="relative z-10 flex flex-col w-[45%]">
+                                <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
                                     <h4 className="text-[30px] font-normal text-slate-900 tracking-tight mb-3">Kế toán tổng hợp</h4>
                                     <p className="text-base text-slate-500 font-light leading-snug">
                                         Hệ thống tự động hóa toàn diện nghiệp vụ tài chính và sổ sách doanh nghiệp.
@@ -381,16 +381,16 @@ const Home: React.FC = () => {
                                             <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
                                                 <Icon name="check" className="text-[8px]" />
                                             </div>
-                                            <span className="text-[9px] font-black uppercase tracking-widest">Cân đối sạch</span>
+                                            <span className="text-[9px] font-black uppercase tracking-widest">Số liệu chuẩn</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Công nợ Card */}
-                            <div className="bg-white rounded-[20px] p-4 flex flex-row-reverse items-center h-[175px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-6">
+                            <div className="bg-white rounded-[20px] p-6 lg:p-4 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[175px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-6">
                                 <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.2px, transparent 1.2px)', backgroundSize: '16px 16px' }}></div>
-                                <div className="relative z-10 flex flex-col w-[45%] text-right">
+                                <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-right">
                                     <h4 className="text-[30px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
                                     <p className="text-base text-slate-500 font-light leading-snug">
                                         Theo dõi và thu hồi nợ tự động giúp tối ưu dòng tiền lưu động.
@@ -445,12 +445,12 @@ const Home: React.FC = () => {
 
 
                         {/* Col 2: Feature Card */}
-                        <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-4 flex flex-col h-[375px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
+                        <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 lg:p-4 flex flex-col h-auto lg:h-[375px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
                             <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
                             <div className="relative z-10 flex flex-col h-full">
-                                <div className="mb-4">
+                                <div className="mb-4 text-center lg:text-left">
                                     <h3 className="text-2xl lg:text-3xl font-normal text-slate-900 leading-[1.25] tracking-tight mb-4">
-                                        Tối ưu hóa cho mọi<br />lĩnh vực kinh doanh.
+                                        Tối ưu hóa cho mọi<br className="hidden lg:block" />lĩnh vực kinh doanh.
                                     </h3>
                                     <p className="text-base text-slate-500 font-light leading-relaxed">
                                         Nền tảng linh hoạt đáp ứng đặc thù từng ngành nghề, giúp vận hành chuyên sâu và hiệu quả hơn.
@@ -536,7 +536,7 @@ const Home: React.FC = () => {
                         {/* Col 3: Vertical Card */}
                         <div className="w-full lg:w-[26%] flex flex-col h-full">
                             {/* Thuế Card */}
-                            <div className="bg-white rounded-[20px] p-4 flex flex-col h-[375px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
+                            <div className="bg-white rounded-[20px] p-6 lg:p-4 flex flex-col h-auto lg:h-[375px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
                                 <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
                                 <div className="relative z-10 flex flex-col h-full">
                                     <div className="mb-6 relative h-[158px] flex flex-col justify-center">
@@ -566,7 +566,7 @@ const Home: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div>
+                                    <div className="text-center lg:text-left">
                                         <h4 className="text-2xl lg:text-3xl font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
                                         <p className="text-base text-slate-500 font-light leading-relaxed">
                                             Tự động hóa báo cáo thuế và quản lý hóa đơn.
