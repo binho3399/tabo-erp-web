@@ -91,7 +91,7 @@ const Home: React.FC = () => {
                         {/* Sparkles Decoration */}
                         <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
                         <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-8 inline-flex items-center shadow-sm">
-                            Hệ điều hành doanh nghiệp
+                            HỆ ĐIỀU HÀNH DOANH NGHIỆP
                         </span>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-8 text-slate-900 font-sans max-w-[95%] md:max-w-full">
                             Quản lý <span className="text-blue-500">bán hàng</span> và <br className="hidden md:block" /><span className="text-blue-500">vận hành</span> doanh nghiệp trên <br className="hidden md:block" />một <span className="text-blue-500">nền tảng duy nhất.</span>
@@ -582,78 +582,73 @@ const Home: React.FC = () => {
             </section>
 
             {/* 4. Strip Banner */}
-            <section className="bg-primary-600 text-white py-20 relative overflow-hidden">
-                <div className="absolute right-0 top-0 h-full w-1/3 bg-blue-500 opacity-5 -skew-x-12 transform origin-top-right"></div>
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-                    <div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4 font-serif leading-tight">Thời Gian Cả Bạn Đang Trôi.</h2>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif leading-tight">Chúng Tôi Khiến Nó Trở Nên Đáng Giá.</h2>
-                        <p className="text-xl text-slate-300">
-                            Hơn 40% thời gian của lãnh đạo bị hao hụt vào các thủ tục phân tán. Cùng tối ưu nó ngay bây giờ.
+            <section className="bg-slate-900 text-white py-24 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#3b82f6 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center relative z-10 gap-10">
+                    <div className="max-w-2xl text-center lg:text-left">
+                        <h2 className="text-4xl md:text-5xl font-normal tracking-tight mb-6 leading-tight">
+                            Thời gian là tài sản quý nhất.<br />
+                            Chúng tôi giúp bạn <span className="text-blue-400">tối ưu hóa nó.</span>
+                        </h2>
+                        <p className="text-lg text-slate-400 font-light">
+                            Hơn 40% thời gian của lãnh đạo bị hao hụt vào các thủ tục phân tán. Cùng Tabo ERP chuyển đổi số ngay hôm nay.
                         </p>
                     </div>
-                    <div className="lg:text-right">
-                        <Link to="/about" className="inline-flex items-center bg-white hover:bg-blue-700 text-primary-600 hover:text-white font-bold text-lg py-5 px-10 rounded-sm transition-colors duration-300">
-                            Về Chúng Tôi <Icon name="arrow_forward" className="ml-3 text-[20px]" />
-                        </Link>
+                    <div className="shrink-0">
+                        <Button to="/contact" variant="primary" size="lg" className="!bg-blue-600 hover:!bg-blue-500">
+                            Bắt đầu chuyển đổi <Icon name="arrow_forward" className="ml-3" />
+                        </Button>
                     </div>
                 </div>
             </section>
 
             {/* 5. Content Section - Driving success through strategy */}
-            <section className="py-24 bg-white border-y border-slate-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <section className="py-24 bg-white border-y border-slate-100 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.2]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '20px 20px' }}></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                         <div>
                             <div className="relative">
+                                <div className="absolute -inset-4 bg-blue-500/5 rounded-[30px] blur-2xl"></div>
                                 <img
                                     src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
                                     alt="Corporate Strategy Meeting"
-                                    className="rounded-lg shadow-xl object-cover h-[500px] w-full"
+                                    className="rounded-[24px] shadow-2xl object-cover h-[540px] w-full relative z-10"
                                 />
-                                <div className="absolute -bottom-10 -right-10 bg-blue-500 p-10 rounded-lg shadow-2xl hidden md:block max-w-sm">
-                                    <h4 className="text-2xl font-bold text-primary-600 font-serif mb-2">Thành Công Vững Chắc</h4>
-                                    <p className="text-primary-600/80 font-medium">Được xây dựng trên tầm nhìn, chiến lược và con người!</p>
+                                <div className="absolute -bottom-8 -right-8 bg-slate-900 p-8 rounded-[20px] shadow-2xl hidden xl:block max-w-[320px] z-20 border border-white/10">
+                                    <h4 className="text-xl font-normal text-white mb-2 tracking-tight">Thành công số hóa</h4>
+                                    <p className="text-slate-400 text-sm font-light">Được xây dựng trên nền tảng dữ liệu đồng nhất và quy trình chuẩn hóa.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="lg:pl-8">
-                            <h2 className="text-4xl md:text-5xl font-bold text-primary-600 mb-8 font-serif leading-tight">
-                                Thúc đẩy thành công qua chiến lược.
+                            <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-8 tracking-tight leading-[1.15]">
+                                Thúc đẩy thành công qua <span className="text-blue-500">quản trị thông minh.</span>
                             </h2>
-                            <p className="text-lg text-slate-600 mb-10 leading-relaxed font-medium">
-                                Chúng tôi chuyên giúp các doanh nghiệp phát triển mạnh bằng cách cung cấp hướng dẫn chuyên môn trong lập kế hoạch và chiến lược tăng trưởng.
+                            <p className="text-lg text-slate-500 mb-12 leading-relaxed font-light">
+                                Chúng tôi không chỉ cung cấp phần mềm, mà mang đến một tư duy quản trị mới - nơi mọi quyết định đều dựa trên dữ liệu thực tế và tức thì.
                             </p>
 
-                            <div className="space-y-6">
-                                <div className="border-b border-slate-200 pb-4">
-                                    <h4 className="text-xl font-bold text-primary-600 mb-2 flex justify-between items-center cursor-pointer">
-                                        Chiến Lược Gia Kinh Nghiệm
-                                        <Icon name="expand_more" className="text-[20px] text-slate-400" />
-                                    </h4>
-                                    <p className="text-slate-600 pt-2 hidden">
-                                        Đội ngũ chúng tôi kết hợp hàng thập kỷ kinh nghiệm thực tế qua nhiều ngành nghề thị trường.
-                                    </p>
-                                </div>
-                                <div className="border-b border-slate-200 pb-4">
-                                    <h4 className="text-xl font-bold text-primary-600 mb-2 flex justify-between items-center cursor-pointer">
-                                        Giải Pháp Linh Hoạt
-                                        <Icon name="expand_more" className="text-[20px] text-slate-400" />
-                                    </h4>
-                                </div>
-                                <div className="border-b border-slate-200 pb-4">
-                                    <h4 className="text-xl font-bold text-primary-600 mb-2 flex justify-between items-center cursor-pointer">
-                                        Tiếp Cận Từ Dữ Liệu
-                                        <Icon name="expand_more" className="text-[20px] text-slate-400" />
-                                    </h4>
-                                </div>
-                                <div className="border-b border-slate-200 pb-4">
-                                    <h4 className="text-xl font-bold text-primary-600 mb-2 flex justify-between items-center cursor-pointer">
-                                        Cam Kết Thành Công
-                                        <Icon name="expand_more" className="text-[20px] text-slate-400" />
-                                    </h4>
-                                </div>
+                            <div className="space-y-4">
+                                {[
+                                    { title: "Kiến trúc dữ liệu lõi", desc: "Xây dựng nền tảng thông tin đồng bộ cho tất cả các phòng ban." },
+                                    { title: "Tự động hóa thông minh", desc: "Giải phóng nhân lực khỏi các công việc lặp lại nhàm chán." },
+                                    { title: "Báo cáo đa chiều RT", desc: "Theo dõi chỉ số kinh doanh mọi lúc, mọi nơi trên mọi thiết bị." },
+                                    { title: "Khả năng mở rộng vô hạn", desc: "Dễ dàng tích hợp thêm các phân hệ mới khi doanh nghiệp lớn mạnh." }
+                                ].map((item, i) => (
+                                    <div key={i} className="group bg-slate-50 hover:bg-white hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 rounded-[16px] p-5 border border-slate-100">
+                                        <div className="flex justify-between items-center cursor-pointer">
+                                            <h4 className="text-lg font-normal text-slate-800 tracking-tight group-hover:text-blue-600 transition-colors">
+                                                {item.title}
+                                            </h4>
+                                            <Icon name="arrow_forward" className="text-slate-300 group-hover:text-blue-500 transition-all transform group-hover:translate-x-1" />
+                                        </div>
+                                        <p className="text-slate-500 text-sm mt-2 font-light hidden group-hover:block animate-in fade-in slide-in-from-top-2 duration-300">
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -661,35 +656,31 @@ const Home: React.FC = () => {
             </section>
 
             {/* 6. Value Proposition Vision */}
-            <section className="py-24 bg-[#F7F8F8]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-sm font-bold tracking-widest text-primary-600 uppercase mb-6 opacity-60">Tầm Nhìn Chúng Tôi</h2>
-                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-20 max-w-4xl mx-auto leading-tight font-serif text-primary-600">
-                        Gia tăng giá trị bằng cách hiểu doanh nghiệp bạn và áp dụng phương pháp triển khai đỉnh cao.
+            <section className="py-24 bg-slate-50/50 relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    <span className="bg-blue-50 text-blue-600 border border-blue-100 font-semibold tracking-wide text-[10px] px-3 py-1 rounded-full mb-6 inline-flex uppercase">
+                        Tầm Nhìn & Sứ Mệnh
+                    </span>
+                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-normal mb-20 max-w-4xl mx-auto leading-tight tracking-tight text-slate-900">
+                        Gia tăng giá trị bằng cách hiểu doanh nghiệp bạn và <span className="text-blue-500">số hóa quy trình</span> tối ưu.
                     </h3>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
-                        <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
-                            <Icon name="track_changes" className="text-[40px] text-blue-500 mb-6" />
-                            <h3 className="text-2xl font-bold mb-4 text-primary-600 font-serif">Trọng Tâm</h3>
-                            <p className="text-slate-600 font-medium">
-                                Ưu tiên sự rõ ràng trong chiến lược, tăng trưởng bền vững và các tác động có thể đo lường được, đảm bảo duy trì vị thế dẫn đầu.
-                            </p>
-                        </div>
-                        <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
-                            <Icon name="lightbulb" className="text-[40px] text-blue-500 mb-6" />
-                            <h3 className="text-2xl font-bold mb-4 text-primary-600 font-serif">Cách Tiếp Cận</h3>
-                            <p className="text-slate-600 font-medium">
-                                Kết hợp dữ liệu cùng giải pháp tinh chỉnh, chúng tôi xây dựng lộ trình thiết thực để biến chiến lược thành kết quả cốt lõi.
-                            </p>
-                        </div>
-                        <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-100">
-                            <Icon name="apartment" className="text-[40px] text-blue-500 mb-6" />
-                            <h3 className="text-2xl font-bold mb-4 text-primary-600 font-serif">Kinh Nghiệm</h3>
-                            <p className="text-slate-600 font-medium">
-                                Nhiều năm thực chiến giúp các tổ chức tháo gỡ khó khăn, mở khóa tốc độ và hướng đến sự phát triển.
-                            </p>
-                        </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                        {[
+                            { icon: "track_changes", title: "Trọng Tâm", text: "Ưu tiên sự rõ ràng trong chiến lược, tăng trưởng bền vững và các tác động có thể đo lường được." },
+                            { icon: "lightbulb", title: "Cách Tiếp Cận", text: "Kết hợp dữ liệu cùng giải pháp tinh chỉnh, xây dựng lộ trình thiết thực biến chiến lược thành kết quả." },
+                            { icon: "apartment", title: "Kinh Nghiệm", text: "Tháo gỡ khó khăn, mở khóa tốc độ và hướng đến sự phát triển vượt bậc cho mọi tổ chức." }
+                        ].map((item, i) => (
+                            <div key={i} className="bg-white p-10 rounded-[24px] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-slate-100 group">
+                                <div className="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center mb-8 border border-slate-100 group-hover:bg-blue-500 group-hover:border-blue-400 transition-colors duration-500">
+                                    <Icon name={item.icon} className="text-[28px] text-blue-500 group-hover:text-white transition-colors duration-500" />
+                                </div>
+                                <h3 className="text-2xl font-normal mb-4 text-slate-900 tracking-tight">{item.title}</h3>
+                                <p className="text-slate-500 font-light leading-relaxed">
+                                    {item.text}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -697,225 +688,219 @@ const Home: React.FC = () => {
             {/* 7. Find the Right Solution (Tabs & Accordion) */}
             <section className="py-24 bg-white border-y border-slate-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl md:text-5xl font-bold text-primary-600 mb-16 text-center font-serif">Tìm Giải Pháp Phù Hợp</h2>
+                    <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-20 text-center tracking-tight">Giải quyết mọi <span className="text-blue-500">nỗi đau</span> doanh nghiệp.</h2>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-                        <div className="lg:col-span-1 space-y-4">
-                            <div className="bg-blue-500/20 p-6 border-l-4 border-primary-600 rounded-r-lg cursor-pointer">
-                                <h4 className="text-xl font-bold text-primary-600">1. Doanh Thu Chững Lại</h4>
-                            </div>
-                            <div className="p-6 border-l-4 border-transparent hover:bg-slate-50 cursor-pointer transition-colors">
-                                <h4 className="text-xl font-bold text-primary-600 opacity-60">2. Mở Rộng Quy Mô</h4>
-                            </div>
-                            <div className="p-6 border-l-4 border-transparent hover:bg-slate-50 cursor-pointer transition-colors">
-                                <h4 className="text-xl font-bold text-primary-600 opacity-60">3. Thông Tin Đối Thủ</h4>
-                            </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                        <div className="lg:col-span-4 space-y-3">
+                            {[
+                                { id: "01", title: "Dữ liệu phân tán" },
+                                { id: "02", title: "Khó khăn mở rộng" },
+                                { id: "03", title: "Thất thoát tài sản" }
+                            ].map((tab, i) => (
+                                <div key={i} className={`p-6 rounded-[20px] cursor-pointer transition-all duration-300 flex items-center justify-between group ${i === 0 ? 'bg-slate-900 text-white shadow-xl' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'}`}>
+                                    <div className="flex items-center gap-4">
+                                        <span className={`text-xs font-bold ${i === 0 ? 'text-blue-400' : 'text-slate-300'}`}>{tab.id}</span>
+                                        <h4 className="text-lg font-normal tracking-tight">{tab.title}</h4>
+                                    </div>
+                                    <Icon name="chevron_right" className={`${i === 0 ? 'text-blue-400' : 'text-slate-300 group-hover:translate-x-1 transition-transform'}`} />
+                                </div>
+                            ))}
                         </div>
 
-                        <div className="lg:col-span-2">
-                            <p className="text-xl text-slate-600 mb-10 font-medium">
-                                Nhanh chóng xác định và giải quyết các điểm nghẽn doanh thu bằng một cuộc kiểm toán toàn diện, từ đó chúng tôi cung cấp giải pháp chiến lược phục hồi.
+                        <div className="lg:col-span-8 bg-slate-50 p-10 lg:p-12 rounded-[32px] border border-slate-100">
+                            <p className="text-2xl text-slate-800 mb-12 font-light leading-snug">
+                                Nhanh chóng hợp nhất và làm sạch dữ liệu từ mọi nguồn, tạo ra một "phiên bản sự thật duy nhất" hỗ trợ ra quyết định chuẩn xác.
                             </p>
-                            <div className="space-y-4">
-                                {['Chiến Lược Tối Ưu Hóa Doanh Thu', 'Phân Tích Giá Cả & Lợi Nhuận', 'Chiến Lược Giữ Chân Khách Hàng', 'Đánh Giá Hiệu Quả Vận Hành'].map((item, i) => (
-                                    <div key={i} className="border border-slate-200 rounded-lg p-6 group cursor-pointer hover:border-primary-600 transition-colors">
-                                        <div className="flex justify-between items-center">
-                                            <h4 className="text-lg font-bold text-primary-600">{item}</h4>
-                                            <Icon name="chevron_right" className="text-[20px] text-slate-400 group-hover:text-blue-500" />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {[
+                                    'Hợp nhất danh mục hàng hóa',
+                                    'Đồng bộ tồn kho liên chi nhánh',
+                                    'Quản lý công nợ tập trung',
+                                    'Hệ thống báo cáo tự động'
+                                ].map((item, i) => (
+                                    <div key={i} className="bg-white rounded-xl p-5 border border-slate-200/50 flex items-center justify-between group cursor-pointer hover:border-blue-500 transition-colors">
+                                        <h4 className="text-[15px] font-normal text-slate-700 tracking-tight">{item}</h4>
+                                        <div className="w-6 h-6 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
+                                            <Icon name="add" className="text-xs" />
                                         </div>
                                     </div>
                                 ))}
                             </div>
-                            <div className="mt-8">
-                                <Link to="/contact" className="inline-flex items-center justify-center bg-primary-600 hover:bg-black text-white font-medium py-4 px-8 rounded-sm transition-colors duration-300">
-                                    Thảo Luận Cùng Chuyên Gia
-                                </Link>
+                            <div className="mt-12 flex justify-start">
+                                <Button to="/contact" variant="primary">
+                                    Tư vấn giải pháp miễn phí
+                                </Button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* 8. Statistics Section */}
-            <section className="py-24 bg-primary-600 text-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="md:flex md:justify-between items-end mb-16 border-b border-white/20 pb-8 gap-8">
-                        <div>
-                            <h2 className="text-sm font-bold tracking-widest text-blue-500 uppercase mb-4">Khách Hàng Của Chúng Tôi</h2>
-                            <h3 className="text-4xl md:text-5xl font-bold max-w-2xl leading-tight font-serif">Được Tin Tưởng Bởi Doanh Nghiệp, Kết Quả Đích Thực.</h3>
-                        </div>
-                        <div className="mt-8 md:mt-0">
-                            <p className="text-slate-300 max-w-sm mb-6">
-                                Từ những startup mới nổi cho đến nhà lãnh đạo toàn cầu, tạo ra sự vượt trội cho doanh nghiệp.
-                            </p>
-                            <Link to="/about" className="inline-flex items-center text-blue-500 font-bold hover:text-white transition-colors">
-                                Tìm Hiểu Thêm <Icon name="arrow_forward" className="ml-2 text-[20px]" />
-                            </Link>
-                        </div>
+            {/* 8. Pricing Section */}
+            <section className="py-24 bg-slate-50 relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="text-center mb-20">
+                        <span className="text-blue-500 text-xs font-bold tracking-widest uppercase mb-4 block">Bảng giá linh hoạt</span>
+                        <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight">Lựa chọn gói giải pháp <span className="text-blue-500">phù hợp.</span></h3>
+                        <p className="mt-4 text-slate-500 font-light text-lg">Đầu tư vào quy trình hiệu quả, gặt hái kết quả bền vững.</p>
                     </div>
 
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center lg:text-left">
-                        <div>
-                            <div className="text-5xl md:text-6xl font-bold text-blue-500 mb-4">10+</div>
-                            <div className="text-lg font-bold text-white mb-2 font-serif">Năm Kinh Nghiệm</div>
-                            <div className="text-sm text-slate-300 font-medium">Chuyên gia hàng đầu trong tư vấn chiến lược.</div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        {/* Free Plan */}
+                        <div className="bg-white p-10 rounded-[32px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
+                            <div className="mb-8">
+                                <h4 className="text-xl font-normal text-slate-900 mb-2 tracking-tight">Gói Miễn Phí</h4>
+                                <div className="flex items-baseline gap-1">
+                                    <span className="text-4xl font-normal text-slate-900 tracking-tighter">0₫</span>
+                                    <span className="text-slate-400 text-sm">/vĩnh viễn</span>
+                                </div>
+                                <p className="text-slate-500 text-sm mt-4 font-light leading-relaxed">Dành cho cá nhân hoặc hộ kinh doanh nhỏ muốn bước đầu số hóa quản trị.</p>
+                            </div>
+
+                            <ul className="space-y-4 mb-10 flex-grow">
+                                {[
+                                    "Quản lý kho hàng cơ bản",
+                                    "Số hóa danh mục sản phẩm",
+                                    "Báo cáo bán hàng theo ngày",
+                                    "Hỗ trợ qua cộng đồng"
+                                ].map((feature, i) => (
+                                    <li key={i} className="flex items-center gap-3 text-slate-600 font-light text-[15px]">
+                                        <Icon name="check_circle" className="text-blue-500 text-lg" />
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <Link to="/contact" className="w-full flex justify-center py-4 rounded-full border border-slate-200 text-slate-900 hover:bg-slate-50 transition-colors font-medium">
+                                Bắt đầu ngay
+                            </Link>
                         </div>
-                        <div>
-                            <div className="text-5xl md:text-6xl font-bold text-blue-500 mb-4">100+</div>
-                            <div className="text-lg font-bold text-white mb-2 font-serif">Khách Hàng Hài Lòng</div>
-                            <div className="text-sm text-slate-300 font-medium">Giúp mọi định hướng đều vươn tới thành công.</div>
-                        </div>
-                        <div>
-                            <div className="text-5xl md:text-6xl font-bold text-blue-500 mb-4">500+ Tỷ ₫</div>
-                            <div className="text-lg font-bold text-white mb-2 font-serif">Tăng Trưởng Doanh Thu</div>
-                            <div className="text-sm text-slate-300 font-medium">Tối ưu hóa lợi nhuận bền vững.</div>
-                        </div>
-                        <div>
-                            <div className="text-5xl md:text-6xl font-bold text-blue-500 mb-4">95%</div>
-                            <div className="text-lg font-bold text-white mb-2 font-serif">Tỷ Lệ Giữ Khách Hàng</div>
-                            <div className="text-sm text-slate-300 font-medium">Kết quả thực chứng, chất lượng đảm bảo.</div>
+
+                        {/* Paid Plan */}
+                        <div className="bg-slate-900 p-10 rounded-[32px] border border-blue-500 shadow-2xl shadow-blue-500/10 flex flex-col relative scale-[1.02] md:scale-105 z-10">
+                            <div className="absolute top-6 right-8">
+                                <span className="bg-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Phổ biến nhất</span>
+                            </div>
+                            <div className="mb-8">
+                                <h4 className="text-xl font-normal text-white mb-2 tracking-tight">Gói Doanh Nghiệp</h4>
+                                <div className="flex items-baseline gap-1">
+                                    <span className="text-4xl font-normal text-white tracking-tighter">Liên hệ</span>
+                                </div>
+                                <p className="text-slate-400 text-sm mt-4 font-light leading-relaxed">Giải pháp toàn diện tối ưu hóa mọi quy trình cho doanh nghiệp đang phát triển.</p>
+                            </div>
+
+                            <ul className="space-y-4 mb-10 flex-grow">
+                                {[
+                                    "Tất cả tính năng gói Miễn Phí",
+                                    "Quản lý đa chi nhánh, đa kho",
+                                    "Tự động hóa chuỗi cung ứng",
+                                    "Phân tích dữ liệu RT & AI",
+                                    "Hỗ trợ kỹ thuật 24/7"
+                                ].map((feature, i) => (
+                                    <li key={i} className="flex items-center gap-3 text-slate-300 font-light text-[15px]">
+                                        <Icon name="check_circle" className="text-blue-500 text-lg" />
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <Link to="/contact" className="w-full flex justify-center py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-lg shadow-blue-600/20 font-medium text-center">
+                                Nhận tư vấn Demo
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 9. Testimonials */}
-            <section className="py-24 bg-[#F7F8F8]">
+            <section className="py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
                         <div>
-                            <h2 className="text-sm font-bold tracking-widest text-primary-600 uppercase mb-4 opacity-60">Nhận Xét Khách Hàng</h2>
-                            <h3 className="text-4xl md:text-5xl font-bold text-primary-600 font-serif">Khách Hàng Nói Gì</h3>
+                            <span className="text-blue-500 text-xs font-bold tracking-widest uppercase mb-4 block">Đánh giá khách quan</span>
+                            <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight">Đối tác nói gì về <span className="text-blue-500">Tabo ERP</span></h3>
                         </div>
-                        <Link to="#" className="inline-flex items-center text-primary-600 font-bold hover:text-blue-500 transition-colors border-b border-primary-600 pb-1">
-                            Xem Toàn Bộ Đánh Giá
+                        <Link to="#" className="group flex items-center text-slate-400 font-medium hover:text-slate-900 transition-colors border-b border-slate-200 pb-2">
+                            Xem tất cả 500+ đánh giá <Icon name="arrow_outward" className="ml-2 text-xs opacity-0 group-hover:opacity-100 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                         </Link>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-                        {[
-                            { name: 'John Wolfar', role: 'CEO, Credi Goo', quote: 'Trước khi kết nối với Tabo ERP, hiện diện kỹ thuật số của chúng tôi không nhất quán. Đội ngũ đã mang tới những định hướng rõ ràng.', highlight: '3x Faster Market Expansion' },
-                            { name: 'Daniel Foster', role: 'COO, Horizon Retail Group', quote: 'Việc mở rộng kinh doanh có vẻ quá mức cho đến khi chúng tôi chọn hệ thống Tabo ERP. Mọi thứ trở nên mượt mà.', highlight: '45% Revenue Growth After Expansion' },
-                            { name: 'Maria Sanchez', role: 'CEO, TAX Com', quote: 'Chúng tôi từng rất khó khăn trong quản lý chuỗi vận hành. Đội ngũ kỹ sư hỗ trợ xuất sắc.', highlight: '30% Cost Reduction' }
-                        ].map((item, i) => (
-                            <div key={i} className="p-10 bg-white shadow-sm hover:shadow-xl transition-shadow rounded-xl border border-slate-100 flex flex-col h-full">
-                                <div className="text-blue-500 font-bold text-xl mb-6 font-serif border-b border-slate-100 pb-4">
-                                    {item.highlight}
-                                </div>
-                                <p className="text-slate-600 mb-8 italic leading-relaxed grow font-medium">
-                                    "{item.quote}"
-                                </p>
-                                <div className="flex items-center mt-auto">
-                                    <div className="h-12 w-12 bg-slate-200 rounded-full mr-4 flex items-center justify-center text-primary-600 font-bold">
-                                        {item.name.charAt(0)}
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-primary-600">{item.name}</div>
-                                        <div className="text-sm text-slate-500 font-medium">{item.role}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* 10. Contact Split */}
-            <section className="bg-white border-t border-slate-100">
-                <div className="grid grid-cols-1 lg:grid-cols-2">
-                    <div className="p-16 lg:p-24 lg:pr-32 flex flex-col justify-center">
-                        <h2 className="text-4xl lg:text-5xl font-bold text-primary-600 mb-6 font-serif leading-tight">Sự Thay Đổi Bắt Đầu Từ Một Cuộc Trò Chuyện</h2>
-                        <p className="text-slate-600 text-lg mb-12 font-medium">Bạn có thách thức hay một ý tưởng lớn? Điền vào biểu mẫu dưới đây và để chúng tôi đề xuất các giải pháp tùy chỉnh.</p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="flex flex-col border-l-2 border-blue-500 pl-6">
-                                <span className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-2">Gọi Chúng Tôi Tại:</span>
-                                <span className="text-2xl font-bold text-primary-600">+(84) 1800 356 893</span>
-                            </div>
-                            <div className="flex flex-col border-l-2 border-blue-500 pl-6">
-                                <span className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-2">Ghé Thăm Chúng Tôi:</span>
-                                <span className="text-lg font-bold text-primary-600">Quận 1, TP. HCM, VN</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-primary-600 p-16 lg:p-24 text-white">
-                        <h3 className="text-3xl font-bold mb-8 font-serif">Đặt Lịch Tư Vấn Miễn Phí</h3>
-                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-300 mb-2">Tên</label>
-                                    <input type="text" className="w-full bg-primary-600 border-b border-slate-500 focus:border-blue-500 px-0 py-2 outline-none text-white transition-colors" />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-300 mb-2">Họ</label>
-                                    <input type="text" className="w-full bg-primary-600 border-b border-slate-500 focus:border-blue-500 px-0 py-2 outline-none text-white transition-colors" />
-                                </div>
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-slate-300 mb-2">Email</label>
-                                <input type="email" className="w-full bg-primary-600 border-b border-slate-500 focus:border-blue-500 px-0 py-2 outline-none text-white transition-colors" />
-                            </div>
-                            <div>
-                                <label className="block text-sm font-medium text-slate-300 mb-2">Tin Nhắn</label>
-                                <textarea rows={2} className="w-full bg-primary-600 border-b border-slate-500 focus:border-blue-500 px-0 py-2 outline-none text-white transition-colors resize-none"></textarea>
-                            </div>
-                            <button type="submit" className="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-sm transition-colors mt-8">
-                                Gửi Thông Tin
-                            </button>
-                            <p className="text-xs text-slate-400 mt-4 leading-relaxed">
-                                Bằng cách nhấp vào nút này, bạn đồng ý với Chính Sách Bảo Mật. Chúng tôi có thể liên hệ với bạn qua email.
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            {/* 11. Blog / Insights */}
-            <section className="py-24 bg-[#F7F8F8]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                        <div className="max-w-2xl">
-                            <h2 className="text-sm font-bold tracking-widest text-primary-600 uppercase mb-4 opacity-60">Phân Tích & Thành Công</h2>
-                            <h3 className="text-4xl md:text-5xl font-bold text-primary-600 font-serif leading-tight">Chiến Lược Chuyên Gia, Xu Hướng Thị Trường & Kết Quả</h3>
-                        </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { tag: 'LỜI KHUYÊN', date: '29 Tháng 3, 2025', title: '5 Xu Hướng Thị Trường Chính Mỗi Doanh Nghiệp Nên Xem Năm 2025' },
-                            { tag: 'CÂU CHUYỆN THÀNH CÔNG', date: '25 Tháng 3, 2025', title: 'Cách Chúng Tôi Giúp Một Thương Hiệu Bán Lẻ Tăng Doanh Số 45%' },
-                            { tag: 'LỜI KHUYÊN', date: '20 Tháng 3, 2025', title: 'Tại Sao Hầu Hết Các Chiến Lược Gặp Thất Bại – Và Cách Tránh.' }
+                            { name: 'John Wolfar', role: 'CEO, Credi Goo', quote: 'Tabo ERP đã đồng bộ hóa toàn bộ chuỗi cung ứng của chúng tôi, mang lại sự nhất quán mà trước đây chúng tôi chưa từng đạt được.', highlight: 'Tốc độ mở rộng gấp 3 lần' },
+                            { name: 'Daniel Foster', role: 'COO, Horizon Retail', quote: 'Việc quản lý 50 chi nhánh trở nên đơn giản như quản lý 1 cửa hàng. Dữ liệu thời gian thực là sự thay đổi hoàn hảo.', highlight: 'Doanh thu tăng 45% sau 6 tháng' },
+                            { name: 'Maria Sanchez', role: 'CTO, Logistics VN', quote: 'Không chỉ là phần mềm, đội ngũ hỗ trợ của Tabo ERP thực sự hiểu nghiệp vụ và giải quyết vấn đề cực kỳ nhanh chóng.', highlight: 'Giảm 30% chi phí vận hành' }
                         ].map((item, i) => (
-                            <div key={i} className="group cursor-pointer">
-                                <div className="h-64 bg-slate-200 rounded-xl mb-6 overflow-hidden">
-                                    <div className="w-full h-full bg-primary-600/5 group-hover:scale-105 transition-transform duration-500"></div>
+                            <div key={i} className="p-10 bg-slate-50 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 rounded-[32px] border border-slate-100 flex flex-col h-full group">
+                                <Icon name="format_quote" className="text-5xl text-blue-500/20 mb-4 group-hover:text-blue-500 transition-colors" />
+                                <div className="text-blue-600 font-semibold text-lg mb-6 tracking-tight">
+                                    {item.highlight}
                                 </div>
-                                <div className="flex items-center text-xs font-bold text-slate-400 tracking-wider uppercase mb-3 gap-3">
-                                    <span className="text-primary-600">{item.tag}</span>
-                                    <span>•</span>
-                                    <span>{item.date}</span>
+                                <p className="text-slate-600 mb-10 font-light leading-relaxed grow text-lg italic">
+                                    "{item.quote}"
+                                </p>
+                                <div className="flex items-center pt-8 border-t border-slate-200/50">
+                                    <div className="h-12 w-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-bold text-lg mr-4">
+                                        {item.name.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <div className="font-bold text-slate-900 tracking-tight">{item.name}</div>
+                                        <div className="text-[13px] text-slate-500">{item.role}</div>
+                                    </div>
                                 </div>
-                                <h4 className="text-2xl font-bold text-primary-600 font-serif leading-snug group-hover:text-blue-500 transition-colors">
-                                    {item.title}
-                                </h4>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* 12. Newsletter */}
-            <section className="py-24 bg-primary-600 text-white">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 font-serif">Luôn Dẫn Đầu.</h2>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-10 text-blue-500 font-serif">Đăng Ký Bản Tin Chuyên Gia.</h2>
-                    <form className="flex flex-col sm:flex-row max-w-xl mx-auto gap-4" onSubmit={(e) => e.preventDefault()}>
-                        <input type="email" placeholder="Địa chỉ email của bạn" className="flex-1 px-6 py-4 rounded-sm border border-white/20 bg-white/5 text-white placeholder-white/50 focus:outline-none focus:border-blue-500" required />
-                        <button type="submit" className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 px-10 rounded-sm transition-colors">
-                            Đăng Ký
-                        </button>
-                    </form>
-                    <p className="mt-6 text-slate-400 text-sm">Bạn có thể hủy đăng ký bất cứ lúc nào qua liên kết ở phần Footer.</p>
+            {/* 10. Final Call to Action - Split Layout */}
+            <section className="bg-slate-900 text-white overflow-hidden relative border-t border-white/5 py-32">
+                {/* Background effects */}
+                <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/2 h-full bg-blue-600/10 blur-[160px] pointer-events-none"></div>
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                        {/* Left Side: Text Content */}
+                        <div className="text-left">
+                            <span className="bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-8 inline-flex uppercase">
+                                Sẵn sàng để bắt đầu?
+                            </span>
+                            <h2 className="text-4xl md:text-[48px] font-normal mb-8 tracking-tight leading-[1.1]">
+                                Mọi hành trình lớn đều <br /> bắt đầu từ một <span className="text-blue-500">giải pháp.</span>
+                            </h2>
+                            <p className="text-slate-400 text-base font-light mb-8 max-w-xl leading-relaxed">
+                                Đừng để những rào cản vận hành ngăn cản sự phát triển của bạn. Liên hệ ngay với Tabo ERP để khai phá tiềm năng tối đa.
+                            </p>
+                            <p className="text-slate-500 text-xs font-light uppercase tracking-widest opacity-50 mt-12 hidden lg:block">
+                                Tabo ERP – Đồng hành cùng sự thịnh vượng của doanh nghiệp Việt
+                            </p>
+                        </div>
+
+                        {/* Right Side: Contact Cards */}
+                        <div className="space-y-6">
+                            <a href="tel:1800356893" className="group flex items-center gap-8 p-4 rounded-[20px] bg-white/5 border border-white/5 hover:bg-blue-600 hover:border-blue-500 transition-all duration-500 hover:-translate-y-1">
+                                <div className="w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 transform group-hover:rotate-12">
+                                    <Icon name="call" className="text-[32px] text-blue-500 group-hover:text-white" />
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-1 group-hover:text-blue-100 transition-colors">Hotline miễn phí</p>
+                                    <span className="text-2xl md:text-3xl font-normal text-white tracking-tight">1800 356 893</span>
+                                </div>
+                            </a>
+
+                            <a href="mailto:contact@tabo.vn" className="group flex items-center gap-8 p-4 rounded-[20px] bg-white/5 border border-white/5 hover:bg-blue-600 hover:border-blue-500 transition-all duration-500 hover:-translate-y-1">
+                                <div className="w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 transform group-hover:-rotate-12">
+                                    <Icon name="mail" className="text-[32px] text-blue-500 group-hover:text-white" />
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-1 group-hover:text-blue-100 transition-colors">Email yêu cầu</p>
+                                    <span className="text-2xl md:text-3xl font-normal text-white tracking-tight">contact@tabo.vn</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>

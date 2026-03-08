@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../common/Icon';
 import Button from '../common/Button';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo-black.png';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
