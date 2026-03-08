@@ -645,7 +645,7 @@ const Home: React.FC = () => {
                             <span className="text-blue-400">Tabo</span> giúp bạn <span className="text-blue-400">tối ưu hóa nó.</span>
                         </h2>
                         <Button to="/contact" variant="primary" size="lg" className="!bg-blue-600 hover:!bg-blue-500 rounded-2xl shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] border border-blue-400/30 !px-10">
-                            Bắt đầu chuyển đổi <Icon name="arrow_forward" className="ml-3" />
+                            Bắt đầu chuyển đổi
                         </Button>
                     </div>
 
