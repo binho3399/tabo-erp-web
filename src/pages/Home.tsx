@@ -352,24 +352,25 @@ const Home: React.FC = () => {
                         {/* Col 1: Horizontal Cards */}
                         <div className="flex flex-col gap-6 w-full lg:w-[48%]">
                             {/* Kế toán Card */}
-                            <div className="bg-white rounded-[20px] p-4 flex flex-row items-center group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-6">
+                            <div className="bg-white rounded-[20px] p-4 flex flex-row items-center h-[175px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-6">
                                 <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
                                 <div className="relative z-10 flex flex-col w-[45%]">
-                                    <p className="text-slate-400 text-[13px] mb-4 font-normal">Tài chính & Kế toán</p>
-                                    <h4 className="text-2xl font-normal text-slate-900 tracking-tight mb-2">Kế toán tổng hợp</h4>
-                                    <p className="text-[13px] text-slate-500 font-light">Tự động hóa nghiệp vụ tài chính.</p>
+                                    <h4 className="text-[30px] font-normal text-slate-900 tracking-tight mb-3">Kế toán tổng hợp</h4>
+                                    <p className="text-base text-slate-500 font-light leading-snug">
+                                        Hệ thống tự động hóa toàn diện nghiệp vụ tài chính và sổ sách doanh nghiệp.
+                                    </p>
                                 </div>
 
-                                <div className="relative z-10 flex-1 flex flex-col justify-center items-center py-2">
-                                    <div className="bg-white rounded-xl p-4 shadow-xl border border-slate-50 w-full rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                                        <div className="flex justify-between items-start mb-2">
+                                <div className="relative z-10 flex-1 flex flex-col justify-center items-center py-0">
+                                    <div className="bg-white rounded-xl p-3 shadow-xl border border-slate-50 w-full rotate-2 group-hover:rotate-0 transition-transform duration-500">
+                                        <div className="flex justify-between items-start mb-1">
                                             <p className="text-[9px] text-slate-400 font-black uppercase tracking-widest">Doanh thu</p>
                                             <Icon name="more_horiz" className="text-slate-300 text-sm" />
                                         </div>
-                                        <p className="text-xl font-bold text-slate-900 mb-3 flex items-baseline gap-1">
-                                            12.850.000 <span className="text-slate-400 font-medium text-[14px] border-b-[1px] border-slate-400 leading-none pb-0.5">đ</span>
+                                        <p className="text-lg font-bold text-slate-900 mb-2 flex items-baseline gap-1">
+                                            12.850.000 <span className="text-slate-400 font-medium text-[12px] border-b-[1px] border-slate-400 leading-none pb-0.5">đ</span>
                                         </p>
-                                        <div className="flex items-end gap-1 h-12">
+                                        <div className="flex items-end gap-1 h-8">
                                             {[30, 60, 40, 80, 50, 70, 45].map((h, i) => (
                                                 <div key={i} className={`flex-1 rounded-t-[2px] ${i === 3 || i === 5 ? 'bg-blue-500' : 'bg-blue-100'}`} style={{ height: `${h}%` }}></div>
                                             ))}
@@ -387,34 +388,53 @@ const Home: React.FC = () => {
                             </div>
 
                             {/* Công nợ Card */}
-                            <div className="bg-white rounded-[20px] p-4 flex flex-row-reverse items-center group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-6">
+                            <div className="bg-white rounded-[20px] p-4 flex flex-row-reverse items-center h-[175px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-6">
                                 <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.2px, transparent 1.2px)', backgroundSize: '16px 16px' }}></div>
                                 <div className="relative z-10 flex flex-col w-[45%] text-right">
-                                    <p className="text-slate-400 text-[13px] mb-4 font-normal">Công nợ & Dòng tiền</p>
-                                    <h4 className="text-2xl font-normal text-slate-900 tracking-tight mb-2">Quản lý Công nợ</h4>
-                                    <p className="text-[13px] text-slate-500 font-light">Kiểm soát nợ quá hạn tức thời.</p>
+                                    <h4 className="text-[30px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
+                                    <p className="text-base text-slate-500 font-light leading-snug">
+                                        Theo dõi và thu hồi nợ tự động giúp tối ưu dòng tiền lưu động.
+                                    </p>
                                 </div>
 
-                                <div className="relative z-10 flex-1 flex flex-col justify-center items-center py-2">
-                                    <div className="w-full relative py-4 scale-90">
-                                        <div className="absolute inset-x-0 bottom-0 bg-slate-50 rounded-xl h-16 w-[80%] mx-auto shadow-sm border border-slate-100 translate-y-2"></div>
-                                        <div className="relative bg-slate-900 rounded-xl p-4 shadow-xl border border-white/10 -rotate-3 group-hover:rotate-0 transition-transform duration-500">
-                                            <div className="space-y-3">
-                                                <div className="flex justify-between items-center">
-                                                    <span className="text-[9px] text-slate-400 font-black uppercase tracking-[0.2em]">Hạn mức vượt</span>
-                                                    <Icon name="warning" className="text-red-500 text-[10px]" />
-                                                </div>
-                                                <div className="flex items-center gap-3">
-                                                    <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold">PV</div>
-                                                    <div>
-                                                        <p className="text-xs font-bold text-white tracking-tight">Phạm Van Tuấn</p>
-                                                        <p className="text-[9px] text-slate-400 flex items-baseline gap-0.5">
-                                                            3.420.000 <span className="border-b-[1px] border-slate-500 leading-none pb-0.5">đ</span>
-                                                        </p>
+                                <div className="relative z-10 flex-1 flex flex-col justify-center items-center py-0">
+                                    <div className="w-full relative scale-90 translate-x-2 translate-y-6">
+                                        {/* Tầng nền tạo độ dày */}
+                                        <div className="absolute -inset-1 bg-gradient-to-tr from-slate-200 to-slate-100 rounded-[22px] blur-[2px] opacity-30"></div>
+
+                                        {/* Lớp bóng đổ ảo */}
+                                        <div className="absolute top-4 left-4 right-[-10px] bottom-[-4px] bg-slate-50/80 rounded-xl border border-slate-100 shadow-sm rotate-2"></div>
+
+                                        {/* Nội dung chính Card Công nợ */}
+                                        <div className="relative bg-slate-900 rounded-xl p-4 shadow-2xl border border-white/10 -rotate-1 group-hover:rotate-0 transition-all duration-700">
+                                            <div className="space-y-4">
+                                                <div className="flex justify-between items-center border-b border-white/10 pb-2">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
+                                                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Cảnh báo thu hồi</span>
                                                     </div>
+                                                    <Icon name="more_horiz" className="text-slate-500 text-xs" />
                                                 </div>
-                                                <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                                                    <div className="h-full bg-red-500 w-[85%]"></div>
+
+                                                <div className="space-y-3">
+                                                    {[
+                                                        { name: "Sơn Hà JSC", amount: "15.400.000", overdue: "15 ngày", width: "w-[85%]", color: "bg-red-500" },
+                                                        { name: "Phạm Văn Tuấn", amount: "3.420.000", overdue: "Vượt hạn mức", width: "w-[70%]", color: "bg-orange-500" }
+                                                    ].map((item, i) => (
+                                                        <div key={i} className="flex flex-col gap-1.5">
+                                                            <div className="flex justify-between items-center">
+                                                                <span className="text-[11px] text-white/90 font-medium">{item.name}</span>
+                                                                <span className="text-[10px] text-white/60">{item.amount} đ</span>
+                                                            </div>
+                                                            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                                                                <div className={`h-full ${item.color} ${item.width} rounded-full`}></div>
+                                                            </div>
+                                                            <div className="flex items-center gap-1 text-[8px] text-slate-500 italic">
+                                                                <Icon name="history" className="text-[10px]" />
+                                                                {item.overdue}
+                                                            </div>
+                                                        </div>
+                                                    ))}
                                                 </div>
                                             </div>
                                         </div>
@@ -438,7 +458,7 @@ const Home: React.FC = () => {
                                 </div>
 
                                 <div className="flex-1 flex flex-col justify-center gap-4">
-                                    <div className="bg-[#FAF9F6] rounded-xl p-4 overflow-hidden relative border border-slate-50">
+                                    <div className="bg-slate-50 rounded-xl p-4 overflow-hidden relative border border-slate-100/50">
                                         <div className="relative overflow-hidden w-full flex flex-col gap-0">
                                             {/* Row 1 */}
                                             <div className="flex animate-marquee whitespace-nowrap gap-3 py-2">
@@ -505,8 +525,8 @@ const Home: React.FC = () => {
                                             </div>
 
                                             {/* Gradient Shadows */}
-                                            <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
-                                            <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
+                                            <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+                                            <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -542,7 +562,7 @@ const Home: React.FC = () => {
                                             <Icon name="description" className="text-blue-500 text-lg" />
                                         </div>
                                         <div className="absolute bottom-6 -left-2 bg-green-500 text-white text-[8px] font-black px-2 py-1 rounded-full shadow-lg shadow-green-900/20 uppercase tracking-widest rotate-12">
-                                            Auto-Tax
+                                            Thuế tự động
                                         </div>
                                     </div>
 
