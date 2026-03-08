@@ -12,6 +12,7 @@
   --animate-grid-flow-x: grid-flow-x 8s linear infinite;
   --animate-grid-flow-y: grid-flow-y 8s linear infinite;
   --animate-grid-dash: grid-dash 15s linear infinite;
+  --animate-flow-dash: flow-dash 3s linear infinite;
 
   @keyframes marquee {
     0% {
@@ -20,6 +21,16 @@
 
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes flow-dash {
+    from {
+      stroke-dashoffset: 100;
+    }
+
+    to {
+      stroke-dashoffset: 0;
     }
   }
 
