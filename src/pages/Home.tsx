@@ -346,115 +346,204 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Grid Images Row */}
-                    <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
-                        {/* Col 1 */}
-                        <div className="flex flex-col gap-6 w-full lg:w-[22%]">
-                            <div className="relative flex-1 rounded-[20px] overflow-hidden group border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
-                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070" alt="Office Workers" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
-                            </div>
-                            <div className="relative flex-1 rounded-[20px] overflow-hidden group border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
-                                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070" alt="Meeting" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
-                            </div>
-                        </div>
+                    <div className="flex flex-col lg:flex-row gap-6 lg:items-stretch">
+                        {/* Col 1: Horizontal Cards */}
+                        <div className="flex flex-col gap-6 w-full lg:w-[48%]">
+                            {/* Kế toán Card */}
+                            <div className="bg-white rounded-[32px] p-6 border border-slate-100 flex flex-row items-center group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-6">
+                                <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
+                                <div className="relative z-10 flex flex-col w-[45%]">
+                                    <p className="text-slate-400 text-[13px] mb-4 font-normal">Tài chính & Kế toán</p>
+                                    <h4 className="text-2xl font-normal text-slate-900 tracking-tight mb-2">Kế toán tổng hợp</h4>
+                                    <p className="text-[13px] text-slate-500 font-light">Tự động hóa nghiệp vụ tài chính.</p>
+                                </div>
 
-                        {/* Col 2 */}
-                        <div className="w-full lg:w-[22%]">
-                            <div className="relative h-full rounded-[20px] overflow-hidden group border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=988" alt="Professional" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500"></div>
-                            </div>
-                        </div>
-
-                        {/* Col 3: Feature Card */}
-                        <div className="w-full lg:w-[34%] bg-white rounded-[20px] p-4 border border-slate-100 shadow-[0_8px_40px_-12px_rgba(0,0,0,0.1)] flex flex-col gap-6">
-                            <div>
-                                <p className="text-slate-400 text-[13px] mb-4 font-normal">Giải pháp ngành hàng</p>
-                                <h3 className="text-[30px] lg:text-[32px] font-normal text-slate-900 leading-[1.25] tracking-tight">
-                                    Tối ưu hóa cho mọi<br />lĩnh vực kinh doanh.
-                                </h3>
-                            </div>
-
-                            <div className="bg-[#FAF9F6] rounded-[12px] p-6 overflow-hidden relative">
-                                <p className="text-slate-500 text-sm mb-5">Đa dạng ngành nghề</p>
-                                <div className="relative overflow-hidden w-full flex flex-col gap-4">
-                                    {/* Row 1 */}
-                                    <div className="flex animate-marquee whitespace-nowrap gap-3">
-                                        {[
-                                            { name: "Thời trang", icon: "checkroom" },
-                                            { name: "Điện thoại & Máy tính", icon: "devices" },
-                                            { name: "Vật liệu xây dựng", icon: "construction" },
-                                            { name: "Nhà thuốc", icon: "medical_services" },
-                                            { name: "Mẹ & Bé", icon: "child_care" },
-                                            { name: "Sách & Văn phòng phẩm", icon: "menu_book" },
-                                            { name: "Sản xuất", icon: "factory" },
-                                            { name: "Tạp hóa & Siêu thị", icon: "shopping_cart" },
-                                            { name: "Mỹ phẩm", icon: "brush" },
-                                            { name: "Nông sản & Thực phẩm", icon: "grass" }
-                                        ].concat([
-                                            { name: "Thời trang", icon: "checkroom" },
-                                            { name: "Điện thoại & Máy tính", icon: "devices" },
-                                            { name: "Vật liệu xây dựng", icon: "construction" },
-                                            { name: "Nhà thuốc", icon: "medical_services" },
-                                            { name: "Mẹ & Bé", icon: "child_care" },
-                                            { name: "Sách & Văn phòng phẩm", icon: "menu_book" },
-                                            { name: "Sản xuất", icon: "factory" },
-                                            { name: "Tạp hóa & Siêu thị", icon: "shopping_cart" },
-                                            { name: "Mỹ phẩm", icon: "brush" },
-                                            { name: "Nông sản & Thực phẩm", icon: "grass" }
-                                        ]).map((sector, idx) => (
-                                            <div key={idx} className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                                <Icon name={sector.icon} className="text-blue-500 text-lg" />
-                                                <span className="text-slate-700 text-[13px] font-medium">{sector.name}</span>
-                                            </div>
-                                        ))}
+                                <div className="relative z-10 flex-1 flex flex-col justify-center items-center py-2">
+                                    <div className="bg-white rounded-2xl p-4 shadow-xl border border-slate-50 w-full rotate-2 group-hover:rotate-0 transition-transform duration-500">
+                                        <div className="flex justify-between items-start mb-2">
+                                            <p className="text-[9px] text-slate-400 font-black uppercase tracking-widest">Doanh thu</p>
+                                            <Icon name="more_horiz" className="text-slate-300 text-sm" />
+                                        </div>
+                                        <p className="text-xl font-black text-slate-900 mb-3">$12,850</p>
+                                        <div className="flex items-end gap-1 h-12">
+                                            {[30, 60, 40, 80, 50, 70, 45].map((h, i) => (
+                                                <div key={i} className={`flex-1 rounded-t-[2px] ${i === 3 || i === 5 ? 'bg-blue-500' : 'bg-blue-100'}`} style={{ height: `${h}%` }}></div>
+                                            ))}
+                                        </div>
                                     </div>
-
-                                    {/* Row 2 */}
-                                    <div className="flex animate-marquee whitespace-nowrap gap-3" style={{ animationDirection: 'reverse' }}>
-                                        {[
-                                            { name: "Xe, Máy móc", icon: "directions_bike" },
-                                            { name: "Nội thất & Gia dụng", icon: "weekend" },
-                                            { name: "Hoa & Quà tặng", icon: "card_giftcard" },
-                                            { name: "Nhà hàng", icon: "restaurant" },
-                                            { name: "Quán ăn", icon: "ramen_dining" },
-                                            { name: "Cafe, Trà sữa", icon: "coffee" },
-                                            { name: "Karaoke, Bida", icon: "mic" },
-                                            { name: "Bar, Pub & Club", icon: "local_bar" },
-                                            { name: "Căng tin & Trạm nghỉ", icon: "bakery_dining" },
-                                            { name: "Khác", icon: "apps" }
-                                        ].concat([
-                                            { name: "Xe, Máy móc", icon: "directions_bike" },
-                                            { name: "Nội thất & Gia dụng", icon: "weekend" },
-                                            { name: "Hoa & Quà tặng", icon: "card_giftcard" },
-                                            { name: "Nhà hàng", icon: "restaurant" },
-                                            { name: "Quán ăn", icon: "ramen_dining" },
-                                            { name: "Cafe, Trà sữa", icon: "coffee" },
-                                            { name: "Karaoke, Bida", icon: "mic" },
-                                            { name: "Bar, Pub & Club", icon: "local_bar" },
-                                            { name: "Căng tin & Trạm nghỉ", icon: "bakery_dining" },
-                                            { name: "Khác", icon: "apps" }
-                                        ]).map((sector, idx) => (
-                                            <div key={idx} className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
-                                                <Icon name={sector.icon} className="text-blue-500 text-lg" />
-                                                <span className="text-slate-700 text-[13px] font-medium">{sector.name}</span>
+                                    <div className="absolute -top-4 -right-2 bg-slate-900 text-white rounded-xl p-2.5 shadow-2xl -rotate-12 scale-90 group-hover:rotate-0 group-hover:scale-100 transition-all duration-500 z-20">
+                                        <div className="flex items-center gap-1.5">
+                                            <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center">
+                                                <Icon name="check" className="text-[8px]" />
                                             </div>
-                                        ))}
+                                            <span className="text-[9px] font-black uppercase tracking-widest">Cân đối sạch</span>
+                                        </div>
                                     </div>
+                                </div>
+                            </div>
 
-                                    {/* Gradient Shadows */}
-                                    <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
-                                    <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
+                            {/* Công nợ Card */}
+                            <div className="bg-white rounded-[32px] p-6 border border-slate-100 flex flex-row-reverse items-center group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-6">
+                                <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.2px, transparent 1.2px)', backgroundSize: '16px 16px' }}></div>
+                                <div className="relative z-10 flex flex-col w-[45%] text-right">
+                                    <p className="text-slate-400 text-[13px] mb-4 font-normal">Công nợ & Dòng tiền</p>
+                                    <h4 className="text-2xl font-normal text-slate-900 tracking-tight mb-2">Quản lý Công nợ</h4>
+                                    <p className="text-[13px] text-slate-500 font-light">Kiểm soát nợ quá hạn tức thời.</p>
+                                </div>
+
+                                <div className="relative z-10 flex-1 flex flex-col justify-center items-center py-2">
+                                    <div className="w-full relative py-4 scale-90">
+                                        <div className="absolute inset-x-0 bottom-0 bg-slate-50 rounded-2xl h-16 w-[80%] mx-auto shadow-sm border border-slate-100 translate-y-2"></div>
+                                        <div className="relative bg-slate-900 rounded-2xl p-4 shadow-xl border border-white/10 -rotate-3 group-hover:rotate-0 transition-transform duration-500">
+                                            <div className="space-y-3">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-[9px] text-slate-400 font-black uppercase tracking-[0.2em]">Hạn mức vượt</span>
+                                                    <Icon name="warning" className="text-red-500 text-[10px]" />
+                                                </div>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-[10px] font-bold">PV</div>
+                                                    <div>
+                                                        <p className="text-xs font-bold text-white tracking-tight">Phạm Van Tuấn</p>
+                                                        <p className="text-[9px] text-slate-400">$3,420</p>
+                                                    </div>
+                                                </div>
+                                                <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+                                                    <div className="h-full bg-red-500 w-[85%]"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Col 4 */}
-                        <div className="w-full lg:w-[22%]">
-                            <div className="relative h-full rounded-[20px] overflow-hidden group border border-slate-100 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.06)]">
-                                <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=1974" alt="Leader" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-[#D3BCAC]/20 mix-blend-multiply group-hover:bg-transparent transition-colors duration-500"></div>
+
+                        {/* Col 2: Feature Card */}
+                        <div className="w-full lg:w-[26%] bg-white rounded-[32px] p-6 border border-slate-100 flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
+                            <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
+                            <div className="relative z-10 flex flex-col h-full">
+                                <div className="mb-6">
+                                    <p className="text-slate-400 text-[13px] mb-4 font-normal">Giải pháp ngành hàng</p>
+                                    <h3 className="text-2xl lg:text-3xl font-normal text-slate-900 leading-[1.25] tracking-tight">
+                                        Tối ưu hóa cho mọi<br />lĩnh vực kinh doanh.
+                                    </h3>
+                                </div>
+
+                                <div className="flex-1 flex flex-col justify-center gap-4">
+                                    <div className="bg-[#FAF9F6] rounded-2xl p-4 overflow-hidden relative border border-slate-50">
+                                        <div className="relative overflow-hidden w-full flex flex-col gap-0">
+                                            {/* Row 1 */}
+                                            <div className="flex animate-marquee whitespace-nowrap gap-3 py-2">
+                                                {[
+                                                    { name: "Thời trang", icon: "checkroom" },
+                                                    { name: "Điện thoại & Máy tính", icon: "devices" },
+                                                    { name: "Vật liệu xây dựng", icon: "construction" },
+                                                    { name: "Nhà thuốc", icon: "medical_services" },
+                                                    { name: "Mẹ & Bé", icon: "child_care" },
+                                                    { name: "Sách & Văn phòng phẩm", icon: "menu_book" },
+                                                    { name: "Sản xuất", icon: "factory" },
+                                                    { name: "Tạp hóa & Siêu thị", icon: "shopping_cart" },
+                                                    { name: "Mỹ phẩm", icon: "brush" },
+                                                    { name: "Nông sản & Thực phẩm", icon: "grass" }
+                                                ].concat([
+                                                    { name: "Thời trang", icon: "checkroom" },
+                                                    { name: "Điện thoại & Máy tính", icon: "devices" },
+                                                    { name: "Vật liệu xây dựng", icon: "construction" },
+                                                    { name: "Nhà thuốc", icon: "medical_services" },
+                                                    { name: "Mẹ & Bé", icon: "child_care" },
+                                                    { name: "Sách & Văn phòng phẩm", icon: "menu_book" },
+                                                    { name: "Sản xuất", icon: "factory" },
+                                                    { name: "Tạp hóa & Siêu thị", icon: "shopping_cart" },
+                                                    { name: "Mỹ phẩm", icon: "brush" },
+                                                    { name: "Nông sản & Thực phẩm", icon: "grass" }
+                                                ]).map((sector, idx) => (
+                                                    <div key={idx} className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                                        <Icon name={sector.icon} className="text-blue-500 text-lg" />
+                                                        <span className="text-slate-700 text-[13px] font-medium">{sector.name}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            {/* Row 2 */}
+                                            <div className="flex animate-marquee whitespace-nowrap gap-3 py-2" style={{ animationDirection: 'reverse' }}>
+                                                {[
+                                                    { name: "Xe, Máy móc", icon: "directions_bike" },
+                                                    { name: "Nội thất & Gia dụng", icon: "weekend" },
+                                                    { name: "Hoa & Quà tặng", icon: "card_giftcard" },
+                                                    { name: "Nhà hàng", icon: "restaurant" },
+                                                    { name: "Quán ăn", icon: "ramen_dining" },
+                                                    { name: "Cafe, Trà sữa", icon: "coffee" },
+                                                    { name: "Karaoke, Bida", icon: "mic" },
+                                                    { name: "Bar, Pub & Club", icon: "local_bar" },
+                                                    { name: "Căng tin & Trạm nghỉ", icon: "bakery_dining" },
+                                                    { name: "Khác", icon: "apps" }
+                                                ].concat([
+                                                    { name: "Xe, Máy móc", icon: "directions_bike" },
+                                                    { name: "Nội thất & Gia dụng", icon: "weekend" },
+                                                    { name: "Hoa & Quà tặng", icon: "card_giftcard" },
+                                                    { name: "Nhà hàng", icon: "restaurant" },
+                                                    { name: "Quán ăn", icon: "ramen_dining" },
+                                                    { name: "Cafe, Trà sữa", icon: "coffee" },
+                                                    { name: "Karaoke, Bida", icon: "mic" },
+                                                    { name: "Bar, Pub & Club", icon: "local_bar" },
+                                                    { name: "Căng tin & Trạm nghỉ", icon: "bakery_dining" },
+                                                    { name: "Khác", icon: "apps" }
+                                                ]).map((sector, idx) => (
+                                                    <div key={idx} className="bg-white flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 shrink-0">
+                                                        <Icon name={sector.icon} className="text-blue-500 text-lg" />
+                                                        <span className="text-slate-700 text-[13px] font-medium">{sector.name}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            {/* Gradient Shadows */}
+                                            <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
+                                            <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10 pointer-events-none"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Col 3: Vertical Card */}
+                        <div className="w-full lg:w-[26%] flex flex-col h-full">
+                            {/* Thuế Card */}
+                            <div className="bg-white rounded-[32px] p-6 border border-slate-100 flex flex-col group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm flex-1">
+                                <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
+                                <div className="relative z-10 flex flex-col h-full">
+                                    <div className="mb-6">
+                                        <p className="text-slate-400 text-[13px] mb-4 font-normal">Pháp lý & Thuế</p>
+                                        <h4 className="text-2xl lg:text-3xl font-normal text-slate-900 tracking-tight mb-2">Thuế & Hóa đơn</h4>
+                                        <p className="text-[13px] text-slate-500 font-light">Đảm bảo tính pháp lý tự động.</p>
+                                    </div>
+
+                                    <div className="flex-1 flex flex-col justify-center relative py-4">
+                                        <div className="bg-slate-900 rounded-[24px] p-5 shadow-2xl relative overflow-hidden group-hover:-rotate-1 group-hover:scale-[1.02] transition-all duration-700">
+                                            <div className="flex items-center gap-3 mb-6">
+                                                <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center">
+                                                    <Icon name="verified" className="text-white text-lg" />
+                                                </div>
+                                                <div className="flex-1">
+                                                    <p className="text-[11px] font-bold text-white leading-none">Hóa đơn Q4</p>
+                                                </div>
+                                            </div>
+                                            <div className="space-y-3 mb-2">
+                                                <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                                    <div className="h-full bg-blue-500 w-[92%]"></div>
+                                                </div>
+                                                <div className="flex justify-between text-[9px] text-slate-400">
+                                                    <span>Sẵn sàng: 482 / 500</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="absolute top-0 -right-2 bg-white rounded-xl shadow-lg border border-slate-50 p-2 -rotate-6 group-hover:rotate-6 transition-all duration-500">
+                                            <Icon name="description" className="text-blue-500 text-lg" />
+                                        </div>
+                                        <div className="absolute bottom-6 -left-2 bg-green-500 text-white text-[8px] font-black px-2 py-1 rounded-full shadow-lg shadow-green-900/20 uppercase tracking-widest rotate-12">
+                                            Auto-Tax
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

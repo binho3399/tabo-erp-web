@@ -35,8 +35,8 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-[1216px] z-50">
-            <div className={`transition-all duration-300 rounded-full pl-6 pr-4 border ${isScrolled ? 'bg-white/80 backdrop-blur-md border-slate-200/60 shadow-sm' : 'bg-transparent border-transparent'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm' : 'bg-transparent border-transparent'}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-[72px]">
                     {/* Logo */}
                     <div className="flex items-center">
@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
 
             {/* Mobile menu dropdown */}
             {isOpen && (
-                <div className="lg:hidden absolute top-20 left-1/2 -translate-x-1/2 w-full bg-white border border-slate-200/60 shadow-xl rounded-2xl overflow-hidden mt-2">
+                <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-xl overflow-hidden">
                     <div className="px-4 pt-2 pb-6 space-y-1">
                         {navLinks.map((link) => (
                             <Link
