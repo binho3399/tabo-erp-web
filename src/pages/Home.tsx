@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Icon from '../components/common/Icon';
 import Button from '../components/common/Button';
 
@@ -352,11 +351,10 @@ const Home: React.FC = () => {
                         {/* Col 1: Horizontal Cards */}
                         <div className="flex flex-col gap-6 w-full lg:w-[48%]">
                             {/* Kế toán Card */}
-                            <div className="bg-white rounded-[20px] p-6 lg:p-4 flex flex-col lg:flex-row items-center h-auto lg:h-[175px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-6">
-                                <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
+                            <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[180.5px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-10">
                                 <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
-                                    <h4 className="text-[30px] font-normal text-slate-900 tracking-tight mb-3">Kế toán tổng hợp</h4>
-                                    <p className="text-base text-slate-500 font-light leading-snug">
+                                    <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Kế toán tổng hợp</h4>
+                                    <p className="text-[15px] text-slate-500 font-light leading-snug">
                                         Hệ thống tự động hóa toàn diện nghiệp vụ tài chính và sổ sách doanh nghiệp.
                                     </p>
                                 </div>
@@ -388,11 +386,10 @@ const Home: React.FC = () => {
                             </div>
 
                             {/* Công nợ Card */}
-                            <div className="bg-white rounded-[20px] p-6 lg:p-4 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[175px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-6">
-                                <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.2px, transparent 1.2px)', backgroundSize: '16px 16px' }}></div>
-                                <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-right">
-                                    <h4 className="text-[30px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
-                                    <p className="text-base text-slate-500 font-light leading-snug">
+                            <div className="bg-white rounded-[20px] p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[180.5px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-10">
+                                <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
+                                    <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
+                                    <p className="text-[15px] text-slate-500 font-light leading-snug">
                                         Theo dõi và thu hồi nợ tự động giúp tối ưu dòng tiền lưu động.
                                     </p>
                                 </div>
@@ -445,14 +442,13 @@ const Home: React.FC = () => {
 
 
                         {/* Col 2: Feature Card */}
-                        <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 lg:p-4 flex flex-col h-auto lg:h-[375px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
-                            <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
+                        <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[385px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
                             <div className="relative z-10 flex flex-col h-full">
-                                <div className="mb-4 text-center lg:text-left">
-                                    <h3 className="text-2xl lg:text-3xl font-normal text-slate-900 leading-[1.25] tracking-tight mb-4">
+                                <div className="mb-6 text-center lg:text-left">
+                                    <h3 className="text-2xl lg:text-3xl font-normal text-slate-900 leading-[1.2] tracking-tight mb-5">
                                         Tối ưu hóa cho mọi<br className="hidden lg:block" />lĩnh vực kinh doanh.
                                     </h3>
-                                    <p className="text-base text-slate-500 font-light leading-relaxed">
+                                    <p className="text-[15px] text-slate-500 font-light leading-relaxed">
                                         Nền tảng linh hoạt đáp ứng đặc thù từng ngành nghề, giúp vận hành chuyên sâu và hiệu quả hơn.
                                     </p>
                                 </div>
@@ -536,39 +532,38 @@ const Home: React.FC = () => {
                         {/* Col 3: Vertical Card */}
                         <div className="w-full lg:w-[26%] flex flex-col h-full">
                             {/* Thuế Card */}
-                            <div className="bg-white rounded-[20px] p-6 lg:p-4 flex flex-col h-auto lg:h-[375px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
-                                <div className="absolute inset-0 opacity-[0.3]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '16px 16px' }}></div>
+                            <div className="bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[385px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
                                 <div className="relative z-10 flex flex-col h-full">
-                                    <div className="mb-6 relative h-[158px] flex flex-col justify-center">
-                                        <div className="bg-slate-900 rounded-xl p-5 shadow-2xl relative overflow-hidden group-hover:-rotate-1 group-hover:scale-[1.02] transition-all duration-700">
+                                    <div className="mb-6 relative h-[165px] flex flex-col justify-center">
+                                        <div className="bg-slate-900 rounded-xl p-6 shadow-2xl relative overflow-hidden group-hover:-rotate-1 group-hover:scale-[1.02] transition-all duration-700">
                                             <div className="flex items-center gap-3 mb-6">
-                                                <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center">
+                                                <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
                                                     <Icon name="verified" className="text-white text-lg" />
                                                 </div>
                                                 <div className="flex-1">
-                                                    <p className="text-[11px] font-bold text-white leading-none">Hóa đơn Q4</p>
+                                                    <p className="text-[12px] font-bold text-white leading-none">Hóa đơn Q4</p>
                                                 </div>
                                             </div>
-                                            <div className="space-y-3 mb-2">
-                                                <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                                            <div className="space-y-4 mb-2">
+                                                <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
                                                     <div className="h-full bg-blue-500 w-[92%]"></div>
                                                 </div>
-                                                <div className="flex justify-between text-[9px] text-slate-400">
+                                                <div className="flex justify-between text-[10px] text-slate-400">
                                                     <span>Sẵn sàng: 482 / 500</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="absolute top-0 -right-2 bg-white rounded-xl shadow-lg border border-slate-50 p-2 -rotate-6 group-hover:rotate-6 transition-all duration-500">
-                                            <Icon name="description" className="text-blue-500 text-lg" />
+                                        <div className="absolute top-0 -right-2 bg-white rounded-xl shadow-lg border border-slate-50 p-2.5 -rotate-6 group-hover:rotate-6 transition-all duration-500">
+                                            <Icon name="description" className="text-blue-500 text-xl" />
                                         </div>
-                                        <div className="absolute bottom-6 -left-2 bg-green-500 text-white text-[8px] font-black px-2 py-1 rounded-full shadow-lg shadow-green-900/20 uppercase tracking-widest rotate-12">
+                                        <div className="absolute bottom-4 -left-2 bg-green-500 text-white text-[9px] font-black px-3 py-1.5 rounded-full shadow-lg shadow-green-900/20 uppercase tracking-widest rotate-12">
                                             Thuế tự động
                                         </div>
                                     </div>
 
                                     <div className="text-center lg:text-left">
-                                        <h4 className="text-2xl lg:text-3xl font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
-                                        <p className="text-base text-slate-500 font-light leading-relaxed">
+                                        <h4 className="text-2xl lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
+                                        <p className="text-[15px] text-slate-500 font-light leading-relaxed">
                                             Tự động hóa báo cáo thuế và quản lý hóa đơn.
                                             Đảm bảo tính pháp lý chính xác, giúp tối ưu
                                             hồ sơ doanh nghiệp một cách thông minh.
@@ -829,116 +824,209 @@ const Home: React.FC = () => {
             </section>
 
             {/* 8. Pricing Section */}
-            <section className="py-24 bg-slate-50 relative overflow-hidden">
+            <section className="py-32 bg-[#F8FAFC] relative overflow-hidden">
+                {/* Background Decorations */}
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-50/50 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="text-center mb-20">
                         <span className="text-blue-500 text-xs font-bold tracking-widest uppercase mb-4 block">Bảng giá linh hoạt</span>
-                        <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight">Lựa chọn gói giải pháp <span className="text-blue-500">phù hợp.</span></h3>
-                        <p className="mt-4 text-slate-500 font-light text-lg">Đầu tư vào quy trình hiệu quả, gặt hái kết quả bền vững.</p>
+                        <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mt-4">Lựa chọn gói giải pháp <span className="text-blue-500">phù hợp.</span></h3>
+                        <p className="mt-4 text-slate-500 font-light text-base max-w-2xl mx-auto leading-relaxed">
+                            Đầu tư vào quy trình hiệu quả, gặt hái kết quả bền vững với các lựa chọn linh hoạt.
+                        </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto relative pt-8">
                         {/* Free Plan */}
-                        <div className="bg-white p-10 rounded-[32px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
-                            <div className="mb-8">
-                                <h4 className="text-xl font-normal text-slate-900 mb-2 tracking-tight">Gói Miễn Phí</h4>
-                                <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-normal text-slate-900 tracking-tighter">0₫</span>
-                                    <span className="text-slate-400 text-sm">/vĩnh viễn</span>
+                        <div className="bg-white p-6 rounded-[20px] border border-slate-100 shadow-[0_4px_30px_-5px_rgba(0,0,0,0.03)] flex flex-col group relative transition-all duration-300 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.06)] hover:-translate-y-1">
+                            <div className="flex justify-between items-start mb-6">
+                                <h4 className="text-[#0070F3] font-bold tracking-[0.15em] text-[10px] uppercase mt-2">Gói khởi đầu</h4>
+                                <div className="w-10 h-10 bg-slate-50 border border-slate-100 rounded-[12px] flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+                                    <Icon name="rocket_launch" className="text-slate-400 text-lg" />
                                 </div>
-                                <p className="text-slate-500 text-sm mt-4 font-light leading-relaxed">Dành cho cá nhân hoặc hộ kinh doanh nhỏ muốn bước đầu số hóa quản trị.</p>
                             </div>
 
-                            <ul className="space-y-4 mb-10 flex-grow">
-                                {[
-                                    "Quản lý kho hàng cơ bản",
-                                    "Số hóa danh mục sản phẩm",
-                                    "Báo cáo bán hàng theo ngày",
-                                    "Hỗ trợ qua cộng đồng"
-                                ].map((feature, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-600 font-light text-[15px]">
-                                        <Icon name="check_circle" className="text-blue-500 text-lg" />
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
+                            <h5 className="text-[24px] font-normal text-slate-800 mb-4">Gói Miễn Phí</h5>
 
-                            <Link to="/contact" className="w-full flex justify-center py-4 rounded-full border border-slate-200 text-slate-900 hover:bg-slate-50 transition-colors font-medium">
+                            <div className="flex items-baseline gap-2 mb-6">
+                                <div className="flex items-end">
+                                    <span className="text-[56px] font-normal leading-none text-slate-900 tracking-tighter">0</span>
+                                    <span className="text-[28px] font-normal leading-none text-slate-900 tracking-tighter relative ml-1 mr-1">
+                                        đ
+                                        <span className="absolute -bottom-1.5 left-0 w-full h-[3px] bg-slate-900 rounded-sm"></span>
+                                    </span>
+                                </div>
+                                <span className="text-slate-400 text-[14px] font-light">/ mãi mãi</span>
+                            </div>
+
+                            <div className="flex-grow">
+                                <ul className="space-y-4 mb-8">
+                                    {[
+                                        "Quản lý kho hàng cơ bản (1 kho)",
+                                        "Số hóa 100 mã danh mục sản phẩm",
+                                        "Hệ thống báo cáo bán hàng chuẩn",
+                                        "Hỗ trợ cộng đồng & tài liệu hướng dẫn"
+                                    ].map((feature, i) => (
+                                        <li key={i} className="flex items-center gap-4 text-slate-600 font-light text-[14px]">
+                                            <div className="w-4 h-4 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                                <Icon name="check" className="text-[#0070F3] text-[10px] font-black" />
+                                            </div>
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <Button to="/contact" variant="secondary" fullWidth size="md" className="!rounded-xl shadow-sm">
                                 Bắt đầu ngay
-                            </Link>
+                            </Button>
                         </div>
 
-                        {/* Paid Plan */}
-                        <div className="bg-slate-900 p-10 rounded-[32px] border border-blue-500 shadow-2xl shadow-blue-500/10 flex flex-col relative scale-[1.02] md:scale-105 z-10">
-                            <div className="absolute top-6 right-8">
-                                <span className="bg-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Phổ biến nhất</span>
-                            </div>
-                            <div className="mb-8">
-                                <h4 className="text-xl font-normal text-white mb-2 tracking-tight">Gói Doanh Nghiệp</h4>
-                                <div className="flex items-baseline gap-1">
-                                    <span className="text-4xl font-normal text-white tracking-tighter">Liên hệ</span>
+                        {/* Enterprise Plan */}
+                        <div className="bg-[#0F172A] p-[1px] rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,112,243,0.15)] flex flex-col relative group transition-all duration-300 hover:-translate-y-1">
+                            {/* Outer gradient border ring - subtle */}
+                            {/* <div className="absolute inset-0 bg-gradient-to-b from-[#0070F3]/30 to-transparent rounded-[28px] opacity-20 pointer-events-none"></div> */}
+
+                            {/* Inner Card */}
+                            <div className="bg-[#0F172A] p-6 rounded-[19px] h-full flex flex-col relative">
+                                {/* Recommended Badge */}
+                                <div className="absolute -top-[16px] left-1/2 -translate-x-1/2 z-30">
+                                    <span className="bg-[#0070F3] text-white text-[9px] font-bold px-5 py-1.5 rounded-full uppercase tracking-[0.1em] shadow-lg shadow-blue-500/20">
+                                        Đề xuất
+                                    </span>
                                 </div>
-                                <p className="text-slate-400 text-sm mt-4 font-light leading-relaxed">Giải pháp toàn diện tối ưu hóa mọi quy trình cho doanh nghiệp đang phát triển.</p>
+
+                                <div className="flex justify-between items-start mb-6">
+                                    <h4 className="text-[#0070F3] font-bold tracking-[0.15em] text-[10px] uppercase mt-2">Gói toàn diện</h4>
+                                    <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-[12px] flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+                                        <Icon name="auto_awesome" className="text-slate-300 text-lg" />
+                                    </div>
+                                </div>
+
+                                <h5 className="text-[24px] font-normal text-white mb-4">Gói Doanh Nghiệp</h5>
+
+                                <div className="flex items-baseline gap-2 mb-6">
+                                    <span className="text-[56px] font-normal leading-[0.9] text-white tracking-tighter">Liên hệ</span>
+                                </div>
+
+                                <div className="flex-grow">
+                                    <ul className="space-y-4 mb-8">
+                                        {[
+                                            "Mở rộng không giới hạn chi nhánh",
+                                            "AI chuẩn đoán & dự báo chuỗi cung ứng",
+                                            "Tự động hóa 100% quy trình kế toán",
+                                            "Hỗ trợ chuyên gia tư vấn riêng 24/7",
+                                            "Tùy biến sâu theo yêu cầu doanh nghiệp"
+                                        ].map((feature, i) => (
+                                            <li key={i} className="flex items-center gap-4 text-slate-300 font-light text-[14px]">
+                                                <div className="w-4 h-4 rounded-full bg-[#0070F3]/20 flex items-center justify-center flex-shrink-0 border border-[#0070F3]/30">
+                                                    <Icon name="check" className="text-[#0070F3] text-[10px] font-black" />
+                                                </div>
+                                                {feature}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <Button to="/contact" variant="primary" fullWidth size="md" className="!rounded-xl shadow-[0_8px_20px_-10px_rgba(0,112,243,0.5)]">
+                                    Liên hệ tư vấn ngay
+                                </Button>
                             </div>
-
-                            <ul className="space-y-4 mb-10 flex-grow">
-                                {[
-                                    "Tất cả tính năng gói Miễn Phí",
-                                    "Quản lý đa chi nhánh, đa kho",
-                                    "Tự động hóa chuỗi cung ứng",
-                                    "Phân tích dữ liệu RT & AI",
-                                    "Hỗ trợ kỹ thuật 24/7"
-                                ].map((feature, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-300 font-light text-[15px]">
-                                        <Icon name="check_circle" className="text-blue-500 text-lg" />
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <Link to="/contact" className="w-full flex justify-center py-4 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-lg shadow-blue-600/20 font-medium text-center">
-                                Nhận tư vấn Demo
-                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 9. Testimonials */}
-            <section className="py-24 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-                        <div>
-                            <span className="text-blue-500 text-xs font-bold tracking-widest uppercase mb-4 block">Đánh giá khách quan</span>
-                            <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight">Đối tác nói gì về <span className="text-blue-500">Tabo ERP</span></h3>
-                        </div>
-                        <Link to="#" className="group flex items-center text-slate-400 font-medium hover:text-slate-900 transition-colors border-b border-slate-200 pb-2">
-                            Xem tất cả 500+ đánh giá <Icon name="arrow_outward" className="ml-2 text-xs opacity-0 group-hover:opacity-100 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                        </Link>
-                    </div>
+            <section className="py-24 bg-[#F7F8F8] overflow-hidden relative">
+                {/* Decorative background elements - subtle for light mode */}
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/30 blur-[120px] rounded-full pointer-events-none"></div>
+                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-100/30 blur-[120px] rounded-full pointer-events-none"></div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <style dangerouslySetInnerHTML={{
+                    __html: `
+                    @keyframes marquee {
+                        0% { transform: translateX(0); }
+                        100% { transform: translateX(calc(-50% - 1.5rem)); }
+                    }
+                    .animate-marquee-slow {
+                        animation: marquee 80s linear infinite;
+                    }
+                    .animate-marquee-slow:hover {
+                        animation-play-state: paused;
+                    }
+                    .premium-card {
+                        background: white;
+                        border: 1px solid rgba(0, 0, 0, 0.03);
+                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+                    }
+                    .premium-card:hover {
+                        border-color: rgba(59, 130, 246, 0.2);
+                        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+                    }
+                `}} />
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-10 text-center">
+                    <span className="bg-blue-50 text-blue-600 border border-blue-100 font-semibold tracking-widest text-[11px] px-5 py-2 rounded-full mb-6 inline-flex items-center uppercase shadow-sm">
+                        Hệ sinh thái đối tác
+                    </span>
+                    <h3 className="text-4xl md:text-6xl font-normal text-slate-900 tracking-tight mt-6">
+                        Kiến tạo giá trị <span className="text-blue-500">vượt trội</span>
+                    </h3>
+                    <p className="text-slate-500 mt-6 font-light text-lg max-w-2xl mx-auto leading-relaxed">
+                        Hơn 1,000 doanh nghiệp đã chuyển đổi số thành công cùng Tabo ERP. <br className="hidden md:block" /> Hãy nghe họ chia sẻ về hành trình này.
+                    </p>
+                </div>
+
+                <div className="relative flex overflow-x-hidden">
+                    <div className="flex animate-marquee-slow whitespace-normal gap-12 px-6">
                         {[
-                            { name: 'John Wolfar', role: 'CEO, Credi Goo', quote: 'Tabo ERP đã đồng bộ hóa toàn bộ chuỗi cung ứng của chúng tôi, mang lại sự nhất quán mà trước đây chúng tôi chưa từng đạt được.', highlight: 'Tốc độ mở rộng gấp 3 lần' },
-                            { name: 'Daniel Foster', role: 'COO, Horizon Retail', quote: 'Việc quản lý 50 chi nhánh trở nên đơn giản như quản lý 1 cửa hàng. Dữ liệu thời gian thực là sự thay đổi hoàn hảo.', highlight: 'Doanh thu tăng 45% sau 6 tháng' },
-                            { name: 'Maria Sanchez', role: 'CTO, Logistics VN', quote: 'Không chỉ là phần mềm, đội ngũ hỗ trợ của Tabo ERP thực sự hiểu nghiệp vụ và giải quyết vấn đề cực kỳ nhanh chóng.', highlight: 'Giảm 30% chi phí vận hành' }
-                        ].map((item, i) => (
-                            <div key={i} className="p-10 bg-slate-50 hover:bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 rounded-[32px] border border-slate-100 flex flex-col h-full group">
-                                <Icon name="format_quote" className="text-5xl text-blue-500/20 mb-4 group-hover:text-blue-500 transition-colors" />
-                                <div className="text-blue-600 font-semibold text-lg mb-6 tracking-tight">
-                                    {item.highlight}
+                            { quote: 'Tabo ERP đã đồng bộ hóa toàn bộ chuỗi cung ứng của chúng tôi, mang lại sự nhất quán hoàn hảo.', highlight: 'Tốc độ mở rộng gấp 3 lần', icon: 'speed', color: 'from-blue-600 to-cyan-500' },
+                            { quote: 'Việc quản lý 50 chi nhánh trở nên đơn giản như quản lý 1 cửa hàng. Dữ liệu thực rất quan trọng.', highlight: 'Doanh thu tăng 45% sau 6 tháng', icon: 'trending_up', color: 'from-emerald-600 to-teal-500' },
+                            { quote: 'Không chỉ là phần mềm, đội ngũ hỗ trợ của Tabo thực sự hiểu nghiệp vụ và cực kỳ chuyên nghiệp.', highlight: 'Giảm 30% chi phí vận hành', icon: 'savings', color: 'from-purple-600 to-pink-500' },
+                            { quote: 'Chúng tôi tiết kiệm được hàng trăm giờ làm việc mỗi tháng nhờ hệ thống tự động hóa của Tabo.', highlight: 'Tối ưu 70% quy trình', icon: 'settings_suggest', color: 'from-cyan-600 to-blue-500' },
+                            { quote: 'Chi phí triển khai cực kỳ hợp lý so với những tính năng cao cấp mà hệ thống mang lại.', highlight: 'ROI đạt 200% năm đầu', icon: 'analytics', color: 'from-indigo-600 to-violet-500' },
+                            { quote: 'Giao diện thân thiện giúp nhân viên của chúng tôi làm quen chỉ sau 2 ngày đào tạo.', highlight: '98% nhân viên hài lòng', icon: 'mood', color: 'from-rose-600 to-orange-500' },
+                            { quote: 'Khả năng tuỳ biến linh hoạt của Tabo ERP cho phép chúng tôi tích hợp sâu vào quy trình đặc thù.', highlight: 'Tích hợp 100% nghiệp vụ', icon: 'hub', color: 'from-amber-600 to-yellow-500' },
+                            { quote: 'Báo cáo thông minh giúp tôi ra quyết định chính xác hơn dựa trên số liệu thực tế.', highlight: 'Tăng 25% hiệu quả quản trị', icon: 'insights', color: 'from-sky-600 to-indigo-500' },
+                            { quote: 'Khả năng bảo mật tuyệt đối giúp chúng tôi yên tâm hơn khi quản lý dữ liệu khách hàng nhạy cảm.', highlight: 'An tâm bảo mật dữ liệu', icon: 'shield', color: 'from-teal-600 to-emerald-500' },
+                            { quote: 'Hệ thống chạy mượt mà trên cả mobile giúp đội ngũ kinh doanh chốt đơn mọi lúc mọi nơi.', highlight: 'Vận hành linh hoạt 24/7', icon: 'stay_primary_portrait', color: 'from-violet-600 to-purple-500' },
+                        ].concat([
+                            { quote: 'Tabo ERP đã đồng bộ hóa toàn bộ chuỗi cung ứng của chúng tôi, mang lại sự nhất quán hoàn hảo.', highlight: 'Tốc độ mở rộng gấp 3 lần', icon: 'speed', color: 'from-blue-600 to-cyan-500' },
+                            { quote: 'Việc quản lý 50 chi nhánh trở nên đơn giản như quản lý 1 cửa hàng. Dữ liệu thực rất quan trọng.', highlight: 'Doanh thu tăng 45% sau 6 tháng', icon: 'trending_up', color: 'from-emerald-600 to-teal-500' },
+                            { quote: 'Không chỉ là phần mềm, đội ngũ hỗ trợ của Tabo thực sự hiểu nghiệp vụ và cực kỳ chuyên nghiệp.', highlight: 'Giảm 30% chi phí vận hành', icon: 'savings', color: 'from-purple-600 to-pink-500' },
+                            { quote: 'Chúng tôi tiết kiệm được hàng trăm giờ làm việc mỗi tháng nhờ hệ thống tự động hóa của Tabo.', highlight: 'Tối ưu 70% quy trình', icon: 'settings_suggest', color: 'from-cyan-600 to-blue-500' },
+                            { quote: 'Chi phí triển khai cực kỳ hợp lý so với những tính năng cao cấp mà hệ thống mang lại.', highlight: 'ROI đạt 200% năm đầu', icon: 'analytics', color: 'from-indigo-600 to-violet-500' },
+                            { quote: 'Giao diện thân thiện giúp nhân viên của chúng tôi làm quen chỉ sau 2 ngày đào tạo.', highlight: '98% nhân viên hài lòng', icon: 'mood', color: 'from-rose-600 to-orange-500' },
+                            { quote: 'Khả năng tuỳ biến linh hoạt của Tabo ERP cho phép chúng tôi tích hợp sâu vào quy trình đặc thù.', highlight: 'Tích hợp 100% nghiệp vụ', icon: 'hub', color: 'from-amber-600 to-yellow-500' },
+                            { quote: 'Báo cáo thông minh giúp tôi ra quyết định chính xác hơn dựa trên số liệu thực tế.', highlight: 'Tăng 25% hiệu quả quản trị', icon: 'insights', color: 'from-sky-600 to-indigo-500' },
+                            { quote: 'Khả năng bảo mật tuyệt đối giúp chúng tôi yên tâm hơn khi quản lý dữ liệu khách hàng nhạy cảm.', highlight: 'An tâm bảo mật dữ liệu', icon: 'shield', color: 'from-teal-600 to-emerald-500' },
+                            { quote: 'Hệ thống chạy mượt mà trên cả mobile giúp đội ngũ kinh doanh chốt đơn mọi lúc mọi nơi.', highlight: 'Vận hành linh hoạt 24/7', icon: 'stay_primary_portrait', color: 'from-violet-600 to-purple-500' },
+                        ]).map((item, i) => (
+                            <div key={i} className="flex-shrink-0 w-[450px] p-6 premium-card transition-all duration-700 rounded-[20px] flex flex-col group relative overflow-hidden">
+                                {/* Subtle Hover Background Pattern */}
+                                <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
+
+                                <div className={`w-12 h-12 rounded-xl mb-6 flex items-center justify-center transition-all group-hover:scale-110 duration-500 bg-blue-50 text-blue-600 border border-blue-100 shadow-sm shadow-blue-500/5`}>
+                                    <Icon name={item.icon} className="text-xl" />
                                 </div>
-                                <p className="text-slate-600 mb-10 font-light leading-relaxed grow text-lg italic">
+
+                                <div className="relative mb-6">
+                                    <div className="text-slate-900 font-medium text-xl tracking-tight leading-tight mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                                        {item.highlight}
+                                    </div>
+                                    <div className="w-12 h-1 bg-blue-500/20 rounded-full group-hover:w-16 group-hover:bg-blue-500/40 transition-all duration-500"></div>
+                                </div>
+
+                                <p className="text-slate-500 font-light leading-relaxed text-[17px] mb-8 relative z-10">
                                     "{item.quote}"
                                 </p>
-                                <div className="flex items-center pt-8 border-t border-slate-200/50">
-                                    <div className="h-12 w-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-bold text-lg mr-4">
-                                        {item.name.charAt(0)}
-                                    </div>
-                                    <div>
-                                        <div className="font-bold text-slate-900 tracking-tight">{item.name}</div>
-                                        <div className="text-[13px] text-slate-500">{item.role}</div>
-                                    </div>
+
+                                {/* Bottom Decorative Quote */}
+                                <div className="mt-auto flex justify-end opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                                    <Icon name="format_quote" className="text-5xl text-slate-900" />
                                 </div>
                             </div>
                         ))}
@@ -964,9 +1052,6 @@ const Home: React.FC = () => {
                             </h2>
                             <p className="text-slate-400 text-base font-light mb-8 max-w-xl leading-relaxed">
                                 Đừng để những rào cản vận hành ngăn cản sự phát triển của bạn. Liên hệ ngay với Tabo ERP để khai phá tiềm năng tối đa.
-                            </p>
-                            <p className="text-slate-500 text-xs font-light uppercase tracking-widest opacity-50 mt-12 hidden lg:block">
-                                Tabo ERP – Đồng hành cùng sự thịnh vượng của doanh nghiệp Việt
                             </p>
                         </div>
 
