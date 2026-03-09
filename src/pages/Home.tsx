@@ -351,10 +351,10 @@ const Home: React.FC = () => {
                         {/* Col 1: Horizontal Cards */}
                         <div className="flex flex-col gap-6 w-full lg:w-[48%]">
                             {/* Kế toán Card */}
-                            <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[180.5px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-10">
+                            <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[188px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-10">
                                 <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
                                     <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Kế toán tổng hợp</h4>
-                                    <p className="text-[15px] text-slate-500 font-light leading-snug">
+                                    <p className="text-base text-slate-500 font-light leading-relaxed">
                                         Hệ thống tự động hóa toàn diện nghiệp vụ tài chính và sổ sách doanh nghiệp.
                                     </p>
                                 </div>
@@ -386,10 +386,10 @@ const Home: React.FC = () => {
                             </div>
 
                             {/* Công nợ Card */}
-                            <div className="bg-white rounded-[20px] p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[180.5px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-10">
+                            <div className="bg-white rounded-[20px] p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[188px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-10">
                                 <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
                                     <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
-                                    <p className="text-[15px] text-slate-500 font-light leading-snug">
+                                    <p className="text-base text-slate-500 font-light leading-relaxed">
                                         Theo dõi và thu hồi nợ tự động giúp tối ưu dòng tiền lưu động.
                                     </p>
                                 </div>
@@ -442,13 +442,13 @@ const Home: React.FC = () => {
 
 
                         {/* Col 2: Feature Card */}
-                        <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[385px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
+                        <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="mb-6 text-center lg:text-left">
                                     <h3 className="text-2xl lg:text-3xl font-normal text-slate-900 leading-[1.2] tracking-tight mb-5">
                                         Tối ưu hóa cho mọi<br className="hidden lg:block" />lĩnh vực kinh doanh.
                                     </h3>
-                                    <p className="text-[15px] text-slate-500 font-light leading-relaxed">
+                                    <p className="text-base text-slate-500 font-light leading-relaxed">
                                         Nền tảng linh hoạt đáp ứng đặc thù từng ngành nghề, giúp vận hành chuyên sâu và hiệu quả hơn.
                                     </p>
                                 </div>
@@ -532,7 +532,7 @@ const Home: React.FC = () => {
                         {/* Col 3: Vertical Card */}
                         <div className="w-full lg:w-[26%] flex flex-col h-full">
                             {/* Thuế Card */}
-                            <div className="bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[385px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
+                            <div className="bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
                                 <div className="relative z-10 flex flex-col h-full">
                                     <div className="mb-6 relative h-[165px] flex flex-col justify-center">
                                         <div className="bg-slate-900 rounded-xl p-6 shadow-2xl relative overflow-hidden group-hover:-rotate-1 group-hover:scale-[1.02] transition-all duration-700">
@@ -563,10 +563,9 @@ const Home: React.FC = () => {
 
                                     <div className="text-center lg:text-left">
                                         <h4 className="text-2xl lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
-                                        <p className="text-[15px] text-slate-500 font-light leading-relaxed">
+                                        <p className="text-base text-slate-500 font-light leading-relaxed">
                                             Tự động hóa báo cáo thuế và quản lý hóa đơn.
-                                            Đảm bảo tính pháp lý chính xác, giúp tối ưu
-                                            hồ sơ doanh nghiệp một cách thông minh.
+                                            Đảm bảo tính pháp lý, giúp tối ưu hồ sơ doanh nghiệp.
                                         </p>
                                     </div>
                                 </div>
@@ -969,13 +968,11 @@ const Home: React.FC = () => {
                 `}} />
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-10 text-center">
-                    <span className="bg-blue-50 text-blue-600 border border-blue-100 font-semibold tracking-widest text-[11px] px-5 py-2 rounded-full mb-6 inline-flex items-center uppercase shadow-sm">
-                        Hệ sinh thái đối tác
-                    </span>
-                    <h3 className="text-4xl md:text-6xl font-normal text-slate-900 tracking-tight mt-6">
+                    <span className="text-blue-500 text-xs font-bold tracking-widest uppercase mb-4 block">Hệ sinh thái đối tác</span>
+                    <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mt-4">
                         Kiến tạo giá trị <span className="text-blue-500">vượt trội</span>
                     </h3>
-                    <p className="text-slate-500 mt-6 font-light text-lg max-w-2xl mx-auto leading-relaxed">
+                    <p className="mt-4 text-slate-500 font-light text-base max-w-2xl mx-auto leading-relaxed">
                         Hơn 1,000 doanh nghiệp đã chuyển đổi số thành công cùng Tabo ERP. <br className="hidden md:block" /> Hãy nghe họ chia sẻ về hành trình này.
                     </p>
                 </div>
