@@ -15,6 +15,7 @@
   --animate-flow-dash: flow-dash 3s linear infinite;
   --animate-float: float 15s ease-in-out infinite;
   --animate-beam-run: beam-run 3s linear infinite;
+  --animate-soft-pulse: soft-pulse 8s ease-in-out infinite;
 
   @keyframes marquee {
     0% {
@@ -101,6 +102,18 @@
 
     to {
       stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes soft-pulse {
+
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+
+    50% {
+      opacity: 1;
     }
   }
 }

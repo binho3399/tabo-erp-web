@@ -11,9 +11,9 @@ const Footer: React.FC = () => {
                 <div className="absolute bottom-0 left-0 w-1/4 h-full bg-blue-900/10 blur-[100px]"></div>
             </div>
 
-            {/* Top Light Beam Effect - Moved slightly up to avoid border issues */}
-            <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent z-40 opacity-80"></div>
-            <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent z-40 mt-[0.5px]"></div>
+            {/* Top Light Beam Effect - Moved slightly up with Soft Pulse Animation */}
+            <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent z-40 animate-soft-pulse"></div>
+            <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent z-40 mt-[0.5px] animate-soft-pulse" style={{ animationDelay: '1s' }}></div>
 
             {/* Decorative Fading Lines - 10 tiers stacking towards footer */}
             <div className="absolute -top-[130px] left-0 w-full pointer-events-none hidden md:block select-none z-30">
@@ -48,9 +48,10 @@ const Footer: React.FC = () => {
                             <Link
                                 key={idx}
                                 to={link.path}
-                                className="text-[14px] font-medium text-gray-400 hover:text-blue-500 transition-colors"
+                                className="group relative text-[16px] font-medium text-gray-400 hover:text-blue-500 transition-colors py-1"
                             >
-                                {link.name}
+                                <span>{link.name}</span>
+                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                             </Link>
                         ))}
                     </nav>
@@ -58,12 +59,18 @@ const Footer: React.FC = () => {
 
                 {/* Bottom Row: Copyright */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-[13px] font-medium text-gray-500">
+                    <p className="text-[16px] font-medium text-gray-500">
                         &copy; {new Date().getFullYear()} Tabo <span className="text-blue-500 uppercase">ERP</span>. Bảo lưu mọi quyền.
                     </p>
-                    <div className="flex gap-6 text-[13px] text-gray-500 font-medium">
-                        <span className="cursor-pointer hover:text-blue-500 transition-colors">Chính sách bảo mật</span>
-                        <span className="cursor-pointer hover:text-blue-500 transition-colors">Điều khoản dịch vụ</span>
+                    <div className="flex gap-6 text-[16px] text-gray-500 font-medium">
+                        <span className="group relative cursor-pointer hover:text-blue-500 transition-colors py-1">
+                            <span>Chính sách bảo mật</span>
+                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                        </span>
+                        <span className="group relative cursor-pointer hover:text-blue-500 transition-colors py-1">
+                            <span>Điều khoản dịch vụ</span>
+                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                        </span>
                     </div>
                 </div>
             </div>

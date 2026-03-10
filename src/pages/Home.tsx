@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from '../components/common/Icon';
 import Button from '../components/common/Button';
 
@@ -7,6 +7,20 @@ import Button from '../components/common/Button';
 
 
 const Home: React.FC = () => {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setMousePosition({
+                x: (e.clientX - window.innerWidth / 2) / 35,
+                y: (e.clientY - window.innerHeight / 2) / 35,
+            });
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
     return (
         <div className="font-sans text-gray-900 bg-[#F7F8F8]">
             {/* 1. Hero Section */}
@@ -1035,10 +1049,26 @@ const Home: React.FC = () => {
             <section className="bg-[#020617] text-white overflow-hidden relative py-32 border-t border-white/5">
                 {/* Dynamic Background Animation Elements */}
                 <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                    {/* Floating Animated Glows - Significantly more visible */}
-                    <div className="absolute top-[-25%] left-[-15%] w-[80%] h-[80%] rounded-full bg-blue-600/25 blur-[130px] animate-float transition-all"></div>
-                    <div className="absolute bottom-[-25%] right-[-15%] w-[70%] h-[70%] rounded-full bg-blue-500/20 blur-[110px] animate-float opacity-80" style={{ animationDelay: '-5s', animationDirection: 'reverse' }}></div>
-                    <div className="absolute top-[15%] right-[5%] w-[40%] h-[40%] rounded-full bg-indigo-500/15 blur-[90px] animate-float opacity-70" style={{ animationDelay: '-2s' }}></div>
+                    {/* Floating Animated Glows - Significantly more visible with Parallax */}
+                    <div
+                        className="absolute top-[-25%] left-[-15%] w-[80%] h-[80%] rounded-full bg-blue-600/25 blur-[130px] animate-float transition-all duration-300 ease-out"
+                        style={{ transform: `translate(${mousePosition.x * -1}px, ${mousePosition.y * -1}px)` }}
+                    ></div>
+                    <div
+                        className="absolute bottom-[-25%] right-[-15%] w-[70%] h-[70%] rounded-full bg-blue-500/20 blur-[110px] animate-float opacity-80 transition-all duration-300 ease-out"
+                        style={{
+                            animationDelay: '-5s',
+                            animationDirection: 'reverse',
+                            transform: `translate(${mousePosition.x * 1.2}px, ${mousePosition.y * 1.2}px)`
+                        }}
+                    ></div>
+                    <div
+                        className="absolute top-[15%] right-[5%] w-[40%] h-[40%] rounded-full bg-indigo-500/15 blur-[90px] animate-float opacity-70 transition-all duration-300 ease-out"
+                        style={{
+                            animationDelay: '-2s',
+                            transform: `translate(${mousePosition.x * 0.8}px, ${mousePosition.y * 0.8}px)`
+                        }}
+                    ></div>
 
                     {/* Subtle Moving Grid Pattern */}
                     <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>

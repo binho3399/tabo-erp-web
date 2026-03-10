@@ -51,12 +51,13 @@ const Navbar: React.FC = () => {
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className="text-base text-slate-500 hover:text-slate-900 font-medium transition-colors flex items-center"
+                                className="group relative text-base text-slate-500 hover:text-slate-900 font-medium transition-colors flex items-center py-1"
                             >
-                                {link.name}
+                                <span>{link.name}</span>
                                 {link.name === 'Tính Năng' && (
                                     <Icon name="add" className="ml-1 text-[18px] text-blue-700 opacity-90" />
                                 )}
+                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                             </Link>
                         ))}
                     </div>
