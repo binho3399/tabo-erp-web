@@ -9,6 +9,13 @@ const Footer: React.FC = () => {
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 blur-[120px]"></div>
                 <div className="absolute bottom-0 left-0 w-1/4 h-full bg-blue-900/10 blur-[100px]"></div>
+
+                {/* Large Background Text Watermark */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+                    <h2 className="text-[17.5vw] font-bold tracking-[-0.02em] leading-none whitespace-nowrap opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-white/5 to-transparent uppercase pr-[0.05em]">
+                        TABO ERP
+                    </h2>
+                </div>
             </div>
 
             {/* Top Light Beam Effect - Moved slightly up with Soft Pulse Animation */}
