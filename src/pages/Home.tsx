@@ -1097,7 +1097,7 @@ const Home: React.FC = () => {
                                 Mọi hành trình lớn đều <br /> bắt đầu từ một <span className="text-blue-500">giải pháp.</span>
                             </h2>
                             <p className="text-slate-400 text-base font-light mb-0 max-w-xl leading-relaxed">
-                                Đừng để những rào cản vận hành ngăn cản sự phát triển của bạn. Liên hệ ngay với Tabo ERP để khai phá tiềm năng tối đa.
+                                Đừng để những rào cản vận hành ngăn cản sự phát triển của bạn. <br /> Liên hệ ngay với Tabo ERP để khai phá tiềm năng tối đa.
                             </p>
                         </div>
 
