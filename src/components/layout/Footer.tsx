@@ -4,7 +4,17 @@ import logoWhite from '../../assets/Logo-white.png';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-[#020408] text-gray-500 py-12 relative z-20">
+        <footer className="bg-[#020408] text-gray-500 py-16 relative z-20">
+            {/* Background Glow Container (Safe overflow) */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 blur-[120px]"></div>
+                <div className="absolute bottom-0 left-0 w-1/4 h-full bg-blue-900/10 blur-[100px]"></div>
+            </div>
+
+            {/* Top Light Beam Effect - Moved slightly up to avoid border issues */}
+            <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent z-40 opacity-80"></div>
+            <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent z-40 mt-[0.5px]"></div>
+
             {/* Decorative Fading Lines - 10 tiers stacking towards footer */}
             <div className="absolute -top-[130px] left-0 w-full pointer-events-none hidden md:block select-none z-30">
                 <div className="flex flex-col items-center gap-1.5">
