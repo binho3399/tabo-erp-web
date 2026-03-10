@@ -1032,10 +1032,29 @@ const Home: React.FC = () => {
             </section>
 
             {/* 10. Final Call to Action - Split Layout */}
-            <section className="bg-slate-900 text-white overflow-hidden relative border-t border-white/5 py-32">
-                {/* Background effects */}
-                <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/2 h-full bg-blue-600/10 blur-[160px] pointer-events-none"></div>
-                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+            <section className="bg-[#020617] text-white overflow-hidden relative py-32 border-t border-white/5">
+                {/* Dynamic Background Animation Elements */}
+                <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                    {/* Floating Animated Glows - Significantly more visible */}
+                    <div className="absolute top-[-25%] left-[-15%] w-[80%] h-[80%] rounded-full bg-blue-600/25 blur-[130px] animate-float transition-all"></div>
+                    <div className="absolute bottom-[-25%] right-[-15%] w-[70%] h-[70%] rounded-full bg-blue-500/20 blur-[110px] animate-float opacity-80" style={{ animationDelay: '-5s', animationDirection: 'reverse' }}></div>
+                    <div className="absolute top-[15%] right-[5%] w-[40%] h-[40%] rounded-full bg-indigo-500/15 blur-[90px] animate-float opacity-70" style={{ animationDelay: '-2s' }}></div>
+
+                    {/* Subtle Moving Grid Pattern */}
+                    <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+
+                    {/* Animated Light Beams running on Grid - Lower Opacity for Subtlety */}
+                    <svg className="absolute inset-0 w-full h-full opacity-[0.2] mix-blend-screen" preserveAspectRatio="none" viewBox="0 0 100 100">
+                        {/* Horizontal beams */}
+                        <path d="M 0 20 H 100" fill="none" stroke="#60a5fa" strokeWidth="0.15" pathLength="1" strokeDasharray="0.15 0.85" className="animate-beam-run" style={{ animationDuration: '4s' }} />
+                        <path d="M 0 50 H 100" fill="none" stroke="#3b82f6" strokeWidth="0.15" pathLength="1" strokeDasharray="0.1 0.9" className="animate-beam-run" style={{ animationDuration: '7s', animationDelay: '-2s' }} />
+                        <path d="M 0 80 H 100" fill="none" stroke="#60a5fa" strokeWidth="0.15" pathLength="1" strokeDasharray="0.2 0.8" className="animate-beam-run" style={{ animationDuration: '5s', animationDelay: '-4s' }} />
+
+                        {/* Vertical beams */}
+                        <path d="M 30 0 V 100" fill="none" stroke="#60a5fa" strokeWidth="0.05" pathLength="1" strokeDasharray="0.12 0.88" className="animate-beam-run" style={{ animationDuration: '6s', animationDelay: '-1s' }} />
+                        <path d="M 70 0 V 100" fill="none" stroke="#3b82f6" strokeWidth="0.05" pathLength="1" strokeDasharray="0.15 0.85" className="animate-beam-run" style={{ animationDuration: '8s', animationDelay: '-5s' }} />
+                    </svg>
+                </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end">
