@@ -236,7 +236,7 @@ const Home: React.FC = () => {
                                 Đa dạng phân hệ,<br />
                                 <span className="text-blue-500 font-normal">tùy biến linh hoạt.</span>
                             </h2>
-                            <p className="text-slate-500 text-[15px] leading-relaxed max-w-sm">
+                            <p className="text-slate-500 text-base leading-relaxed max-w-sm">
                                 Chọn từ hàng chục phân hệ quản trị được thiết kế riêng. Mở rộng trơn tru khi doanh nghiệp của bạn lớn mạnh.
                             </p>
                         </div>
@@ -1038,7 +1038,7 @@ const Home: React.FC = () => {
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end">
                         {/* Left Side: Text Content */}
                         <div className="text-left">
                             <span className="bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-8 inline-flex uppercase">
@@ -1047,13 +1047,13 @@ const Home: React.FC = () => {
                             <h2 className="text-4xl md:text-[48px] font-normal mb-8 tracking-tight leading-[1.1]">
                                 Mọi hành trình lớn đều <br /> bắt đầu từ một <span className="text-blue-500">giải pháp.</span>
                             </h2>
-                            <p className="text-slate-400 text-base font-light mb-8 max-w-xl leading-relaxed">
+                            <p className="text-slate-400 text-base font-light mb-0 max-w-xl leading-relaxed">
                                 Đừng để những rào cản vận hành ngăn cản sự phát triển của bạn. Liên hệ ngay với Tabo ERP để khai phá tiềm năng tối đa.
                             </p>
                         </div>
 
                         {/* Right Side: Contact Cards */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 lg:ml-auto w-full max-w-lg">
                             <a href="tel:1800356893" className="group flex items-center gap-8 p-4 rounded-[20px] bg-white/5 border border-white/5 hover:bg-blue-600 hover:border-blue-500 transition-all duration-500 hover:-translate-y-1">
                                 <div className="w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 transform group-hover:rotate-12">
                                     <Icon name="call" className="text-[32px] text-blue-500 group-hover:text-white" />
