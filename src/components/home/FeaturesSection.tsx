@@ -24,17 +24,24 @@ const FeaturesSection: React.FC = () => {
                                 { name: "Tài chính", icon: "account_balance", desc: "Kế toán tổng hợp", color: "blue" },
                                 { name: "Kho bãi", icon: "inventory_2", desc: "Kiểm soát vật tư", color: "orange" },
                                 { name: "Nhân sự", icon: "groups", desc: "Chấm công & lương", color: "emerald" }
-                            ].map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
-                                    <div className={`w-10 h-10 rounded-full bg-${item.color}-50 flex items-center justify-center border border-${item.color}-100/50`}>
-                                        <Icon name={item.icon} className={`text-${item.color}-500 text-xl`} />
+                            ].map((item, idx) => {
+                                const colors: { [key: string]: any } = {
+                                    blue: "bg-blue-50 text-blue-500 border-blue-100",
+                                    orange: "bg-orange-50 text-orange-600 border-orange-100",
+                                    emerald: "bg-emerald-50 text-emerald-600 border-emerald-100"
+                                };
+                                return (
+                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md hover:border-slate-300 transition-all cursor-default shrink-0 group">
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border ${colors[item.color]}`}>
+                                            <Icon name={item.icon} className="text-xl" />
+                                        </div>
+                                        <div className="">
+                                            <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
+                                            <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
+                                        </div>
                                     </div>
-                                    <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
-                                        <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
 
                         {/* Row 2: 4 items */}
@@ -44,17 +51,25 @@ const FeaturesSection: React.FC = () => {
                                 { name: "Bán hàng", icon: "point_of_sale", desc: "Đơn hàng & Doanh thu", color: "pink" },
                                 { name: "Báo cáo", icon: "pie_chart", desc: "Phân tích đa chiều", color: "cyan" },
                                 { name: "Sản xuất", icon: "precision_manufacturing", desc: "Kế hoạch & Vận hành", color: "red" }
-                            ].map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
-                                    <div className={`w-10 h-10 rounded-full bg-${item.color}-50 flex items-center justify-center border border-${item.color}-100/50`}>
-                                        <Icon name={item.icon} className={`text-${item.color}-500 text-xl`} />
+                            ].map((item, idx) => {
+                                const colors: { [key: string]: any } = {
+                                    purple: "bg-purple-50 text-purple-600 border-purple-100",
+                                    pink: "bg-pink-50 text-pink-600 border-pink-100",
+                                    cyan: "bg-cyan-50 text-cyan-600 border-cyan-100",
+                                    red: "bg-red-50 text-red-600 border-red-100"
+                                };
+                                return (
+                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md hover:border-slate-300 transition-all cursor-default shrink-0 group">
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border ${colors[item.color]}`}>
+                                            <Icon name={item.icon} className="text-xl" />
+                                        </div>
+                                        <div className="">
+                                            <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
+                                            <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
+                                        </div>
                                     </div>
-                                    <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
-                                        <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
 
                         {/* Row 3: 3 items */}
@@ -63,17 +78,24 @@ const FeaturesSection: React.FC = () => {
                                 { name: "CRM", icon: "support_agent", desc: "Chăm sóc khách hàng", color: "teal" },
                                 { name: "Dự án", icon: "task", desc: "Quản lý tiến độ", color: "indigo" },
                                 { name: "Tài sản", icon: "category", desc: "Khấu hao & Bảo trì", color: "amber" }
-                            ].map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow cursor-default shrink-0">
-                                    <div className={`w-10 h-10 rounded-full bg-${item.color}-50 flex items-center justify-center border border-${item.color}-100/50`}>
-                                        <Icon name={item.icon} className={`text-${item.color}-500 text-xl`} />
+                            ].map((item, idx) => {
+                                const colors: { [key: string]: any } = {
+                                    teal: "bg-teal-50 text-teal-600 border-teal-100",
+                                    indigo: "bg-indigo-50 text-indigo-600 border-indigo-100",
+                                    amber: "bg-amber-50 text-amber-600 border-amber-100"
+                                };
+                                return (
+                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md hover:border-slate-300 transition-all cursor-default shrink-0 group">
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border ${colors[item.color]}`}>
+                                            <Icon name={item.icon} className="text-xl" />
+                                        </div>
+                                        <div className="">
+                                            <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
+                                            <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
+                                        </div>
                                     </div>
-                                    <div className="">
-                                        <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
-                                        <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
