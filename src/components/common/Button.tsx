@@ -26,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
 
     // 2. Định nghĩa các kiểu màu sắc (Variant)
     const variants = {
-        primary: 'bg-[#0070F3] hover:bg-blue-600 text-white',
+        primary: 'bg-[#0070F3] hover:bg-blue-600 text-white hover:shadow-lg hover:shadow-blue-500/40',
         secondary: 'bg-blue-50 hover:bg-blue-100 text-[#0070F3]',
         outline: 'bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700',
         ghost: 'bg-transparent hover:bg-slate-100 text-slate-700',

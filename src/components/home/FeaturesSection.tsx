@@ -26,13 +26,13 @@ const FeaturesSection: React.FC = () => {
                                 { name: "Nhân sự", icon: "groups", desc: "Chấm công & lương", color: "emerald" }
                             ].map((item, idx) => {
                                 const colors: { [key: string]: any } = {
-                                    blue: "bg-blue-50 text-blue-500 border-blue-100",
-                                    orange: "bg-orange-50 text-orange-600 border-orange-100",
-                                    emerald: "bg-emerald-50 text-emerald-600 border-emerald-100"
+                                    blue: "bg-blue-50 text-blue-500",
+                                    orange: "bg-orange-50 text-orange-600",
+                                    emerald: "bg-emerald-50 text-emerald-600"
                                 };
                                 return (
-                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md hover:border-slate-300 transition-all cursor-default shrink-0 group">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border ${colors[item.color]}`}>
+                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default shrink-0 group">
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[item.color]}`}>
                                             <Icon name={item.icon} className="text-xl" />
                                         </div>
                                         <div className="">
@@ -53,14 +53,14 @@ const FeaturesSection: React.FC = () => {
                                 { name: "Sản xuất", icon: "precision_manufacturing", desc: "Kế hoạch & Vận hành", color: "red" }
                             ].map((item, idx) => {
                                 const colors: { [key: string]: any } = {
-                                    purple: "bg-purple-50 text-purple-600 border-purple-100",
-                                    pink: "bg-pink-50 text-pink-600 border-pink-100",
-                                    cyan: "bg-cyan-50 text-cyan-600 border-cyan-100",
-                                    red: "bg-red-50 text-red-600 border-red-100"
+                                    purple: "bg-purple-50 text-purple-600",
+                                    pink: "bg-pink-50 text-pink-600",
+                                    cyan: "bg-cyan-50 text-cyan-600",
+                                    red: "bg-red-50 text-red-600"
                                 };
                                 return (
-                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md hover:border-slate-300 transition-all cursor-default shrink-0 group">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border ${colors[item.color]}`}>
+                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default shrink-0 group">
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[item.color]}`}>
                                             <Icon name={item.icon} className="text-xl" />
                                         </div>
                                         <div className="">
@@ -80,13 +80,13 @@ const FeaturesSection: React.FC = () => {
                                 { name: "Tài sản", icon: "category", desc: "Khấu hao & Bảo trì", color: "amber" }
                             ].map((item, idx) => {
                                 const colors: { [key: string]: any } = {
-                                    teal: "bg-teal-50 text-teal-600 border-teal-100",
-                                    indigo: "bg-indigo-50 text-indigo-600 border-indigo-100",
-                                    amber: "bg-amber-50 text-amber-600 border-amber-100"
+                                    teal: "bg-teal-50 text-teal-600",
+                                    indigo: "bg-indigo-50 text-indigo-600",
+                                    amber: "bg-amber-50 text-amber-600"
                                 };
                                 return (
-                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full border border-slate-200/60 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.08)] hover:shadow-md hover:border-slate-300 transition-all cursor-default shrink-0 group">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center border ${colors[item.color]}`}>
+                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default shrink-0 group">
+                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[item.color]}`}>
                                             <Icon name={item.icon} className="text-xl" />
                                         </div>
                                         <div className="">
@@ -105,7 +105,7 @@ const FeaturesSection: React.FC = () => {
                     {/* Col 1: Horizontal Cards */}
                     <div className="flex flex-col gap-6 w-full lg:w-[48%]">
                         {/* Kế toán Card */}
-                        <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[188px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-10">
+                        <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
                             <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
                                 <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Kế toán tổng hợp</h4>
                                 <p className="text-base text-slate-500 font-light leading-relaxed">
@@ -140,7 +140,7 @@ const FeaturesSection: React.FC = () => {
                         </div>
 
                         {/* Công nợ Card */}
-                        <div className="bg-white rounded-[20px] p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[188px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm gap-8 lg:gap-10">
+                        <div className="bg-white rounded-[20px] p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
                             <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
                                 <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
                                 <p className="text-base text-slate-500 font-light leading-relaxed">
@@ -191,7 +191,7 @@ const FeaturesSection: React.FC = () => {
 
 
                     {/* Col 2: Feature Card */}
-                    <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
+                    <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative">
                         <div className="relative z-10 flex flex-col h-full">
                             <div className="mb-6 text-center lg:text-left">
                                 <h3 className="text-2xl lg:text-3xl font-normal text-slate-900 leading-[1.2] tracking-tight mb-5">
@@ -281,7 +281,7 @@ const FeaturesSection: React.FC = () => {
                     {/* Col 3: Vertical Card */}
                     <div className="w-full lg:w-[26%] flex flex-col h-full">
                         {/* Thuế Card */}
-                        <div className="bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] group transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden relative shadow-sm">
+                        <div className="bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative">
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="mb-6 relative h-[165px] flex flex-col justify-center">
                                     <div className="bg-slate-900 rounded-xl p-6 shadow-2xl relative overflow-hidden group-hover:-rotate-1 group-hover:scale-[1.02] transition-all duration-700">

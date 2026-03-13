@@ -22,18 +22,14 @@ const Footer: React.FC = () => {
             <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent z-40 animate-soft-pulse"></div>
             <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent z-40 mt-[0.5px] animate-soft-pulse" style={{ animationDelay: '1s' }}></div>
 
-            {/* Decorative Fading Lines - 10 tiers stacking towards footer */}
-            <div className="absolute -top-[130px] left-0 w-full pointer-events-none hidden md:block select-none z-30">
+            {/* Decorative Fading Lines - 6 tiers stacking towards footer */}
+            <div className="absolute -top-[80px] left-0 w-full pointer-events-none hidden md:block select-none z-30">
                 <div className="flex flex-col items-center gap-1.5">
-                    <div className="w-full h-[0.5px] bg-[#020408] opacity-[0.05]"></div>
-                    <div className="w-full h-[1px] bg-[#020408] opacity-[0.1]"></div>
                     <div className="w-full h-[1.5px] bg-[#020408] opacity-[0.15]"></div>
-                    <div className="w-full h-[2.5px] bg-[#020408] opacity-[0.25]"></div>
                     <div className="w-full h-[4px] bg-[#020408] opacity-[0.35]"></div>
-                    <div className="w-full h-[6.5px] bg-[#020408] opacity-[0.5]"></div>
                     <div className="w-full h-[10px] bg-[#020408] opacity-[0.65]"></div>
                     <div className="w-full h-[15px] bg-[#020408] opacity-[0.8]"></div>
-                    <div className="w-full h-[22px] bg-[#020408] opacity-[0.9]"></div>
+                    <div className="w-full h-[24px] bg-[#020408] opacity-[0.9]"></div>
                     <div className="w-full h-[32px] bg-[#020408]"></div>
                 </div>
             </div>

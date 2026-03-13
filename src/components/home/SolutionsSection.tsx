@@ -3,52 +3,99 @@ import Icon from '../common/Icon';
 import Button from '../common/Button';
 
 const SolutionsSection: React.FC = () => {
-    return (
-        <section className="py-24 bg-white border-y border-slate-100">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-20 text-center tracking-tight">Giải quyết mọi <span className="text-blue-500">nỗi đau</span> doanh nghiệp.</h2>
+    const solutions = [
+        {
+            id: "01",
+            title: "Dữ liệu phân tán",
+            desc: "Nhanh chóng hợp nhất và làm sạch dữ liệu từ mọi nguồn, tạo ra một 'phiên bản sự thật duy nhất'.",
+            items: [
+                'Hợp nhất danh mục hàng hóa',
+                'Đồng bộ tồn kho liên chi nhánh',
+                'Quản lý công nợ tập trung',
+                'Hệ thống báo cáo tự động'
+            ],
+            color: "blue"
+        },
+        {
+            id: "02",
+            title: "Khó khăn mở rộng",
+            desc: "Quy trình cũ không bắt kịp tốc độ tăng trưởng, gây nghẽn cổ chai tại các khâu then chốt.",
+            items: [
+                'Quy trình chuẩn hóa ISO',
+                'Mở rộng chi nhánh không giới hạn',
+                'Phân quyền linh hoạt',
+                'Hạ tầng Cloud sẵn sàng'
+            ],
+            color: "indigo"
+        },
+        {
+            id: "03",
+            title: "Thất thoát tài sản",
+            desc: "Thiếu cơ chế kiểm soát chéo dẫn đến thất thoát hàng hóa và tài chính không rõ nguyên nhân.",
+            items: [
+                'Kiểm kê kho tự động',
+                'Cảnh báo gian lận Real-time',
+                'Đối soát dòng tiền chính xác',
+                'Truy xuất lịch sử giao dịch'
+            ],
+            color: "slate"
+        }
+    ];
 
+    return (
+        <section className="py-24 bg-white border-y border-slate-100 relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                    <div className="lg:col-span-4 space-y-3">
-                        {[
-                            { id: "01", title: "Dữ liệu phân tán" },
-                            { id: "02", title: "Khó khăn mở rộng" },
-                            { id: "03", title: "Thất thoát tài sản" }
-                        ].map((tab, i) => (
-                            <div key={i} className={`p-6 rounded-[20px] cursor-pointer transition-all duration-300 flex items-center justify-between group ${i === 0 ? 'bg-slate-900 text-white shadow-xl' : 'bg-slate-50 text-slate-600 hover:bg-slate-100'}`}>
-                                <div className="flex items-center gap-4">
-                                    <span className={`text-xs font-bold ${i === 0 ? 'text-blue-400' : 'text-slate-300'}`}>{tab.id}</span>
-                                    <h4 className="text-lg font-normal tracking-tight">{tab.title}</h4>
+                    {/* Left Column: Text + CTA */}
+                    <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left pt-10 sticky top-24">
+                        <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-8 tracking-tight leading-[1.15]">
+                            Giải quyết mọi <br /><span className="text-blue-500">nỗi đau</span> doanh nghiệp.
+                        </h2>
+                        <p className="text-slate-500 font-light text-base mb-12 leading-relaxed">
+                            Chuẩn hóa quy trình và minh bạch dữ liệu để doanh nghiệp <br /> vận hành trơn tru, ổn định và hiệu quả lâu dài.
+                        </p>
+                        <div className="hidden lg:block">
+                            <Button to="/contact" variant="primary" size="lg">
+                                Tư vấn giải pháp miễn phí
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Stacked Cards (keeping original UI) */}
+                    <div className="lg:col-span-6 flex flex-col gap-8">
+                        {solutions.map((sol, i) => (
+                            <div key={i} className="group bg-white rounded-[20px] p-6 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                                <div className="flex items-center justify-between mb-8">
+                                    <span className="text-sm font-bold text-blue-500 bg-blue-50 px-3 py-1 rounded-full">{sol.id}</span>
+                                    <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                        <Icon name={i === 0 ? "account_tree" : i === 1 ? "trending_up" : "security"} className="text-xl" />
+                                    </div>
                                 </div>
-                                <Icon name="chevron_right" className={`${i === 0 ? 'text-blue-400' : 'text-slate-300 group-hover:translate-x-1 transition-transform'}`} />
+
+                                <h3 className="text-2xl lg:text-[28px] font-normal text-slate-900 mb-4 tracking-tight">{sol.title}</h3>
+                                <p className="text-base text-slate-500 font-light mb-8 leading-relaxed max-w-xl">
+                                    {sol.desc}
+                                </p>
+
+                                <div className="space-y-3 mt-auto pt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                                    {sol.items.map((item, idx) => (
+                                        <div key={idx} className="flex items-center gap-3">
+                                            <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                                <Icon name="check" className="text-[10px] text-blue-500 font-black" />
+                                            </div>
+                                            <span className="text-[14px] text-slate-700 font-normal">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    <div className="lg:col-span-8 bg-slate-50 p-10 lg:p-12 rounded-[32px] border border-slate-100">
-                        <p className="text-2xl text-slate-800 mb-12 font-light leading-snug">
-                            Nhanh chóng hợp nhất và làm sạch dữ liệu từ mọi nguồn, tạo ra một "phiên bản sự thật duy nhất" hỗ trợ ra quyết định chuẩn xác.
-                        </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {[
-                                'Hợp nhất danh mục hàng hóa',
-                                'Đồng bộ tồn kho liên chi nhánh',
-                                'Quản lý công nợ tập trung',
-                                'Hệ thống báo cáo tự động'
-                            ].map((item, i) => (
-                                <div key={i} className="bg-white rounded-xl p-5 border border-slate-200/50 flex items-center justify-between group cursor-pointer hover:border-blue-500 transition-colors">
-                                    <h4 className="text-[15px] font-normal text-slate-700 tracking-tight">{item}</h4>
-                                    <div className="w-6 h-6 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-all">
-                                        <Icon name="add" className="text-xs" />
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        <div className="mt-12 flex justify-start">
-                            <Button to="/contact" variant="primary">
-                                Tư vấn giải pháp miễn phí
-                            </Button>
-                        </div>
+                    {/* Mobile CTA */}
+                    <div className="lg:hidden w-full flex justify-center mt-8">
+                        <Button to="/contact" variant="primary" size="lg" fullWidth>
+                            Tư vấn giải pháp miễn phí
+                        </Button>
                     </div>
                 </div>
             </div>

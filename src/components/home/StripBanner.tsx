@@ -30,7 +30,7 @@ const StripBanner: React.FC = () => {
                             linear-gradient(to right, rgba(59, 130, 246, 0.2) 1px, transparent 1px),
                             linear-gradient(to bottom, rgba(59, 130, 246, 0.2) 1px, transparent 1px)
                          `,
-                        backgroundSize: '60px 60px'
+                        backgroundSize: '100px 16.666%'
                     }}></div>
 
                 {/* 6. Floating 'Sparks' (More visible) */}

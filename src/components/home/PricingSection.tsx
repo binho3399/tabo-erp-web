@@ -3,116 +3,153 @@ import Icon from '../common/Icon';
 import Button from '../common/Button';
 
 const PricingSection: React.FC = () => {
-    return (
-        <section className="py-32 bg-[#F8FAFC] relative overflow-hidden">
-            {/* Background Decorations */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-50/50 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
+    const plans = [
+        {
+            name: "Gói Miễn Phí",
+            tagline: "Gói khởi đầu",
+            price: "0",
+            period: "/ mãi mãi",
+            desc: "Giải pháp cơ bản cho hộ kinh doanh nhỏ.",
+            buttonText: "Bắt đầu ngay",
+            variant: "secondary" as const,
+            features: ["1 kho", "100 mã", "Chuẩn", "Cơ bản", "Cộng đồng", "Cơ bản"]
+        },
+        {
+            name: "Gói Doanh Nghiệp",
+            tagline: "Gói toàn diện",
+            price: "Liên hệ",
+            period: "",
+            desc: "Giải pháp ERP may đo cho tập đoàn lớn.",
+            buttonText: "Liên hệ tư vấn",
+            variant: "primary" as const,
+            highlight: true,
+            features: ["Vô hạn", "Vô hạn", "Đa chiều RT", "AI toàn diện", "Chuyên gia riêng", "Tùy biến sâu"]
+        }
+    ];
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    const comparisonFeatures = [
+        "Quản lý kho hàng",
+        "Mã danh mục sản phẩm",
+        "Hệ thống báo cáo",
+        "AI & Tự động hóa",
+        "Dịch vụ hỗ trợ",
+        "Khả năng mở rộng"
+    ];
+
+    return (
+        <section className="py-32 bg-white relative overflow-hidden">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-20">
-                    <span className="text-blue-500 text-xs font-bold tracking-widest uppercase mb-4 block">Bảng giá linh hoạt</span>
-                    <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mt-4">Lựa chọn gói giải pháp <span className="text-blue-500">phù hợp.</span></h3>
-                    <p className="mt-4 text-slate-500 font-light text-base max-w-2xl mx-auto leading-relaxed">
-                        Đầu tư vào quy trình hiệu quả, gặt hái kết quả bền vững với các lựa chọn linh hoạt.
-                    </p>
+                    <span className="text-blue-500 text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Bảng giá minh bạch</span>
+                    <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+                        Đầu tư thông minh cho <br /><span className="text-blue-500">tương lai doanh nghiệp.</span>
+                    </h3>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto relative pt-8">
-                    {/* Free Plan */}
-                    <div className="bg-white p-6 rounded-[20px] border border-slate-100 shadow-[0_4px_30px_-5px_rgba(0,0,0,0.03)] flex flex-col group relative transition-all duration-300 hover:shadow-[0_15px_40px_-10px_rgba(0,0,0,0.06)] hover:-translate-y-1">
-                        <div className="flex justify-between items-start mb-6">
-                            <h4 className="text-[#0070F3] font-bold tracking-[0.15em] text-[10px] uppercase mt-2">Gói khởi đầu</h4>
-                            <div className="w-10 h-10 bg-slate-50 border border-slate-100 rounded-[12px] flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
-                                <Icon name="rocket_launch" className="text-slate-400 text-lg" />
-                            </div>
+                {/* Main Grid Layout */}
+                <div className="relative">
+                    {/* Header Row with Plan Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-2">
+                        {/* Title corner */}
+                        <div className="hidden md:flex flex-col justify-end pb-8">
+                            <h4 className="text-xl font-normal text-slate-900 tracking-tight">Tính năng chi tiết</h4>
                         </div>
 
-                        <h5 className="text-[24px] font-normal text-slate-800 mb-4">Gói Miễn Phí</h5>
-
-                        <div className="flex items-baseline gap-2 mb-6">
-                            <div className="flex items-end">
-                                <span className="text-[56px] font-normal leading-none text-slate-900 tracking-tighter">0</span>
-                                <span className="text-[28px] font-normal leading-none text-slate-900 tracking-tighter relative ml-1 mr-1">
-                                    đ
-                                    <span className="absolute -bottom-1.5 left-0 w-full h-[3px] bg-slate-900 rounded-sm"></span>
-                                </span>
-                            </div>
-                            <span className="text-slate-400 text-[14px] font-light">/ mãi mãi</span>
-                        </div>
-
-                        <div className="flex-grow">
-                            <ul className="space-y-4 mb-8">
-                                {[
-                                    "Quản lý kho hàng cơ bản (1 kho)",
-                                    "Số hóa 100 mã danh mục sản phẩm",
-                                    "Hệ thống báo cáo bán hàng chuẩn",
-                                    "Hỗ trợ cộng đồng & tài liệu hướng dẫn"
-                                ].map((feature, i) => (
-                                    <li key={i} className="flex items-center gap-4 text-slate-600 font-light text-[14px]">
-                                        <div className="w-4 h-4 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
-                                            <Icon name="check" className="text-[#0070F3] text-[10px] font-black" />
+                        {plans.map((plan, idx) => (
+                            <div 
+                                key={idx} 
+                                className={`rounded-[20px] p-6 flex flex-col relative transition-all duration-500 hover:-translate-y-1 ${
+                                    plan.highlight 
+                                    ? 'bg-[#0F172A] text-white shadow-[0_20px_50px_-15px_rgba(0,112,243,0.3)]' 
+                                    : 'bg-slate-50/50 border border-slate-100/80 text-slate-900'
+                                }`}
+                            >
+                                {plan.highlight && (
+                                    <>
+                                        {/* Background Effects Wrapper - handles the gradients overflow */}
+                                        <div className="absolute inset-0 rounded-[20px] overflow-hidden pointer-events-none">
+                                            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.3),transparent_70%)] opacity-70"></div>
+                                            <div className="absolute top-0 right-0 w-full h-full bg-[linear-gradient(45deg,rgba(168,85,247,0.1),transparent_40%)]"></div>
                                         </div>
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                                        
+                                        {/* Badge is now visible because main container isn't overflow-hidden */}
+                                        <div className="absolute -top-[12px] left-1/2 -translate-x-1/2 z-30">
+                                            <span className="bg-blue-600 text-white text-[10px] font-bold px-5 py-1.5 rounded-full uppercase tracking-widest shadow-lg">Đề xuất</span>
+                                        </div>
+                                    </>
+                                )}
+                                
+                                <div className="relative z-10 h-full flex flex-col">
+                                    <span className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block ${plan.highlight ? 'text-blue-400' : 'text-slate-400'}`}>
+                                        {plan.tagline}
+                                    </span>
+                                    <h5 className="text-3xl font-normal mb-8 tracking-tight">{plan.name}</h5>
+                                    
+                                    <div className="flex items-baseline gap-1 mb-2">
+                                        <span className={`text-5xl font-normal tracking-tighter ${plan.highlight ? 'text-white' : 'text-slate-900'}`}>
+                                            {plan.price}
+                                        </span>
+                                        <span className={`text-sm font-light ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
+                                            {plan.period}
+                                        </span>
+                                    </div>
+                                    
+                                    <p className={`text-[14px] font-light leading-relaxed mb-10 ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
+                                        {plan.desc}
+                                    </p>
 
-                        <Button to="/contact" variant="secondary" fullWidth size="md" className="!rounded-xl shadow-sm">
-                            Bắt đầu ngay
-                        </Button>
-                    </div>
-
-                    {/* Enterprise Plan */}
-                    <div className="bg-[#0F172A] p-[1px] rounded-[20px] shadow-[0_20px_50px_-15px_rgba(0,112,243,0.15)] flex flex-col relative group transition-all duration-300 hover:-translate-y-1">
-                        <div className="bg-[#0F172A] p-6 rounded-[19px] h-full flex flex-col relative">
-                            {/* Recommended Badge */}
-                            <div className="absolute -top-[16px] left-1/2 -translate-x-1/2 z-30">
-                                <span className="bg-[#0070F3] text-white text-[9px] font-bold px-5 py-1.5 rounded-full uppercase tracking-[0.1em] shadow-lg shadow-blue-500/20">
-                                    Đề xuất
-                                </span>
-                            </div>
-
-                            <div className="flex justify-between items-start mb-6">
-                                <h4 className="text-[#0070F3] font-bold tracking-[0.15em] text-[10px] uppercase mt-2">Gói toàn diện</h4>
-                                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-[12px] flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
-                                    <Icon name="auto_awesome" className="text-slate-300 text-lg" />
+                                    <div className="mt-auto">
+                                        <Button 
+                                            to="/contact" 
+                                            variant={plan.highlight ? 'primary' : 'outline'} 
+                                            fullWidth 
+                                            size="lg" 
+                                            className={plan.highlight ? 'shadow-blue-500/20 shadow-lg' : ''}
+                                        >
+                                            {plan.buttonText}
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
+                        ))}
+                    </div>
 
-                            <h5 className="text-[24px] font-normal text-white mb-4">Gói Doanh Nghiệp</h5>
-
-                            <div className="flex items-baseline gap-2 mb-6">
-                                <span className="text-[56px] font-normal leading-[0.9] text-white tracking-tighter">Liên hệ</span>
-                            </div>
-
-                            <div className="flex-grow">
-                                <ul className="space-y-4 mb-8">
-                                    {[
-                                        "Mở rộng không giới hạn chi nhánh",
-                                        "AI chuẩn đoán & dự báo chuỗi cung ứng",
-                                        "Tự động hóa 100% quy trình kế toán",
-                                        "Hỗ trợ chuyên gia tư vấn riêng 24/7",
-                                        "Tùy biến sâu theo yêu cầu doanh nghiệp"
-                                    ].map((feature, i) => (
-                                        <li key={i} className="flex items-center gap-4 text-slate-300 font-light text-[14px]">
-                                            <div className="w-4 h-4 rounded-full bg-[#0070F3]/20 flex items-center justify-center flex-shrink-0 border border-[#0070F3]/30">
-                                                <Icon name="check" className="text-[#0070F3] text-[10px] font-black" />
+                    {/* Comparison Table Part */}
+                    <div className="hidden md:block">
+                        {comparisonFeatures.map((feature, fIdx) => (
+                            <div 
+                                key={fIdx} 
+                                className={`grid grid-cols-3 gap-8 py-6 border-b border-slate-100/60 items-center transition-colors hover:bg-slate-50/30 px-6 -mx-6 rounded-xl`}
+                            >
+                                <div className="text-[14px] text-slate-500 font-light">{feature}</div>
+                                {plans.map((plan, pIdx) => (
+                                    <div key={pIdx} className="text-center">
+                                        {typeof plan.features[fIdx] === 'string' && plan.features[fIdx] !== '-' ? (
+                                            <span className={`text-[15px] font-normal ${plan.highlight ? 'text-slate-900' : 'text-slate-600'}`}>
+                                                {plan.features[fIdx]}
+                                            </span>
+                                        ) : (
+                                            <div className="flex justify-center">
+                                                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${plan.highlight ? 'bg-blue-500/10' : 'bg-slate-100'}`}>
+                                                    <Icon name="check" className={`text-xs font-black ${plan.highlight ? 'text-blue-500' : 'text-slate-400'}`} />
+                                                </div>
                                             </div>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
+                                        )}
+                                    </div>
+                                ))}
                             </div>
+                        ))}
+                    </div>
 
-                            <Button to="/contact" variant="primary" fullWidth size="md" className="!rounded-xl shadow-[0_8px_20px_-10px_rgba(0,112,243,0.5)]">
-                                Liên hệ tư vấn ngay
-                            </Button>
-                        </div>
+                    {/* Mobile Comparison (Simple list) */}
+                    <div className="md:hidden mt-8 space-y-12">
+                         {/* Mobile users already see the cards at top, we don't need a heavy table here per modern design rules, but we can list plan highlights if needed */}
                     </div>
                 </div>
             </div>
+
+            {/* Background elements */}
+            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-50/30 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
         </section>
     );
 };
