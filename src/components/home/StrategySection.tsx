@@ -1,96 +1,132 @@
 import React from 'react';
 import Icon from '../common/Icon';
+import Badge from '../common/Badge';
+import Button from '../common/Button';
 
 const StrategySection: React.FC = () => {
+    const strategies = [
+        {
+            title: "Kiến trúc dữ liệu lõi",
+            desc: "Đồng bộ hóa dữ liệu giữa các phòng ban, xóa bỏ rào cản thông tin và tối ưu hóa quản trị.",
+            icon: "layers"
+        },
+        {
+            title: "Tự động hóa quy trình",
+            desc: "Giải phóng nhân lực khỏi các công việc lặp lại nhàm chán bằng AI thông minh.",
+            icon: "smart_toy"
+        },
+        {
+            title: "Báo cáo đa chiều RT",
+            desc: "Hệ thống báo cáo tức thì với Live Data Stream, hỗ trợ ra quyết định chính xác.",
+            icon: "insights"
+        },
+        {
+            title: "Khả năng mở rộng vô hạn",
+            desc: "Hệ thống sẵn sàng cho hàng triệu giao dịch và tích hợp phân hệ mới dễ dàng.",
+            icon: "rocket_launch"
+        },
+        {
+            title: "Bảo mật đa tầng",
+            desc: "Bảo vệ thông tin doanh nghiệp với các tiêu chuẩn mã hóa và an ninh hàng đầu.",
+            icon: "security"
+        },
+        {
+            title: "Hệ sinh thái API",
+            desc: "Kết nối không giới hạn với các nền tảng bên thứ ba thông qua cổng API mạnh mẽ.",
+            icon: "api"
+        }
+    ];
+
     return (
-        <section className="py-24 bg-white border-y border-slate-100 relative overflow-hidden">
-            <div className="absolute inset-0 opacity-[0.2]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '20px 20px' }}></div>
-            
+        <section className="py-24 bg-white border-y border-slate-100 relative overflow-hidden text-left">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-8 tracking-tight leading-[1.15]">
-                        Thúc đẩy thành công qua <span className="text-blue-500">quản trị thông minh.</span>
-                    </h2>
-                    <p className="text-base text-slate-500 max-w-2xl mx-auto leading-relaxed font-light">
-                        Chúng tôi không chỉ cung cấp phần mềm, mà mang đến một tư duy quản trị mới - nơi mọi quyết định đều dựa trên dữ liệu thực tế.
-                    </p>
+                {/* Section Header Badge */}
+                <Badge variant="primary" className="mb-6">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
+
+                {/* Header Row: Split Title & Desc */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-20 items-end">
+                    <div className="text-left">
+                        <h2 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] font-sans">
+                            Thúc đẩy thành công qua <br />
+                            <span className="text-blue-500 font-normal">quản trị thông minh.</span>
+                        </h2>
+                    </div>
+                    <div className="text-left pb-2">
+                        <p className="text-base text-slate-500 leading-relaxed font-light">
+                            Chúng tôi mang đến tư duy quản trị mới, giải pháp thực tiễn và lộ trình triển khai tối ưu giúp mọi quyết định dựa trên dữ liệu thực tế.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 auto-rows-[240px]">
-                    {/* Main Card: Data Architecture */}
-                    <div className="lg:col-span-8 lg:row-span-2 bg-slate-900 rounded-[32px] p-10 relative overflow-hidden group">
-                        <div className="relative z-10 h-full flex flex-col">
-                            <div className="w-12 h-12 rounded-2xl bg-blue-500 flex items-center justify-center mb-6">
-                                <Icon name="layers" className="text-white text-2xl" />
+                {/* Grid Layout inspired by Figure 2: 4 columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {strategies.map((item, i) => (
+                        <div key={i} className="bg-white border border-slate-50 rounded-[20px] p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex flex-col h-full">
+                            <div>
+                                <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-sm">
+                                    <Icon name={item.icon} className="text-2xl" />
+                                </div>
                             </div>
-                            <h3 className="text-3xl font-normal text-white mb-4 tracking-tight">Kiến trúc dữ liệu lõi</h3>
-                            <p className="text-slate-400 font-light text-lg max-w-md leading-relaxed">
-                                Xây dựng nền tảng thông tin đồng bộ cho tất cả các phòng ban, loại bỏ hoàn toàn các ốc đảo dữ liệu.
-                            </p>
-                            <div className="mt-auto pt-10 flex gap-4 overflow-hidden">
-                                {[1, 2, 3, 4, 5].map((_, i) => (
-                                    <div key={i} className="flex-1 h-32 bg-white/5 rounded-t-xl border-x border-t border-white/10 flex items-end p-3 group-hover:bg-white/10 transition-colors">
-                                        <div className="w-full bg-blue-500/40 rounded-sm" style={{ height: `${20 + (i * 15)}%` }}></div>
+                            <div className="mt-8 text-left">
+                                <h3 className="text-[28px] font-normal text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors h-[68px] flex items-start">
+                                    {item.title}
+                                </h3>
+                                <p className="text-base text-slate-500 font-light leading-relaxed">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* Big CTA Card: Spans 2 columns on large screens */}
+                    <div className="sm:col-span-2 lg:col-span-2 bg-[#001D3D] rounded-[20px] p-6 relative overflow-hidden flex flex-col group shadow-xl h-full">
+                        <div className="relative z-10 text-left pt-2 flex flex-col h-full">
+                            <h3 className="text-[28px] font-normal text-white mb-6 leading-[1.2] max-w-sm h-auto sm:h-[68px] flex items-start">
+                                Liên hệ tư vấn chiến lược <br /> miễn phí ngay hôm nay
+                            </h3>
+                            
+                            <div className="mt-auto flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 w-full pt-8">
+                                {/* Success/Social Proof Widget (Bottom Left) - Creative UI */}
+                                <div className="group/widget flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-2.5 pr-6 backdrop-blur-md transition-all duration-500 cursor-default shadow-2xl relative overflow-hidden">
+                                    {/* Top reflection line */}
+                                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-50"></div>
+                                    
+                                    <div className="w-12 h-12 rounded-[14px] bg-gradient-to-br from-blue-500/20 to-blue-600/10 text-blue-400 border border-blue-500/20 flex items-center justify-center group-hover/widget:scale-105 group-hover/widget:text-blue-300 group-hover/widget:bg-blue-500/30 transition-all duration-500 relative">
+                                        <Icon name="rocket_launch" className="text-xl transition-transform duration-500 group-hover/widget:-translate-y-1 group-hover/widget:translate-x-1" />
+                                        <div className="absolute -top-1 -right-1 flex h-3 w-3">
+                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                            <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                                        </div>
                                     </div>
+                                    <div className="flex flex-col">
+                                        <span className="flex items-baseline gap-1">
+                                            <span className="text-[26px] font-normal text-white tracking-tight leading-none">500</span>
+                                            <span className="text-blue-500 font-bold text-xl leading-none">+</span>
+                                        </span>
+                                        <span className="text-slate-400 text-[13px] font-light mt-1">
+                                            Doanh nghiệp tin dùng
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* CTA Button (Bottom Right) */}
+                                <Button to="/contact" variant="primary" size="lg" className="bg-blue-500 hover:bg-blue-400 border-none px-10 shadow-lg shadow-blue-500/20 w-fit shrink-0">
+                                    Đăng ký tư vấn ngay
+                                </Button>
+                            </div>
+                        </div>
+                        
+                        {/* Decorative Stripes from Figure 2 */}
+                        <div className="absolute inset-x-0 top-0 h-full opacity-[0.07] pointer-events-none flex justify-end">
+                            <div className="h-full w-1/2 flex gap-5 pr-12">
+                                {[...Array(12)].map((_, i) => (
+                                    <div key={i} className="h-full w-px bg-white"></div>
                                 ))}
                             </div>
                         </div>
-                        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
-                    </div>
-
-                    {/* Card 2: Automation */}
-                    <div className="lg:col-span-4 lg:row-span-1 bg-slate-50 rounded-[32px] p-8 border border-slate-100 hover:border-blue-500/30 transition-all duration-500 overflow-hidden relative group">
-                        <div className="relative z-10">
-                            <div className="flex items-center gap-4 mb-4">
-                                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-slate-100">
-                                    <Icon name="smart_toy" className="text-blue-500 text-xl" />
-                                </div>
-                                <h4 className="text-xl font-normal text-slate-900 tracking-tight">Tự động hóa</h4>
-                            </div>
-                            <p className="text-slate-500 font-light text-[15px]">Giải phóng nhân lực khỏi các công việc lặp lại nhàm chán bằng AI.</p>
-                        </div>
-                        <div className="absolute -bottom-4 -right-4 opacity-5 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700">
-                            <Icon name="settings" className="text-9xl" />
-                        </div>
-                    </div>
-
-                    {/* Card 3: RT Reports */}
-                    <div className="lg:col-span-4 lg:row-span-1 bg-white rounded-[32px] p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden relative group">
-                        <div className="relative z-10 h-full flex flex-col">
-                            <div className="flex items-center gap-4 mb-4">
-                                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center border border-blue-100/50">
-                                    <Icon name="insights" className="text-blue-500 text-xl" />
-                                </div>
-                                <h4 className="text-xl font-normal text-slate-900 tracking-tight">Báo cáo đa chiều RT</h4>
-                            </div>
-                            <div className="mt-2 flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Live Data Stream</span>
-                            </div>
-                        </div>
-                        <div className="absolute bottom-6 right-6 flex items-end gap-1">
-                            {[20, 40, 30, 60, 45].map((h, i) => (
-                                <div key={i} className="w-2 bg-slate-100 rounded-t-sm group-hover:bg-blue-100 transition-colors" style={{ height: `${h}px` }}></div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Card 4: Scalability */}
-                    <div className="lg:col-span-12 lg:row-span-1 bg-blue-600 rounded-[32px] p-8 relative overflow-hidden group">
-                        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between h-full gap-8">
-                            <div className="max-w-md text-center md:text-left">
-                                <h4 className="text-2xl font-normal text-white mb-2 tracking-tight">Khả năng mở rộng vô hạn</h4>
-                                <p className="text-blue-100 font-light text-[15px]">
-                                    Hệ thống sẵn sàng cho hàng triệu giao dịch, dễ dàng tích hợp thêm các phân hệ mới bất cứ lúc nào.
-                                </p>
-                            </div>
-                            <div className="flex gap-4 self-center md:self-auto">
-                                <div className="px-6 py-2 bg-white/10 rounded-full border border-white/20 text-white text-[13px] backdrop-blur-sm">Multi-branch</div>
-                                <div className="px-6 py-2 bg-white/10 rounded-full border border-white/20 text-white text-[13px] backdrop-blur-sm">Cloud Native</div>
-                                <div className="px-6 py-2 bg-white/10 rounded-full border border-white/20 text-white text-[13px] backdrop-blur-sm">API Ready</div>
-                            </div>
-                        </div>
-                        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_50%,transparent_75%)] bg-[length:250px_250px] animate-[pulse_5s_infinite]"></div>
+                        
+                        {/* Glow effect */}
+                        <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
                     </div>
                 </div>
             </div>

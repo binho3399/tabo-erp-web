@@ -1,0 +1,30 @@
+import React from 'react';
+
+interface BadgeProps {
+    children: React.ReactNode;
+    variant?: 'primary' | 'secondary' | 'blue' | 'ghost';
+    className?: string;
+}
+
+const Badge: React.FC<BadgeProps> = ({ 
+    children, 
+    variant = 'primary', 
+    className = '' 
+}) => {
+    const baseStyles = "inline-flex items-center font-semibold tracking-wide rounded-full transition-all";
+    
+    const variants = {
+        primary: "bg-blue-50 text-blue-700 border border-blue-100 px-4 py-1.5 text-xs shadow-sm",
+        blue: "bg-blue-50 text-blue-600 border border-blue-100 px-3 py-1 text-[10px] uppercase",
+        secondary: "bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1 text-[10px]",
+        ghost: "text-blue-500 text-xs font-bold tracking-widest uppercase"
+    };
+
+    return (
+        <span className={`${baseStyles} ${variants[variant]} ${className}`}>
+            {children}
+        </span>
+    );
+};
+
+export default Badge;

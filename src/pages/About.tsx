@@ -1,6 +1,6 @@
-import React from 'react';
 import Icon from '../components/common/Icon';
 import Button from '../components/common/Button';
+import Badge from '../components/common/Badge';
 
 const About: React.FC = () => {
     return (
@@ -17,14 +17,14 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center text-center">
-                    <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-8 inline-flex items-center shadow-sm">
+                    <Badge variant="primary" className="mb-8 font-semibold">
                         VỀ CHÚNG TÔI
-                    </span>
+                    </Badge>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-8 text-slate-900">
                         Kiến tạo tương lai quản trị <br className="hidden md:block" />cho <span className="text-blue-500">doanh nghiệp Việt.</span>
                     </h1>
                     <p className="text-base text-slate-500 mb-10 max-w-2xl font-light">
-                        Chúng tôi ở đây để giúp biến những quy trình phức tạp thành các thao tác đơn giản, giúp bạn tập trung vào những điều quan trọng nhất: cốt lõi kinh doanh.
+                        Chúng tôi đơn giản hóa quy trình phức tạp, giúp bạn tập trung hoàn toàn vào giá trị kinh doanh cốt lõi.
                     </p>
                 </div>
             </section>
@@ -91,9 +91,9 @@ const About: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { icon: "verified", title: "Chất lượng là danh dự", desc: "Mỗi chức năng, mỗi dòng code đều được xây dựng với tiêu chuẩn khắt khe nhất để đảm bảo hệ thống vận hành trơn tru và bảo mật tuyệt đối." },
-                            { icon: "handshake", title: "Khách hàng làm trung tâm", desc: "Mọi quyết định thiết kế và phát triển tính năng đều dựa trên việc giải quyết 'nỗi đau' thực tế của doanh nghiệp thay vì chỉ là bề nổi." },
-                            { icon: "rocket_launch", title: "Không ngừng đổi mới", desc: "Công nghệ thay đổi từng ngày, và chúng tôi cũng vậy. Tabo liên tục cập nhật các xu hướng quản trị thông minh để dẫn đầu." }
+                            { icon: "verified", title: "Chất lượng là danh dự", desc: "Xây dựng hệ thống với tiêu chuẩn khắt khe nhất, đảm bảo vận hành trơn tru và bảo mật tối đa." },
+                            { icon: "handshake", title: "Khách hàng làm trung tâm", desc: "Tập trung tối ưu trải nghiệm và giải quyết sâu sắc các bài toán thực tế của mọi doanh nghiệp." },
+                            { icon: "rocket_launch", title: "Không ngừng đổi mới", desc: "Liên tục cập nhật công nghệ mới và tư duy quản trị thông minh để đồng hành cùng sự đột phá." }
                         ].map((value, i) => (
                             <div key={i} className="bg-white p-8 rounded-[24px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] border border-slate-100/50 hover:-translate-y-1 transition-transform group">
                                 <div className="w-14 h-14 bg-blue-50 rounded-[16px] flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
@@ -111,12 +111,12 @@ const About: React.FC = () => {
             <section className="py-24 bg-white relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-4 inline-flex items-center shadow-sm">
+                        <Badge variant="primary" className="mb-4 font-semibold">
                             CON NGƯỜI TABO
-                        </span>
+                        </Badge>
                         <h2 className="text-3xl lg:text-4xl font-normal text-slate-900 tracking-tight mt-4">Những người <span className="text-blue-500">đứng sau hệ thống</span></h2>
                         <p className="text-slate-500 mt-4 font-light text-lg max-w-2xl mx-auto">
-                            Đội ngũ chuyên gia giàu kinh nghiệm với cùng một mục tiêu: "Đưa quản trị số đến mọi doanh nghiệp vừa và nhỏ".
+                            Đội ngũ chuyên gia giàu kinh nghiệm với cùng một mục tiêu: "Đưa quản trị số đến mọi doanh nghiệp".
                         </p>
                     </div>
 

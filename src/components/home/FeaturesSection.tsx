@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from '../common/Icon';
+import Badge from '../common/Badge';
 
 const FeaturesSection: React.FC = () => {
     return (
@@ -7,13 +8,14 @@ const FeaturesSection: React.FC = () => {
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Row */}
                 <div className="flex flex-col lg:flex-row items-center lg:items-end mb-16 gap-y-10 lg:gap-5 text-center lg:text-left">
-                    <div className="max-w-md lg:w-[30%] flex flex-col items-center lg:items-start">
+                    <div className="max-w-md lg:w-[35%] flex flex-col items-center lg:items-start">
+                        <Badge variant="primary" className="mb-6">HỆ SINH THÁI</Badge>
                         <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
                             Đa dạng phân hệ,<br />
                             <span className="text-blue-500 font-normal">tùy biến linh hoạt.</span>
                         </h2>
                         <p className="text-slate-500 text-base leading-relaxed max-w-sm">
-                            Chọn từ hàng chục phân hệ quản trị được thiết kế riêng. Mở rộng trơn tru khi doanh nghiệp của bạn lớn mạnh.
+                            Hàng chục phân hệ chuyên biệt, sẵn sàng mở rộng linh hoạt theo quy mô doanh nghiệp.
                         </p>
                     </div>
 
@@ -313,8 +315,7 @@ const FeaturesSection: React.FC = () => {
                                 <div className="text-center lg:text-left">
                                     <h4 className="text-2xl lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
                                     <p className="text-base text-slate-500 font-light leading-relaxed">
-                                        Tự động hóa báo cáo thuế và quản lý hóa đơn.
-                                        Đảm bảo tính pháp lý, giúp tối ưu hồ sơ doanh nghiệp.
+                                        Tự động hóa báo cáo thuế và quản lý hóa đơn. Đảm bảo tính pháp lý, giúp tối ưu hồ sơ doanh nghiệp.
                                     </p>
                                 </div>
                             </div>

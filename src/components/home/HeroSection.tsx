@@ -1,6 +1,7 @@
 import React from 'react';
 import Icon from '../common/Icon';
 import Button from '../common/Button';
+import Badge from '../common/Badge';
 
 const HeroSection: React.FC = () => {
     return (
@@ -83,9 +84,9 @@ const HeroSection: React.FC = () => {
                 <div className="text-center max-w-3xl mx-auto flex flex-col items-center relative z-20">
                     {/* Sparkles Decoration */}
                     <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
-                    <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-8 inline-flex items-center shadow-sm">
+                    <Badge variant="primary" className="mb-8">
                         HỆ ĐIỀU HÀNH DOANH NGHIỆP
-                    </span>
+                    </Badge>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-8 text-slate-900 font-sans max-w-[95%] md:max-w-full">
                         Quản lý <span className="text-blue-500">bán hàng</span> và <br className="hidden md:block" /><span className="text-blue-500">vận hành</span> doanh nghiệp trên <br className="hidden md:block" />một <span className="text-blue-500">nền tảng duy nhất.</span>
                     </h1>

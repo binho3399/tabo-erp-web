@@ -1,5 +1,5 @@
-import React from 'react';
 import Icon from '../common/Icon';
+import Badge from '../common/Badge';
 
 const TestimonialsSection: React.FC = () => {
     return (
@@ -32,7 +32,9 @@ const TestimonialsSection: React.FC = () => {
             `}} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-10 text-center">
-                <span className="text-blue-500 text-xs font-bold tracking-widest uppercase mb-4 block">Hệ sinh thái đối tác</span>
+                <Badge variant="ghost" className="mb-4">
+                    Hệ sinh thái đối tác
+                </Badge>
                 <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mt-4">
                     Kiến tạo giá trị <span className="text-blue-500">vượt trội</span>
                 </h3>
