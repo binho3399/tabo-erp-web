@@ -7,7 +7,6 @@ import VisionSection from '../components/home/VisionSection';
 import SolutionsSection from '../components/home/SolutionsSection';
 import PricingSection from '../components/home/PricingSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
-import CTASection from '../components/home/CTASection';
 
 const Home: React.FC = () => {
     return (
@@ -20,7 +19,6 @@ const Home: React.FC = () => {
             <StrategySection />
             <PricingSection />
             <TestimonialsSection />
-            <CTASection />
         </div>
     );
 };

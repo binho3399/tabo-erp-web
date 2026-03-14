@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import CTASection from '../home/CTASection';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -13,6 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <main className="flex-grow">
                 {children}
             </main>
+            <CTASection />
             <Footer />
         </div>
     );

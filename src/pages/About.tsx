@@ -1,5 +1,5 @@
 import Icon from '../components/common/Icon';
-import Button from '../components/common/Button';
+
 import Badge from '../components/common/Badge';
 
 const About: React.FC = () => {
@@ -107,54 +107,9 @@ const About: React.FC = () => {
                 </div>
             </section>
 
-            {/* Team Section */}
-            <section className="py-24 bg-white relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <Badge variant="primary" className="mb-4 font-semibold">
-                            CON NGƯỜI TABO
-                        </Badge>
-                        <h2 className="text-3xl lg:text-4xl font-normal text-slate-900 tracking-tight mt-4">Những người <span className="text-blue-500">đứng sau hệ thống</span></h2>
-                        <p className="text-slate-500 mt-4 font-light text-lg max-w-2xl mx-auto">
-                            Đội ngũ chuyên gia giàu kinh nghiệm với cùng một mục tiêu: "Đưa quản trị số đến mọi doanh nghiệp".
-                        </p>
-                    </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-                        {[
-                            { name: "Phạm Minh Tâm", role: "CEO & Founder", img: "https://i.pravatar.cc/500?img=11" },
-                            { name: "Lê Hoàng Nam", role: "Giám Đốc Công Nghệ", img: "https://i.pravatar.cc/500?img=12" },
-                            { name: "Trần Mai Hương", role: "Giám Đốc Sản Phẩm", img: "https://i.pravatar.cc/500?img=9" },
-                            { name: "Hoàng Văn Tuấn", role: "Trưởng Phòng Triển Khai", img: "https://i.pravatar.cc/500?img=13" }
-                        ].map((member, i) => (
-                            <div key={i} className="group relative rounded-[24px] overflow-hidden bg-slate-100 shadow-sm border border-slate-200">
-                                <img src={member.img} alt={member.name} className="w-full h-[320px] lg:h-[350px] object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent flex flex-col justify-end p-6">
-                                    <h4 className="text-xl font-medium text-white tracking-tight mb-1">{member.name}</h4>
-                                    <p className="text-sm font-light text-blue-300">{member.role}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
-            {/* CTA */}
-            <section className="py-24 bg-[#F7F8F8] border-t border-slate-100 text-center relative overflow-hidden">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <h2 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mb-8">
-                        Đồng hành cùng <span className="text-blue-500">Tabo</span>
-                    </h2>
-                    <p className="text-lg text-slate-500 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-                        Hãy để chúng tôi giúp bạn giảm thiểu gánh nặng quản lý ngay hôm nay.
-                    </p>
-                    <div className="flex justify-center">
-                        <Button to="/contact" variant="primary" size="lg">
-                            Liên hệ tư vấn
-                        </Button>
-                    </div>
-                </div>
-            </section>
+
         </div>
     );
 };
