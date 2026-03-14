@@ -108,7 +108,7 @@ const SolutionsSection: React.FC = () => {
                                     {sol.desc}
                                 </p>
 
-                                <div className="space-y-3 mt-auto grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                                <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
                                     {sol.items.map((item, idx) => (
                                         <div key={idx} className="flex items-center gap-3">
                                             <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
