@@ -84,14 +84,14 @@ const HeroSection: React.FC = () => {
                 <div className="text-center max-w-3xl mx-auto flex flex-col items-center relative z-20">
                     {/* Sparkles Decoration */}
                     <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
-                    <Badge variant="primary" className="mb-8">
+                    <Badge variant="primary" className="mb-5">
                         HỆ ĐIỀU HÀNH DOANH NGHIỆP
                     </Badge>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-8 text-slate-900 font-sans max-w-[95%] md:max-w-full">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-5 text-slate-900 font-sans max-w-[95%] md:max-w-full">
                         Quản lý <span className="text-blue-500">bán hàng</span> và <br className="hidden md:block" /><span className="text-blue-500">vận hành</span> doanh nghiệp trên <br className="hidden md:block" />một <span className="text-blue-500">nền tảng duy nhất.</span>
                     </h1>
 
-                    <p className="text-base text-slate-500 mb-10 max-w-2xl font-light">
+                    <p className="text-base text-slate-500 mb-6 max-w-2xl font-normal">
                         Luôn cập nhật dữ liệu tài chính, kho bãi và tiến độ công việc theo thời gian thực <br className="hidden md:block" />để đưa ra các quyết định chiến lược chuẩn xác nhất.
                     </p>
 

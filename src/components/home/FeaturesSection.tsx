@@ -9,7 +9,7 @@ const FeaturesSection: React.FC = () => {
                 {/* Header Row */}
                 <div className="flex flex-col lg:flex-row items-center lg:items-end mb-16 gap-y-10 lg:gap-5 text-center lg:text-left">
                     <div className="max-w-md lg:w-[35%] flex flex-col items-center lg:items-start">
-                        <Badge variant="primary" className="mb-6">HỆ SINH THÁI</Badge>
+                        <Badge variant="primary" className="mb-5">HỆ SINH THÁI</Badge>
                         <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
                             Đa dạng phân hệ,<br />
                             <span className="text-blue-500 font-normal">tùy biến linh hoạt.</span>
@@ -110,7 +110,7 @@ const FeaturesSection: React.FC = () => {
                         <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
                             <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
                                 <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Kế toán tổng hợp</h4>
-                                <p className="text-base text-slate-500 font-light leading-relaxed">
+                                <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Hệ thống tự động hóa toàn diện nghiệp vụ tài chính và sổ sách doanh nghiệp.
                                 </p>
                             </div>
@@ -145,7 +145,7 @@ const FeaturesSection: React.FC = () => {
                         <div className="bg-white rounded-[20px] p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
                             <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
                                 <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
-                                <p className="text-base text-slate-500 font-light leading-relaxed">
+                                <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Theo dõi và thu hồi nợ tự động giúp tối ưu dòng tiền lưu động.
                                 </p>
                             </div>
@@ -199,7 +199,7 @@ const FeaturesSection: React.FC = () => {
                                 <h3 className="text-2xl lg:text-3xl font-normal text-slate-900 leading-[1.2] tracking-tight mb-5">
                                     Tối ưu hóa cho mọi<br className="hidden lg:block" />lĩnh vực kinh doanh.
                                 </h3>
-                                <p className="text-base text-slate-500 font-light leading-relaxed">
+                                <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Nền tảng linh hoạt đáp ứng đặc thù từng ngành nghề, giúp vận hành chuyên sâu và hiệu quả hơn.
                                 </p>
                             </div>
@@ -314,7 +314,7 @@ const FeaturesSection: React.FC = () => {
 
                                 <div className="text-center lg:text-left">
                                     <h4 className="text-2xl lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
-                                    <p className="text-base text-slate-500 font-light leading-relaxed">
+                                    <p className="text-base text-slate-500 font-normal leading-relaxed">
                                         Tự động hóa báo cáo thuế và quản lý hóa đơn. Đảm bảo tính pháp lý, giúp tối ưu hồ sơ doanh nghiệp.
                                     </p>
                                 </div>

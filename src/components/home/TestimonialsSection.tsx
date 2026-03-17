@@ -32,13 +32,13 @@ const TestimonialsSection: React.FC = () => {
             `}} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-10 text-center">
-                <Badge variant="primary" className="mb-6 uppercase">
+                <Badge variant="primary" className="mb-5 uppercase">
                     Hệ sinh thái đối tác
                 </Badge>
-                <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mt-4">
+                <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mb-5">
                     Kiến tạo giá trị <span className="text-blue-500">vượt trội</span>
                 </h3>
-                <p className="mt-4 text-slate-500 font-light text-base max-w-2xl mx-auto leading-relaxed">
+                <p className="text-slate-500 font-normal text-base max-w-2xl mx-auto leading-relaxed">
                     Hơn 1,000 doanh nghiệp đã chuyển đổi số thành công cùng Tabo ERP. <br className="hidden md:block" /> Hãy nghe họ chia sẻ về hành trình này.
                 </p>
             </div>
@@ -83,7 +83,7 @@ const TestimonialsSection: React.FC = () => {
                                 <div className="w-12 h-1 bg-blue-500/20 rounded-full group-hover:w-16 group-hover:bg-blue-500/40 transition-all duration-500"></div>
                             </div>
 
-                            <p className="text-slate-500 font-light leading-relaxed text-[17px] mb-8 relative z-10">
+                            <p className="text-slate-500 font-normal leading-relaxed text-[17px] mb-8 relative z-10">
                                 "{item.quote}"
                             </p>
 

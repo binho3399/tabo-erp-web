@@ -41,7 +41,7 @@ const StrategySection: React.FC = () => {
         <section className="py-24 bg-white border-y border-slate-100 relative overflow-hidden text-left">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header Badge */}
-                <Badge variant="primary" className="mb-6">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
+                <Badge variant="primary" className="mb-5">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
 
                 {/* Header Row: Split Title & Desc */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-20 items-end">
@@ -52,7 +52,7 @@ const StrategySection: React.FC = () => {
                         </h2>
                     </div>
                     <div className="text-left pb-2">
-                        <p className="text-base text-slate-500 leading-relaxed font-light">
+                        <p className="text-base text-slate-500 leading-relaxed font-normal">
                             Chúng tôi mang đến tư duy quản trị mới, giải pháp thực tiễn và lộ trình triển khai tối ưu giúp mọi quyết định dựa trên dữ liệu thực tế.
                         </p>
                     </div>
@@ -71,7 +71,7 @@ const StrategySection: React.FC = () => {
                                 <h3 className="text-[28px] font-normal text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors h-[68px] flex items-start">
                                     {item.title}
                                 </h3>
-                                <p className="text-base text-slate-500 font-light leading-relaxed">
+                                <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     {item.desc}
                                 </p>
                             </div>
@@ -103,7 +103,7 @@ const StrategySection: React.FC = () => {
                                             <span className="text-[26px] font-normal text-white tracking-tight leading-none">500</span>
                                             <span className="text-blue-500 font-bold text-xl leading-none">+</span>
                                         </span>
-                                        <span className="text-slate-400 text-[13px] font-light mt-1">
+                                        <span className="text-slate-400 text-[13px] font-normal mt-1">
                                             Doanh nghiệp tin dùng
                                         </span>
                                     </div>

@@ -53,7 +53,7 @@ const PricingSection: React.FC = () => {
         <section className="py-32 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-20">
-                    <Badge variant="primary" className="mb-6 uppercase">Bảng giá minh bạch</Badge>
+                    <Badge variant="primary" className="mb-5 uppercase">Bảng giá minh bạch</Badge>
                     <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
                         Đầu tư thông minh cho <br /><span className="text-blue-500">tương lai doanh nghiệp.</span>
                     </h3>
@@ -114,7 +114,7 @@ const PricingSection: React.FC = () => {
                                     <div className="flex justify-between items-center gap-4">
                                         <div className="flex-1">
                                             <h5 className="text-[28px] font-normal tracking-tight">{plan.name}</h5>
-                                            <p className={`text-[12px] font-light leading-relaxed ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
+                                            <p className={`text-[12px] font-normal leading-relaxed ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
                                                 {plan.desc}
                                             </p>
                                         </div>
@@ -124,7 +124,7 @@ const PricingSection: React.FC = () => {
                                                 <span className={`text-4xl lg:text-5xl font-normal tracking-tighter ${plan.highlight ? 'text-white' : 'text-slate-900'}`}>
                                                     {plan.price}
                                                 </span>
-                                                <span className={`text-sm font-light ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
+                                                <span className={`text-sm font-normal ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
                                                     {plan.period}
                                                 </span>
                                             </div>
@@ -154,7 +154,7 @@ const PricingSection: React.FC = () => {
                                 key={fIdx}
                                 className={`grid grid-cols-5 gap-8 py-6 border-b border-slate-100/60 items-center transition-colors hover:bg-slate-50/30 px-6 -mx-6 rounded-xl`}
                             >
-                                <div className="col-span-1 text-[16px] text-slate-500 font-light">{feature}</div>
+                                <div className="col-span-1 text-[16px] text-slate-500 font-normal">{feature}</div>
                                 {plans.map((plan, pIdx) => (
                                     <div key={pIdx} className="col-span-2 text-center">
                                         {typeof plan.features[fIdx] === 'string' && plan.features[fIdx] !== '-' ? (

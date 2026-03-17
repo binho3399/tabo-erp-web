@@ -23,7 +23,7 @@ const About: React.FC = () => {
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-8 text-slate-900">
                         Kiến tạo tương lai quản trị <br className="hidden md:block" />cho <span className="text-blue-500">doanh nghiệp Việt.</span>
                     </h1>
-                    <p className="text-base text-slate-500 mb-10 max-w-2xl font-light">
+                    <p className="text-base text-slate-500 mb-10 max-w-2xl font-normal">
                         Chúng tôi đơn giản hóa quy trình phức tạp, giúp bạn tập trung hoàn toàn vào giá trị kinh doanh cốt lõi.
                     </p>
                 </div>

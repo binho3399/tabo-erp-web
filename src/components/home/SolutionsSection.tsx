@@ -78,11 +78,11 @@ const SolutionsSection: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     {/* Left Column: Text + CTA */}
                     <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left pt-10 sticky top-24">
-                        <Badge variant="primary" className="mb-6">GIẢI PHÁP</Badge>
-                        <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-8 tracking-tight leading-[1.15]">
+                        <Badge variant="primary" className="mb-5">GIẢI PHÁP</Badge>
+                        <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-5 tracking-tight leading-[1.15]">
                             Giải quyết mọi<br /><span className="text-blue-500">nỗi đau</span> doanh nghiệp.
                         </h2>
-                        <p className="text-slate-500 font-light text-base mb-12 leading-relaxed">
+                        <p className="text-slate-500 font-normal text-base mb-6 leading-relaxed">
                             Chuẩn hóa quy trình và minh bạch dữ liệu để doanh nghiệp <br className="hidden md:block" /> vận hành trơn tru, ổn định và hiệu quả lâu dài.
                         </p>
                         <div className="hidden lg:block">
@@ -103,18 +103,21 @@ const SolutionsSection: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <h3 className="text-2xl lg:text-[28px] font-normal text-slate-900 mb-4 tracking-tight">{sol.title}</h3>
-                                <p className="text-base text-slate-500 font-light mb-4 leading-relaxed max-w-xl">
+                                <h3 className="text-2xl lg:text-[28px] font-normal text-slate-900 mb-5 tracking-tight">{sol.title}</h3>
+                                <p className="text-base text-slate-500 font-normal mb-5 leading-relaxed max-w-xl">
                                     {sol.desc}
                                 </p>
 
-                                <div className="mt-auto grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
+                                <div className="mt-auto flex flex-col gap-y-4 relative">
+                                    {/* Vertical connecting line */}
+                                    <div className="absolute left-[10px] top-[10px] bottom-[10px] w-px border-l border-dashed border-blue-200 z-0"></div>
+                                    
                                     {sol.items.map((item, idx) => (
-                                        <div key={idx} className="flex items-center gap-3">
-                                            <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                        <div key={idx} className="flex items-center gap-3 relative z-10">
+                                            <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 border border-white shadow-sm">
                                                 <Icon name="check" className="text-[10px] text-blue-500 font-black" />
                                             </div>
-                                            <span className="text-[14px] text-slate-700 font-normal">{item}</span>
+                                            <span className="text-base text-slate-700 font-normal">{item}</span>
                                         </div>
                                     ))}
                                 </div>
