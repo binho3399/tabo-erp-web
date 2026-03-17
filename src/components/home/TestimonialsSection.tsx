@@ -31,7 +31,7 @@ const TestimonialsSection: React.FC = () => {
                 }
             `}} />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-10 text-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10 text-center">
                 <Badge variant="primary" className="mb-5 uppercase">
                     Hệ sinh thái đối tác
                 </Badge>
@@ -88,7 +88,7 @@ const TestimonialsSection: React.FC = () => {
                             </p>
 
                             {/* Bottom Decorative Quote */}
-                            <div className="mt-auto flex justify-end opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                            <div className="mt-2 flex justify-end opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                                 <Icon name="format_quote" className="text-5xl text-slate-900" />
                             </div>
                         </div>

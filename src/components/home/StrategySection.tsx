@@ -44,7 +44,7 @@ const StrategySection: React.FC = () => {
                 <Badge variant="primary" className="mb-5">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
 
                 {/* Header Row: Split Title & Desc */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-20 items-end">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-16 items-end">
                     <div className="text-left">
                         <h2 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] font-sans">
                             Thúc đẩy thành công qua <br />

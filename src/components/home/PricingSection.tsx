@@ -20,12 +20,21 @@ const PricingSection: React.FC = () => {
         {
             name: "Gói Miễn Phí",
             tagline: "Gói khởi đầu",
-            price: "0",
+            price: "0đ",
             period: "/ mãi mãi",
             desc: "Giải pháp cơ bản cho hộ kinh doanh nhỏ.",
             buttonText: "Bắt đầu ngay",
             variant: "secondary",
-            features: ["1 kho", "100 mã", "Chuẩn", "Cơ bản", "Cộng đồng", "Cơ bản"]
+            features: [
+                "1 kênh bán",
+                "Chỉ POS Lẻ",
+                "1 Kho tự quản",
+                "Sổ tay truyền thống",
+                "Thủ công cơ bản",
+                "-",
+                "Tiêu chuẩn",
+                "Cộng đồng hỗ trợ"
+            ]
         },
         {
             name: "Gói Doanh Nghiệp",
@@ -36,23 +45,34 @@ const PricingSection: React.FC = () => {
             buttonText: "Liên hệ tư vấn",
             variant: "primary",
             highlight: true,
-            features: ["Vô hạn", "Vô hạn", "Đa chiều RT", "AI toàn diện", "Chuyên gia riêng", "Tùy biến sâu"]
+            features: [
+                "Đa nền tảng (Shopee, Web,...)",
+                "POS Sỉ & Lẻ, nhiều giá",
+                "Đồng bộ đa chi nhánh",
+                "Smart Banking tự động",
+                "Kết nối Hãng VC & Đối soát",
+                "Zalo ZNS, Phân hạng KH",
+                "Dashboard Real-time 360°",
+                "Chuyên gia riêng & Mở API"
+            ]
         }
     ];
 
     const comparisonFeatures = [
-        "Quản lý kho hàng",
-        "Mã danh mục sản phẩm",
-        "Hệ thống báo cáo",
-        "AI & Tự động hóa",
-        "Dịch vụ hỗ trợ",
-        "Khả năng mở rộng"
+        "Quản lý Đơn hàng Đa kênh",
+        "Hệ thống POS Sỉ & Lẻ",
+        "Kho bãi & Chuỗi cung ứng",
+        "Sổ Quỹ & Đối soát tự động",
+        "Vận chuyển & Giao nhận",
+        "Chăm sóc KH (CRM/Loyalty)",
+        "Báo cáo & Phân tích Đa chiều",
+        "Hỗ trợ & API Thiết kế riêng"
     ];
 
     return (
-        <section className="py-32 bg-white relative overflow-hidden">
+        <section className="py-32 bg-white relative overflow-clip">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-20">
+                <div className="text-center mb-16">
                     <Badge variant="primary" className="mb-5 uppercase">Bảng giá minh bạch</Badge>
                     <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
                         Đầu tư thông minh cho <br /><span className="text-blue-500">tương lai doanh nghiệp.</span>
@@ -62,17 +82,17 @@ const PricingSection: React.FC = () => {
                 {/* Main Grid Layout */}
                 <div className="relative">
                     {/* Header Row with Plan Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 mb-2">
+                    <div className="md:sticky md:top-[72px] z-40 md:bg-white/95 md:backdrop-blur-md pt-6 pb-6 grid grid-cols-1 md:grid-cols-[22%_1fr_1fr] gap-6 lg:gap-8 mb-2 border-b border-transparent">
                         {/* Title corner */}
-                        <div className="hidden md:flex flex-col justify-end pb-8 md:col-span-1">
+                        <div className="hidden md:flex flex-col justify-end pb-8">
                             <h4 className="text-[16px] font-semibold text-slate-900 tracking-tight">Tính năng chi tiết</h4>
                         </div>
 
                         {plans.map((plan, idx) => (
                             <div
                                 key={idx}
-                                className={`md:col-span-2 rounded-[20px] p-6 flex flex-col relative transition-all duration-500 hover:-translate-y-1 ${plan.highlight
-                                        ? 'bg-[#020617] text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.4)]'
+                                className={`rounded-[20px] p-6 flex flex-col relative transition-all duration-500 hover:-translate-y-1 ${plan.highlight
+                                        ? 'bg-[#0F172A] text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.4)]'
                                         : 'bg-white shadow-md hover:shadow-xl text-slate-900'
                                     }`}
                             >
@@ -152,11 +172,11 @@ const PricingSection: React.FC = () => {
                         {comparisonFeatures.map((feature, fIdx) => (
                             <div
                                 key={fIdx}
-                                className={`grid grid-cols-5 gap-8 py-6 border-b border-slate-100/60 items-center transition-colors hover:bg-slate-50/30 px-6 -mx-6 rounded-xl`}
+                                className={`grid grid-cols-[22%_1fr_1fr] gap-8 py-6 border-b border-slate-100/60 items-center transition-colors hover:bg-slate-50/30 px-6 -mx-6 rounded-xl`}
                             >
-                                <div className="col-span-1 text-[16px] text-slate-500 font-normal">{feature}</div>
+                                <div className="text-[16px] text-slate-500 font-normal">{feature}</div>
                                 {plans.map((plan, pIdx) => (
-                                    <div key={pIdx} className="col-span-2 text-center">
+                                    <div key={pIdx} className="text-center">
                                         {typeof plan.features[fIdx] === 'string' && plan.features[fIdx] !== '-' ? (
                                             <span className={`text-[16px] font-normal ${plan.highlight ? 'text-slate-900' : 'text-slate-600'}`}>
                                                 {plan.features[fIdx]}
