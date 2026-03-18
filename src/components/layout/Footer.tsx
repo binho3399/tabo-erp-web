@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
                 {/* Main Row: Logo and Nav */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
                     <Link to="/" className="transition-transform hover:scale-[1.02]">
-                        <img src={logoWhite} alt="Tabo ERP" className="h-[32px] w-auto opacity-90" />
+                        <img src={logoWhite} alt="Tabo ERP" className="h-[44px] w-auto opacity-90 transition-transform hover:scale-[1.02]" />
                     </Link>
 
                     <nav className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
