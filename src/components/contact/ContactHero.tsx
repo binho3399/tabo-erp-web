@@ -82,7 +82,7 @@ const ContactHero: React.FC = () => {
                 <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-4 lg:mb-5 inline-flex items-center shadow-sm">
                     LIÊN HỆ
                 </span>
-                <h1 className="text-[28px] md:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-4 lg:mb-5 text-slate-900">
+                <h1 className="text-[32px] md:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-4 lg:mb-5 text-slate-900">
                     Sẵn sàng hỗ trợ <br className="md:hidden" /> <span className="text-blue-500">doanh nghiệp bạn.</span>
                 </h1>
                 <p className="text-base md:text-lg text-slate-500 max-w-2xl font-light">

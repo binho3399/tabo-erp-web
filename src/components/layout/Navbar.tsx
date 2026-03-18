@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
                     {/* Logo */}
                     <div className="flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center">
-                            <img src={logo} alt="Tabo ERP Logo" className="h-[44px] w-auto object-contain" />
+                            <img src={logo} alt="Tabo ERP Logo" className="h-[40px] md:h-[44px] w-auto object-contain" />
                         </Link>
                     </div>
 
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
                                     key={link.name}
                                     to={link.path}
                                     variant="ghost"
-                                    className="flex items-center justify-start gap-4 px-4 py-4 !rounded-2xl transition-all duration-200 hover:bg-slate-50 active:bg-slate-100 group !h-auto !font-normal border-none"
+                                    className="flex items-center justify-start gap-4 !p-2 !rounded-2xl transition-all duration-200 hover:bg-slate-50 active:bg-slate-100 group !h-auto !font-normal border-none"
                                     onClick={() => setIsOpen(false)}
                                     style={{ animationDelay: `${idx * 50}ms` }}
                                 >

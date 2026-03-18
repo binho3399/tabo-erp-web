@@ -10,7 +10,7 @@ const ContactInfo: React.FC = () => {
                     {/* Contact Info (Moved to left) */}
                     <div className="flex flex-col gap-8 lg:gap-10 lg:py-8 w-full lg:pr-8">
                         <div>
-                            <h3 className="text-2xl md:text-5xl font-normal text-slate-900 tracking-tight mb-4">Thông tin <span className="text-blue-500">liên hệ</span></h3>
+                            <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4">Thông tin <span className="text-blue-500">liên hệ</span></h3>
                             <p className="text-slate-500 font-light text-base md:text-lg">Kết nối với chúng tôi qua các kênh dưới đây để nhận được sự hỗ trợ nhanh nhất.</p>
                         </div>
 
