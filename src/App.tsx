@@ -5,10 +5,12 @@ import Home from './pages/Home';
 import Features from './pages/Features';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import ScrollToTop from './components/common/ScrollToTop';
 
 const App: React.FC = () => {
     return (
         <Router>
+            <ScrollToTop />
             <Layout>
                 <Routes>
                     <Route path="/" element={<Home />} />
