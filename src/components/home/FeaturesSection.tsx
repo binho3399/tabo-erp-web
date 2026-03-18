@@ -196,7 +196,7 @@ const FeaturesSection: React.FC = () => {
                     <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative">
                         <div className="relative z-10 flex flex-col h-full">
                             <div className="mb-6 text-center lg:text-left">
-                                <h3 className="text-2xl lg:text-3xl font-normal text-slate-900 leading-[1.2] tracking-tight mb-5">
+                                <h3 className="text-2xl lg:text-[28px] font-normal text-slate-900 leading-[1.2] tracking-tight mb-5">
                                     Tối ưu hóa cho mọi<br className="hidden lg:block" />lĩnh vực kinh doanh.
                                 </h3>
                                 <p className="text-base text-slate-500 font-normal leading-relaxed">
