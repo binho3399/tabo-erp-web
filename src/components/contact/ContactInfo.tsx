@@ -3,36 +3,36 @@ import Icon from '../common/Icon';
 
 const ContactInfo: React.FC = () => {
     return (
-        <section className="pb-24 pt-24 bg-slate-50 relative overflow-hidden">
+        <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
 
                     {/* Contact Info (Moved to left) */}
-                    <div className="flex flex-col gap-10 lg:py-8 w-full lg:pr-8">
+                    <div className="flex flex-col gap-8 lg:gap-10 lg:py-8 w-full lg:pr-8">
                         <div>
-                            <h3 className="text-5xl font-normal text-slate-900 tracking-tight mb-4">Thông tin <span className="text-blue-500">liên hệ</span></h3>
-                            <p className="text-slate-500 font-light text-base">Kết nối với chúng tôi qua các kênh dưới đây để nhận được sự hỗ trợ nhanh nhất.</p>
+                            <h3 className="text-2xl md:text-5xl font-normal text-slate-900 tracking-tight mb-4">Thông tin <span className="text-blue-500">liên hệ</span></h3>
+                            <p className="text-slate-500 font-light text-base md:text-lg">Kết nối với chúng tôi qua các kênh dưới đây để nhận được sự hỗ trợ nhanh nhất.</p>
                         </div>
 
-                        <div className="flex gap-6 items-start group">
-                            <div className="w-12 h-12 rounded-full bg-blue-100/50 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors duration-300">
-                                <Icon name="location_on" className="text-xl text-blue-600 group-hover:text-white transition-colors duration-300" />
+                        <div className="flex gap-4 md:gap-6 items-start group">
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-100/50 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors duration-300">
+                                <Icon name="location_on" className="text-lg md:text-xl text-blue-600 group-hover:text-white transition-colors duration-300" />
                             </div>
                             <div>
-                                <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-2">Trụ sở chính</h4>
+                                <h4 className="text-xl md:text-[28px] font-normal text-slate-900 tracking-tight mb-2">Trụ sở chính</h4>
                                 <p className="text-slate-500 font-light text-base leading-relaxed">
-                                    Tòa nhà Landmark 81, Vinhomes Central Park, <br />
+                                    Tòa nhà Landmark 81, Vinhomes Central Park, <br className="hidden md:block" />
                                     Phường 22, Bình Thạnh, TP. Hồ Chí Minh
                                 </p>
                             </div>
                         </div>
 
-                        <div className="flex gap-6 items-start group">
-                            <div className="w-12 h-12 rounded-full bg-emerald-100/50 flex items-center justify-center shrink-0 group-hover:bg-emerald-500 transition-colors duration-300">
-                                <Icon name="phone_in_talk" className="text-xl text-emerald-600 group-hover:text-white transition-colors duration-300" />
+                        <div className="flex gap-4 md:gap-6 items-start group">
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-emerald-100/50 flex items-center justify-center shrink-0 group-hover:bg-emerald-500 transition-colors duration-300">
+                                <Icon name="phone_in_talk" className="text-lg md:text-xl text-emerald-600 group-hover:text-white transition-colors duration-300" />
                             </div>
                             <div>
-                                <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-2">Đường dây nóng</h4>
+                                <h4 className="text-xl md:text-[28px] font-normal text-slate-900 tracking-tight mb-2">Đường dây nóng</h4>
                                 <p className="text-slate-500 font-light text-base leading-relaxed mb-1">
                                     Khách hàng doanh nghiệp: <strong>1900 1234</strong>
                                 </p>
@@ -42,12 +42,12 @@ const ContactInfo: React.FC = () => {
                             </div>
                         </div>
 
-                        <div className="flex gap-6 items-start group">
-                            <div className="w-12 h-12 rounded-full bg-purple-100/50 flex items-center justify-center shrink-0 group-hover:bg-purple-500 transition-colors duration-300">
-                                <Icon name="mail" className="text-xl text-purple-600 group-hover:text-white transition-colors duration-300" />
+                        <div className="flex gap-4 md:gap-6 items-start group">
+                            <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-purple-100/50 flex items-center justify-center shrink-0 group-hover:bg-purple-500 transition-colors duration-300">
+                                <Icon name="mail" className="text-lg md:text-xl text-purple-600 group-hover:text-white transition-colors duration-300" />
                             </div>
                             <div>
-                                <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-2">Email hỗ trợ</h4>
+                                <h4 className="text-xl md:text-[28px] font-normal text-slate-900 tracking-tight mb-2">Email hỗ trợ</h4>
                                 <p className="text-slate-500 font-light text-base leading-relaxed mb-1">
                                     Kinh doanh: <a href="mailto:sales@tabo.vn" className="text-blue-500 hover:text-blue-600 transition-colors">sales@tabo.vn</a>
                                 </p>

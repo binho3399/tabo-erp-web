@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm' : 'bg-transparent border-transparent'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isOpen ? 'bg-white border-b border-slate-200 shadow-sm' : isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm' : 'bg-transparent border-transparent'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-[72px]">
                     {/* Logo */}
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
             {/* Mobile menu dropdown */}
             {isOpen && (
                 <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 shadow-xl overflow-hidden">
-                    <div className="px-4 pt-2 pb-6 space-y-1">
+                    <div className="px-2 pt-2 pb-6 space-y-1">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}

@@ -3,7 +3,7 @@ import Icon from '../common/Icon';
 
 const ContactHero: React.FC = () => {
     return (
-        <section className="relative bg-slate-50 pt-32 pb-20 lg:pt-32 lg:pb-24 overflow-hidden min-h-[40vh] flex items-center justify-center">
+        <section className="relative bg-slate-50 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[40vh] flex items-center justify-center">
             {/* Ambient Blurry Blobs */}
             <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
             <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
@@ -76,16 +76,16 @@ const ContactHero: React.FC = () => {
                 </svg>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center text-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-start text-left lg:items-center lg:text-center mt-8 lg:mt-0">
                 {/* Sparkles Decoration */}
-                <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
-                <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-5 inline-flex items-center shadow-sm">
+                <div className="absolute top-[-100px] left-0 lg:left-1/2 lg:-translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
+                <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-4 lg:mb-5 inline-flex items-center shadow-sm">
                     LIÊN HỆ
                 </span>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-5 text-slate-900">
-                    Sẵn sàng hỗ trợ <span className="text-blue-500">doanh nghiệp bạn.</span>
+                <h1 className="text-[28px] md:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-4 lg:mb-5 text-slate-900">
+                    Sẵn sàng hỗ trợ <br className="md:hidden" /> <span className="text-blue-500">doanh nghiệp bạn.</span>
                 </h1>
-                <p className="text-base text-slate-500 max-w-2xl font-light">
+                <p className="text-base md:text-lg text-slate-500 max-w-2xl font-light">
                     Dù bạn có thắc mắc về tính năng, giá cả, hay cần tư vấn giải pháp quản trị,
                     đội ngũ chuyên gia từ Tabo luôn sẵn lòng giải đáp.
                 </p>
