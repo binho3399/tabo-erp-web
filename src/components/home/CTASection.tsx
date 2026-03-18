@@ -17,7 +17,7 @@ const CTASection: React.FC = () => {
     }, []);
 
     return (
-        <section className="bg-[#020617] text-white overflow-hidden relative py-32 border-t border-white/5">
+        <section className="bg-[#020617] text-white overflow-hidden relative py-16 border-t border-white/5">
             {/* Dynamic Background Animation Elements */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 {/* Floating Animated Glows - Significantly more visible with Parallax */}
@@ -55,7 +55,7 @@ const CTASection: React.FC = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
                     {/* Left Side: Text Content */}
                     <div className="text-left">
                         <span className="bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-5 inline-flex uppercase">
