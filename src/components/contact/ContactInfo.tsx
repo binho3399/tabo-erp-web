@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from '../common/Icon';
 import Button from '../common/Button';
-import Badge from '../common/Badge';
 
 const ContactInfo: React.FC = () => {
     return (
@@ -34,8 +33,8 @@ const ContactInfo: React.FC = () => {
                         <div className="flex flex-col gap-5 h-full">
                             {/* Đường dây nóng Card */}
                             <div className="flex flex-col gap-8 p-6 bg-white rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                                <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 transition-colors duration-300">
-                                    <Icon name="phone_in_talk" className="text-2xl text-emerald-600 group-hover:text-white transition-colors duration-300" />
+                                <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
+                                    <Icon name="phone_in_talk" className="text-2xl text-blue-600 group-hover:text-white transition-colors duration-300" />
                                 </div>
                                 <div className="flex flex-col gap-3">
                                     <h4 className="text-[28px] font-normal text-slate-900 tracking-tight">Đường dây nóng</h4>
@@ -52,8 +51,8 @@ const ContactInfo: React.FC = () => {
 
                             {/* Email hỗ trợ Card */}
                             <div className="flex flex-col gap-8 p-6 bg-white rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                                <div className="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center shrink-0 group-hover:bg-purple-600 transition-colors duration-300">
-                                    <Icon name="mail" className="text-2xl text-purple-600 group-hover:text-white transition-colors duration-300" />
+                                <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
+                                    <Icon name="mail" className="text-2xl text-blue-600 group-hover:text-white transition-colors duration-300" />
                                 </div>
                                 <div className="flex flex-col gap-3">
                                     <h4 className="text-[28px] font-normal text-slate-900 tracking-tight">Email hỗ trợ</h4>
