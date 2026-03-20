@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                     <nav className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
                         {[
                             { name: 'Trang Chủ', path: '/' },
-                            { name: 'Tính Năng', path: '/features' },
+                            { name: 'Bảng giá', path: '/pricing' },
                             { name: 'Về Chúng Tôi', path: '/about' },
                             { name: 'Liên Hệ', path: '/contact' }
                         ].map((link, idx) => (

@@ -23,7 +23,7 @@ const FeaturesSection: React.FC = () => {
                         {/* Row 1: 3 items */}
                         <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
                             {[
-                                { name: "Tài chính", icon: "account_balance", desc: "Kế toán tổng hợp", color: "blue" },
+                                { name: "Tài chính", icon: "account_balance", desc: "Tài chính tổng hợp", color: "blue" },
                                 { name: "Kho bãi", icon: "inventory_2", desc: "Kiểm soát vật tư", color: "orange" },
                                 { name: "Nhân sự", icon: "groups", desc: "Chấm công & lương", color: "emerald" }
                             ].map((item, idx) => {
@@ -109,7 +109,7 @@ const FeaturesSection: React.FC = () => {
                         {/* Kế toán Card */}
                         <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
                             <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
-                                <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Kế toán tổng hợp</h4>
+                                <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Tài chính tổng hợp</h4>
                                 <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Hệ thống tự động hóa toàn diện nghiệp vụ tài chính và sổ sách doanh nghiệp.
                                 </p>

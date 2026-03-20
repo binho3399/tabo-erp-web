@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
 
     const navLinks = [
         { name: 'Trang Chủ', path: '/', icon: 'home' },
-        { name: 'Tính Năng', path: '/features', icon: 'auto_awesome' },
+        { name: 'Bảng giá', path: '/pricing', icon: 'payments' },
         { name: 'Về Chúng Tôi', path: '/about', icon: 'groups' },
         { name: 'Liên Hệ', path: '/contact', icon: 'contact_support' },
     ];
@@ -54,7 +54,7 @@ const Navbar: React.FC = () => {
                                 className="group relative text-base text-slate-500 hover:text-slate-900 font-medium transition-colors flex items-center py-1"
                             >
                                 <span>{link.name}</span>
-                                {link.name === 'Tính Năng' && (
+                                {link.name === 'Bảng giá' && (
                                     <Icon name="add" className="ml-1 text-[18px] text-blue-700 opacity-90" />
                                 )}
                                 <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -107,7 +107,7 @@ const Navbar: React.FC = () => {
                                         <span className="text-[17px] font-medium text-slate-900">{link.name}</span>
                                         <span className="text-[13px] text-slate-500 font-light translate-y-[-2px]">
                                             {link.name === 'Trang Chủ' && 'Khám phá thế giới Tabo'}
-                                            {link.name === 'Tính Năng' && 'Giải pháp quản trị toàn diện'}
+                                            {link.name === 'Bảng giá' && 'Giải pháp và bảng giá tối ưu'}
                                             {link.name === 'Về Chúng Tôi' && 'Câu chuyện và sứ mệnh'}
                                             {link.name === 'Liên Hệ' && 'Hỗ trợ 24/7 cho doanh nghiệp'}
                                         </span>
