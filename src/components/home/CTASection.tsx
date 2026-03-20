@@ -17,7 +17,7 @@ const CTASection: React.FC = () => {
     }, []);
 
     return (
-        <section className="bg-[#020617] text-white overflow-hidden relative py-16 border-t border-white/5">
+        <section className="bg-[#020617] text-white overflow-hidden relative py-16 lg:pt-24 lg:pb-32 border-t border-white/5">
             {/* Dynamic Background Animation Elements */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 {/* Floating Animated Glows - Significantly more visible with Parallax */}
