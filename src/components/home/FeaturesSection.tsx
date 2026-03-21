@@ -46,10 +46,10 @@ const FeaturesSection: React.FC = () => {
         <section className="py-24 bg-white">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Row */}
-                <div className="flex flex-col lg:flex-row items-start lg:items-end mb-16 gap-y-10 lg:gap-5 text-left lg:text-left">
+                <div className="flex flex-col lg:flex-row items-start lg:items-end mb-8 lg:mb-16 gap-y-5 lg:gap-5 text-left lg:text-left">
                     <div className="max-w-md lg:w-[35%] flex flex-col items-start lg:items-start">
-                        <Badge variant="primary" className="mb-5">HỆ SINH THÁI</Badge>
-                        <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
+                        <Badge variant="primary" className="mb-4 lg:mb-5">HỆ SINH THÁI</Badge>
+                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 leading-[1.15] mb-4 lg:mb-5 tracking-tight font-sans">
                             Đa dạng phân hệ,<br />
                             <span className="text-blue-500 font-normal">tùy biến linh hoạt.</span>
                         </h2>
@@ -95,7 +95,7 @@ const FeaturesSection: React.FC = () => {
                                     ))}
                                 </div>
                             </div>
-                            
+
                             {/* Gradient Shadows */}
                             <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
                             <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
@@ -108,9 +108,9 @@ const FeaturesSection: React.FC = () => {
                     {/* Col 1: Horizontal Cards */}
                     <div className="flex flex-col gap-6 w-full lg:w-[48%]">
                         {/* Kế toán Card */}
-                        <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
+                        <div className="bg-white rounded-[20px] p-4 lg:p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
                             <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-left">
-                                <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Tài chính tổng hợp</h4>
+                                <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Tài chính tổng hợp</h4>
                                 <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Hệ thống tự động hóa toàn diện nghiệp vụ tài chính và sổ sách doanh nghiệp.
                                 </p>
@@ -143,9 +143,9 @@ const FeaturesSection: React.FC = () => {
                         </div>
 
                         {/* Công nợ Card */}
-                        <div className="bg-white rounded-[20px] p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
+                        <div className="bg-white rounded-[20px] p-4 lg:p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
                             <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-left">
-                                <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
+                                <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Quản lý Công nợ</h4>
                                 <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Theo dõi và thu hồi nợ tự động giúp tối ưu dòng tiền lưu động.
                                 </p>
@@ -194,11 +194,11 @@ const FeaturesSection: React.FC = () => {
 
 
                     {/* Col 2: Feature Card */}
-                    <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative">
+                    <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-4 lg:p-6 flex flex-col h-auto lg:h-[400px] transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative">
                         <div className="relative z-10 flex flex-col h-full">
                             <div className="mb-6 text-left">
-                                <h3 className="text-2xl lg:text-[28px] font-normal text-slate-900 leading-[1.2] tracking-tight mb-5">
-                                    Tối ưu hóa cho mọi<br className="hidden lg:block" />lĩnh vực kinh doanh.
+                                <h3 className="text-[20px] lg:text-[28px] font-normal text-slate-900 leading-[1.2] tracking-tight mb-4">
+                                    Tối ưu hóa cho mọi<br className="hidden lg:block" /> lĩnh vực kinh doanh.
                                 </h3>
                                 <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Nền tảng linh hoạt đáp ứng đặc thù từng ngành nghề, giúp vận hành chuyên sâu và hiệu quả hơn.
@@ -284,7 +284,7 @@ const FeaturesSection: React.FC = () => {
                     {/* Col 3: Vertical Card */}
                     <div className="w-full lg:w-[26%] flex flex-col h-full">
                         {/* Thuế Card */}
-                        <div className="bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative">
+                        <div className="bg-white rounded-[20px] p-4 lg:p-6 flex flex-col h-auto lg:h-[400px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative">
                             <div className="relative z-10 flex flex-col h-full">
                                 <div className="mb-6 relative h-[165px] flex flex-col justify-center">
                                     <div className="bg-slate-900 rounded-xl p-6 shadow-2xl relative overflow-hidden group-hover:-rotate-1 group-hover:scale-[1.02] transition-all duration-700">
