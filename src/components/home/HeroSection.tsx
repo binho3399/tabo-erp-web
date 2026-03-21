@@ -5,7 +5,7 @@ import Badge from '../common/Badge';
 
 const HeroSection: React.FC = () => {
     return (
-        <section className="relative bg-slate-50 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center">
+        <section className="relative bg-slate-50 pt-[164px] pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center">
             {/* Ambient Blurry Blobs */}
             <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
             <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
@@ -78,7 +78,7 @@ const HeroSection: React.FC = () => {
                 </svg>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-start lg:items-center mt-8 lg:mt-0">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-start lg:items-center">
 
                 {/* Centered Content */}
                 <div className="text-left lg:text-center max-w-3xl w-full flex flex-col items-start lg:items-center relative z-20">
@@ -135,7 +135,7 @@ const HeroSection: React.FC = () => {
                 {/* Floating Elements - Positioned relative to max-w-7xl for core content alignment */}
                 
                 {/* 1. Doanh thu tổng (Light card) */}
-                <div className="absolute left-[-16%] lg:left-[-2%] top-[-4%] lg:top-[5%] -rotate-[8deg] bg-white p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-30 scale-[0.34] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-left">
+                <div className="absolute left-[0%] lg:left-[-2%] top-[-115px] lg:top-[5%] -rotate-[8deg] bg-white p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-0 scale-[0.42] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-left">
                     <div className="flex justify-between items-center mb-1">
                         <h4 className="font-bold text-slate-800 text-sm">Doanh thu tổng</h4>
                         <span className="text-[10px] text-slate-400">20%</span>
@@ -158,7 +158,7 @@ const HeroSection: React.FC = () => {
                 </div>
 
                 {/* 2. Khách hàng hài lòng (Dark card) */}
-                <div className="absolute left-[0%] lg:left-[5%] bottom-[12%] lg:bottom-[5%] rotate-12 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-30 scale-[0.5] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-left">
+                <div className="absolute left-[0%] lg:left-[5%] bottom-[12%] lg:bottom-[5%] rotate-12 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-0 scale-[0.5] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-left">
                     <div className="flex justify-center -space-x-2 mb-3">
                         <img src="https://i.pravatar.cc/100?img=4" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] object-cover" />
                         <img src="https://i.pravatar.cc/100?img=5" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] object-cover" />
@@ -169,7 +169,7 @@ const HeroSection: React.FC = () => {
                 </div>
 
                 {/* 3. Sổ quỹ doanh nghiệp (Dark card) */}
-                <div className="absolute right-[-20%] lg:right-[-2%] top-[-1%] lg:top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-0 scale-[0.38] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-right">
+                <div className="absolute right-[-2%] lg:right-[-2%] top-[-95px] lg:top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-0 scale-[0.45] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-right">
                     <div className="flex items-center gap-3 mb-5">
                         <div className="w-11 h-11 rounded-full border border-blue-500/30 bg-blue-500/10 flex items-center justify-center shrink-0">
                             <Icon name="account_balance_wallet" className="text-blue-400 text-[22px]" />
