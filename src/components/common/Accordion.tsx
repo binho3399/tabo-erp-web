@@ -10,9 +10,9 @@ interface AccordionItemProps {
 
 const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen, onClick }) => {
     return (
-        <div className={`group rounded-[20px] overflow-hidden transition-all duration-300 bg-white ${isOpen ? 'shadow-xl shadow-blue-500/5' : 'shadow-md hover:shadow-lg'}`}>
+        <div className={`group rounded-[20px] overflow-hidden transition-all duration-300 bg-white border ${isOpen ? 'shadow-md border-slate-200' : 'shadow-sm hover:shadow-md border-slate-100/50'}`}>
             <button
-                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                className="w-full p-4 lg:px-6 lg:py-5 flex items-center justify-between text-left focus:outline-none"
                 onClick={onClick}
             >
                 <span className={`text-[16px] font-medium leading-snug transition-colors duration-300 ${isOpen ? 'text-blue-600' : 'text-slate-800'}`}>
@@ -25,7 +25,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
             <div 
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
             >
-                <div className="px-6 pb-6 pt-1 text-[16px] text-slate-500 font-light leading-relaxed">
+                <div className="p-4 pt-1 lg:px-6 lg:pb-6 lg:pt-1 text-[16px] text-slate-500 font-light leading-relaxed">
                     {answer}
                 </div>
             </div>

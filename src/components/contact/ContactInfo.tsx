@@ -9,19 +9,19 @@ const ContactInfo: React.FC = () => {
                 <div className="flex flex-col gap-16">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                         {/* Col 1: Header + Trụ sở chính */}
-                        <div className="flex flex-col gap-5 h-full">
+                        <div className="flex flex-col w-full gap-5 h-full">
                             <div className="flex-1">
-                                <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-5">Thông tin <span className="text-blue-500">liên hệ</span></h3>
+                                <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4">Thông tin <span className="text-blue-500">liên hệ</span></h3>
                                 <p className="text-slate-500 font-light text-base md:text-lg">Kết nối với chúng tôi qua các kênh dưới đây <br className="hidden md:block" /> để nhận được sự hỗ trợ nhanh nhất.</p>
                             </div>
 
                             {/* Trụ sở chính Card */}
-                            <div className="flex flex-col gap-8 p-6 bg-white rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                                <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
+                            <div className="flex flex-col w-full gap-4 lg:gap-8 p-4 lg:p-6 bg-white rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                                <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
                                     <Icon name="location_on" className="text-2xl text-blue-600 group-hover:text-white transition-colors duration-300" />
                                 </div>
-                                <div className="flex flex-col gap-3">
-                                    <h4 className="text-[28px] font-normal text-slate-900 tracking-tight">Trụ sở chính</h4>
+                                <div className="flex flex-col">
+                                    <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Trụ sở chính</h4>
                                     <p className="text-slate-500 font-light text-base md:text-lg leading-relaxed line-clamp-2">
                                         Tòa nhà Landmark 81, Vinhomes Central Park, Phường 22, Bình Thạnh, TP. Hồ Chí Minh
                                     </p>
@@ -30,14 +30,14 @@ const ContactInfo: React.FC = () => {
                         </div>
 
                         {/* Col 2: Hotline + Email */}
-                        <div className="flex flex-col gap-5 h-full">
+                        <div className="flex flex-col w-full gap-5 h-full">
                             {/* Đường dây nóng Card */}
-                            <div className="flex flex-col gap-8 p-6 bg-white rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                                <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
+                            <div className="flex flex-col w-full gap-4 lg:gap-8 p-4 lg:p-6 bg-white rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                                <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
                                     <Icon name="phone_in_talk" className="text-2xl text-blue-600 group-hover:text-white transition-colors duration-300" />
                                 </div>
-                                <div className="flex flex-col gap-3">
-                                    <h4 className="text-[28px] font-normal text-slate-900 tracking-tight">Đường dây nóng</h4>
+                                <div className="flex flex-col">
+                                    <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Đường dây nóng</h4>
                                     <div className="space-y-1">
                                         <p className="text-slate-500 font-light text-base md:text-lg leading-relaxed">
                                             Doanh nghiệp: <strong>1900 1234</strong>
@@ -50,12 +50,12 @@ const ContactInfo: React.FC = () => {
                             </div>
 
                             {/* Email hỗ trợ Card */}
-                            <div className="flex flex-col gap-8 p-6 bg-white rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
-                                <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
+                            <div className="flex flex-col gap-4 lg:gap-8 p-4 lg:p-6 bg-white rounded-[20px] border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                                <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
                                     <Icon name="mail" className="text-2xl text-blue-600 group-hover:text-white transition-colors duration-300" />
                                 </div>
-                                <div className="flex flex-col gap-3">
-                                    <h4 className="text-[28px] font-normal text-slate-900 tracking-tight">Email hỗ trợ</h4>
+                                <div className="flex flex-col">
+                                    <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Email hỗ trợ</h4>
                                     <div className="space-y-1">
                                         <p className="text-slate-500 font-light text-base md:text-lg leading-relaxed">
                                             Kinh doanh: <a href="mailto:sales@tabo.vn" className="text-blue-500 hover:text-blue-600 transition-colors">sales@tabo.vn</a>
@@ -69,8 +69,8 @@ const ContactInfo: React.FC = () => {
                         </div>
 
                         {/* Col 3: Package CTA */}
-                        <div className="h-full">
-                            <div className="bg-[#0057E7] p-6 rounded-[20px] flex flex-col gap-6 h-full relative overflow-hidden group">
+                        <div className="w-full h-full">
+                            <div className="bg-[#0057E7] w-full p-4 lg:p-6 rounded-[20px] flex flex-col gap-4 lg:gap-6 h-full relative overflow-hidden group">
                                 {/* Intense Gradient & Mesh Effect */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 opacity-90"></div>
                                 <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-sky-400/20 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none animate-pulse"></div>
@@ -104,10 +104,10 @@ const ContactInfo: React.FC = () => {
                                     <div className="mb-8">
                                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-6">
                                             <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
-                                            <span className="text-[11px] font-bold text-white tracking-widest uppercase">LIÊN HỆ NGAY</span>
+                                            <span className="text-[11px] font-bold text-white tracking-widest uppercase">TABO ERP</span>
                                         </div>
-                                        <h4 className="text-[28px] font-normal text-white mb-2 underline underline-offset-8 decoration-white/20">Gói sử dụng</h4>
-                                        <p className="text-white/90 font-light text-sm md:text-base leading-relaxed">
+                                        <h4 className="text-[20px] lg:text-[28px] font-normal text-white mb-4 underline underline-offset-8 decoration-white/20">Giải pháp doanh nghiệp</h4>
+                                        <p className="text-white/90 font-light text-base leading-relaxed">
                                             Bắt đầu trải nghiệm giải pháp quản trị doanh nghiệp toàn diện ngay hôm nay.
                                         </p>
                                     </div>
@@ -116,7 +116,7 @@ const ContactInfo: React.FC = () => {
                                         <Button 
                                             variant="secondary" 
                                             fullWidth 
-                                            size="lg" 
+                                            size="md" 
                                             className="!bg-white hover:!bg-slate-50 !text-blue-600 shadow-xl shadow-blue-900/20 hover:shadow-blue-900/40 transition-all active:scale-[0.98]"
                                         >
                                             Dùng thử Miễn Phí
@@ -124,7 +124,7 @@ const ContactInfo: React.FC = () => {
                                         <Button 
                                             variant="outline" 
                                             fullWidth 
-                                            size="lg" 
+                                            size="md" 
                                             className="!bg-transparent border-white/40 !text-white hover:!bg-white/10 transition-all active:scale-[0.98]"
                                         >
                                             Liên hệ tư vấn

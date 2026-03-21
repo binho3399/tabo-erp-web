@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
 
                 {/* Large Background Text Watermark */}
                 <div className="absolute inset-x-0 bottom-0 top-0 flex items-center justify-center pointer-events-none select-none overflow-visible">
-                    <div className="max-w-[1216px] w-full mx-auto h-full flex items-center justify-between opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-white/10 to-transparent uppercase font-bold pointer-events-none overflow-visible">
+                    <div className="max-w-[1216px] w-full mx-auto h-full flex flex-col lg:flex-row items-start lg:items-center justify-center lg:justify-between opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-white/10 to-transparent uppercase font-bold pointer-events-none overflow-visible py-20 lg:py-0">
                         {/* Left Group: TABO */}
                         <div className="flex gap-[0.4em] lg:gap-[2.5em] overflow-visible">
                             <span className="text-[clamp(1.5rem,15vw,200px)] leading-none -ml-[0.14em]">T</span>
@@ -49,12 +49,12 @@ const Footer: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Main Row: Logo and Nav */}
-                <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
                     <Link to="/" className="transition-transform hover:scale-[1.02]">
                         <img src={logoWhite} alt="Tabo ERP" className="h-[44px] w-auto opacity-90 transition-transform hover:scale-[1.02]" />
                     </Link>
 
-                    <nav className="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4">
+                    <nav className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row justify-start md:justify-end gap-4 md:gap-x-8 md:gap-y-4">
                         {[
                             { name: 'Trang Chủ', path: '/' },
                             { name: 'Bảng giá', path: '/pricing' },
@@ -74,11 +74,11 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* Bottom Row: Copyright */}
-                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <p className="text-[16px] font-medium text-gray-500">
                         &copy; {new Date().getFullYear()} Tabo <span className="text-blue-500 uppercase">ERP</span>. Bảo lưu mọi quyền.
                     </p>
-                    <div className="flex gap-6 text-[16px] text-gray-500 font-medium">
+                    <div className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row gap-4 md:gap-6 text-[16px] text-gray-500 font-medium">
                         <span className="group relative cursor-pointer hover:text-blue-500 transition-colors py-1">
                             <span>Chính sách bảo mật</span>
                             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>

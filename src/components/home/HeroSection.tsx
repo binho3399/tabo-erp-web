@@ -96,10 +96,10 @@ const HeroSection: React.FC = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-start lg:justify-center gap-4 mb-32 lg:mb-20">
-                        <Button to="/contact" variant="primary" size="md" className="w-full sm:w-auto text-center justify-center">
+                        <Button to="/contact" variant="primary" size="md" className="w-full sm:w-auto text-center justify-center lg:px-10 lg:py-4 lg:text-lg">
                             Bắt đầu ngay
                         </Button>
-                        <Button to="/about" variant="outline" size="md" className="w-full sm:w-auto text-center justify-center">
+                        <Button to="/about" variant="outline" size="md" className="w-full sm:w-auto text-center justify-center lg:px-10 lg:py-4 lg:text-lg">
                             Dùng thử miễn phí
                         </Button>
                     </div>
