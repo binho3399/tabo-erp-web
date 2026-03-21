@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
                         Luôn cập nhật dữ liệu tài chính, kho bãi và tiến độ công việc theo thời gian thực <br className="hidden md:block" />để đưa ra các quyết định chiến lược chuẩn xác nhất.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-start lg:justify-center gap-4 mb-16">
+                    <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-start lg:justify-center gap-4 mb-32 lg:mb-20">
                         <Button to="/contact" variant="primary" size="md" className="w-full sm:w-auto text-center justify-center">
                             Bắt đầu ngay
                         </Button>
@@ -135,7 +135,7 @@ const HeroSection: React.FC = () => {
                 {/* Floating Elements - Positioned relative to max-w-7xl for core content alignment */}
                 
                 {/* 1. Doanh thu tổng (Light card) */}
-                <div className="absolute left-[0%] lg:left-[-2%] top-[-115px] lg:top-[5%] -rotate-[8deg] bg-white p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-0 scale-[0.42] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-left">
+                <div className="absolute left-[0%] lg:left-[-2%] top-[-135px] lg:top-[5%] -rotate-[8deg] bg-white p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-0 scale-[0.42] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-left">
                     <div className="flex justify-between items-center mb-1">
                         <h4 className="font-bold text-slate-800 text-sm">Doanh thu tổng</h4>
                         <span className="text-[10px] text-slate-400">20%</span>
@@ -158,7 +158,7 @@ const HeroSection: React.FC = () => {
                 </div>
 
                 {/* 2. Khách hàng hài lòng (Dark card) */}
-                <div className="absolute left-[0%] lg:left-[5%] bottom-[12%] lg:bottom-[5%] rotate-12 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-0 scale-[0.5] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-left">
+                <div className="absolute left-[0%] lg:left-[5%] bottom-[15%] lg:bottom-[5%] rotate-12 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-0 scale-[0.5] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-left">
                     <div className="flex justify-center -space-x-2 mb-3">
                         <img src="https://i.pravatar.cc/100?img=4" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] object-cover" />
                         <img src="https://i.pravatar.cc/100?img=5" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] object-cover" />
@@ -169,7 +169,7 @@ const HeroSection: React.FC = () => {
                 </div>
 
                 {/* 3. Sổ quỹ doanh nghiệp (Dark card) */}
-                <div className="absolute right-[-2%] lg:right-[-2%] top-[-95px] lg:top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-0 scale-[0.45] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-right">
+                <div className="absolute right-[-2%] lg:right-[-2%] top-[-80px] lg:top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-0 scale-[0.45] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-right">
                     <div className="flex items-center gap-3 mb-5">
                         <div className="w-11 h-11 rounded-full border border-blue-500/30 bg-blue-500/10 flex items-center justify-center shrink-0">
                             <Icon name="account_balance_wallet" className="text-blue-400 text-[22px]" />
@@ -187,7 +187,7 @@ const HeroSection: React.FC = () => {
                 </div>
 
                 {/* 4. Mạng lưới chi nhánh (Light card) */}
-                <div className="absolute right-[-5%] lg:right-[3%] bottom-[10%] lg:bottom-[5%] rotate-[-4deg] bg-white p-4 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[230px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-0 scale-[0.55] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-right">
+                <div className="absolute right-[-5%] lg:right-[3%] bottom-[13%] lg:bottom-[5%] rotate-[-4deg] bg-white p-4 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[230px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-0 scale-[0.55] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-right">
                     <div className="flex items-center gap-2.5 mb-3">
                         <div className="w-9 h-9 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">
                             <Icon name="storefront" className="text-indigo-500 text-[18px]" />
