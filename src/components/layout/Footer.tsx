@@ -4,7 +4,7 @@ import logoWhite from '../../assets/Logo-white.png';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-[#020408] text-gray-500 py-16 relative z-20">
+        <footer className="bg-[#020408] text-gray-500 pt-16 pb-6 md:py-16 relative z-20">
             {/* Background Glow Container (Safe overflow) */}
             <div className="absolute inset-0 pointer-events-none z-0">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 blur-[120px]"></div>
@@ -12,20 +12,20 @@ const Footer: React.FC = () => {
 
                 {/* Large Background Text Watermark */}
                 <div className="absolute inset-x-0 bottom-0 top-0 flex items-center justify-center pointer-events-none select-none overflow-visible">
-                    <div className="max-w-[1216px] w-full mx-auto h-full flex flex-col lg:flex-row items-start lg:items-center justify-center lg:justify-between opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-white/10 to-transparent uppercase font-bold pointer-events-none overflow-visible py-20 lg:py-0">
+                    <div className="max-w-[1216px] w-full mx-auto h-full flex flex-col lg:flex-row items-start lg:items-center justify-end lg:justify-between px-4 lg:px-0 opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-white/10 to-transparent uppercase font-bold pointer-events-none overflow-visible">
                         {/* Left Group: TABO */}
-                        <div className="flex gap-[0.4em] lg:gap-[2.5em] overflow-visible">
-                            <span className="text-[clamp(1.5rem,15vw,200px)] leading-none -ml-[0.14em]">T</span>
-                            <span className="text-[clamp(1.5rem,15vw,200px)] leading-none">A</span>
-                            <span className="text-[clamp(1.5rem,15vw,200px)] leading-none">B</span>
-                            <span className="text-[clamp(1.5rem,15vw,200px)] leading-none">O</span>
+                        <div className="flex w-full lg:w-auto justify-start gap-4 lg:gap-[2.5em] overflow-visible">
+                            <span className="text-[clamp(2.5rem,32vw,200px)] leading-none -ml-[0.14em]">T</span>
+                            <span className="text-[clamp(2.5rem,32vw,200px)] leading-none">A</span>
+                            <span className="text-[clamp(2.5rem,32vw,200px)] leading-none">B</span>
+                            <span className="text-[clamp(2.5rem,32vw,200px)] leading-none">O</span>
                         </div>
                         
                         {/* Right Group: ERP */}
-                        <div className="flex gap-[0.4em] lg:gap-[2.5em] overflow-visible">
-                            <span className="text-[clamp(1.5rem,15vw,200px)] leading-none">E</span>
-                            <span className="text-[clamp(1.5rem,15vw,200px)] leading-none">R</span>
-                            <span className="text-[clamp(1.5rem,15vw,200px)] leading-none -mr-[0.05em]">P</span>
+                        <div className="flex w-full lg:w-auto justify-start gap-4 lg:gap-[2.5em] overflow-visible">
+                            <span className="text-[clamp(2.5rem,32vw,200px)] leading-none">E</span>
+                            <span className="text-[clamp(2.5rem,32vw,200px)] leading-none">R</span>
+                            <span className="text-[clamp(2.5rem,32vw,200px)] leading-none -mr-[0.05em]">P</span>
                         </div>
                     </div>
                 </div>
