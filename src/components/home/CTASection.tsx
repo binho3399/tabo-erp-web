@@ -71,23 +71,23 @@ const CTASection: React.FC = () => {
 
                     {/* Right Side: Contact Cards */}
                     <div className="space-y-6 lg:ml-auto w-full max-w-lg">
-                        <a href="tel:1800356893" className="group flex items-center gap-8 p-4 rounded-[20px] bg-white/5 border border-white/5 hover:bg-blue-600 hover:border-blue-500 transition-all duration-500 hover:-translate-y-1">
-                            <div className="w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 transform group-hover:rotate-12">
-                                <Icon name="call" className="text-[32px] text-blue-500 group-hover:text-white" />
+                        <a href="tel:1800356893" className="group flex items-center gap-4 md:gap-8 p-4 rounded-[20px] bg-white/5 border border-white/5 hover:bg-blue-600 hover:border-blue-500 transition-all duration-500 hover:-translate-y-1">
+                            <div className="w-11 h-11 md:w-16 md:h-16 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 transform group-hover:rotate-12">
+                                <Icon name="call" className="text-2xl md:text-[32px] text-blue-500 group-hover:text-white" />
                             </div>
                             <div className="text-left">
                                 <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-1 group-hover:text-blue-100 transition-colors">Hotline miễn phí</p>
-                                <span className="text-2xl md:text-3xl font-normal text-white tracking-tight">1800 356 893</span>
+                                <span className="text-[20px] md:text-3xl font-normal text-white tracking-tight">1800 356 893</span>
                             </div>
                         </a>
 
-                        <a href="mailto:contact@tabo.vn" className="group flex items-center gap-8 p-4 rounded-[20px] bg-white/5 border border-white/5 hover:bg-blue-600 hover:border-blue-500 transition-all duration-500 hover:-translate-y-1">
-                            <div className="w-16 h-16 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 transform group-hover:-rotate-12">
-                                <Icon name="mail" className="text-[32px] text-blue-500 group-hover:text-white" />
+                        <a href="mailto:contact@tabo.vn" className="group flex items-center gap-4 md:gap-8 p-4 rounded-[20px] bg-white/5 border border-white/5 hover:bg-blue-600 hover:border-blue-500 transition-all duration-500 hover:-translate-y-1">
+                            <div className="w-11 h-11 md:w-16 md:h-16 rounded-xl bg-blue-500/20 flex items-center justify-center group-hover:bg-white/20 transition-all duration-500 transform group-hover:-rotate-12">
+                                <Icon name="mail" className="text-2xl md:text-[32px] text-blue-500 group-hover:text-white" />
                             </div>
                             <div className="text-left">
                                 <p className="text-xs text-slate-500 font-bold uppercase tracking-widest mb-1 group-hover:text-blue-100 transition-colors">Email yêu cầu</p>
-                                <span className="text-2xl md:text-3xl font-normal text-white tracking-tight">contact@tabo.vn</span>
+                                <span className="text-[20px] md:text-3xl font-normal text-white tracking-tight">contact@tabo.vn</span>
                             </div>
                         </a>
                     </div>
