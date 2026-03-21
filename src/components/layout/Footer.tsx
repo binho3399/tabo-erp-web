@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent z-40 mt-[0.5px] animate-soft-pulse" style={{ animationDelay: '1s' }}></div>
 
             {/* Decorative Fading Lines - 6 tiers stacking towards footer */}
-            <div className="absolute -top-[80px] left-0 w-full pointer-events-none hidden md:block select-none z-30">
+            <div className="absolute -top-[40px] md:-top-[80px] left-0 w-full pointer-events-none select-none z-30">
                 <div className="flex flex-col items-center gap-1.5">
                     <div className="w-full h-[1.5px] bg-[#020408] opacity-[0.15]"></div>
                     <div className="w-full h-[4px] bg-[#020408] opacity-[0.35]"></div>
