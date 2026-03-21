@@ -5,7 +5,7 @@ import Badge from '../common/Badge';
 
 const HeroSection: React.FC = () => {
     return (
-        <section className="relative bg-slate-50 pt-32 pb-20 lg:pt-32 lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center">
+        <section className="relative bg-slate-50 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center">
             {/* Ambient Blurry Blobs */}
             <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
             <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
@@ -78,16 +78,16 @@ const HeroSection: React.FC = () => {
                 </svg>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-start lg:items-center mt-8 lg:mt-0">
 
                 {/* Centered Content */}
-                <div className="text-center max-w-3xl mx-auto flex flex-col items-center relative z-20">
+                <div className="text-left lg:text-center max-w-3xl w-full flex flex-col items-start lg:items-center relative z-20">
                     {/* Sparkles Decoration */}
                     <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
                     <Badge variant="primary" className="mb-5">
                         HỆ ĐIỀU HÀNH DOANH NGHIỆP
                     </Badge>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-5 text-slate-900 font-sans max-w-[95%] md:max-w-full">
+                    <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.25] lg:leading-[1.1] font-normal tracking-tight mb-5 text-slate-900 font-sans w-full">
                         Quản lý <span className="text-blue-500">bán hàng</span> và <br className="hidden md:block" /><span className="text-blue-500">vận hành</span> doanh nghiệp trên <br className="hidden md:block" />một <span className="text-blue-500">nền tảng duy nhất.</span>
                     </h1>
 
@@ -95,11 +95,11 @@ const HeroSection: React.FC = () => {
                         Luôn cập nhật dữ liệu tài chính, kho bãi và tiến độ công việc theo thời gian thực <br className="hidden md:block" />để đưa ra các quyết định chiến lược chuẩn xác nhất.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                        <Button to="/contact" variant="primary" size="lg">
+                    <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-start lg:justify-center gap-4 mb-16">
+                        <Button to="/contact" variant="primary" size="md" className="w-full sm:w-auto text-center justify-center">
                             Bắt đầu ngay
                         </Button>
-                        <Button to="/about" variant="outline" size="lg">
+                        <Button to="/about" variant="outline" size="md" className="w-full sm:w-auto text-center justify-center">
                             Dùng thử miễn phí
                         </Button>
                     </div>
@@ -132,8 +132,10 @@ const HeroSection: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Floating Element: Left Top Card (Sales total) */}
-                <div className="hidden lg:block absolute left-[-2%] top-[5%] -rotate-[8deg] bg-white p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-30">
+                {/* Floating Elements - Positioned relative to max-w-7xl for core content alignment */}
+                
+                {/* 1. Doanh thu tổng (Light card) */}
+                <div className="absolute left-[-16%] lg:left-[-2%] top-[-4%] lg:top-[5%] -rotate-[8deg] bg-white p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-30 scale-[0.34] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-left">
                     <div className="flex justify-between items-center mb-1">
                         <h4 className="font-bold text-slate-800 text-sm">Doanh thu tổng</h4>
                         <span className="text-[10px] text-slate-400">20%</span>
@@ -155,8 +157,8 @@ const HeroSection: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Floating Element: Left Bottom Card (Satisfied users) */}
-                <div className="hidden lg:flex absolute left-[5%] bottom-[5%] rotate-12 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-30">
+                {/* 2. Khách hàng hài lòng (Dark card) */}
+                <div className="absolute left-[0%] lg:left-[5%] bottom-[12%] lg:bottom-[5%] rotate-12 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-30 scale-[0.5] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-left">
                     <div className="flex justify-center -space-x-2 mb-3">
                         <img src="https://i.pravatar.cc/100?img=4" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] object-cover" />
                         <img src="https://i.pravatar.cc/100?img=5" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] object-cover" />
@@ -166,8 +168,8 @@ const HeroSection: React.FC = () => {
                     <p className="text-[10px] text-slate-400">Khách hàng hài lòng</p>
                 </div>
 
-                {/* Floating Element: Right Top Card (Corporate Fund) */}
-                <div className="hidden lg:block absolute right-[-2%] top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-30">
+                {/* 3. Sổ quỹ doanh nghiệp (Dark card) */}
+                <div className="absolute right-[-20%] lg:right-[-2%] top-[-1%] lg:top-[10%] rotate-6 bg-[#1A1A1A] p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] w-[280px] transform transition-transform hover:scale-105 hover:rotate-3 border border-slate-800 z-0 scale-[0.38] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-right">
                     <div className="flex items-center gap-3 mb-5">
                         <div className="w-11 h-11 rounded-full border border-blue-500/30 bg-blue-500/10 flex items-center justify-center shrink-0">
                             <Icon name="account_balance_wallet" className="text-blue-400 text-[22px]" />
@@ -184,8 +186,8 @@ const HeroSection: React.FC = () => {
                     </h3>
                 </div>
 
-                {/* Floating Element: Right Bottom Card (Branch Management) */}
-                <div className="hidden lg:block absolute right-[3%] bottom-[5%] -rotate-6 bg-white p-4 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[230px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-30">
+                {/* 4. Mạng lưới chi nhánh (Light card) */}
+                <div className="absolute right-[-5%] lg:right-[3%] bottom-[10%] lg:bottom-[5%] rotate-[-4deg] bg-white p-4 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[230px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 z-0 scale-[0.55] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-right">
                     <div className="flex items-center gap-2.5 mb-3">
                         <div className="w-9 h-9 rounded-full bg-indigo-50 flex items-center justify-center shrink-0">
                             <Icon name="storefront" className="text-indigo-500 text-[18px]" />
@@ -212,7 +214,6 @@ const HeroSection: React.FC = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
 
             {/* Bottom Gradient for smooth transition */}

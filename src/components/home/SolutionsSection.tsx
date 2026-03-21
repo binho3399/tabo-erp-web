@@ -77,7 +77,7 @@ const SolutionsSection: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     {/* Left Column: Text + CTA */}
-                    <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left pt-10 sticky top-24">
+                    <div className="lg:col-span-6 flex flex-col items-start lg:items-start text-left lg:text-left pt-10 lg:sticky lg:top-24">
                         <Badge variant="primary" className="mb-5">GIẢI PHÁP</Badge>
                         <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-5 tracking-tight leading-[1.15]">
                             Giải quyết mọi<br /><span className="text-blue-500">nỗi đau</span> doanh nghiệp.

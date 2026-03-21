@@ -3,12 +3,51 @@ import Icon from '../common/Icon';
 import Badge from '../common/Badge';
 
 const FeaturesSection: React.FC = () => {
+    const featureItems = [
+        { name: "Tài chính", icon: "account_balance", desc: "Tài chính tổng hợp", color: "blue" },
+        { name: "Kho bãi", icon: "inventory_2", desc: "Kiểm soát vật tư", color: "orange" },
+        { name: "Nhân sự", icon: "groups", desc: "Chấm công & lương", color: "emerald" },
+        { name: "Mua hàng", icon: "local_shipping", desc: "Quản lý nhà cung cấp", color: "purple" },
+        { name: "Bán hàng", icon: "point_of_sale", desc: "Đơn hàng & Doanh thu", color: "pink" },
+        { name: "Báo cáo", icon: "pie_chart", desc: "Phân tích đa chiều", color: "cyan" },
+        { name: "Sản xuất", icon: "precision_manufacturing", desc: "Kế hoạch & Vận hành", color: "red" },
+        { name: "CRM", icon: "support_agent", desc: "Chăm sóc khách hàng", color: "teal" },
+        { name: "Dự án", icon: "task", desc: "Quản lý tiến độ", color: "indigo" },
+        { name: "Tài sản", icon: "category", desc: "Khấu hao & Bảo trì", color: "amber" }
+    ];
+
+    const renderFeatureItem = (item: any, idx: number) => {
+        const colors: { [key: string]: string } = {
+            blue: "bg-blue-50 text-blue-500",
+            orange: "bg-orange-50 text-orange-600",
+            emerald: "bg-emerald-50 text-emerald-600",
+            purple: "bg-purple-50 text-purple-600",
+            pink: "bg-pink-50 text-pink-600",
+            cyan: "bg-cyan-50 text-cyan-600",
+            red: "bg-red-50 text-red-600",
+            teal: "bg-teal-50 text-teal-600",
+            indigo: "bg-indigo-50 text-indigo-600",
+            amber: "bg-amber-50 text-amber-600"
+        };
+        return (
+            <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default shrink-0 group">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[item.color]}`}>
+                    <Icon name={item.icon} className="text-xl" />
+                </div>
+                <div className="">
+                    <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
+                    <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
+                </div>
+            </div>
+        );
+    };
+
     return (
         <section className="py-24 bg-white">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Row */}
-                <div className="flex flex-col lg:flex-row items-center lg:items-end mb-16 gap-y-10 lg:gap-5 text-center lg:text-left">
-                    <div className="max-w-md lg:w-[35%] flex flex-col items-center lg:items-start">
+                <div className="flex flex-col lg:flex-row items-start lg:items-end mb-16 gap-y-10 lg:gap-5 text-left lg:text-left">
+                    <div className="max-w-md lg:w-[35%] flex flex-col items-start lg:items-start">
                         <Badge variant="primary" className="mb-5">HỆ SINH THÁI</Badge>
                         <h2 className="text-4xl md:text-5xl font-normal text-slate-900 leading-[1.15] mb-5 tracking-tight font-sans">
                             Đa dạng phân hệ,<br />
@@ -19,85 +58,47 @@ const FeaturesSection: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="w-full lg:w-[70%] flex flex-col items-center gap-3 lg:gap-4 pb-4">
-                        {/* Row 1: 3 items */}
-                        <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
-                            {[
-                                { name: "Tài chính", icon: "account_balance", desc: "Tài chính tổng hợp", color: "blue" },
-                                { name: "Kho bãi", icon: "inventory_2", desc: "Kiểm soát vật tư", color: "orange" },
-                                { name: "Nhân sự", icon: "groups", desc: "Chấm công & lương", color: "emerald" }
-                            ].map((item, idx) => {
-                                const colors: { [key: string]: any } = {
-                                    blue: "bg-blue-50 text-blue-500",
-                                    orange: "bg-orange-50 text-orange-600",
-                                    emerald: "bg-emerald-50 text-emerald-600"
-                                };
-                                return (
-                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default shrink-0 group">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[item.color]}`}>
-                                            <Icon name={item.icon} className="text-xl" />
-                                        </div>
-                                        <div className="">
-                                            <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
-                                            <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                    <div className="w-full lg:w-[70%] flex flex-col lg:items-center pb-4">
+                        {/* Desktop Layout: 3 Rows */}
+                        <div className="hidden lg:flex flex-col items-center gap-4 w-full">
+                            {/* Row 1: 3 items */}
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {featureItems.slice(0, 3).map(renderFeatureItem)}
+                            </div>
+                            {/* Row 2: 4 items */}
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {featureItems.slice(3, 7).map(renderFeatureItem)}
+                            </div>
+                            {/* Row 3: 3 items */}
+                            <div className="flex flex-wrap justify-center gap-4">
+                                {featureItems.slice(7, 10).map(renderFeatureItem)}
+                            </div>
                         </div>
 
-                        {/* Row 2: 4 items */}
-                        <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
-                            {[
-                                { name: "Mua hàng", icon: "local_shipping", desc: "Quản lý nhà cung cấp", color: "purple" },
-                                { name: "Bán hàng", icon: "point_of_sale", desc: "Đơn hàng & Doanh thu", color: "pink" },
-                                { name: "Báo cáo", icon: "pie_chart", desc: "Phân tích đa chiều", color: "cyan" },
-                                { name: "Sản xuất", icon: "precision_manufacturing", desc: "Kế hoạch & Vận hành", color: "red" }
-                            ].map((item, idx) => {
-                                const colors: { [key: string]: any } = {
-                                    purple: "bg-purple-50 text-purple-600",
-                                    pink: "bg-pink-50 text-pink-600",
-                                    cyan: "bg-cyan-50 text-cyan-600",
-                                    red: "bg-red-50 text-red-600"
-                                };
-                                return (
-                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default shrink-0 group">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[item.color]}`}>
-                                            <Icon name={item.icon} className="text-xl" />
-                                        </div>
-                                        <div className="">
-                                            <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
-                                            <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                        {/* Row 3: 3 items */}
-                        <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
-                            {[
-                                { name: "CRM", icon: "support_agent", desc: "Chăm sóc khách hàng", color: "teal" },
-                                { name: "Dự án", icon: "task", desc: "Quản lý tiến độ", color: "indigo" },
-                                { name: "Tài sản", icon: "category", desc: "Khấu hao & Bảo trì", color: "amber" }
-                            ].map((item, idx) => {
-                                const colors: { [key: string]: any } = {
-                                    teal: "bg-teal-50 text-teal-600",
-                                    indigo: "bg-indigo-50 text-indigo-600",
-                                    amber: "bg-amber-50 text-amber-600"
-                                };
-                                return (
-                                    <div key={idx} className="flex items-center gap-3 bg-white pr-6 pl-2 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default shrink-0 group">
-                                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[item.color]}`}>
-                                            <Icon name={item.icon} className="text-xl" />
-                                        </div>
-                                        <div className="">
-                                            <h4 className="text-slate-800 text-[13px] font-normal leading-tight">{item.name}</h4>
-                                            <p className="text-slate-400 text-[10px] mt-0.5">{item.desc}</p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                        {/* Mobile Layout: 2 Rows + Marquee Animation */}
+                        <div className="flex lg:hidden relative overflow-hidden pb-4 -mx-4">
+                            <div className="flex flex-col gap-0 w-full mask-image-linear-gradient">
+                                {/* Row 1: 5 items */}
+                                <div className="flex animate-marquee whitespace-nowrap gap-3 py-2 pl-4">
+                                    {featureItems.slice(0, 5).concat(featureItems.slice(0, 5)).map((item, idx) => (
+                                        <React.Fragment key={`row1-${idx}`}>
+                                            {renderFeatureItem(item, idx)}
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+                                {/* Row 2: 5 items */}
+                                <div className="flex animate-marquee whitespace-nowrap gap-3 py-2 pl-4" style={{ animationDirection: 'reverse' }}>
+                                    {featureItems.slice(5, 10).concat(featureItems.slice(5, 10)).map((item, idx) => (
+                                        <React.Fragment key={`row2-${idx}`}>
+                                            {renderFeatureItem(item, idx)}
+                                        </React.Fragment>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            {/* Gradient Shadows */}
+                            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+                            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
                         </div>
                     </div>
                 </div>
@@ -108,7 +109,7 @@ const FeaturesSection: React.FC = () => {
                     <div className="flex flex-col gap-6 w-full lg:w-[48%]">
                         {/* Kế toán Card */}
                         <div className="bg-white rounded-[20px] p-6 flex flex-col lg:flex-row items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
-                            <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
+                            <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-left">
                                 <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Tài chính tổng hợp</h4>
                                 <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Hệ thống tự động hóa toàn diện nghiệp vụ tài chính và sổ sách doanh nghiệp.
@@ -143,7 +144,7 @@ const FeaturesSection: React.FC = () => {
 
                         {/* Công nợ Card */}
                         <div className="bg-white rounded-[20px] p-6 flex flex-col-reverse lg:flex-row-reverse items-center h-auto lg:h-[188px] group transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative gap-8 lg:gap-10">
-                            <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-center lg:text-left">
+                            <div className="relative z-10 flex flex-col w-full lg:w-[45%] text-left">
                                 <h4 className="text-[28px] font-normal text-slate-900 tracking-tight mb-3">Quản lý Công nợ</h4>
                                 <p className="text-base text-slate-500 font-normal leading-relaxed">
                                     Theo dõi và thu hồi nợ tự động giúp tối ưu dòng tiền lưu động.
@@ -195,7 +196,7 @@ const FeaturesSection: React.FC = () => {
                     {/* Col 2: Feature Card */}
                     <div className="w-full lg:w-[26%] bg-white rounded-[20px] p-6 flex flex-col h-auto lg:h-[400px] transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative">
                         <div className="relative z-10 flex flex-col h-full">
-                            <div className="mb-6 text-center lg:text-left">
+                            <div className="mb-6 text-left">
                                 <h3 className="text-2xl lg:text-[28px] font-normal text-slate-900 leading-[1.2] tracking-tight mb-5">
                                     Tối ưu hóa cho mọi<br className="hidden lg:block" />lĩnh vực kinh doanh.
                                 </h3>
@@ -312,7 +313,7 @@ const FeaturesSection: React.FC = () => {
                                     </div>
                                 </div>
 
-                                <div className="text-center lg:text-left">
+                                <div className="text-left">
                                     <h4 className="text-2xl lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
                                     <p className="text-base text-slate-500 font-normal leading-relaxed">
                                         Tự động hóa báo cáo thuế và quản lý hóa đơn. Đảm bảo tính pháp lý, giúp tối ưu hồ sơ doanh nghiệp.
