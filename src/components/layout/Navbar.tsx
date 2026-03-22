@@ -28,10 +28,10 @@ const Navbar: React.FC = () => {
     };
 
     const navLinks = [
-        { name: 'Trang Chủ', path: '/', icon: 'home' },
+        { name: 'Trang chủ', path: '/', icon: 'home' },
         { name: 'Bảng giá', path: '/pricing', icon: 'payments' },
-        { name: 'Về Chúng Tôi', path: '/about', icon: 'groups' },
-        { name: 'Liên Hệ', path: '/contact', icon: 'contact_support' },
+        { name: 'Về chúng tôi', path: '/about', icon: 'groups' },
+        { name: 'Liên hệ', path: '/contact', icon: 'contact_support' },
     ];
 
     return (
@@ -104,10 +104,10 @@ const Navbar: React.FC = () => {
                                     <div className="flex flex-col text-left">
                                         <span className="text-[17px] font-medium text-slate-900">{link.name}</span>
                                         <span className="text-[13px] text-slate-500 font-light translate-y-[-2px]">
-                                            {link.name === 'Trang Chủ' && 'Khám phá thế giới Tabo'}
+                                            {link.name === 'Trang chủ' && 'Khám phá thế giới Tabo'}
                                             {link.name === 'Bảng giá' && 'Giải pháp và bảng giá tối ưu'}
-                                            {link.name === 'Về Chúng Tôi' && 'Câu chuyện và sứ mệnh'}
-                                            {link.name === 'Liên Hệ' && 'Hỗ trợ 24/7 cho doanh nghiệp'}
+                                            {link.name === 'Về chúng tôi' && 'Câu chuyện và sứ mệnh'}
+                                            {link.name === 'Liên hệ' && 'Hỗ trợ 24/7 cho doanh nghiệp'}
                                         </span>
                                     </div>
                                     <Icon name="chevron_right" className="ml-auto text-slate-300 group-hover:text-slate-400 text-lg translate-x-1 opacity-0 group-hover:opacity-100 transition-all" />

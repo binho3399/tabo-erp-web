@@ -56,10 +56,10 @@ const Footer: React.FC = () => {
 
                     <nav className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row justify-start md:justify-end gap-4 md:gap-x-8 md:gap-y-4">
                         {[
-                            { name: 'Trang Chủ', path: '/' },
+                            { name: 'Trang chủ', path: '/' },
                             { name: 'Bảng giá', path: '/pricing' },
-                            { name: 'Về Chúng Tôi', path: '/about' },
-                            { name: 'Liên Hệ', path: '/contact' }
+                            { name: 'Về chúng tôi', path: '/about' },
+                            { name: 'Liên hệ', path: '/contact' }
                         ].map((link, idx) => (
                             <Link
                                 key={idx}
