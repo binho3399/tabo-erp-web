@@ -46,7 +46,7 @@ const StrategySection: React.FC = () => {
                 {/* Header Row: Split Title & Desc */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-16 items-end">
                     <div className="text-left">
-                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] font-sans">
+                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] font-sans mb-4 md:mb-5">
                             Thúc đẩy thành công qua <br />
                             <span className="text-blue-500 font-normal">quản trị thông minh.</span>
                         </h2>

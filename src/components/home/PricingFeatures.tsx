@@ -86,7 +86,7 @@ const PricingFeatures: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-left lg:text-center mb-16 flex flex-col items-start lg:items-center">
                     <Badge variant="primary" className="mb-4 uppercase">So sánh chi tiết</Badge>
-                    <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+                    <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-4 md:mb-5">
                         Mọi tính năng bạn cần <br className="hidden lg:block" /> để <span className="text-blue-500">bứt phá doanh thu.</span>
                     </h2>
                 </div>

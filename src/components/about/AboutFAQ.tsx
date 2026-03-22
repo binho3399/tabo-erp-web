@@ -7,7 +7,7 @@ const AboutFAQ: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-left lg:text-center mb-8 lg:mb-16 flex flex-col items-start lg:items-center">
                     <Badge variant="primary" className="mb-4 uppercase">Giải đáp thắc mắc</Badge>
-                    <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4 lg:mb-5">Câu hỏi <span className="text-blue-500">thường gặp</span></h2>
+                    <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4 md:mb-5">Câu hỏi <span className="text-blue-500">thường gặp</span></h2>
                     <p className="text-base text-slate-500 max-w-2xl font-normal">Những câu hỏi phổ biến khi tìm hiểu giải pháp của Tabo ERP.</p>
                 </div>
 

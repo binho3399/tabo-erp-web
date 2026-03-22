@@ -79,7 +79,7 @@ const SolutionsSection: React.FC = () => {
                     {/* Left Column: Text + CTA */}
                     <div className="lg:col-span-6 flex flex-col items-start lg:items-start text-left lg:text-left pt-10 lg:sticky lg:top-24">
                         <Badge variant="primary" className="mb-4">GIẢI PHÁP</Badge>
-                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 mb-4 tracking-tight leading-[1.15]">
+                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 mb-4 md:mb-5 tracking-tight leading-[1.15]">
                             Giải quyết mọi<br /><span className="text-blue-500">nỗi đau</span> doanh nghiệp.
                         </h2>
                         <p className="text-slate-500 font-normal text-base mb-6 leading-relaxed">

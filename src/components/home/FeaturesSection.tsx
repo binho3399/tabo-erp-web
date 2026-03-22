@@ -49,7 +49,7 @@ const FeaturesSection: React.FC = () => {
                 <div className="flex flex-col lg:flex-row items-start lg:items-end mb-8 lg:mb-16 gap-y-5 lg:gap-5 text-left lg:text-left">
                     <div className="max-w-md lg:w-[35%] flex flex-col items-start lg:items-start">
                         <Badge variant="primary" className="mb-4 lg:mb-5">HỆ SINH THÁI</Badge>
-                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 leading-[1.15] mb-4 lg:mb-5 tracking-tight font-sans">
+                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 leading-[1.15] mb-4 md:mb-5 tracking-tight font-sans">
                             Đa dạng phân hệ,<br />
                             <span className="text-blue-500 font-normal">tùy biến linh hoạt.</span>
                         </h2>

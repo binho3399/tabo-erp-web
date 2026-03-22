@@ -20,6 +20,7 @@ Skill (Tài liệu) này cung cấp **"Vibe" (Phong cách và Cảm quan)** lõi
   - Chiều rộng/cao của khung chứa Icon: Chuẩn xác là `w-11 h-11`.
 - **Tiêu chuẩn Desktop:** 
   - Padding của các thẻ: Từ `p-6` đến `p-8`.
+  - Margin bottom cho Tiêu đề Chính (Section Titles): Luôn là `mb-5` (tương đương 20px).
   - Khung chứa Icon: `w-12 h-12`.
   - Cả khung bo góc chuẩn: `rounded-xl` hoặc `rounded-2xl`.
 
@@ -28,7 +29,7 @@ Skill (Tài liệu) này cung cấp **"Vibe" (Phong cách và Cảm quan)** lõi
 - **Section Headers (Tiêu đề Lớn của từng vùng):** 
   - Mobile: Cố định `text-[28px]`.
   - Desktop: `text-4xl md:text-5xl`.
-  - Class bắt buộc đi kèm: `font-normal tracking-tight leading-[1.15] text-slate-900`. Chữ chính luôn mỏng và thanh thoát.
+  - Class bắt buộc đi kèm: `font-normal tracking-tight leading-[1.15] text-slate-900 mb-4 md:mb-5`. Chữ chính luôn mỏng và thanh thoát, khoảng cách dưới mobile 16px, desktop 20px.
 - **Card Titles (Tiêu đề trong các Thẻ con):** 
   - Mobile: Cố định `text-[20px]`.
   - Desktop: `lg:text-[28px]`.
