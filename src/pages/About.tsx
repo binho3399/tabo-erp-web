@@ -69,7 +69,7 @@ const About: React.FC = () => {
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center text-center">
-                    <Badge variant="primary" className="mb-8 font-semibold">
+                    <Badge variant="primary" className="mb-4 md:mb-5 font-semibold">
                         VỀ CHÚNG TÔI
                     </Badge>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-5 text-slate-900">

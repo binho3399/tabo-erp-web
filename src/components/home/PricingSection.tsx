@@ -78,7 +78,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {!hideHeader && (
                     <div className="text-left lg:text-center mb-16">
-                        <Badge variant="primary" className="mb-4 uppercase">Bảng giá minh bạch</Badge>
+                        <Badge variant="primary" className="mb-4 md:mb-5 uppercase">Bảng giá minh bạch</Badge>
                         <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] mb-4 md:mb-5">
                             Đầu tư thông minh cho <br /><span className="text-blue-500">tương lai doanh nghiệp.</span>
                         </h3>

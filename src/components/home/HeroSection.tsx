@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
                 <div className="text-left lg:text-center max-w-3xl w-full flex flex-col items-start lg:items-center relative z-20">
                     {/* Sparkles Decoration */}
                     <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
-                    <Badge variant="primary" className="mb-5">
+                    <Badge variant="primary" className="mb-4 md:mb-5">
                         HỆ ĐIỀU HÀNH DOANH NGHIỆP
                     </Badge>
                     <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.25] lg:leading-[1.1] font-normal tracking-tight mb-5 text-slate-900 font-sans w-full">

@@ -41,7 +41,7 @@ const StrategySection: React.FC = () => {
         <section className="py-24 bg-white border-y border-slate-100 relative overflow-hidden text-left">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header Badge */}
-                <Badge variant="primary" className="mb-4">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
+                <Badge variant="primary" className="mb-4 md:mb-5">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
 
                 {/* Header Row: Split Title & Desc */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-16 items-end">

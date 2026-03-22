@@ -39,6 +39,7 @@ Skill (Tài liệu) này cung cấp **"Vibe" (Phong cách và Cảm quan)** lõi
   - TOÀN BỘ Nhãn dán trên đỉnh các Section (Ví dụ: "GIẢI ĐÁP THẮC MẮC", "LIÊN HỆ", "SO SÁNH CHI TIẾT") **phải dùng** tone Xanh chủ đạo (Tương đương `variant="primary"` trong Component `Badge.tsx` với cấu trúc: `bg-blue-50 text-blue-700 border border-blue-100 px-4 py-1.5 text-xs shadow-sm`). 
   - Không được dùng nhãn dán nền xám trầm cho các khối chính của trang.
   - Các nhãn luôn viết hoa `uppercase`, kiểu chữ `text-xs` hoặc siêu nhỏ `text-[10px]`, font `font-semibold` hoặc `font-bold tracking-widest` theo hệ thống Vibe.
+  - **Khoảng cách dưới (Margin Bottom) từ Badge tới Title:** Cố định dùng class `mb-4 md:mb-5` (16px cho Mobile và 20px cho Desktop).
 
 ## 4. UI Tables & Accordions (Cấu trúc Khối dữ liệu)
 - **Bảng So Sánh (Comparison Tables):** Tuyệt đối không dùng cấu trúc Accordion lồng ghép phức tạp gây cản trở tầm nhìn. Các Bảng Giá/Tính năng lớn (như PricingFeatures) phải dùng giao diện **Flat Table** trải phẳng, chia `grid` với Max Width `max-w-7xl` (1280px).

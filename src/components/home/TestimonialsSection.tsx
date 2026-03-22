@@ -32,7 +32,7 @@ const TestimonialsSection: React.FC = () => {
             `}} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10 text-left lg:text-center">
-                <Badge variant="primary" className="mb-4 uppercase">
+                <Badge variant="primary" className="mb-4 md:mb-5 uppercase">
                     Hệ sinh thái đối tác
                 </Badge>
                 <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4 md:mb-5">

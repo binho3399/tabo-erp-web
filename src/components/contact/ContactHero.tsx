@@ -79,7 +79,7 @@ const ContactHero: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-start text-left lg:items-center lg:text-center mt-8 lg:mt-0">
                 {/* Sparkles Decoration */}
                 <div className="absolute top-[-100px] left-0 lg:left-1/2 lg:-translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
-                <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-4 lg:mb-5 inline-flex items-center shadow-sm">
+                <span className="bg-blue-50 text-blue-700 border border-blue-100 font-semibold tracking-wide text-xs px-4 py-1.5 rounded-full mb-4 md:mb-5 inline-flex items-center shadow-sm">
                     LIÊN HỆ
                 </span>
                 <h1 className="text-[32px] md:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-4 lg:mb-5 text-slate-900">

@@ -60,8 +60,8 @@ const Pricing: React.FC = () => {
                     </svg>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50 w-full flex flex-col items-center text-center">
-                    <Badge variant="primary" className="mb-8 font-semibold">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-center text-center">
+                    <Badge variant="primary" className="mb-4 md:mb-5 font-semibold">
                         BẢNG GIÁ DỊCH VỤ
                     </Badge>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-5 text-slate-900">
