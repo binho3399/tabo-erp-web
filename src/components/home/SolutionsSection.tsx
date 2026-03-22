@@ -78,8 +78,8 @@ const SolutionsSection: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     {/* Left Column: Text + CTA */}
                     <div className="lg:col-span-6 flex flex-col items-start lg:items-start text-left lg:text-left pt-10 lg:sticky lg:top-24">
-                        <Badge variant="primary" className="mb-5">GIẢI PHÁP</Badge>
-                        <h2 className="text-4xl md:text-5xl font-normal text-slate-900 mb-5 tracking-tight leading-[1.15]">
+                        <Badge variant="primary" className="mb-4">GIẢI PHÁP</Badge>
+                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 mb-4 tracking-tight leading-[1.15]">
                             Giải quyết mọi<br /><span className="text-blue-500">nỗi đau</span> doanh nghiệp.
                         </h2>
                         <p className="text-slate-500 font-normal text-base mb-6 leading-relaxed">
@@ -95,16 +95,16 @@ const SolutionsSection: React.FC = () => {
                     {/* Right Column: Stacked Cards (keeping original UI) */}
                     <div className="lg:col-span-6 flex flex-col gap-8">
                         {solutions.map((sol, i) => (
-                            <div key={i} className="group bg-white rounded-[20px] p-6 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                            <div key={i} className="group bg-white rounded-[20px] p-4 lg:p-6 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col h-full">
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="text-sm font-bold text-blue-500 bg-blue-50 px-3 py-1 rounded-full">{sol.id}</span>
-                                    <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                                    <div className="w-11 h-11 lg:w-10 lg:h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:bg-blue-500 group-hover:text-white transition-colors">
                                         <Icon name={sol.icon} className="text-xl" />
                                     </div>
                                 </div>
 
-                                <h3 className="text-2xl lg:text-[28px] font-normal text-slate-900 mb-5 tracking-tight">{sol.title}</h3>
-                                <p className="text-base text-slate-500 font-normal mb-5 leading-relaxed max-w-xl">
+                                <h3 className="text-[20px] lg:text-[28px] font-normal text-slate-900 mb-4 tracking-tight">{sol.title}</h3>
+                                <p className="text-base text-slate-500 font-normal mb-4 leading-relaxed max-w-xl">
                                     {sol.desc}
                                 </p>
 
@@ -127,7 +127,7 @@ const SolutionsSection: React.FC = () => {
 
                     {/* Mobile CTA */}
                     <div className="lg:hidden w-full flex justify-center mt-8">
-                        <Button to="/contact" variant="primary" size="lg" fullWidth>
+                        <Button to="/contact" variant="primary" size="md" fullWidth>
                             Tư vấn giải pháp miễn phí
                         </Button>
                     </div>

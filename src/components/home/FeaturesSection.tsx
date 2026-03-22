@@ -289,7 +289,7 @@ const FeaturesSection: React.FC = () => {
                                 <div className="mb-6 relative h-[165px] flex flex-col justify-center">
                                     <div className="bg-slate-900 rounded-xl p-6 shadow-2xl relative overflow-hidden group-hover:-rotate-1 group-hover:scale-[1.02] transition-all duration-700">
                                         <div className="flex items-center gap-3 mb-6">
-                                            <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center">
+                                            <div className="w-11 h-11 lg:w-10 lg:h-10 rounded-xl bg-blue-600 flex items-center justify-center">
                                                 <Icon name="verified" className="text-white text-lg" />
                                             </div>
                                             <div className="flex-1">
@@ -314,7 +314,7 @@ const FeaturesSection: React.FC = () => {
                                 </div>
 
                                 <div className="text-left">
-                                    <h4 className="text-2xl lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
+                                    <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Thuế & Hóa đơn</h4>
                                     <p className="text-base text-slate-500 font-normal leading-relaxed">
                                         Tự động hóa báo cáo thuế và quản lý hóa đơn. Đảm bảo tính pháp lý, giúp tối ưu hồ sơ doanh nghiệp.
                                     </p>

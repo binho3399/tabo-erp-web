@@ -12,10 +12,10 @@ const VisionSection: React.FC = () => {
                         { title: "Kinh Nghiệm", text: "Tháo gỡ rào cản quản trị và mở khóa tiềm năng phát triển vượt bậc cho doanh nghiệp." }
                     ].map((item, i) => (
                         <div key={i} className="flex flex-col pt-10 border-t-[3px] border-[#0070F3]">
-                            <div className="mb-5">
+                            <div className="mb-4">
                                 <Badge variant="primary">0{i + 1}</Badge>
                             </div>
-                            <h3 className="text-2xl lg:text-[28px] font-normal mb-5 text-slate-900 tracking-tight leading-tight">{item.title}</h3>
+                            <h3 className="text-[20px] lg:text-[28px] font-normal mb-4 text-slate-900 tracking-tight leading-tight">{item.title}</h3>
                             <p className="text-base text-slate-500 font-normal leading-relaxed mb-10 max-w-sm">
                                 {item.text}
                             </p>

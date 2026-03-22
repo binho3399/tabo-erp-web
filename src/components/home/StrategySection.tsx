@@ -41,12 +41,12 @@ const StrategySection: React.FC = () => {
         <section className="py-24 bg-white border-y border-slate-100 relative overflow-hidden text-left">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header Badge */}
-                <Badge variant="primary" className="mb-5">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
+                <Badge variant="primary" className="mb-4">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
 
                 {/* Header Row: Split Title & Desc */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-16 items-end">
                     <div className="text-left">
-                        <h2 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] font-sans">
+                        <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15] font-sans">
                             Thúc đẩy thành công qua <br />
                             <span className="text-blue-500 font-normal">quản trị thông minh.</span>
                         </h2>
@@ -61,14 +61,12 @@ const StrategySection: React.FC = () => {
                 {/* Grid Layout inspired by Figure 2: 4 columns */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {strategies.map((item, i) => (
-                        <div key={i} className="bg-white border border-slate-50 rounded-[20px] p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group flex flex-col h-full">
-                            <div>
-                                <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-500 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300 shadow-sm">
-                                    <Icon name={item.icon} className="text-2xl" />
-                                </div>
+                        <div key={i} className="bg-white border border-slate-50 rounded-[20px] p-4 lg:p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out group flex flex-col h-full">
+                            <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 ease-out shadow-sm mb-4">
+                                <Icon name={item.icon} className="text-xl lg:text-2xl" />
                             </div>
-                            <div className="mt-8 text-left">
-                                <h3 className="text-[28px] font-normal text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors h-[68px] flex items-start">
+                            <div className="text-left">
+                                <h3 className="text-[20px] lg:text-[28px] font-normal text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors h-auto lg:h-[68px] flex items-start">
                                     {item.title}
                                 </h3>
                                 <p className="text-base text-slate-500 font-normal leading-relaxed">
@@ -79,9 +77,9 @@ const StrategySection: React.FC = () => {
                     ))}
 
                     {/* Big CTA Card: Spans 2 columns on large screens */}
-                    <div className="sm:col-span-2 lg:col-span-2 bg-[#001D3D] rounded-[20px] p-6 relative overflow-hidden flex flex-col group shadow-xl h-full">
+                    <div className="sm:col-span-2 lg:col-span-2 bg-[#001D3D] rounded-[20px] p-4 lg:p-6 relative overflow-hidden flex flex-col group shadow-xl h-full">
                         <div className="relative z-10 text-left pt-2 flex flex-col h-full">
-                            <h3 className="text-[28px] font-normal text-white mb-6 leading-[1.2] max-w-sm h-auto sm:h-[68px] flex items-start">
+                            <h3 className="text-[20px] lg:text-[28px] font-normal text-white mb-6 leading-[1.2] max-w-sm h-auto lg:h-[68px] flex items-start">
                                 Liên hệ tư vấn chiến lược <br /> miễn phí ngay hôm nay
                             </h3>
                             
@@ -110,7 +108,7 @@ const StrategySection: React.FC = () => {
                                 </div>
 
                                 {/* CTA Button (Bottom Right) */}
-                                <Button to="/contact" variant="primary" size="lg" className="bg-blue-500 hover:bg-blue-400 border-none px-10 shadow-lg shadow-blue-500/20 w-fit shrink-0">
+                                <Button to="/contact" variant="primary" size="md" className="bg-blue-500 hover:bg-blue-400 border-none px-6 lg:px-10 shadow-lg shadow-blue-500/20 w-full sm:w-fit shrink-0">
                                     Đăng ký tư vấn ngay
                                 </Button>
                             </div>

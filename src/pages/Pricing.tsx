@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from '../components/common/Icon';
 import Badge from '../components/common/Badge';
 import PricingSection from '../components/home/PricingSection';
+import PricingFeatures from '../components/home/PricingFeatures';
 
 const Pricing: React.FC = () => {
     return (
@@ -65,7 +66,7 @@ const Pricing: React.FC = () => {
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-5 text-slate-900">
                         Đầu tư thông minh cho <br className="hidden md:block" /> sự <span className="text-blue-500">tăng trưởng bền vững.</span>
                     </h1>
-                    <p className="text-base text-slate-500 mb-10 max-w-2xl font-normal">
+                    <p className="text-base text-slate-500 max-w-2xl font-normal">
                         Lựa chọn gói giải pháp tối ưu phù hợp với quy mô doanh nghiệp bạn. <br className="hidden md:block" /> Minh bạch, hiệu quả và không chi phí ẩn.
                     </p>
                 </div>
@@ -76,6 +77,9 @@ const Pricing: React.FC = () => {
 
             {/* Pricing Table Section */}
             <PricingSection />
+
+            {/* Detailed Features Accordion */}
+            <PricingFeatures />
 
             {/* FAQ Section */}
             <section className="py-24 bg-slate-50 relative overflow-hidden">

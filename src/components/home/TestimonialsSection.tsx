@@ -32,10 +32,10 @@ const TestimonialsSection: React.FC = () => {
             `}} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10 text-left lg:text-center">
-                <Badge variant="primary" className="mb-5 uppercase">
+                <Badge variant="primary" className="mb-4 uppercase">
                     Hệ sinh thái đối tác
                 </Badge>
-                <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mb-5">
+                <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4">
                     Kiến tạo giá trị <span className="text-blue-500">vượt trội</span>
                 </h3>
                 <p className="text-slate-500 font-normal text-base max-w-2xl mx-auto leading-relaxed">
@@ -68,22 +68,22 @@ const TestimonialsSection: React.FC = () => {
                         { quote: 'Khả năng bảo mật tuyệt đối giúp chúng tôi yên tâm hơn khi quản lý dữ liệu khách hàng nhạy cảm.', highlight: 'An tâm bảo mật dữ liệu', icon: 'shield' },
                         { quote: 'Hệ thống chạy mượt mà trên cả mobile giúp đội ngũ kinh doanh chốt đơn mọi lúc mọi nơi.', highlight: 'Vận hành linh hoạt 24/7', icon: 'stay_primary_portrait' },
                     ]).map((item, i) => (
-                        <div key={i} className="flex-shrink-0 w-[450px] p-6 premium-card transition-all duration-700 rounded-[20px] flex flex-col group relative overflow-hidden">
+                        <div key={i} className="flex-shrink-0 w-[450px] p-4 lg:p-6 premium-card transition-all duration-500 ease-out hover:-translate-y-1 rounded-[20px] flex flex-col group relative overflow-hidden">
                             {/* Subtle Hover Background Pattern */}
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
-                            <div className={`w-12 h-12 rounded-xl mb-6 flex items-center justify-center transition-all group-hover:scale-110 duration-500 bg-blue-50 text-blue-600 border border-blue-100 shadow-sm shadow-blue-500/5`}>
+                            <div className={`w-11 h-11 lg:w-12 lg:h-12 rounded-xl mb-4 flex items-center justify-center transition-all group-hover:scale-110 duration-500 bg-blue-50 text-blue-600 border border-blue-100 shadow-sm shadow-blue-500/5`}>
                                 <Icon name={item.icon} className="text-xl" />
                             </div>
 
-                            <div className="relative mb-6">
-                                <div className="text-slate-900 font-medium text-xl tracking-tight leading-tight mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                            <div className="relative mb-4">
+                                <div className="text-slate-900 font-normal text-[20px] lg:text-[28px] tracking-tight leading-tight mb-4 group-hover:text-blue-600 transition-colors duration-300">
                                     {item.highlight}
                                 </div>
                                 <div className="w-12 h-1 bg-blue-500/20 rounded-full group-hover:w-16 group-hover:bg-blue-500/40 transition-all duration-500"></div>
                             </div>
 
-                            <p className="text-slate-500 font-normal leading-relaxed text-[17px] mb-8 relative z-10">
+                            <p className="text-base text-slate-500 font-normal leading-relaxed mb-4 relative z-10">
                                 "{item.quote}"
                             </p>
 

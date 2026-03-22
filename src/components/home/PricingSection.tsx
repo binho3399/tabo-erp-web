@@ -37,7 +37,7 @@ const PricingSection: React.FC = () => {
             ]
         },
         {
-            name: "Gói Doanh Nghiệp",
+            name: "Gói Nâng Cao",
             tagline: "Gói toàn diện",
             price: "Liên hệ",
             period: "",
@@ -70,11 +70,11 @@ const PricingSection: React.FC = () => {
     ];
 
     return (
-        <section className="py-32 bg-white relative overflow-clip">
+        <section className="py-24 bg-white relative overflow-clip">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-left lg:text-center mb-16">
-                    <Badge variant="primary" className="mb-5 uppercase">Bảng giá minh bạch</Badge>
-                    <h3 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+                    <Badge variant="primary" className="mb-4 uppercase">Bảng giá minh bạch</Badge>
+                    <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
                         Đầu tư thông minh cho <br /><span className="text-blue-500">tương lai doanh nghiệp.</span>
                     </h3>
                 </div>
@@ -85,7 +85,7 @@ const PricingSection: React.FC = () => {
                     <div className="md:sticky md:top-[72px] z-40 md:bg-white/95 md:backdrop-blur-md pt-6 pb-6 grid grid-cols-1 md:grid-cols-[22%_1fr_1fr] gap-6 lg:gap-8 mb-2 border-b border-transparent">
                         {/* Title corner */}
                         <div className="hidden md:flex flex-col justify-end pb-8">
-                            <h4 className="text-[16px] font-semibold text-slate-900 tracking-tight">Tính năng chi tiết</h4>
+                            <h4 className="text-[16px] font-semibold text-slate-900 tracking-tight">Nhóm tính năng</h4>
                         </div>
 
                         {plans.map((plan, idx) => (
@@ -133,7 +133,9 @@ const PricingSection: React.FC = () => {
                                 <div className="relative z-10 h-full flex flex-col justify-between gap-8">
                                     <div className="flex justify-between items-center gap-4">
                                         <div className="flex-1">
-                                            <h5 className="text-[28px] font-normal tracking-tight">{plan.name}</h5>
+                                            <h5 className="text-[20px] lg:text-[28px] font-normal tracking-tight">
+                                                {plan.name}
+                                            </h5>
                                             <p className={`text-[12px] font-normal leading-relaxed ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
                                                 {plan.desc}
                                             </p>
@@ -156,7 +158,7 @@ const PricingSection: React.FC = () => {
                                             to="/contact"
                                             variant={plan.variant || (plan.highlight ? 'primary' : 'outline')}
                                             fullWidth
-                                            size="lg"
+                                            size="md"
                                             className={plan.highlight ? 'shadow-blue-500/20 shadow-lg' : ''}
                                         >
                                             {plan.buttonText}

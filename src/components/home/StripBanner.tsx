@@ -61,11 +61,11 @@ const StripBanner: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 items-center relative z-10 gap-20">
                 {/* Left: Content & Button Group */}
                 <div className="text-left">
-                    <h2 className="text-4xl md:text-[48px] font-normal tracking-tight leading-[1.2] mb-8">
+                    <h2 className="text-[28px] md:text-[48px] font-normal tracking-tight leading-[1.2] mb-8">
                         Thời gian là tài sản quý nhất.<br />
                         <span className="text-blue-400">Tabo</span> giúp bạn <span className="text-blue-400">tối ưu hóa nó.</span>
                     </h2>
-                    <Button to="/contact" variant="primary" size="lg" className="!bg-blue-600 hover:!bg-blue-500 rounded-2xl shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] border border-blue-400/30 !px-10">
+                    <Button to="/contact" variant="primary" className="!bg-blue-600 hover:!bg-blue-500 rounded-2xl shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] border border-blue-400/30 px-6 py-2.5 text-base lg:px-10 lg:py-4 lg:text-lg transition-all">
                         Bắt đầu chuyển đổi
                     </Button>
                 </div>
