@@ -12,7 +12,7 @@ const ContactInfo: React.FC = () => {
                         <div className="flex flex-col w-full gap-5 h-full">
                             <div className="flex-1">
                                 <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4">Thông tin <span className="text-blue-500">liên hệ</span></h3>
-                                <p className="text-slate-500 font-light text-base md:text-lg">Kết nối với chúng tôi qua các kênh dưới đây <br className="hidden md:block" /> để nhận được sự hỗ trợ nhanh nhất.</p>
+                                <p className="text-slate-500 font-normal text-base">Kết nối với chúng tôi qua các kênh dưới đây <br className="hidden md:block" /> để nhận được sự hỗ trợ nhanh nhất.</p>
                             </div>
 
                             {/* Trụ sở chính Card */}
@@ -22,7 +22,7 @@ const ContactInfo: React.FC = () => {
                                 </div>
                                 <div className="flex flex-col">
                                     <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Trụ sở chính</h4>
-                                    <p className="text-slate-500 font-light text-base md:text-lg leading-relaxed line-clamp-2">
+                                    <p className="text-slate-500 font-normal text-base leading-relaxed line-clamp-2">
                                         Tòa nhà Landmark 81, Vinhomes Central Park, Phường 22, Bình Thạnh, TP. Hồ Chí Minh
                                     </p>
                                 </div>
@@ -39,10 +39,10 @@ const ContactInfo: React.FC = () => {
                                 <div className="flex flex-col">
                                     <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Đường dây nóng</h4>
                                     <div className="space-y-1">
-                                        <p className="text-slate-500 font-light text-base md:text-lg leading-relaxed">
+                                        <p className="text-slate-500 font-normal text-base leading-relaxed">
                                             Doanh nghiệp: <strong>1900 1234</strong>
                                         </p>
-                                        <p className="text-slate-500 font-light text-base md:text-lg leading-relaxed">
+                                        <p className="text-slate-500 font-normal text-base leading-relaxed">
                                             Kỹ thuật: <strong>(028) 3888 9999</strong>
                                         </p>
                                     </div>
@@ -57,10 +57,10 @@ const ContactInfo: React.FC = () => {
                                 <div className="flex flex-col">
                                     <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 tracking-tight mb-4">Email hỗ trợ</h4>
                                     <div className="space-y-1">
-                                        <p className="text-slate-500 font-light text-base md:text-lg leading-relaxed">
+                                        <p className="text-slate-500 font-normal text-base leading-relaxed">
                                             Kinh doanh: <a href="mailto:sales@tabo.vn" className="text-blue-500 hover:text-blue-600 transition-colors">sales@tabo.vn</a>
                                         </p>
-                                        <p className="text-slate-500 font-light text-base md:text-lg leading-relaxed">
+                                        <p className="text-slate-500 font-normal text-base leading-relaxed">
                                             Truyền thông: <a href="mailto:press@tabo.vn" className="text-blue-500 hover:text-blue-600 transition-colors">press@tabo.vn</a>
                                         </p>
                                     </div>
@@ -107,7 +107,7 @@ const ContactInfo: React.FC = () => {
                                             <span className="text-[11px] font-bold text-white tracking-widest uppercase">TABO ERP</span>
                                         </div>
                                         <h4 className="text-[20px] lg:text-[28px] font-normal text-white mb-4 underline underline-offset-8 decoration-white/20">Giải pháp doanh nghiệp</h4>
-                                        <p className="text-white/90 font-light text-base leading-relaxed">
+                                        <p className="text-white/90 font-normal text-base leading-relaxed">
                                             Bắt đầu trải nghiệm giải pháp quản trị doanh nghiệp toàn diện ngay hôm nay.
                                         </p>
                                     </div>

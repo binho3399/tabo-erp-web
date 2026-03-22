@@ -3,7 +3,11 @@ import Icon from '../common/Icon';
 import Button from '../common/Button';
 import Badge from '../common/Badge';
 
-const PricingSection: React.FC = () => {
+interface PricingSectionProps {
+    hideHeader?: boolean;
+}
+
+const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) => {
     type Plan = {
         name: string;
         tagline: string;
@@ -72,12 +76,14 @@ const PricingSection: React.FC = () => {
     return (
         <section className="py-24 bg-white relative overflow-clip">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-left lg:text-center mb-16">
-                    <Badge variant="primary" className="mb-4 uppercase">Bảng giá minh bạch</Badge>
-                    <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
-                        Đầu tư thông minh cho <br /><span className="text-blue-500">tương lai doanh nghiệp.</span>
-                    </h3>
-                </div>
+                {!hideHeader && (
+                    <div className="text-left lg:text-center mb-16">
+                        <Badge variant="primary" className="mb-4 uppercase">Bảng giá minh bạch</Badge>
+                        <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+                            Đầu tư thông minh cho <br /><span className="text-blue-500">tương lai doanh nghiệp.</span>
+                        </h3>
+                    </div>
+                )}
 
                 {/* Main Grid Layout */}
                 <div className="relative">

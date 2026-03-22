@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Icon from '../common/Icon';
 import Badge from '../common/Badge';
 
@@ -15,8 +15,6 @@ interface FeatureCategory {
 }
 
 const PricingFeatures: React.FC = () => {
-    const [openIndex, setOpenIndex] = useState<number | null>(0);
-
     const categories: FeatureCategory[] = [
         {
             title: "Quản lý Bán hàng & POS",
@@ -75,13 +73,9 @@ const PricingFeatures: React.FC = () => {
     const renderValue = (val: string | boolean) => {
         if (typeof val === 'boolean') {
             return val ? (
-                <div className="w-5 h-5 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto">
-                    <Icon name="check" className="text-[12px] text-blue-600 font-black" />
-                </div>
+                <Icon name="check" className="text-xl text-blue-600 font-bold" />
             ) : (
-                <div className="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-slate-300">
-                    <Icon name="close" className="text-[10px]" />
-                </div>
+                <span className="text-slate-300 font-light">—</span>
             );
         }
         return <span className="text-[14px] text-slate-600 font-medium">{val}</span>;
@@ -89,85 +83,57 @@ const PricingFeatures: React.FC = () => {
 
     return (
         <section className="py-24 bg-white relative overflow-hidden">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="text-left lg:text-center mb-16 flex flex-col items-start lg:items-center">
                     <Badge variant="primary" className="mb-4 uppercase">So sánh chi tiết</Badge>
-                    <h2 className="text-[28px] md:text-4xl font-normal text-slate-900 tracking-tight leading-tight">
-                        Mọi tính năng bạn cần <br className="hidden md:block" /> để bứt phá doanh thu.
+                    <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+                        Mọi tính năng bạn cần <br className="hidden lg:block" /> để <span className="text-blue-500">bứt phá doanh thu.</span>
                     </h2>
                 </div>
 
                 {/* Desktop Header for columns */}
-                <div className="hidden md:grid grid-cols-[1fr_120px_120px] lg:grid-cols-[1fr_180px_180px] gap-8 px-8 py-4 mb-4 border-b border-slate-100">
-                    <div className="text-sm font-bold text-slate-400 uppercase tracking-wider">Tính năng</div>
-                    <div className="text-sm font-bold text-blue-600 text-center uppercase tracking-wider">Hộ Kinh Doanh</div>
-                    <div className="text-sm font-bold text-slate-900 text-center uppercase tracking-wider">Gói Nâng Cao</div>
+                <div className="hidden md:grid grid-cols-[1fr_180px_180px] lg:grid-cols-[1fr_280px_280px] gap-8 px-8 py-4 mb-2 items-center">
+                    <div className="text-[17px] font-semibold text-slate-900">Nhóm tính năng</div>
+                    <div className="text-xs font-bold text-slate-400 text-center uppercase tracking-widest">Hộ Kinh Doanh</div>
+                    <div className="text-xs font-bold text-slate-400 text-center uppercase tracking-widest">Gói Nâng Cao</div>
                 </div>
 
-                <div className="space-y-4">
+                <div className="bg-white rounded-2xl border border-slate-100/80 shadow-sm overflow-hidden flex flex-col">
                     {categories.map((cat, idx) => (
-                        <div 
-                            key={idx} 
-                            className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                                openIndex === idx 
-                                ? 'bg-white shadow-xl border-blue-100' 
-                                : 'bg-slate-50/50 border-slate-100 hover:bg-white'
-                            }`}
-                        >
-                            <button
-                                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                                className="w-full flex items-center justify-between p-5 lg:p-6 text-left"
-                            >
-                                <div className="flex items-center gap-4">
-                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 ${
-                                        openIndex === idx ? 'bg-blue-600 text-white' : 'bg-white text-slate-400 border border-slate-100'
-                                    }`}>
-                                        <Icon name={cat.icon} className="text-xl" />
-                                    </div>
-                                    <h3 className={`text-[17px] font-semibold transition-colors duration-300 ${
-                                        openIndex === idx ? 'text-slate-900' : 'text-slate-600'
-                                    }`}>
-                                        {cat.title}
-                                    </h3>
-                                </div>
-                                <div className={`transition-transform duration-300 ${openIndex === idx ? 'rotate-180 text-blue-600' : 'text-slate-400'}`}>
-                                    <Icon name="expand_more" className="text-2xl" />
-                                </div>
-                            </button>
-
-                            <div 
-                                className={`transition-all duration-300 ease-in-out ${
-                                    openIndex === idx ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
-                                }`}
-                            >
-                                <div className="px-5 lg:px-8 pb-8 pt-2">
-                                    <div className="space-y-1">
-                                        {cat.features.map((feat, fIdx) => (
-                                            <div 
-                                                key={fIdx} 
-                                                className="grid grid-cols-1 md:grid-cols-[1fr_120px_120px] lg:grid-cols-[1fr_180px_180px] gap-4 md:gap-8 py-4 border-b border-slate-50 last:border-0 items-center"
-                                            >
-                                                <div className="text-[15px] text-slate-600 font-normal">{feat.name}</div>
-                                                
-                                                {/* Mobile Labels */}
-                                                <div className="md:hidden grid grid-cols-2 gap-4 pt-1">
-                                                    <div className="flex flex-col gap-1">
-                                                        <span className="text-[10px] uppercase font-bold text-blue-500/60 tracking-widest">Hộ Kinh Doanh</span>
-                                                        <div className="flex justify-start">{renderValue(feat.free)}</div>
-                                                    </div>
-                                                    <div className="flex flex-col gap-1">
-                                                        <span className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Gói Nâng Cao</span>
-                                                        <div className="flex justify-start">{renderValue(feat.enterprise)}</div>
-                                                    </div>
-                                                </div>
-
-                                                {/* Desktop Values */}
-                                                <div className="hidden md:block text-center">{renderValue(feat.free)}</div>
-                                                <div className="hidden md:block text-center">{renderValue(feat.enterprise)}</div>
+                        <div key={idx} className="flex flex-col">
+                            {/* Category Header Row */}
+                            <div className="bg-slate-50/60 px-6 lg:px-8 py-5 border-y border-slate-100 first:border-t-0">
+                                <h3 className="text-base font-bold text-blue-600">{cat.title}</h3>
+                            </div>
+                            
+                            {/* Features List */}
+                            <div className="flex flex-col bg-white">
+                                {cat.features.map((feat, fIdx) => (
+                                    <div 
+                                        key={fIdx} 
+                                        className="grid grid-cols-1 md:grid-cols-[1fr_180px_180px] lg:grid-cols-[1fr_280px_280px] gap-4 md:gap-8 px-6 lg:px-8 py-5 border-b border-slate-50 last:border-b-0 items-center hover:bg-slate-50/30 transition-colors"
+                                    >
+                                        <div className="flex flex-col">
+                                            <span className="text-[15px] text-slate-800 font-semibold">{feat.name}</span>
+                                        </div>
+                                        
+                                        {/* Mobile Labels */}
+                                        <div className="md:hidden grid grid-cols-2 gap-4 pt-2">
+                                            <div className="flex flex-col gap-2">
+                                                <span className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Hộ Kinh Doanh</span>
+                                                <div className="flex justify-start">{renderValue(feat.free)}</div>
                                             </div>
-                                        ))}
+                                            <div className="flex flex-col gap-2">
+                                                <span className="text-[10px] uppercase font-bold text-slate-400 tracking-widest">Gói Nâng Cao</span>
+                                                <div className="flex justify-start">{renderValue(feat.enterprise)}</div>
+                                            </div>
+                                        </div>
+
+                                        {/* Desktop Values */}
+                                        <div className="hidden md:flex justify-center items-center">{renderValue(feat.free)}</div>
+                                        <div className="hidden md:flex justify-center items-center">{renderValue(feat.enterprise)}</div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                     ))}

@@ -1,13 +1,14 @@
-import React from 'react';
 import Accordion from '../common/Accordion';
+import Badge from '../common/Badge';
 
 const ContactFAQ: React.FC = () => {
     return (
         <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-left lg:text-center mb-8 lg:mb-16">
+                <div className="text-left lg:text-center mb-8 lg:mb-16 flex flex-col items-start lg:items-center">
+                    <Badge variant="primary" className="mb-4 uppercase">Giải đáp thắc mắc</Badge>
                     <h2 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4 lg:mb-5">Câu hỏi <span className="text-blue-500">thường gặp</span></h2>
-                    <p className="text-slate-500 font-light text-base md:text-lg">Những câu hỏi phổ biến khi khách hàng liên hệ với Tabo.</p>
+                    <p className="text-base text-slate-500 max-w-2xl font-normal">Những câu hỏi phổ biến khi khách hàng liên hệ với Tabo.</p>
                 </div>
 
                 <Accordion 

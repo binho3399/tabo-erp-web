@@ -15,7 +15,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
                 className="w-full p-4 lg:px-6 lg:py-5 flex items-center justify-between text-left focus:outline-none"
                 onClick={onClick}
             >
-                <span className={`text-[16px] font-medium leading-snug transition-colors duration-300 ${isOpen ? 'text-blue-600' : 'text-slate-800'}`}>
+                <span className={`text-[16px] font-semibold leading-snug transition-colors duration-300 ${isOpen ? 'text-blue-600' : 'text-slate-800'}`}>
                     {question}
                 </span>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? 'bg-blue-600 text-white rotate-180' : 'bg-white text-slate-400 group-hover:text-blue-500'}`}>
@@ -25,7 +25,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ question, answer, isOpen,
             <div 
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
             >
-                <div className="p-4 pt-1 lg:px-6 lg:pb-6 lg:pt-1 text-[16px] text-slate-500 font-light leading-relaxed">
+                <div className="p-4 pt-1 lg:px-6 lg:pb-6 lg:pt-1 text-[16px] text-slate-500 font-normal leading-relaxed">
                     {answer}
                 </div>
             </div>

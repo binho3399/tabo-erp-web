@@ -34,9 +34,19 @@ Skill (Tài liệu) này cung cấp **"Vibe" (Phong cách và Cảm quan)** lõi
   - Desktop: `lg:text-[28px]`.
   - Class bắt buộc: `font-normal text-slate-900 tracking-tight`. (Ví dụ: `Hộ Kinh Doanh`, `Kế Toán`).
 - **Đoạn mô tả (Description/Body):** Cố định `text-base text-slate-500 font-normal leading-relaxed`.
-- **Badges (Nhãn dãn):** Các nhãn luôn viết hoa `uppercase`, kiểu chữ siêu nhỏ `text-xs` hoặc `text-[10px]`, font `font-semibold` hoặc `font-bold tracking-widest`.
+- **Badges (Nhãn dán Khởi vị Tiêu đề):** 
+  - TOÀN BỘ Nhãn dán trên đỉnh các Section (Ví dụ: "GIẢI ĐÁP THẮC MẮC", "LIÊN HỆ", "SO SÁNH CHI TIẾT") **phải dùng** tone Xanh chủ đạo (Tương đương `variant="primary"` trong Component `Badge.tsx` với cấu trúc: `bg-blue-50 text-blue-700 border border-blue-100 px-4 py-1.5 text-xs shadow-sm`). 
+  - Không được dùng nhãn dán nền xám trầm cho các khối chính của trang.
+  - Các nhãn luôn viết hoa `uppercase`, kiểu chữ `text-xs` hoặc siêu nhỏ `text-[10px]`, font `font-semibold` hoặc `font-bold tracking-widest` theo hệ thống Vibe.
 
-## 4. Bảng màu & Hình khối (Color & Shapes)
+## 4. UI Tables & Accordions (Cấu trúc Khối dữ liệu)
+- **Bảng So Sánh (Comparison Tables):** Tuyệt đối không dùng cấu trúc Accordion lồng ghép phức tạp gây cản trở tầm nhìn. Các Bảng Giá/Tính năng lớn (như PricingFeatures) phải dùng giao diện **Flat Table** trải phẳng, chia `grid` với Max Width `max-w-7xl` (1280px).
+  - Tiêu đề cột (vd: "Nhóm tính năng"): `text-[17px] font-semibold text-slate-900`.
+  - Hàng phân loại (Category Headers): Phải làm nổi bật bằng nền xám/xanh nhẹ (`bg-slate-50/60`), chữ màu xanh dương (`text-blue-600 font-bold`).
+  - Dữ liệu Boolean (True/False): True = Text icon check xanh trơn (không bọc nền circle), False = Dấu gạch ngang xám nhạt (`—`).
+- **Khối Giải đáp (FAQ Accordions):** Cố định cấu trúc hiển thị chia 2 cột logic trên giao diện lưới `grid-cols-2`. Mọi thành phần đều đồng bộ giao diện đóng mở cơ bản với viền bo tròn thẩm mỹ.
+
+## 5. Bảng màu & Hình khối (Color & Shapes)
 - **Màu chủ đạo:** Xanh dương (`text-blue-500`, `bg-blue-600`) trên nền trắng xám sáng nhẹ (`bg-slate-50`, `text-slate-500`, `text-slate-900`). 
 - **Chế độ Thẻ Cao cấp (Dark/Premium Card):** Dùng nền tông xanh đêm `#0F172A` kết hợp `#001D3D`, đi kèm chữ `text-white`.
 - **Góc bo (Border Radius):** 
@@ -44,7 +54,7 @@ Skill (Tài liệu) này cung cấp **"Vibe" (Phong cách và Cảm quan)** lõi
   - Nút bấm (Button): Bao giờ cũng bo tròn dẹt `rounded-full`.
   - Viền chia (Borders): Viền tàng hình siêu mỏng `border border-slate-50` hoặc `border-slate-100`.
 
-## 5. Tự động Kích hoạt (Trigger) & Thao tác của AI
+## 6. Tự động Kích hoạt (Trigger) & Thao tác của AI
 Kể từ bây giờ, khi User sử dụng lệnh (prompt) ngắn gọn như: 
 *   "Lấy Vibe project làm UI cho section này"
 *   "Tạo thêm Card Dịch vụ"
@@ -52,8 +62,8 @@ Kể từ bây giờ, khi User sử dụng lệnh (prompt) ngắn gọn như:
 
 👉 **Nhận diện Vibe Coding:** AI **BẮT BUỘC** tự động áp dụng toàn bộ Class Tailwind, Font size (`text-[20px]`, `text-[28px]`), Spacing (`p-4`, `mb-4` trên Mobile), Micro-animation theo đúng tài liệu này, giúp sinh ra đoạn Code hoàn chỉnh thẩm mỹ nhất mà KHÔNG CẦN User chỉ định kích thước class bằng tay.
 
-## 6. Liên tục Cập nhật Cẩm nang (Auto-Evolution)
+## 7. Liên tục Cập nhật Cẩm nang (Auto-Evolution)
 Vibe của dự án là một hệ thống **SỐNG**. AI **PHẢI TỰ ĐỘNG MỞ VÀ CẬP NHẬT FILE SKILL NÀY** (`SKILL.md`) ngay lập tức nếu:
 1. User yêu cầu điều chỉnh một quy tắc thị giác chung (VD: "Từ nay đổi font tiêu đề sang 24px", "Chốt dùng padding 20px thay vì 16px nhé").
 2. AI và User vừa sáng tạo & chốt xong một Mẫu (Pattern) Component mới chưa có trong cẩm nang (VD: Phong cách làm Accordion, Popup, hay Dropdown).
-👉 **Hành động của AI:** Nạp thêm/cập nhật quy tắc mới (class, spacing, color...) vào các Mục 2, 3, 4 ở trên để cẩm nang Vibe Code luôn phản ánh phiên bản thiết kế hoàn hảo nhất.
+👉 **Hành động của AI:** Nạp thêm/cập nhật quy tắc mới (class, spacing, color...) vào các Mục ở trên để cẩm nang Vibe Code luôn phản ánh phiên bản thiết kế hoàn hảo nhất.

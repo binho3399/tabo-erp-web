@@ -3,12 +3,13 @@ import Icon from '../components/common/Icon';
 import Badge from '../components/common/Badge';
 import PricingSection from '../components/home/PricingSection';
 import PricingFeatures from '../components/home/PricingFeatures';
+import PricingFAQ from '../components/home/PricingFAQ';
 
 const Pricing: React.FC = () => {
     return (
         <div className="bg-white min-h-screen">
             {/* Hero Section */}
-            <section className="relative bg-slate-50 pt-32 pb-20 lg:pt-32 lg:pb-24 overflow-hidden min-h-[60vh] flex items-center justify-center">
+            <section className="relative bg-slate-50 pt-32 pb-0 overflow-hidden">
                 {/* Ambient Blurry Blobs */}
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
                 <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
@@ -59,7 +60,7 @@ const Pricing: React.FC = () => {
                     </svg>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center text-center">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50 w-full flex flex-col items-center text-center">
                     <Badge variant="primary" className="mb-8 font-semibold">
                         BẢNG GIÁ DỊCH VỤ
                     </Badge>
@@ -76,55 +77,13 @@ const Pricing: React.FC = () => {
             </section>
 
             {/* Pricing Table Section */}
-            <PricingSection />
+            <PricingSection hideHeader />
 
             {/* Detailed Features Accordion */}
             <PricingFeatures />
 
-            {/* FAQ Section */}
-            <section className="py-24 bg-slate-50 relative overflow-hidden">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="text-center mb-16">
-                        <Badge variant="secondary" className="mb-5 uppercase">Giải đáp thắc mắc</Badge>
-                        <h2 className="text-3xl md:text-4xl font-normal text-slate-900 tracking-tight">
-                            Câu hỏi thường gặp
-                        </h2>
-                    </div>
-
-                    <div className="space-y-4">
-                        {[
-                            {
-                                q: "Có mất phí triển khai ban đầu không?",
-                                a: "Tùy thuộc vào quy mô doanh nghiệp và gói dịch vụ bạn lựa chọn. Gói Miễn Phí hoàn toàn không tốn phí triển khai, trong khi gói Doanh Nghiệp sẽ có phí hỗ trợ tư vấn và may đo giải pháp riêng."
-                            },
-                            {
-                                q: "Tôi có thể nâng cấp gói dịch vụ sau này không?",
-                                a: "Hoàn toàn có thể. Bạn có thể nâng cấp gói dịch vụ bất cứ lúc nào để mở rộng tính năng mà không làm gián đoạn dữ liệu vận hành hiện có."
-                            },
-                            {
-                                q: "Dữ liệu của tôi được bảo mật như thế nào?",
-                                a: "Toàn bộ dữ liệu được mã hóa và lưu trữ trên hạ tầng cloud tiêu chuẩn quốc tế với hệ thống backup tự động hàng ngày, đảm bảo an toàn tuyệt đối."
-                            },
-                            {
-                                q: "Có hỗ trợ đào tạo nhân viên sử dụng không?",
-                                a: "Có. Chúng tôi cung cấp kho tài liệu video hướng dẫn chi tiết và đội ngũ hỗ trợ kỹ thuật luôn sẵn sàng đồng hành cùng doanh nghiệp trong suốt quá trình sử dụng."
-                            }
-                        ].map((faq, i) => (
-                            <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                                <h4 className="text-[17px] font-semibold text-slate-900 mb-3 flex items-center gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                                        <Icon name="help_outline" className="text-[14px] text-blue-600" />
-                                    </div>
-                                    {faq.q}
-                                </h4>
-                                <p className="text-slate-500 text-[15px] leading-relaxed ml-9">
-                                    {faq.a}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* FAQ Section using standardized Accordion */}
+            <PricingFAQ />
         </div>
     );
 };

@@ -16,7 +16,7 @@ const Badge: React.FC<BadgeProps> = ({
     const variants = {
         primary: "bg-blue-50 text-blue-700 border border-blue-100 px-4 py-1.5 text-xs shadow-sm",
         blue: "bg-blue-50 text-blue-600 border border-blue-100 px-3 py-1 text-[10px] uppercase",
-        secondary: "bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1 text-[10px]",
+        secondary: "bg-slate-50 text-slate-600 border border-slate-200 px-4 py-1.5 text-xs shadow-sm",
         ghost: "text-blue-500 text-xs font-bold tracking-widest uppercase"
     };
 

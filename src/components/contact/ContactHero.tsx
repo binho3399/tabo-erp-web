@@ -85,7 +85,7 @@ const ContactHero: React.FC = () => {
                 <h1 className="text-[32px] md:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-4 lg:mb-5 text-slate-900">
                     Sẵn sàng hỗ trợ <br className="md:hidden" /> <span className="text-blue-500">doanh nghiệp bạn.</span>
                 </h1>
-                <p className="text-base md:text-lg text-slate-500 max-w-2xl font-light">
+                <p className="text-base text-slate-500 max-w-2xl font-normal">
                     Dù bạn có thắc mắc về tính năng, giá cả, hay cần tư vấn giải pháp quản trị,
                     đội ngũ chuyên gia từ Tabo luôn sẵn lòng giải đáp.
                 </p>

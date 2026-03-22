@@ -1,6 +1,6 @@
 import Icon from '../components/common/Icon';
-
 import Badge from '../components/common/Badge';
+import AboutFAQ from '../components/about/AboutFAQ';
 
 const About: React.FC = () => {
     return (
@@ -162,8 +162,8 @@ const About: React.FC = () => {
                 </div>
             </section>
 
-
-
+            {/* Reused FAQ Section from Contact page */}
+            <AboutFAQ />
 
         </div>
     );
