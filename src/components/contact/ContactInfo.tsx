@@ -11,7 +11,7 @@ const ContactInfo: React.FC = () => {
                         {/* Col 1: Header + Trụ sở chính */}
                         <div className="flex flex-col w-full gap-5 h-full">
                             <div className="flex-1">
-                                <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4 md:mb-5">Thông tin <span className="text-blue-500">liên hệ</span></h3>
+                                <h3 className="text-[28px] md:text-[42px] font-normal text-slate-900 tracking-tight mb-4 md:mb-5">Thông tin <span className="text-blue-500">liên hệ</span></h3>
                                 <p className="text-slate-500 font-normal text-base">Kết nối với chúng tôi qua các kênh dưới đây <br className="hidden md:block" /> để nhận được sự hỗ trợ nhanh nhất.</p>
                             </div>
 

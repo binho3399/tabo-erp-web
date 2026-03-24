@@ -35,7 +35,7 @@ const TestimonialsSection: React.FC = () => {
                 <Badge variant="primary" className="mb-4 md:mb-5 uppercase">
                     Hệ sinh thái đối tác
                 </Badge>
-                <h3 className="text-[28px] md:text-5xl font-normal text-slate-900 tracking-tight mb-4 md:mb-5">
+                <h3 className="text-[28px] md:text-[42px] font-normal text-slate-900 tracking-tight mb-4 md:mb-5">
                     Kiến tạo giá trị <span className="text-blue-500">vượt trội</span>
                 </h3>
                 <p className="text-slate-500 font-normal text-base max-w-2xl mx-auto leading-relaxed">

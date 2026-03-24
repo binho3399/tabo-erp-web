@@ -1,12 +1,14 @@
+import React from 'react';
 import Icon from '../components/common/Icon';
-import Badge from '../components/common/Badge';
 import AboutFAQ from '../components/about/AboutFAQ';
+import Badge from '../components/common/Badge';
+import Button from '../components/common/Button';
 
 const About: React.FC = () => {
     return (
         <div className="font-sans text-gray-900 bg-[#F7F8F8]">
-            {/* Hero Section */}
-            <section className="relative bg-slate-50 pt-32 pb-20 lg:pt-32 lg:pb-24 overflow-hidden min-h-[60vh] flex items-center justify-center">
+            {/* Hero Section with Ambient Background */}
+            <section className="relative pt-32 pb-16 lg:pb-24 overflow-hidden">
                 {/* Ambient Blurry Blobs */}
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
                 <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
@@ -68,101 +70,168 @@ const About: React.FC = () => {
                     </svg>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col items-center text-center">
-                    <Badge variant="primary" className="mb-4 md:mb-5 font-semibold">
-                        VỀ CHÚNG TÔI
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+                    {/* 1. Hero Header */}
+                    <Badge variant="primary" className="mb-4 md:mb-5 uppercase">
+                        TỔNG QUAN
                     </Badge>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-5 text-slate-900">
-                        Kiến tạo tương lai quản trị <br className="hidden md:block" />cho <span className="text-blue-500">doanh nghiệp Việt.</span>
+                    <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-slate-900 mb-6 md:mb-16">
+                        Về chúng tôi <span className="text-blue-500">Tabo ERP</span>
                     </h1>
-                    <p className="text-base text-slate-500 mb-10 max-w-2xl font-normal">
-                        Chúng tôi đơn giản hóa quy trình phức tạp, giúp bạn tập trung <br className="hidden md:block" /> hoàn toàn vào giá trị kinh doanh cốt lõi.
-                    </p>
-                </div>
 
-                {/* Bottom Gradient for smooth transition */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
-            </section>
-
-            {/* Mission Section */}
-            <section className="py-24 bg-white relative overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.2]" style={{ backgroundImage: 'radial-gradient(#e2e8f0 1.5px, transparent 1.5px)', backgroundSize: '20px 20px' }}></div>
-
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-normal tracking-tight text-slate-900 leading-[1.2] mb-6">
-                                Hành trình <span className="text-blue-500">chuyển đổi số</span>
-                            </h2>
-                            <p className="text-slate-500 leading-relaxed font-light text-lg mb-6">
-                                Bắt đầu từ những trăn trở của các chủ doanh nghiệp khi đối mặt với vô số khó khăn trong việc quản trị dữ liệu, hệ thống lưu trữ rời rạc và quy trình thiếu đồng bộ.
-                                Tabo được ra đời với khát vọng tạo ra một hệ điều hành doanh nghiệp “tất cả trong một”, toàn diện nhưng lại cực kỳ dễ sử dụng.
-                            </p>
-                            <p className="text-slate-500 leading-relaxed font-light text-lg mb-8">
-                                Chúng tôi tin rằng công nghệ phải đóng vai trò là đòn bẩy vững chắc thay vì là rào cản. Đó là lý do mọi thiết kế và phân hệ tại Tabo đều hướng đến tính tự động hóa và tối đa hóa trải nghiệm người dùng.
-                            </p>
-                        </div>
-                        <div className="relative h-[480px]">
-                            <div className="absolute inset-0 bg-blue-500/5 rounded-[30px] blur-2xl transform -rotate-3"></div>
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Team collaborating" className="absolute inset-0 w-full h-full object-cover rounded-[24px] shadow-2xl z-10" />
-                        </div>
+                    {/* 2. Hero Image */}
+                    <div className="w-full aspect-[3/1] rounded-[20px] overflow-hidden relative hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 ease-out group">
+                        {/* Glassmorphism Blur behind image just for vibe */}
+                        <div className="absolute inset-0 bg-blue-500/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                        <img
+                            src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80"
+                            alt="Tabo ERP Office"
+                            className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-[20s] ease-out"
+                        />
                     </div>
                 </div>
+
+                {/* Bottom Gradient for smooth transition to main content */}
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F8F8] to-transparent pointer-events-none z-10"></div>
             </section>
 
-            {/* Stats Section */}
-            <section className="py-20 bg-blue-600 text-white relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
-                <div className="absolute -top-[50%] -left-[10%] w-[50%] h-[150%] bg-white/10 blur-[100px] rounded-full transform -rotate-45 relative z-0"></div>
+            {/* Main Content Container matching Reference Image */}
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 relative z-20">
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x border-white/20 text-center">
-                        <div className="px-4">
-                            <div className="text-4xl md:text-5xl font-normal tracking-tight mb-2">5+</div>
-                            <div className="text-blue-200 font-light text-[13px] uppercase tracking-wider">Năm kinh nghiệm</div>
-                        </div>
-                        <div className="px-4 border-l border-white/20">
-                            <div className="text-4xl md:text-5xl font-normal tracking-tight mb-2">1,000+</div>
-                            <div className="text-blue-200 font-light text-[13px] uppercase tracking-wider">Doanh nghiệp</div>
-                        </div>
-                        <div className="px-4 border-l-0 md:border-l border-white/20">
-                            <div className="text-4xl md:text-5xl font-normal tracking-tight mb-2">50+</div>
-                            <div className="text-blue-200 font-light text-[13px] uppercase tracking-wider">Chuyên gia</div>
-                        </div>
-                        <div className="px-4 border-l border-white/20">
-                            <div className="text-4xl md:text-5xl font-normal tracking-tight mb-2">99%</div>
-                            <div className="text-blue-200 font-light text-[13px] uppercase tracking-wider">Hài lòng</div>
-                        </div>
+                {/* 3. Mission / Introduction */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start mb-24 md:mb-32">
+                    <div className="lg:col-span-7">
+                        <h2 className="text-[28px] md:text-4xl lg:text-[42px] font-normal tracking-tight text-slate-900 leading-[1.2]">
+                            Hành trình khởi nguồn với mục tiêu rõ ràng: <span className="text-blue-500">Đơn giản hóa quản trị</span>, tối ưu hóa vận hành để doanh nghiệp vững bước.
+                        </h2>
+                    </div>
+                    <div className="lg:col-span-5 lg:pt-2">
+                        <p className="text-base text-slate-500 font-normal leading-relaxed">
+                            Bắt đầu từ những trăn trở của các chủ doanh nghiệp khi đối mặt với vô số khó khăn trong việc quản trị dữ liệu, hệ thống lưu trữ rời rạc và quy trình thiếu đồng bộ.
+                            Tabo được ra đời với khát vọng tạo ra một hệ điều hành doanh nghiệp "tất cả trong một", toàn diện nhưng lại cực kỳ dễ sử dụng. Với hơn 5 năm kinh nghiệm, chúng tôi cam kết đem lại chất lượng cao nhất cho hàng ngàn khách hàng.
+                        </p>
                     </div>
                 </div>
-            </section>
 
-            {/* Core Values */}
-            <section className="py-24 bg-[#F7F8F8]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl lg:text-4xl font-normal text-slate-900 tracking-tight">Giá Trị <span className="text-blue-500">Cốt Lõi</span></h2>
-                    </div>
+                {/* 4. Grid Content - 3 Columns Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 lg:gap-x-16 gap-y-16 lg:gap-y-0 mb-32">
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            { icon: "verified", title: "Chất lượng là danh dự", desc: "Xây dựng hệ thống với tiêu chuẩn khắt khe nhất, đảm bảo vận hành trơn tru và bảo mật tối đa." },
-                            { icon: "handshake", title: "Khách hàng làm trung tâm", desc: "Tập trung tối ưu trải nghiệm và giải quyết sâu sắc các bài toán thực tế của mọi doanh nghiệp." },
-                            { icon: "rocket_launch", title: "Không ngừng đổi mới", desc: "Liên tục cập nhật công nghệ mới và tư duy quản trị thông minh để đồng hành cùng sự đột phá." }
-                        ].map((value, i) => (
-                            <div key={i} className="bg-white p-8 rounded-[24px] shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] border border-slate-100/50 hover:-translate-y-1 transition-transform group">
-                                <div className="w-14 h-14 bg-blue-50 rounded-[16px] flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
-                                    <Icon name={value.icon} className="text-2xl text-blue-500 group-hover:text-white transition-colors" />
-                                </div>
-                                <h3 className="text-xl font-normal text-slate-800 tracking-tight mb-3">{value.title}</h3>
-                                <p className="text-slate-500 font-light text-[15px] leading-relaxed">{value.desc}</p>
+                    {/* Left Column (Giải pháp) */}
+                    <div className="lg:col-span-1 lg:pr-8">
+                        <div className="group">
+                            <div className="w-full h-[3px] bg-[#0070F3] mb-8"></div>
+                            <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 border border-blue-100 mb-6 shadow-sm">
+                                <span className="text-sm font-bold text-[#0070F3] uppercase">Giải pháp</span>
                             </div>
-                        ))}
+                            <h3 className="text-[28px] font-normal tracking-tight text-slate-900 leading-[1.4]">
+                                Giải pháp quản trị toàn diện với dấu ấn cá nhân hóa. Chuyển đổi số dễ dàng, liền mạch.
+                            </h3>
+                        </div>
+                    </div>
+
+                    {/* Right Column (Grid 2x2 for others) */}
+                    <div className="lg:col-span-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-16 md:gap-y-24">
+                            
+                            {/* Item 2: Our Core Values (Text) */}
+                            <div className="group">
+                                <div className="w-full h-[3px] bg-[#0070F3] mb-8"></div>
+                                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 border border-blue-100 mb-6 shadow-sm">
+                                    <span className="text-sm font-bold text-[#0070F3] uppercase">Giá trị cốt lõi</span>
+                                </div>
+                                <div className="text-base text-slate-500 font-normal leading-relaxed space-y-4">
+                                    <p>
+                                        Tại Tabo, <strong>chất lượng là danh dự</strong>. Chúng tôi xây dựng hệ thống với tiêu chuẩn khắt khe nhất, đảm bảo vận hành trơn tru và bảo mật tối đa.
+                                    </p>
+                                    <p>
+                                        Khách hàng luôn là trung tâm của mọi sự phát triển. Thay vì tạo ra rào cản từ công nghệ, chúng tôi biến nó thành đòn bẩy vững chắc để mọi doanh nghiệp bứt phá.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Item 3: Stats / Accessibility equivalent */}
+                            <div className="group">
+                                <div className="w-full h-[3px] bg-[#0070F3] mb-8"></div>
+                                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 border border-blue-100 mb-6 shadow-sm">
+                                    <span className="text-sm font-bold text-[#0070F3] uppercase">Thành tựu</span>
+                                </div>
+                                <div className="text-base text-slate-500 font-normal leading-relaxed space-y-4">
+                                    <p className="text-slate-800 font-medium">
+                                        Phục vụ hàng ngàn doanh nghiệp trên hành trình chuyển đổi số với tỷ lệ hài lòng tuyệt đối.
+                                    </p>
+                                    <p>
+                                        Sự tin tưởng của 1,000+ doanh nghiệp chính là thành tựu đạt được lớn nhất. Hệ thống vận hành luôn hướng tới tính tự động hóa và sự đơn giản, không giới hạn quyền truy cập ở mọi cấp độ nhân sự.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Item 3: Tầm nhìn */}
+                            <div className="group">
+                                <div className="w-full h-[3px] bg-[#0070F3] mb-8"></div>
+                                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 border border-blue-100 mb-6 shadow-sm">
+                                    <span className="text-sm font-bold text-[#0070F3] uppercase">Tầm nhìn</span>
+                                </div>
+                                <div className="text-base text-slate-500 font-normal leading-relaxed space-y-4">
+                                    <p className="text-slate-800 font-medium">
+                                        Định hình tương lai số hóa qua giải pháp quản trị tinh gọn.
+                                    </p>
+                                    <p>
+                                        Khát vọng vươn mình trở thành đối tác chiến lược hàng đầu. Mỗi sản phẩm được tạo ra đều hướng đến sự bền vững, mở ra cánh cửa tiến vào kỷ nguyên dữ liệu hóa.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Item 4: Our Team (Image & Text) */}
+                            <div className="group">
+                                <div className="w-full h-[3px] bg-[#0070F3] mb-8"></div>
+                                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 border border-blue-100 mb-6 shadow-sm">
+                                    <span className="text-sm font-bold text-[#0070F3] uppercase">Đội ngũ</span>
+                                </div>
+                                <p className="text-base text-slate-500 font-normal leading-relaxed mb-6">
+                                    <span className="text-slate-800 font-medium">Đội ngũ 50+ chuyên gia hàng đầu luôn sát cánh cùng doanh nghiệp.</span> Không ngừng nâng năng lực để đổi mới cùng tư duy quản trị thông minh.
+                                </p>
+                                <div className="w-full h-[200px] md:h-[220px] rounded-[16px] overflow-hidden mb-6 relative">
+                                    {/* Minor aesthetic glow map for vibe */}
+                                    <div className="absolute -inset-4 bg-blue-100/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
+                                    <img
+                                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
+                                        alt="Đội ngũ chuyên gia Tabo"
+                                        className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-[15s] ease-out"
+                                    />
+                                </div>
+                                <a href="/pricing" className="inline-flex items-center gap-1.5 text-[14px] font-bold tracking-widest text-[#0070F3] uppercase hover:text-blue-700 transition-colors">
+                                    Khám phá giải pháp <Icon name="arrow_outward" className="text-[18px]" />
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+
+            {/* 5. Bottom CTA Layout */}
+            <section className="bg-[#EAEBE8]/50 w-full py-20 md:py-32 hover:bg-[#EAEBE8]/80 transition-colors duration-500 ease-out backdrop-blur-sm relative overflow-hidden group">
+                {/* Ambient Glow */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-300/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-blue-300/20 transition-all duration-700"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-300/10 blur-[80px] rounded-full pointer-events-none group-hover:bg-teal-300/20 transition-all duration-700"></div>
+
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                    <div className="flex justify-center mb-8 relative z-10">
+                        <Icon name="change_history" className="text-slate-400 text-[28px]" />
+                    </div>
+                    <h2 className="text-[22px] md:text-[34px] lg:text-[42px] font-normal text-slate-900 tracking-tight max-w-3xl mx-auto leading-relaxed mb-10 relative z-10">
+                        Chúng tôi kiến tạo sự cân bằng hoàn hảo giữa hiệu năng và trải nghiệm. Bắt đầu hành trình chuyển đổi số cùng Tabo ngay hôm nay!
+                    </h2>
+                    <div className="flex justify-center relative z-10">
+                        <Button to="/contact" variant="primary" size="lg" className="gap-2 select-none shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)]">
+                            Liên hệ ngay <Icon name="arrow_outward" className="text-[18px]" />
+                        </Button>
                     </div>
                 </div>
             </section>
 
-            {/* Reused FAQ Section from Contact page */}
+            {/* Existing FAQ component */}
             <AboutFAQ />
 
         </div>
@@ -170,4 +239,3 @@ const About: React.FC = () => {
 };
 
 export default About;
-

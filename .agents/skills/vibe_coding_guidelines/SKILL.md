@@ -28,7 +28,7 @@ Skill (Tài liệu) này cung cấp **"Vibe" (Phong cách và Cảm quan)** lõi
 - **Font chữ gốc:** Inter (`font-sans`).
 - **Section Headers (Tiêu đề Lớn của từng vùng):** 
   - Mobile: Cố định `text-[28px]`.
-  - Desktop: `text-4xl md:text-5xl`.
+  - Desktop: `text-4xl md:text-[42px]`.
   - Class bắt buộc đi kèm: `font-normal tracking-tight leading-[1.15] text-slate-900 mb-4 md:mb-5`. Chữ chính luôn mỏng và thanh thoát, khoảng cách dưới mobile 16px, desktop 20px.
 - **Card Titles (Tiêu đề trong các Thẻ con):** 
   - Mobile: Cố định `text-[20px]`.

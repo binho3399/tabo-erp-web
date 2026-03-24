@@ -138,7 +138,7 @@ const PricingFeatures: React.FC = () => {
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 lg:mb-16">
                     <div className="text-left flex flex-col items-start">
                         <Badge variant="primary" className="mb-4 md:mb-5 uppercase">So sánh chi tiết</Badge>
-                        <h2 className="text-[28px] md:text-4xl lg:text-5xl font-normal text-slate-900 tracking-tight leading-[1.15]">
+                        <h2 className="text-[28px] md:text-4xl lg:text-[42px] font-normal text-slate-900 tracking-tight leading-[1.15]">
                             Tính năng <span className="text-blue-500">bứt phá doanh thu.</span>
                         </h2>
                     </div>
