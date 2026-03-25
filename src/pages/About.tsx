@@ -113,7 +113,7 @@ const About: React.FC = () => {
                 </div>
 
                 {/* 4. Grid Content - 3 Columns Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 lg:gap-x-16 gap-y-16 lg:gap-y-0 mb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 lg:gap-x-16 gap-y-16 lg:gap-y-0">
 
                     {/* Left Column (Giải pháp) */}
                     <div className="lg:col-span-1 lg:pr-8">
@@ -180,10 +180,9 @@ const About: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Item 4: Our Team (Image only with horizontal line) */}
+                            {/* Item 4: Our Team (Image only) */}
                             <div className="group">
-                                <div className="w-full h-[3px] bg-[#0070F3] mb-8"></div>
-                                <div className="w-full h-[200px] md:h-[220px] rounded-[16px] overflow-hidden relative">
+                                <div className="w-full h-[265px] rounded-[16px] overflow-hidden relative">
                                     {/* Minor aesthetic glow map for vibe */}
                                     <div className="absolute -inset-4 bg-blue-100/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                                     <img
