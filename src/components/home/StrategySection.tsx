@@ -38,7 +38,7 @@ const StrategySection: React.FC = () => {
     ];
 
     return (
-        <section className="py-24 bg-white border-y border-slate-100 relative overflow-hidden text-left">
+        <section className="py-24 bg-slate-50 border-y border-slate-100 relative overflow-hidden text-left">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header Badge */}
                 <Badge variant="primary" className="mb-4 md:mb-5">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
@@ -46,7 +46,7 @@ const StrategySection: React.FC = () => {
                 {/* Header Row: Split Title & Desc */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-16 items-end">
                     <div className="text-left">
-                        <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 tracking-tight leading-[1.15] font-sans mb-4 md:mb-5">
+                        <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 tracking-tight leading-[1.15] font-sans mb-4 md:mb-0">
                             Thúc đẩy thành công qua <br />
                             <span className="text-blue-500 font-normal">quản trị thông minh.</span>
                         </h2>
