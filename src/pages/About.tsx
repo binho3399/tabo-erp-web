@@ -96,19 +96,18 @@ const About: React.FC = () => {
             </section>
 
             {/* Main Content Container matching Reference Image */}
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 relative z-20">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24 relative z-20">
 
                 {/* 3. Mission / Introduction */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start mb-24 md:mb-32">
                     <div className="lg:col-span-7">
                         <h2 className="text-[28px] md:text-4xl lg:text-[42px] font-normal tracking-tight text-slate-900 leading-[1.2]">
-                            Hành trình khởi nguồn với mục tiêu rõ ràng: <span className="text-blue-500">Đơn giản hóa quản trị</span>, tối ưu hóa vận hành để doanh nghiệp vững bước.
+                            Hành trình số hóa <span className="text-blue-500">đơn giản hóa quản trị</span> và tối ưu vận hành doanh nghiệp.
                         </h2>
                     </div>
                     <div className="lg:col-span-5 lg:pt-2">
                         <p className="text-base text-slate-500 font-normal leading-relaxed">
-                            Bắt đầu từ những trăn trở của các chủ doanh nghiệp khi đối mặt với vô số khó khăn trong việc quản trị dữ liệu, hệ thống lưu trữ rời rạc và quy trình thiếu đồng bộ.
-                            Tabo được ra đời với khát vọng tạo ra một hệ điều hành doanh nghiệp "tất cả trong một", toàn diện nhưng lại cực kỳ dễ sử dụng. Với hơn 5 năm kinh nghiệm, chúng tôi cam kết đem lại chất lượng cao nhất cho hàng ngàn khách hàng.
+                            Tabo ra đời từ khát vọng kiến tạo một hệ điều hành doanh nghiệp "tất cả trong một", giúp đồng bộ dữ liệu và quy trình một cách hiệu quả nhất. Với hơn 5 năm kinh nghiệm, chúng tôi cam kết mang lại giá trị thực chất cho hàng ngàn khách hàng.
                         </p>
                     </div>
                 </div>
@@ -181,16 +180,10 @@ const About: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* Item 4: Our Team (Image & Text) */}
+                            {/* Item 4: Our Team (Image only with horizontal line) */}
                             <div className="group">
                                 <div className="w-full h-[3px] bg-[#0070F3] mb-8"></div>
-                                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 border border-blue-100 mb-6 shadow-sm">
-                                    <span className="text-sm font-bold text-[#0070F3] uppercase">Đội ngũ</span>
-                                </div>
-                                <p className="text-base text-slate-500 font-normal leading-relaxed mb-6">
-                                    <span className="text-slate-800 font-medium">Đội ngũ 50+ chuyên gia hàng đầu luôn sát cánh cùng doanh nghiệp.</span> Không ngừng nâng năng lực để đổi mới cùng tư duy quản trị thông minh.
-                                </p>
-                                <div className="w-full h-[200px] md:h-[220px] rounded-[16px] overflow-hidden mb-6 relative">
+                                <div className="w-full h-[200px] md:h-[220px] rounded-[16px] overflow-hidden relative">
                                     {/* Minor aesthetic glow map for vibe */}
                                     <div className="absolute -inset-4 bg-blue-100/50 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                                     <img
@@ -199,9 +192,6 @@ const About: React.FC = () => {
                                         className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-[15s] ease-out"
                                     />
                                 </div>
-                                <a href="/pricing" className="inline-flex items-center gap-1.5 text-[14px] font-bold tracking-widest text-[#0070F3] uppercase hover:text-blue-700 transition-colors">
-                                    Khám phá giải pháp <Icon name="arrow_outward" className="text-[18px]" />
-                                </a>
                             </div>
 
                         </div>
