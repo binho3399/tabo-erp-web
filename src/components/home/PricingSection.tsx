@@ -12,7 +12,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
     const comparisonFeatures = COMPARISON_FEATURES;
 
     return (
-        <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-500 relative overflow-clip">
+        <section className="py-16 lg:py-24 bg-white dark:bg-slate-950 transition-colors duration-500 relative overflow-clip">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {!hideHeader && (
                     <div className="text-left lg:text-center mb-16">

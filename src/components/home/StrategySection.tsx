@@ -36,7 +36,7 @@ const StrategySection: React.FC = () => {
     ];
 
     return (
-        <section className="py-24 bg-slate-50 dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 relative overflow-hidden text-left transition-colors duration-500">
+        <section className="py-16 lg:py-24 bg-slate-50 dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 relative overflow-hidden text-left transition-colors duration-500">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header Badge */}
                 <Badge variant="primary" className="mb-4 md:mb-5">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>

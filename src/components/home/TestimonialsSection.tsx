@@ -2,7 +2,7 @@ import { Icon, Badge } from '@/components/ui';
 
 const TestimonialsSection: React.FC = () => {
     return (
-        <section className="py-24 bg-[#F7F8F8] dark:bg-slate-950 overflow-hidden relative transition-colors duration-500">
+        <section className="py-16 lg:py-24 bg-[#F7F8F8] dark:bg-slate-950 overflow-hidden relative transition-colors duration-500">
             {/* Decorative background elements - subtle for light mode, slightly stronger for dark */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/30 dark:bg-blue-600/5 blur-[120px] rounded-full pointer-events-none transition-colors duration-500"></div>
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-100/30 dark:bg-indigo-600/5 blur-[120px] rounded-full pointer-events-none transition-colors duration-500"></div>

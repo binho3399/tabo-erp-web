@@ -39,51 +39,54 @@ const Navbar: React.FC = () => {
     return (
         <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isOpen ? 'bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm' : isScrolled ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 shadow-sm' : 'bg-transparent border-transparent'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-[76px]">
-                    {/* Logo */}
-                    <div className="flex items-center">
+                <div className="flex items-center h-[76px]">
+                    {/* Logo Section - Aligned Left */}
+                    <div className="flex-1 flex items-center">
                         <Link to="/" className="flex-shrink-0 flex items-center">
                             <img src={isDark ? logoWhite : logoBlack} alt="Tabo ERP Logo" className="h-[40px] md:h-[44px] w-auto object-contain transition-all duration-500" />
                         </Link>
                     </div>
 
-                    {/* Desktop Menu */}
-                    <div className="hidden lg:flex lg:items-center lg:space-x-8">
+                    {/* Desktop Menu Section - Perfectly Centered */}
+                    <div className="hidden lg:flex lg:items-center lg:space-x-10">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className="group relative text-base text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors flex items-center py-1"
+                                className="group relative text-[15px] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors flex items-center py-1"
                             >
                                 <span>{link.name}</span>
-
-                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                             </Link>
                         ))}
                     </div>
 
-                    {/* Desktop Actions */}
-                    <div className="hidden lg:flex items-center gap-6">
-                        <ThemeToggle />
-                        <Button to="/contact" variant="primary" size="md">
-                            Liên hệ ngay
-                        </Button>
-                    </div>
+                    {/* Desktop Actions & Mobile Toggle Section - Aligned Right */}
+                    <div className="flex-1 flex items-center justify-end gap-6">
+                        {/* Desktop Only Actions */}
+                        <div className="hidden lg:flex items-center gap-6">
+                            <ThemeToggle />
+                            <Button to="/contact" variant="primary" size="md" className="shadow-lg shadow-blue-500/20">
+                                Liên hệ ngay
+                            </Button>
+                        </div>
 
-                    <div className="flex items-center gap-3 lg:hidden">
-                        <ThemeToggle />
-                        <Button
-                            variant="ghost"
-                            onClick={toggleMenu}
-                            className={`!p-2 !rounded-xl transition-all duration-200 ${isOpen ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'} focus:outline-none`}
-                        >
-                            <span className="sr-only">Open main menu</span>
-                            {isOpen ? (
-                                <Icon name="close" className="block text-[24px]" aria-hidden="true" />
-                            ) : (
-                                <Icon name="menu" className="block text-[24px]" aria-hidden="true" />
-                            )}
-                        </Button>
+                        {/* Mobile Side Controls */}
+                        <div className="flex items-center gap-3 lg:hidden">
+                            <ThemeToggle />
+                            <Button
+                                variant="ghost"
+                                onClick={toggleMenu}
+                                className={`!p-2 !rounded-xl transition-all duration-200 ${isOpen ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'} focus:outline-none`}
+                            >
+                                <span className="sr-only">Open main menu</span>
+                                {isOpen ? (
+                                    <Icon name="close" className="block text-[24px]" aria-hidden="true" />
+                                ) : (
+                                    <Icon name="menu" className="block text-[24px]" aria-hidden="true" />
+                                )}
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>

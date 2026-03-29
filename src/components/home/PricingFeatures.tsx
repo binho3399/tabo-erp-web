@@ -132,7 +132,7 @@ const PricingFeatures: React.FC = () => {
         : "grid gap-4 md:gap-8 px-6 lg:px-8 py-5 border-b border-slate-50 dark:border-slate-800 last:border-b-0 items-center hover:bg-slate-50/30 dark:hover:bg-slate-800/30 transition-colors grid-cols-1 md:grid-cols-[1fr_150px] lg:grid-cols-[1fr_200px]";
 
     return (
-        <section className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden border-t border-slate-100 dark:border-slate-800 transition-colors duration-500">
+        <section className="py-16 lg:py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden border-t border-slate-100 dark:border-slate-800 transition-colors duration-500">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12 lg:mb-16">
                     <div className="text-left flex flex-col items-start">

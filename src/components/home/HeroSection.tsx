@@ -3,7 +3,7 @@ import { Icon, Button, Badge } from '@/components/ui';
 
 const HeroSection: React.FC = () => {
     return (
-        <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-[164px] pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center transition-colors duration-500">
+        <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-32 pb-16 lg:pt-[164px] lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center transition-colors duration-500">
             {/* Ambient Blurry Blobs */}
             <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light transition-all duration-700"></div>
             <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 dark:bg-cyan-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light transition-all duration-700"></div>

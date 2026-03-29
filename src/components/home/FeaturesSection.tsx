@@ -43,7 +43,7 @@ const SectorTicker: React.FC<{ items: SectorItem[], reverse?: boolean }> = ({ it
 
 const FeaturesSection: React.FC = () => {
     return (
-        <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-500">
+        <section className="py-16 lg:py-24 bg-white dark:bg-slate-950 transition-colors duration-500">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Row */}
                 <div className="flex flex-col lg:flex-row items-start lg:items-end mb-8 lg:mb-16 gap-y-5 lg:gap-5 text-left lg:text-left">

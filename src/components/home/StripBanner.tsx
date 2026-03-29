@@ -3,7 +3,7 @@ import { Icon, Button } from '@/components/ui';
 
 const StripBanner: React.FC = () => {
     return (
-        <section className="bg-slate-950 dark:bg-slate-950 text-white py-24 relative overflow-hidden transition-colors duration-500">
+        <section className="bg-slate-950 dark:bg-slate-950 text-white py-16 lg:py-24 relative overflow-hidden transition-colors duration-500">
             {/* VIVID & IMPRESSIVE Background Decoration */}
             <div className="absolute inset-0 z-0">
                 {/* 1. Base Layer: Deep noise texture */}

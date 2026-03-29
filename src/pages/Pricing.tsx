@@ -6,9 +6,9 @@ import PricingFAQ from '../components/home/PricingFAQ';
 
 const Pricing: React.FC = () => {
     return (
-        <div className="bg-[#F7F8F8] dark:bg-slate-950 min-h-screen transition-colors duration-500">
+        <div className="bg-[#F7F8F8] dark:bg-slate-950 transition-colors duration-500">
             {/* Hero Section */}
-            <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-32 pb-0 overflow-hidden transition-colors">
+            <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-28 pb-16 lg:pt-32 lg:pb-24 overflow-hidden transition-colors">
                 {/* Ambient Blurry Blobs */}
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-all duration-700"></div>
                 <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 dark:bg-cyan-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-all duration-700"></div>
@@ -127,11 +127,11 @@ const Pricing: React.FC = () => {
                     <Badge variant="primary" className="mb-6 uppercase shadow-sm relative z-10 select-none">
                         BẢNG GIÁ DỊCH VỤ
                     </Badge>
-                    <h1 className="text-4xl sm:text-5xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
-                        Đầu tư thông minh cho <br className="hidden md:block" /> sự <span className="text-blue-500 dark:text-blue-400">tăng trưởng bền vững.</span>
+                    <h1 className="text-4xl sm:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
+                        Đầu tư thông minh cho sự <span className="text-blue-500 dark:text-blue-400">tăng trưởng bền vững.</span>
                     </h1>
                     <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl font-normal transition-colors relative z-10">
-                        Lựa chọn gói giải pháp tối ưu phù hợp với quy mô doanh nghiệp bạn. <br className="hidden md:block" /> Minh bạch, hiệu quả và không chi phí ẩn.
+                        Lựa chọn gói giải pháp tối ưu phù hợp với quy mô doanh nghiệp bạn. Minh bạch, hiệu quả và không chi phí ẩn.
                     </p>
                 </div>
 

@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
                                 className="group relative text-[16px] font-medium text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1"
                             >
                                 <span>{link.name}</span>
-                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                             </Link>
                         ))}
                     </nav>
@@ -81,11 +81,11 @@ const Footer: React.FC = () => {
                     <div className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row gap-4 md:gap-6 text-[16px] text-gray-500 dark:text-gray-400 font-medium">
                         <span className="group relative cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1">
                             <span>Chính sách bảo mật</span>
-                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                         </span>
                         <span className="group relative cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1">
                             <span>Điều khoản dịch vụ</span>
-                            <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                         </span>
                     </div>
                 </div>

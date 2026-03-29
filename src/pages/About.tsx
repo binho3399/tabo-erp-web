@@ -6,7 +6,7 @@ const About: React.FC = () => {
     return (
         <div className="font-sans text-gray-900 dark:text-white bg-[#F7F8F8] dark:bg-slate-950 transition-colors duration-500 overflow-x-hidden">
             {/* Hero Section with Ambient Background */}
-            <section className="relative pt-32 pb-16 lg:pb-24">
+            <section className="relative pt-28 pb-16 lg:pt-32 lg:pb-24 min-h-[40vh] flex flex-col justify-center">
                 {/* Background Decorations Container with Smooth Fade Mask */}
                 <div className="absolute inset-0 z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]">
                     {/* Ambient Blurry Blobs */}
@@ -57,7 +57,7 @@ const About: React.FC = () => {
                         TỔNG QUAN
                     </Badge>
                     
-                    <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6 transition-colors relative z-10">
+                    <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-slate-900 dark:text-white leading-[1.2] lg:leading-[1.1] mb-6 transition-colors relative z-10">
                         Về chúng tôi <span className="text-blue-500 dark:text-blue-400 block sm:inline mt-2 sm:mt-0">— Tabo ERP</span>
                     </h1>
 
@@ -84,7 +84,7 @@ const About: React.FC = () => {
             </section>
 
             {/* Main Content Container matching Reference Image */}
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-24 relative z-20">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-20">
 
                 {/* 3. Mission / Introduction */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start mb-24 md:mb-32">

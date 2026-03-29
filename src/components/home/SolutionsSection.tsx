@@ -7,16 +7,16 @@ const SolutionsSection: React.FC = () => {
     const solutions = SOLUTIONS;
 
     return (
-        <section className="py-24 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 transition-colors duration-500 relative">
+        <section className="py-16 lg:py-24 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 transition-colors duration-500 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     {/* Left Column: Text + CTA */}
-                    <div className="lg:col-span-6 flex flex-col items-start lg:items-start text-left lg:text-left pt-10 lg:sticky lg:top-24">
+                    <div className="lg:col-span-6 flex flex-col items-start lg:items-start text-left lg:text-left pt-0 lg:pt-10 lg:sticky lg:top-24">
                         <Badge variant="primary" className="mb-4 md:mb-5">GIẢI PHÁP</Badge>
                         <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 dark:text-white mb-4 md:mb-5 tracking-tight leading-[1.15] transition-colors">
                             Giải quyết mọi<br /><span className="text-blue-500 dark:text-blue-400">nỗi đau</span> doanh nghiệp.
                         </h2>
-                        <p className="text-slate-500 dark:text-slate-400 font-normal text-base mb-6 leading-relaxed transition-colors">
+                        <p className="text-slate-500 dark:text-slate-400 font-normal text-base mb-0 md:mb-6 leading-relaxed transition-colors">
                             Chuẩn hóa quy trình và minh bạch dữ liệu để doanh nghiệp <br className="hidden md:block" /> vận hành trơn tru, ổn định và hiệu quả lâu dài.
                         </p>
                         <div className="hidden lg:block">
