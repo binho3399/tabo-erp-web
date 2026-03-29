@@ -1,12 +1,11 @@
-import Icon from '../common/Icon';
-import Badge from '../common/Badge';
+import { Icon, Badge } from '@/components/ui';
 
 const TestimonialsSection: React.FC = () => {
     return (
-        <section className="py-24 bg-[#F7F8F8] overflow-hidden relative">
-            {/* Decorative background elements - subtle for light mode */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/30 blur-[120px] rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-100/30 blur-[120px] rounded-full pointer-events-none"></div>
+        <section className="py-24 bg-[#F7F8F8] dark:bg-slate-950 overflow-hidden relative transition-colors duration-500">
+            {/* Decorative background elements - subtle for light mode, slightly stronger for dark */}
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/30 dark:bg-blue-600/5 blur-[120px] rounded-full pointer-events-none transition-colors duration-500"></div>
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-100/30 dark:bg-indigo-600/5 blur-[120px] rounded-full pointer-events-none transition-colors duration-500"></div>
 
             <style dangerouslySetInnerHTML={{
                 __html: `
@@ -25,9 +24,18 @@ const TestimonialsSection: React.FC = () => {
                     border: 1px solid rgba(0, 0, 0, 0.03);
                     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
                 }
+                .dark .premium-card {
+                    background: #0f172a;
+                    border: 1px solid rgba(255, 255, 255, 0.05);
+                    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+                }
                 .premium-card:hover {
                     border-color: rgba(59, 130, 246, 0.2);
                     box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+                }
+                .dark .premium-card:hover {
+                    border-color: rgba(59, 130, 246, 0.4);
+                    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5);
                 }
             `}} />
 
@@ -35,10 +43,10 @@ const TestimonialsSection: React.FC = () => {
                 <Badge variant="primary" className="mb-4 md:mb-5 uppercase">
                     Hệ sinh thái đối tác
                 </Badge>
-                <h3 className="text-[28px] md:text-[42px] font-normal text-slate-900 tracking-tight mb-4 md:mb-5">
-                    Kiến tạo giá trị <span className="text-blue-500">vượt trội</span>
+                <h3 className="text-[28px] md:text-[42px] font-normal text-slate-900 dark:text-white tracking-tight mb-4 md:mb-5 transition-colors">
+                    Kiến tạo giá trị <span className="text-blue-500 dark:text-blue-400">vượt trội</span>
                 </h3>
-                <p className="text-slate-500 font-normal text-base max-w-2xl mx-auto leading-relaxed">
+                <p className="text-slate-500 dark:text-slate-400 font-normal text-base max-w-2xl mx-auto leading-relaxed transition-colors">
                     Hơn 1,000 doanh nghiệp đã chuyển đổi số thành công cùng Tabo ERP. <br className="hidden md:block" /> Hãy nghe họ chia sẻ về hành trình này.
                 </p>
             </div>
@@ -70,26 +78,26 @@ const TestimonialsSection: React.FC = () => {
                     ]).map((item, i) => (
                         <div key={i} className="flex-shrink-0 w-[450px] p-4 lg:p-6 premium-card transition-all duration-500 ease-out hover:-translate-y-1 rounded-[20px] flex flex-col group relative overflow-hidden">
                             {/* Subtle Hover Background Pattern */}
-                            <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 bg-[radial-gradient(#0052FF_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 
-                            <div className={`w-11 h-11 lg:w-12 lg:h-12 rounded-xl mb-4 flex items-center justify-center transition-all group-hover:scale-110 duration-500 bg-blue-50 text-blue-600 border border-blue-100 shadow-sm shadow-blue-500/5`}>
+                            <div className={`w-11 h-11 lg:w-12 lg:h-12 rounded-xl mb-4 flex items-center justify-center transition-all group-hover:scale-110 duration-500 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 border border-blue-100 dark:border-blue-800 shadow-sm shadow-blue-500/5`}>
                                 <Icon name={item.icon} className="text-xl" />
                             </div>
 
                             <div className="relative mb-4">
-                                <div className="text-slate-900 font-normal text-[20px] lg:text-[28px] tracking-tight leading-tight mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                                <div className="text-slate-900 dark:text-white font-normal text-[20px] lg:text-[28px] tracking-tight leading-tight mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                                     {item.highlight}
                                 </div>
                                 <div className="w-12 h-1 bg-blue-500/20 rounded-full group-hover:w-16 group-hover:bg-blue-500/40 transition-all duration-500"></div>
                             </div>
 
-                            <p className="text-base text-slate-500 font-normal leading-relaxed mb-4 relative z-10">
+                            <p className="text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed mb-4 relative z-10 transition-colors">
                                 "{item.quote}"
                             </p>
 
                             {/* Bottom Decorative Quote */}
-                            <div className="mt-2 flex justify-end opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                                <Icon name="format_quote" className="text-5xl text-slate-900" />
+                            <div className="mt-2 flex justify-end opacity-5 dark:opacity-10 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-500">
+                                <Icon name="format_quote" className="text-5xl text-slate-900 dark:text-white" />
                             </div>
                         </div>
                     ))}

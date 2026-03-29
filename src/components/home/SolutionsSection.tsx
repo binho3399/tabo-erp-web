@@ -1,88 +1,22 @@
 import React from 'react';
-import Icon from '../common/Icon';
-import Button from '../common/Button';
-import Badge from '../common/Badge';
+import { Icon, Button, Badge } from '@/components/ui';
+import { SOLUTIONS } from '@/constants/landing';
+import type { SolutionItem } from '@/types/landing';
 
 const SolutionsSection: React.FC = () => {
-    const solutions = [
-        {
-            id: "01",
-            title: "Dữ liệu phân tán",
-            desc: "Hợp nhất và chuẩn hóa nguồn dữ liệu phân tán thành một hệ thống thông tin tập trung duy nhất.",
-            items: [
-                'Hợp nhất danh mục hàng hóa',
-                'Đồng bộ tồn kho liên chi nhánh',
-                'Quản lý công nợ tập trung',
-                'Hệ thống báo cáo tự động'
-            ],
-            color: "blue",
-            icon: "account_tree"
-        },
-        {
-            id: "02",
-            title: "Khó khăn mở rộng",
-            desc: "Khắc phục nút thắt vận hành bằng quy trình thông minh, ổn định và sẵn sàng cho sự bứt phá.",
-            items: [
-                'Quy trình chuẩn hóa ISO',
-                'Mở rộng chi nhánh không giới hạn',
-                'Phân quyền linh hoạt',
-                'Hạ tầng Cloud sẵn sàng'
-            ],
-            color: "indigo",
-            icon: "trending_up"
-        },
-        {
-            id: "03",
-            title: "Thất thoát tài sản",
-            desc: "Thiết lập cơ chế kiểm soát chéo chặt chẽ, ngăn chặn thất thoát và minh bạch hóa mọi tài sản.",
-            items: [
-                'Kiểm kê kho tự động',
-                'Cảnh báo gian lận Real-time',
-                'Đối soát dòng tiền chính xác',
-                'Truy xuất lịch sử giao dịch'
-            ],
-            color: "slate",
-            icon: "security"
-        },
-        {
-            id: "04",
-            title: "Quy trình làm việc rườm rà",
-            desc: "Số hóa và tự động hóa các bước xử lý thủ công, tối ưu hóa năng suất cho toàn bộ đội ngũ.",
-            items: [
-                'Phê duyệt điện tử',
-                'Xử lý đơn hàng tự động',
-                'Giao việc thông minh',
-                'Cảnh báo đến hạn'
-            ],
-            color: "cyan",
-            icon: "rocket_launch"
-        },
-        {
-            id: "05",
-            title: "Thiếu số liệu quyết định",
-            desc: "Bảng điều khiển thông minh cung cấp cái nhìn toàn cảnh theo thời gian thực, hỗ trợ lãnh đạo ra quyết định nhanh chóng.",
-            items: [
-                'Báo cáo đa chiều RT',
-                'Phân tích hiệu suất',
-                'Dự báo doanh thu',
-                'Biểu đồ trực quan'
-            ],
-            color: "purple",
-            icon: "insights"
-        }
-    ];
+    const solutions = SOLUTIONS;
 
     return (
-        <section className="py-24 bg-white border-y border-slate-100 relative">
+        <section className="py-24 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 transition-colors duration-500 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
                     {/* Left Column: Text + CTA */}
                     <div className="lg:col-span-6 flex flex-col items-start lg:items-start text-left lg:text-left pt-10 lg:sticky lg:top-24">
                         <Badge variant="primary" className="mb-4 md:mb-5">GIẢI PHÁP</Badge>
-                        <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 mb-4 md:mb-5 tracking-tight leading-[1.15]">
-                            Giải quyết mọi<br /><span className="text-blue-500">nỗi đau</span> doanh nghiệp.
+                        <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 dark:text-white mb-4 md:mb-5 tracking-tight leading-[1.15] transition-colors">
+                            Giải quyết mọi<br /><span className="text-blue-500 dark:text-blue-400">nỗi đau</span> doanh nghiệp.
                         </h2>
-                        <p className="text-slate-500 font-normal text-base mb-6 leading-relaxed">
+                        <p className="text-slate-500 dark:text-slate-400 font-normal text-base mb-6 leading-relaxed transition-colors">
                             Chuẩn hóa quy trình và minh bạch dữ liệu để doanh nghiệp <br className="hidden md:block" /> vận hành trơn tru, ổn định và hiệu quả lâu dài.
                         </p>
                         <div className="hidden lg:block">
@@ -94,30 +28,30 @@ const SolutionsSection: React.FC = () => {
 
                     {/* Right Column: Stacked Cards (keeping original UI) */}
                     <div className="lg:col-span-6 flex flex-col gap-8">
-                        {solutions.map((sol, i) => (
-                            <div key={i} className="group bg-white rounded-[20px] p-4 lg:p-6 shadow-md hover:shadow-xl transition-all duration-500 flex flex-col h-full">
+                        {solutions.map((sol: SolutionItem, i: number) => (
+                            <div key={i} className="group bg-white dark:bg-slate-900 rounded-[20px] p-4 lg:p-6 shadow-md dark:shadow-slate-950/20 hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-transparent dark:border-slate-800">
                                 <div className="flex items-center justify-between mb-4">
-                                    <span className="text-sm font-bold text-blue-500 bg-blue-50 px-3 py-1 rounded-full">{sol.id}</span>
-                                    <div className="w-11 h-11 lg:w-10 lg:h-10 rounded-xl bg-white flex items-center justify-center shadow-sm group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                                        <Icon name={sol.icon} className="text-xl" />
+                                    <span className="text-sm font-bold text-blue-500 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">{sol.id}</span>
+                                    <div className="w-11 h-11 lg:w-10 lg:h-10 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-sm group-hover:bg-blue-500 dark:group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                        <Icon name={sol.icon} className="text-xl text-slate-600 dark:text-slate-400 group-hover:text-white dark:group-hover:text-white" />
                                     </div>
                                 </div>
 
-                                <h3 className="text-[20px] lg:text-[28px] font-normal text-slate-900 mb-4 tracking-tight">{sol.title}</h3>
-                                <p className="text-base text-slate-500 font-normal mb-4 leading-relaxed max-w-xl">
-                                    {sol.desc}
+                                <h3 className="text-[20px] lg:text-[28px] font-normal text-slate-900 dark:text-white mb-4 tracking-tight transition-colors">{sol.title}</h3>
+                                <p className="text-base text-slate-500 dark:text-slate-400 font-normal mb-4 leading-relaxed max-w-xl transition-colors">
+                                    {sol.description}
                                 </p>
 
                                 <div className="mt-auto flex flex-col gap-y-4 relative">
                                     {/* Vertical connecting line */}
-                                    <div className="absolute left-[10px] top-[10px] bottom-[10px] w-px border-l border-dashed border-blue-200 z-0"></div>
+                                    <div className="absolute left-[10px] top-[10px] bottom-[10px] w-px border-l border-dashed border-blue-200 dark:border-blue-900/50 z-0"></div>
                                     
-                                    {sol.items.map((item, idx) => (
+                                    {sol.features.map((item: string, idx: number) => (
                                         <div key={idx} className="flex items-center gap-3 relative z-10">
-                                            <div className="w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 border border-white shadow-sm">
-                                                <Icon name="check" className="text-[10px] text-blue-500 font-black" />
+                                            <div className="w-5 h-5 rounded-full bg-blue-50 dark:bg-blue-900/40 flex items-center justify-center flex-shrink-0 border border-white dark:border-slate-800 shadow-sm">
+                                                <Icon name="check" className="text-[10px] text-blue-500 dark:text-blue-400 font-black" />
                                             </div>
-                                            <span className="text-base text-slate-700 font-normal">{item}</span>
+                                            <span className="text-base text-slate-700 dark:text-slate-300 font-normal transition-colors">{item}</span>
                                         </div>
                                     ))}
                                 </div>

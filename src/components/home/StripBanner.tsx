@@ -1,22 +1,21 @@
 import React from 'react';
-import Icon from '../common/Icon';
-import Button from '../common/Button';
+import { Icon, Button } from '@/components/ui';
 
 const StripBanner: React.FC = () => {
     return (
-        <section className="bg-slate-950 text-white py-24 relative overflow-hidden">
+        <section className="bg-slate-950 dark:bg-slate-950 text-white py-24 relative overflow-hidden transition-colors duration-500">
             {/* VIVID & IMPRESSIVE Background Decoration */}
             <div className="absolute inset-0 z-0">
                 {/* 1. Base Layer: Deep noise texture */}
                 <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
 
                 {/* 2. Primary Neon BLOOMS (Brighter & Larger) */}
-                <div className="absolute -top-[20%] -left-[10%] w-[80%] h-[140%] bg-blue-500/30 blur-[120px] rounded-full animate-pulse duration-[6s] opacity-80"></div>
-                <div className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[120%] bg-indigo-500/25 blur-[100px] rounded-full animate-pulse duration-[8s] delay-700 opacity-70"></div>
+                <div className="absolute -top-[20%] -left-[10%] w-[80%] h-[140%] bg-blue-500/30 dark:bg-blue-600/20 blur-[120px] rounded-full animate-pulse duration-[6s] opacity-80"></div>
+                <div className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[120%] bg-indigo-500/25 dark:bg-indigo-600/15 blur-[100px] rounded-full animate-pulse duration-[8s] delay-700 opacity-70"></div>
 
                 {/* 3. Intense Light Beams */}
-                <div className="absolute top-0 left-1/3 w-[2px] h-full bg-gradient-to-b from-transparent via-blue-400/30 to-transparent skew-x-[30deg] blur-[1px]"></div>
-                <div className="absolute top-0 right-1/4 w-[3px] h-full bg-gradient-to-b from-transparent via-indigo-400/20 to-transparent -skew-x-[20deg] blur-[2px]"></div>
+                <div className="absolute top-0 left-1/3 w-[2px] h-full bg-gradient-to-b from-transparent via-blue-400/30 dark:via-blue-500/20 to-transparent skew-x-[30deg] blur-[1px]"></div>
+                <div className="absolute top-0 right-1/4 w-[3px] h-full bg-gradient-to-b from-transparent via-indigo-400/20 dark:via-indigo-500/15 to-transparent -skew-x-[20deg] blur-[2px]"></div>
 
                 {/* 4. Enhanced Concentric Geo-Circles */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-blue-500/10 rounded-full"></div>

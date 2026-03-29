@@ -1,86 +1,24 @@
 import React from 'react';
-import Icon from '../common/Icon';
-import Button from '../common/Button';
-import Badge from '../common/Badge';
+import { Icon, Button, Badge } from '@/components/ui';
+import { PRICING_PLANS, COMPARISON_FEATURES } from '@/constants/landing';
+import type { PricingPlan } from '@/types/landing';
 
 interface PricingSectionProps {
     hideHeader?: boolean;
 }
 
 const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) => {
-    type Plan = {
-        name: string;
-        tagline: string;
-        price: string;
-        period: string;
-        desc: string;
-        buttonText: string;
-        variant: "secondary" | "primary" | "outline";
-        highlight?: boolean;
-        features: string[];
-    };
-
-    const plans: Plan[] = [
-        {
-            name: "Gói Miễn Phí",
-            tagline: "Gói khởi đầu",
-            price: "0đ",
-            period: "/ mãi mãi",
-            desc: "Giải pháp cơ bản cho hộ kinh doanh nhỏ.",
-            buttonText: "Bắt đầu ngay",
-            variant: "secondary",
-            features: [
-                "1 kênh bán",
-                "Chỉ POS Lẻ",
-                "1 Kho tự quản",
-                "Sổ tay truyền thống",
-                "Thủ công cơ bản",
-                "-",
-                "Tiêu chuẩn",
-                "Cộng đồng hỗ trợ"
-            ]
-        },
-        {
-            name: "Gói Nâng Cao",
-            tagline: "Gói toàn diện",
-            price: "Liên hệ",
-            period: "",
-            desc: "Giải pháp ERP may đo cho tập đoàn lớn.",
-            buttonText: "Liên hệ tư vấn",
-            variant: "primary",
-            highlight: true,
-            features: [
-                "Đa nền tảng (Shopee, Web,...)",
-                "POS Sỉ & Lẻ, nhiều giá",
-                "Đồng bộ đa chi nhánh",
-                "Smart Banking tự động",
-                "Kết nối Hãng VC & Đối soát",
-                "Zalo ZNS, Phân hạng KH",
-                "Dashboard Real-time 360°",
-                "Chuyên gia riêng & Mở API"
-            ]
-        }
-    ];
-
-    const comparisonFeatures = [
-        "Quản lý Đơn hàng Đa kênh",
-        "Hệ thống POS Sỉ & Lẻ",
-        "Kho bãi & Chuỗi cung ứng",
-        "Sổ Quỹ & Đối soát tự động",
-        "Vận chuyển & Giao nhận",
-        "Chăm sóc KH (CRM/Loyalty)",
-        "Báo cáo & Phân tích Đa chiều",
-        "Hỗ trợ & API Thiết kế riêng"
-    ];
+    const plans = PRICING_PLANS;
+    const comparisonFeatures = COMPARISON_FEATURES;
 
     return (
-        <section className="py-24 bg-white relative overflow-clip">
+        <section className="py-24 bg-white dark:bg-slate-950 transition-colors duration-500 relative overflow-clip">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {!hideHeader && (
                     <div className="text-left lg:text-center mb-16">
-                        <Badge variant="primary" className="mb-4 md:mb-5 uppercase">Bảng giá minh bạch</Badge>
-                        <h3 className="text-[28px] md:text-[42px] font-normal text-slate-900 tracking-tight leading-[1.15] mb-4 md:mb-5">
-                            Đầu tư thông minh cho <br /><span className="text-blue-500">tương lai doanh nghiệp.</span>
+                        <Badge variant="primary" className="mb-4 md:mb-5 uppercase">BẢNG GIÁ MINH BẠCH</Badge>
+                        <h3 className="text-[28px] md:text-[42px] font-normal text-slate-900 dark:text-white tracking-tight leading-[1.15] mb-4 md:mb-5 transition-colors">
+                            Đầu tư thông minh cho <br /><span className="text-blue-500 dark:text-blue-400">tương lai doanh nghiệp.</span>
                         </h3>
                     </div>
                 )}
@@ -88,18 +26,18 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
                 {/* Main Grid Layout */}
                 <div className="relative">
                     {/* Header Row with Plan Cards */}
-                    <div className="md:sticky md:top-[72px] z-40 md:bg-white/95 md:backdrop-blur-md pt-6 pb-6 grid grid-cols-1 md:grid-cols-[22%_1fr_1fr] gap-6 lg:gap-8 mb-2 border-b border-transparent">
+                    <div className="md:sticky md:top-[72px] z-40 md:bg-white/95 dark:md:bg-slate-950/95 md:backdrop-blur-md pt-6 pb-6 grid grid-cols-1 md:grid-cols-[22%_1fr_1fr] gap-6 lg:gap-8 mb-2 border-b border-transparent transition-colors">
                         {/* Title corner */}
                         <div className="hidden md:flex flex-col justify-end pb-8">
-                            <h4 className="text-[16px] font-semibold text-slate-900 tracking-tight">Nhóm tính năng</h4>
+                            <h4 className="text-[16px] font-semibold text-slate-900 dark:text-slate-100 tracking-tight">Nhóm tính năng</h4>
                         </div>
 
-                        {plans.map((plan, idx) => (
+                        {plans.map((plan: PricingPlan, idx: number) => (
                             <div
                                 key={idx}
                                 className={`rounded-[20px] p-6 flex flex-col relative transition-all duration-500 hover:-translate-y-1 ${plan.highlight
-                                        ? 'bg-[#0F172A] text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.4)]'
-                                        : 'bg-white shadow-md hover:shadow-xl text-slate-900'
+                                        ? 'bg-[#0F172A] text-white shadow-[0_20px_50px_-15px_rgba(37,99,235,0.4)] dark:shadow-[0_20px_50px_-15px_rgba(37,99,235,0.2)]'
+                                        : 'bg-white dark:bg-slate-900 shadow-md hover:shadow-xl text-slate-900 dark:text-white border border-transparent dark:border-slate-800'
                                     }`}
                             >
                                 {plan.highlight && (
@@ -142,17 +80,17 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
                                             <h5 className="text-[20px] lg:text-[28px] font-normal tracking-tight">
                                                 {plan.name}
                                             </h5>
-                                            <p className={`text-[12px] font-normal leading-relaxed ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
-                                                {plan.desc}
+                                            <p className={`text-[12px] font-normal leading-relaxed ${plan.highlight ? 'text-slate-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                                                {plan.description}
                                             </p>
                                         </div>
 
                                         <div className="flex flex-col items-end">
                                             <div className="flex items-baseline gap-1">
-                                                <span className={`text-4xl lg:text-5xl font-normal tracking-tighter ${plan.highlight ? 'text-white' : 'text-slate-900'}`}>
+                                                <span className={`text-4xl lg:text-5xl font-normal tracking-tighter ${plan.highlight ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
                                                     {plan.price}
                                                 </span>
-                                                <span className={`text-sm font-normal ${plan.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
+                                                <span className={`text-sm font-normal ${plan.highlight ? 'text-slate-400' : 'text-slate-500 dark:text-slate-400'}`}>
                                                     {plan.period}
                                                 </span>
                                             </div>
@@ -165,9 +103,9 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
                                             variant={plan.variant || (plan.highlight ? 'primary' : 'outline')}
                                             fullWidth
                                             size="md"
-                                            className={plan.highlight ? 'shadow-blue-500/20 shadow-lg' : ''}
+                                            className={plan.highlight ? 'shadow-blue-500/20 shadow-lg' : 'dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800'}
                                         >
-                                            {plan.buttonText}
+                                            {plan.cta}
                                         </Button>
                                     </div>
                                 </div>
@@ -180,19 +118,19 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
                         {comparisonFeatures.map((feature, fIdx) => (
                             <div
                                 key={fIdx}
-                                className={`grid grid-cols-[22%_1fr_1fr] gap-8 py-6 border-b border-slate-100/60 items-center transition-colors hover:bg-slate-50/30 px-6 -mx-6 rounded-xl`}
+                                className={`grid grid-cols-[22%_1fr_1fr] gap-8 py-6 border-b border-slate-100/60 dark:border-slate-800/60 items-center transition-colors hover:bg-slate-50/30 dark:hover:bg-slate-900/30 px-6 -mx-6 rounded-xl`}
                             >
-                                <div className="text-[16px] text-slate-500 font-normal">{feature}</div>
+                                <div className="text-[16px] text-slate-500 dark:text-slate-400 font-normal">{feature}</div>
                                 {plans.map((plan, pIdx) => (
                                     <div key={pIdx} className="text-center">
                                         {typeof plan.features[fIdx] === 'string' && plan.features[fIdx] !== '-' ? (
-                                            <span className={`text-[16px] font-normal ${plan.highlight ? 'text-slate-900' : 'text-slate-600'}`}>
+                                            <span className={`text-[16px] font-normal ${plan.highlight ? 'text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-300'}`}>
                                                 {plan.features[fIdx]}
                                             </span>
                                         ) : (
                                             <div className="flex justify-center">
-                                                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${plan.highlight ? 'bg-blue-500/10' : 'bg-slate-100'}`}>
-                                                    <Icon name="check" className={`text-xs font-black ${plan.highlight ? 'text-blue-500' : 'text-slate-400'}`} />
+                                                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${plan.highlight ? 'bg-blue-500/10 dark:bg-blue-400/10' : 'bg-slate-100 dark:bg-slate-800'}`}>
+                                                    <Icon name="check" className={`text-xs font-black ${plan.highlight ? 'text-blue-500 dark:text-blue-400' : 'text-slate-400 dark:text-slate-500'}`} />
                                                 </div>
                                             </div>
                                         )}
@@ -210,7 +148,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
             </div>
 
             {/* Background elements */}
-            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-50/30 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-50/30 dark:bg-blue-600/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-colors"></div>
         </section>
     );
 };

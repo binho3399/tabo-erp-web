@@ -4,15 +4,15 @@ import logoWhite from '../../assets/Logo-white.png';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-[#020408] text-gray-500 pt-16 pb-6 md:py-16 relative z-20">
+        <footer className="bg-[#020408] dark:bg-slate-950 text-gray-500 pt-16 pb-6 md:py-16 relative z-20 transition-colors duration-500">
             {/* Background Glow Container (Safe overflow) */}
             <div className="absolute inset-0 pointer-events-none z-0">
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 blur-[120px]"></div>
-                <div className="absolute bottom-0 left-0 w-1/4 h-full bg-blue-900/10 blur-[100px]"></div>
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 dark:bg-blue-500/5 blur-[120px]"></div>
+                <div className="absolute bottom-0 left-0 w-1/4 h-full bg-blue-900/10 dark:bg-blue-900/5 blur-[100px]"></div>
 
                 {/* Large Background Text Watermark */}
-                <div className="absolute inset-x-0 bottom-0 top-0 flex items-center justify-center pointer-events-none select-none overflow-visible">
-                    <div className="max-w-[1216px] w-full mx-auto h-full flex flex-col lg:flex-row items-start lg:items-center justify-end lg:justify-between px-4 lg:px-0 opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-white/10 to-transparent uppercase font-bold pointer-events-none overflow-visible">
+                <div className="absolute inset-x-0 bottom-0 top-0 flex items-center justify-center pointer-events-none select-none overflow-visible uppercase font-bold">
+                    <div className="max-w-[1216px] w-full mx-auto h-full flex flex-col lg:flex-row items-start lg:items-center justify-end lg:justify-between px-4 lg:px-0 opacity-100 bg-clip-text text-transparent bg-gradient-to-b from-white/10 dark:from-white/5 to-transparent pointer-events-none overflow-visible">
                         {/* Left Group: TABO */}
                         <div className="flex w-full lg:w-auto justify-start gap-4 lg:gap-[2.5em] overflow-visible">
                             <span className="text-[clamp(2.5rem,32vw,200px)] leading-none -ml-[0.14em]">T</span>
@@ -37,13 +37,13 @@ const Footer: React.FC = () => {
 
             {/* Decorative Fading Lines - 6 tiers stacking towards footer */}
             <div className="absolute -top-[40px] md:-top-[80px] left-0 w-full pointer-events-none select-none z-30">
-                <div className="flex flex-col items-center gap-1.5">
-                    <div className="w-full h-[1.5px] bg-[#020408] opacity-[0.15]"></div>
-                    <div className="w-full h-[4px] bg-[#020408] opacity-[0.35]"></div>
-                    <div className="w-full h-[10px] bg-[#020408] opacity-[0.65]"></div>
-                    <div className="w-full h-[15px] bg-[#020408] opacity-[0.8]"></div>
-                    <div className="w-full h-[24px] bg-[#020408] opacity-[0.9]"></div>
-                    <div className="w-full h-[32px] bg-[#020408]"></div>
+                <div className="flex flex-col items-center gap-1.5 overflow-hidden">
+                    <div className="w-full h-[1.5px] bg-[#020408] dark:bg-slate-950 opacity-[0.15]"></div>
+                    <div className="w-full h-[4px] bg-[#020408] dark:bg-slate-950 opacity-[0.35]"></div>
+                    <div className="w-full h-[10px] bg-[#020408] dark:bg-slate-950 opacity-[0.65]"></div>
+                    <div className="w-full h-[15px] bg-[#020408] dark:bg-slate-950 opacity-[0.8]"></div>
+                    <div className="w-full h-[24px] bg-[#020408] dark:bg-slate-950 opacity-[0.9]"></div>
+                    <div className="w-full h-[32px] bg-[#020408] dark:bg-slate-950"></div>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                             <Link
                                 key={idx}
                                 to={link.path}
-                                className="group relative text-[16px] font-medium text-gray-400 hover:text-blue-500 transition-colors py-1"
+                                className="group relative text-[16px] font-medium text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1"
                             >
                                 <span>{link.name}</span>
                                 <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -75,15 +75,15 @@ const Footer: React.FC = () => {
 
                 {/* Bottom Row: Copyright */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    <p className="text-[16px] font-medium text-gray-500">
-                        &copy; {new Date().getFullYear()} Tabo <span className="text-blue-500 uppercase">ERP</span>. Bảo lưu mọi quyền.
+                    <p className="text-[16px] font-medium text-gray-500 dark:text-gray-400">
+                        &copy; {new Date().getFullYear()} Tabo <span className="text-blue-500 dark:text-blue-400 uppercase">ERP</span>. Bảo lưu mọi quyền.
                     </p>
-                    <div className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row gap-4 md:gap-6 text-[16px] text-gray-500 font-medium">
-                        <span className="group relative cursor-pointer hover:text-blue-500 transition-colors py-1">
+                    <div className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row gap-4 md:gap-6 text-[16px] text-gray-500 dark:text-gray-400 font-medium">
+                        <span className="group relative cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1">
                             <span>Chính sách bảo mật</span>
                             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                         </span>
-                        <span className="group relative cursor-pointer hover:text-blue-500 transition-colors py-1">
+                        <span className="group relative cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1">
                             <span>Điều khoản dịch vụ</span>
                             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-blue-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                         </span>

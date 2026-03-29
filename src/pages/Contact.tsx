@@ -5,7 +5,7 @@ import ContactFAQ from '../components/contact/ContactFAQ';
 
 const Contact: React.FC = () => {
     return (
-        <div className="font-sans text-gray-900 bg-[#F7F8F8]">
+        <div className="font-sans text-gray-900 dark:text-white bg-[#F7F8F8] dark:bg-slate-950 transition-colors duration-500">
             {/* Hero Section */}
             <ContactHero />
 

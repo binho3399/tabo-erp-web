@@ -1,14 +1,13 @@
-import Accordion from '../common/Accordion';
-import Badge from '../common/Badge';
+import { Accordion, Badge } from '@/components/ui';
 
 const PricingFAQ: React.FC = () => {
     return (
-        <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
+        <section className="py-16 lg:py-24 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 transition-colors duration-500">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-left lg:text-center mb-8 lg:mb-16 flex flex-col items-start lg:items-center">
                     <Badge variant="primary" className="mb-4 md:mb-5 uppercase">Giải đáp thắc mắc</Badge>
-                    <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 tracking-tight mb-4 md:mb-5">Giải đáp <span className="text-blue-500">thắc mắc</span></h2>
-                    <p className="text-base text-slate-500 max-w-2xl font-normal">Những câu hỏi phổ biến liên quan đến biểu phí và quy trình thanh toán tại Tabo.</p>
+                    <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 dark:text-white tracking-tight mb-4 md:mb-5 transition-colors">Giải đáp <span className="text-blue-500 dark:text-blue-400">thắc mắc</span></h2>
+                    <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl font-normal transition-colors">Những câu hỏi phổ biến liên quan đến biểu phí và quy trình thanh toán tại Tabo.</p>
                 </div>
 
                 <Accordion 

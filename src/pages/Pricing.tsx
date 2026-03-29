@@ -1,19 +1,18 @@
 import React from 'react';
-import Icon from '../components/common/Icon';
-import Badge from '../components/common/Badge';
+import { Icon, Badge } from '@/components/ui';
 import PricingSection from '../components/home/PricingSection';
 import PricingFeatures from '../components/home/PricingFeatures';
 import PricingFAQ from '../components/home/PricingFAQ';
 
 const Pricing: React.FC = () => {
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-[#F7F8F8] dark:bg-slate-950 min-h-screen transition-colors duration-500">
             {/* Hero Section */}
-            <section className="relative bg-slate-50 pt-32 pb-0 overflow-hidden">
+            <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-32 pb-0 overflow-hidden transition-colors">
                 {/* Ambient Blurry Blobs */}
-                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
-                <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 blur-[120px] pointer-events-none mix-blend-multiply"></div>
-                <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full bg-purple-300/10 blur-[100px] pointer-events-none mix-blend-multiply"></div>
+                <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-all duration-700"></div>
+                <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 dark:bg-cyan-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-all duration-700"></div>
+                <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full bg-purple-300/10 dark:bg-purple-600/5 blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-all duration-700"></div>
 
                 {/* Small Floating Decorations with Animations */}
                 <div className="absolute top-[15%] left-[15%] w-2 h-2 bg-blue-500 rounded-full opacity-40 pointer-events-none animate-bounce" style={{ animationDuration: '4s' }}></div>
@@ -61,19 +60,19 @@ const Pricing: React.FC = () => {
                 </div>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-center text-center">
-                    <Badge variant="primary" className="mb-4 md:mb-5 font-semibold">
+                    <Badge variant="primary" className="mb-6 uppercase shadow-sm relative z-10 select-none">
                         BẢNG GIÁ DỊCH VỤ
                     </Badge>
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-5 text-slate-900">
-                        Đầu tư thông minh cho <br className="hidden md:block" /> sự <span className="text-blue-500">tăng trưởng bền vững.</span>
+                    <h1 className="text-4xl sm:text-5xl lg:text-[56px] leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
+                        Đầu tư thông minh cho <br className="hidden md:block" /> sự <span className="text-blue-500 dark:text-blue-400">tăng trưởng bền vững.</span>
                     </h1>
-                    <p className="text-base text-slate-500 max-w-2xl font-normal">
+                    <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl font-normal transition-colors relative z-10">
                         Lựa chọn gói giải pháp tối ưu phù hợp với quy mô doanh nghiệp bạn. <br className="hidden md:block" /> Minh bạch, hiệu quả và không chi phí ẩn.
                     </p>
                 </div>
 
                 {/* Bottom Gradient for smooth transition */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F8F8] dark:from-slate-950 to-transparent pointer-events-none z-10 transition-colors duration-500"></div>
             </section>
 
             {/* Pricing Table Section */}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Icon from '../common/Icon';
+import { Icon } from '@/components/ui';
 
 const CTASection: React.FC = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
