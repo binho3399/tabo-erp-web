@@ -24,38 +24,102 @@ const Pricing: React.FC = () => {
                     <Icon name="trending_up" className="text-[20px]" />
                 </div>
 
-                {/* Subtle Grid Pattern Overlay with Animated SVG Beams */}
-                <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                    <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+                {/* Decorative Background Layer - Option: Growth Roadmap (Follow Image) */}
+                <div 
+                    className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+                    style={{
+                        maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)',
+                        WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)'
+                    }}
+                >
+                    {/* Perspective Dot Grid (Subtle) */}
+                    <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#808080_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-                    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+                    {/* SVG Roadmap Path matching image vibe */}
+                    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1000 600" style={{ minHeight: '600px' }}>
                         <defs>
-                            <linearGradient id="beamGradientPricing" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stopColor="transparent" />
-                                <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.35" />
-                                <stop offset="100%" stopColor="transparent" />
+                            <linearGradient id="mainPathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stopColor="#7dd3fc" />   {/* sky-300 */}
+                                <stop offset="25%" stopColor="#2563eb" />  {/* blue-600 */}
+                                <stop offset="50%" stopColor="#1e3a8a" />  {/* blue-900 for dark depth */}
+                                <stop offset="75%" stopColor="#0284c7" />  {/* sky-600 */}
+                                <stop offset="100%" stopColor="#4f46e5" /> {/* indigo-600 replacing green */}
                             </linearGradient>
+                            <filter id="glowPathPricing">
+                                <feGaussianBlur stdDeviation="4" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
                         </defs>
 
-                        <path
-                            d="M 20 0 V 30 H 40 V 50 H 15 V 75 H 35 V 100"
-                            fill="none"
-                            stroke="url(#beamGradientPricing)"
-                            strokeWidth="0.04"
-                            pathLength="1"
-                            strokeDasharray="0.12 0.88"
-                            className="animate-grid-dash"
+                        {/* Faint Background Routing Lines (Decreased Contrast) */}
+                        <g fill="none" stroke="#94a3b8" strokeWidth="1" className="opacity-15 dark:opacity-5">
+                            <path d="M -50 150 C 150 150, 150 550, 350 550 C 550 550, 550 250, 750 250 C 950 250, 950 600, 1050 600" />
+                            <path d="M -50 450 C 50 450, 50 200, 200 200 C 350 200, 350 600, 550 600 C 750 600, 750 400, 900 400 C 1050 400, 1050 400, 1050 400" />
+                            <path d="M -50 300 C 200 300, 200 100, 400 100 C 600 100, 600 450, 800 450 C 1000 450, 1000 300, 1050 300" />
+                        </g>
+
+                        {/* Main Snaking Thick Path */}
+                        <path 
+                            d="M -50 200 C 100 200, 100 400, 200 400 C 300 400, 350 300, 450 300 C 550 300, 600 450, 700 450 C 800 450, 850 250, 900 250 C 950 250, 1050 250, 1050 250" 
+                            fill="none" 
+                            stroke="url(#mainPathGrad)" 
+                            strokeWidth="10" 
+                            strokeLinecap="round" 
+                            className="opacity-100 dark:opacity-80"
+                            filter="url(#glowPathPricing)"
                         />
-                        <path
-                            d="M 80 0 V 40 H 65 V 70 H 85 V 90 H 70 V 100"
-                            fill="none"
-                            stroke="url(#beamGradientPricing)"
-                            strokeWidth="0.04"
-                            pathLength="1"
-                            strokeDasharray="0.15 0.85"
-                            className="animate-grid-dash"
-                            style={{ animationDelay: '2s', animationDuration: '18s' }}
+
+                        {/* Data Flow Pulse on Path */}
+                        <path 
+                            d="M -50 200 C 100 200, 100 400, 200 400 C 300 400, 350 300, 450 300 C 550 300, 600 450, 700 450 C 800 450, 850 250, 900 250 C 950 250, 1050 250, 1050 250" 
+                            fill="none" 
+                            stroke="white" 
+                            strokeWidth="4" 
+                            strokeDasharray="40 600"
+                            strokeLinecap="round"
+                            className="opacity-100 animate-[flow-dash_4s_linear_infinite]"
                         />
+
+                        {/* Isometric Pedestals & Glowing Cylinders */}
+                        {[
+                            { x: 200, y: 400, h: 50, color: '#3b82f6', glowColor: '#60a5fa' }, // blue
+                            { x: 450, y: 300, h: 40, color: '#1d4ed8', glowColor: '#3b82f6' }, // darker blue
+                            { x: 700, y: 450, h: 60, color: '#0ea5e9', glowColor: '#38bdf8' }, // sky
+                            { x: 900, y: 250, h: 45, color: '#6366f1', glowColor: '#818cf8' }  // indigo (replaced green)
+                        ].map((point, i) => (
+                            <g key={i} transform={`translate(${point.x}, ${point.y})`}>
+                                {/* Shadow behind pedestal */}
+                                <ellipse cx="0" cy="15" rx="35" ry="10" fill="rgba(0,0,0,0.15)" className="dark:fill-black/50" />
+                                
+                                {/* Isometric Pedestal (Diamond Base) */}
+                                <g className="animate-float" style={{ animationDelay: `${i * 1.5}s`, animationDuration: '6s' }}>
+                                    {/* Left Face */}
+                                    <path d="M -30 0 L 0 15 L 0 22 L -30 7 Z" fill="#f8fafc" className="dark:fill-slate-800" stroke="#cbd5e1" strokeWidth="1" />
+                                    {/* Right Face */}
+                                    <path d="M 0 15 L 30 0 L 30 7 L 0 22 Z" fill="#e2e8f0" className="dark:fill-slate-900" stroke="#cbd5e1" strokeWidth="1" />
+                                    {/* Top Face */}
+                                    <path d="M 0 -15 L 30 0 L 0 15 L -30 0 Z" fill="white" className="dark:fill-slate-700" stroke="#cbd5e1" strokeWidth="1" />
+
+                                    {/* Vertical Gradient Definition for Cylinders */}
+                                    <defs>
+                                        <linearGradient id={`cylGrad-${i}`} x1="0%" y1="100%" x2="0%" y2="0%">
+                                            <stop offset="0%" stopColor="transparent" />
+                                            <stop offset="100%" stopColor={point.glowColor} />
+                                        </linearGradient>
+                                    </defs>
+
+                                    {/* The glowing cylinder tube */}
+                                    <g transform={`translate(0, -5)`}>
+                                        {/* Ambient Glow */}
+                                        <rect x="-6" y={-(point.h)} width="12" height={point.h} rx="6" fill={`url(#cylGrad-${i})`} className="opacity-70 blur-[3px]" />
+                                        {/* Tube Body */}
+                                        <rect x="-4" y={-(point.h)} width="8" height={point.h} rx="4" fill={`url(#cylGrad-${i})`} />
+                                        {/* Tube Top Cap (bright) */}
+                                        <ellipse cx="0" cy={-(point.h)} rx="4" ry="2" fill={point.color} className="animate-pulse" />
+                                    </g>
+                                </g>
+                            </g>
+                        ))}
                     </svg>
                 </div>
 
@@ -71,8 +135,8 @@ const Pricing: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Bottom Gradient for smooth transition */}
-                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F8F8] dark:from-slate-950 to-transparent pointer-events-none z-10 transition-colors duration-500"></div>
+                {/* Bottom Gradient for smooth transition to PricingSection */}
+                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white dark:from-slate-950 to-transparent pointer-events-none z-10 transition-colors duration-500"></div>
             </section>
 
             {/* Pricing Table Section */}
