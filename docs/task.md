@@ -19,3 +19,6 @@
 - [x] (Linh) Triển khai Neural Grid Background và Animated Beams cho section Bottom CTA.
 - [x] (Linh) Giảm contrast background decor trang About để đạt độ tinh tế (Premium Vibe).
 - [x] (Linh) Điều chỉnh contrast background decor trang About ở mức cân bằng (Balanced Tech Vibe).
+- [x] (Linh) Nới rộng container text Bottom CTA lên 'max-w-6xl' để hiển thị tối ưu 3 hàng chữ trên Desktop.
+- [x] (Linh) Cố định ngắt dòng (Line break) sau chữ 'hảo' và 'trình' trên Desktop cho Bottom CTA.
+- [x] (Linh) Điều chỉnh Padding Top/Bottom của Bottom CTA thành chính xác 96px (py-24) trên Desktop.

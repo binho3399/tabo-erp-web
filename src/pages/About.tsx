@@ -187,8 +187,8 @@ const About: React.FC = () => {
 
             </main>
 
-            {/* 5. Bottom CTA Layout - Higher Contrast Tech-forward Design */}
-            <section className="bg-slate-50/50 dark:bg-slate-900/60 w-full py-20 md:py-32 hover:bg-white dark:hover:bg-slate-900/80 transition-colors duration-1000 ease-out backdrop-blur-sm relative overflow-hidden group border-y border-slate-200/50 dark:border-slate-800/50">
+            {/* 5. Bottom CTA Layout - Balanced Tech-forward Design */}
+            <section className="bg-slate-50/50 dark:bg-slate-900/60 w-full py-20 lg:py-24 hover:bg-white dark:hover:bg-slate-900/80 transition-colors duration-1000 ease-out backdrop-blur-sm relative overflow-hidden group border-y border-slate-200/50 dark:border-slate-800/50">
                 
                 {/* 1. Underlying Neural Grid Mesh - Enhanced Presence */}
                 <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] dark:opacity-[0.15] bg-[linear-gradient(to_right,#3b82f6_1.5px,transparent_1.5px),linear-gradient(to_bottom,#3b82f6_1.5px,transparent_1.5px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(circle_at_center,black_50%,transparent_90%)]"></div>
@@ -233,8 +233,8 @@ const About: React.FC = () => {
                     </div>
                     
                     {/* CTA Heading - Standardized to Vibe Guidelines */}
-                    <h2 className="text-[24px] md:text-[36px] lg:text-[42px] font-normal text-slate-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-[1.25] md:leading-[1.15] mb-12 relative z-10 transition-colors">
-                        Chúng tôi kiến tạo sự cân bằng hoàn hảo giữa <span className="text-blue-500 dark:text-blue-400">hiệu năng</span> và <span className="text-blue-500 dark:text-blue-400">trải nghiệm</span>. Bắt đầu hành trình chuyển đổi số cùng Tabo ngay hôm nay!
+                    <h2 className="text-[24px] md:text-[36px] lg:text-[42px] font-normal text-slate-900 dark:text-white tracking-tight max-w-2xl md:max-w-3xl lg:max-w-none mx-auto leading-[1.25] md:leading-[1.15] mb-12 relative z-10 transition-colors">
+                        Chúng tôi kiến tạo sự cân bằng hoàn hảo <br className="hidden lg:block" /> giữa <span className="text-blue-500 dark:text-blue-400">hiệu năng</span> và <span className="text-blue-500 dark:text-blue-400">trải nghiệm</span>. Bắt đầu hành trình <br className="hidden lg:block" /> chuyển đổi số cùng Tabo ngay hôm nay!
                     </h2>
 
                     {/* Button with Visual Priority */}
