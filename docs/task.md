@@ -14,3 +14,8 @@
 - [x] (Linh) Loại bỏ khoảng cách margin-bottom phần giới thiệu Giải pháp trên Mobile.
 - [x] (Linh) Kiểm tra và chuẩn hóa padding top/bottom của section các trang web theo Contact Page Mobile.
 - [x] (Linh) Loại bỏ padding top trên Mobile cho cột văn bản trong trang Giải pháp.
+- [x] (Linh) Nâng cấp và đồng bộ UI/UX cho section Bottom CTA theo chuẩn Vibe Coding.
+- [x] (Linh) Đồng bộ size Button về chuẩn size='lg' của UI System.
+- [x] (Linh) Triển khai Neural Grid Background và Animated Beams cho section Bottom CTA.
+- [x] (Linh) Giảm contrast background decor trang About để đạt độ tinh tế (Premium Vibe).
+- [x] (Linh) Điều chỉnh contrast background decor trang About ở mức cân bằng (Balanced Tech Vibe).
