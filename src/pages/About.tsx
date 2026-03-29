@@ -34,7 +34,7 @@ const About: React.FC = () => {
                 </div>
 
                 {/* 1. Centered Typographic Hero Header */}
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 relative z-20 flex flex-col items-center text-center">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col items-center text-center">
                     
                     {/* Concentric Pulsing Blue Circles Behind Text */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] aspect-square rounded-full border border-blue-500/10 dark:border-blue-400/10 bg-gradient-to-b from-blue-400/5 to-transparent dark:from-blue-600/5 pointer-events-none z-0 blur-[2px] animate-breathing" style={{ animationDuration: '6s' }}></div>

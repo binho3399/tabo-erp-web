@@ -31,78 +31,82 @@ const ContactHero: React.FC = () => {
                 {/* Subtle Grid Pattern Overlay */}
                 <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
-                {/* Central Radar Pulse Rings */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center opacity-60 dark:opacity-40 animate-breathing">
-                    <div className="absolute w-[300px] h-[300px] border border-blue-400/40 rounded-full animate-ping" style={{ animationDuration: '4s' }}></div>
-                    <div className="absolute w-[600px] h-[600px] border border-blue-400/20 rounded-full animate-ping" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
-                    <div className="absolute w-[900px] h-[900px] border border-blue-400/10 rounded-full animate-ping" style={{ animationDuration: '8s', animationDelay: '2s' }}></div>
-                </div>
+                    {/* Network Nodes & Connecting Lines (SVG) - Refined Mesh */}
+                    <svg className="absolute inset-0 w-full h-full animate-breathing" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 400" style={{ animationDuration: '10s' }}>
+                        <defs>
+                            <radialGradient id="nodeGlowContact" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stopColor="#3b82f6" stopOpacity="1" />
+                                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                            </radialGradient>
+                            <filter id="lineGlow">
+                                <feGaussianBlur stdDeviation="2" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                            
+                            {/* High-Tech Icon Symbols - Set with fixed aspect ratio */}
+                            <symbol id="icon-spark" viewBox="0 0 24 24">
+                                <path d="M12,2L14.41,8.39L20.8,10.8L14.41,13.21L12,19.6L9.59,13.21L3.2,10.8L9.59,8.39L12,2Z" fill="currentColor" />
+                            </symbol>
+                            <symbol id="icon-star" viewBox="0 0 24 24">
+                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" fill="currentColor" />
+                            </symbol>
+                            <symbol id="icon-pin" viewBox="0 0 24 24">
+                                <path d="M12,2C8.14,2 5,5.14 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.14 15.86,2 12,2M12,4C14.76,4 17,6.24 17,9C17,11.88 14.22,16.21 12,19.19C9.77,16.24 7,11.85 7,9C7,6.24 9.24,4 12,4M12,7A2,2 0 0,0 10,9A2,2 0 0,0 12,11A2,2 0 0,0 14,9A2,2 0 0,0 12,7Z" fill="currentColor" />
+                            </symbol>
+                        </defs>
 
-                {/* Network Nodes & Connecting Lines (SVG) */}
-                <svg className="absolute inset-0 w-full h-full animate-breathing" preserveAspectRatio="none" viewBox="0 0 100 100" style={{ animationDuration: '10s' }}>
-                    <defs>
-                        <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stopColor="#3b82f6" stopOpacity="1" />
-                            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
-                        </radialGradient>
-                    </defs>
+                        {/* Connection Lines (Long, Elegant, Spanning Screen - Now all curved) */}
+                        <g className="stroke-blue-500/20 dark:stroke-blue-400/15" strokeWidth="1.2" fill="none" filter="url(#lineGlow)">
+                            <path d="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" />
+                            <path d="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" />
+                            <path d="M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" />
+                            <path d="M 540 100 C 660 60, 780 40, 1260 40" />
+                        </g>
 
-                    {/* Connection Lines (Static/Subtle) */}
-                    <g className="stroke-blue-500/15 dark:stroke-blue-400/10" strokeWidth="0.1" fill="none">
-                        <path id="path1" d="M 10 20 L 25 45 L 15 75 L 30 85" />
-                        <path id="path2" d="M 85 15 L 70 50 L 90 85 L 75 95" />
-                        <path id="path3" d="M 5 60 L 20 80 L 50 65 L 80 80 L 95 65" />
-                        <path id="path4" d="M 45 5 L 55 40 L 40 90" />
-                        <path id="path5" d="M 30 10 L 15 30 L 40 45 L 60 30 L 80 15" />
-                    </g>
+                        {/* Animated Data Pulses (Curved Paths) */}
+                        <g className="stroke-blue-400/60 dark:stroke-blue-400/40" strokeWidth="2" fill="none" strokeDasharray="40 960" pathLength="1000">
+                            <path d="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" className="animate-grid-dash" style={{ animationDuration: '9s' }} />
+                            <path d="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" className="animate-grid-dash" style={{ animationDuration: '12s', animationDelay: '1.5s' }} />
+                            <path d="M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" className="animate-grid-dash" style={{ animationDuration: '8s', animationDelay: '3s' }} />
+                            <path d="M 540 100 C 660 60, 780 40, 1260 40" className="animate-grid-dash" style={{ animationDuration: '7s', animationDelay: '4s' }} />
+                        </g>
 
-                    {/* Animated Data Pulses (Tia sáng chạy trên line) */}
-                    <g className="stroke-blue-400/50 dark:stroke-blue-400/30" strokeWidth="0.2" fill="none" strokeDasharray="0.05 0.95" pathLength="1">
-                        <path d="M 10 20 L 25 45 L 15 75 L 30 85" className="animate-grid-dash" style={{ animationDuration: '4s' }} />
-                        <path d="M 85 15 L 70 50 L 90 85 L 75 95" className="animate-grid-dash" style={{ animationDuration: '6s', animationDelay: '1s' }} />
-                        <path d="M 5 60 L 20 80 L 50 65 L 80 80 L 95 65" className="animate-grid-dash" style={{ animationDuration: '8s', animationDelay: '2s' }} />
-                        <path d="M 45 5 L 55 40 L 40 90" className="animate-grid-dash" style={{ animationDuration: '5s', animationDelay: '3s' }} />
-                        <path d="M 30 10 L 15 30 L 40 45 L 60 30 L 80 15" className="animate-grid-dash" style={{ animationDuration: '7s', animationDelay: '0.5s' }} />
-                    </g>
+                        {/* Moving Nodes (Data Particles - Slowed Down further) */}
+                        {[1, 2, 3, 4].map((id) => (
+                            <g key={id}>
+                                <g className="text-blue-500 dark:text-blue-400">
+                                    {/* White Glassy Background Circle */}
+                                    <circle r="12" fill="white" className="opacity-15 dark:opacity-10" filter="url(#lineGlow)">
+                                        <animateMotion dur={`${12 + id * 4}s`} repeatCount="indefinite" rotate="auto" path={id === 1 ? "M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" : id === 2 ? "M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" : id === 3 ? "M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" : "M 540 100 C 660 60, 780 40, 1260 40"} begin={`${id * 3}s`} />
+                                    </circle>
+                                    
+                                    <use href={id === 1 ? "#icon-spark" : id === 2 ? "#icon-pin" : id === 3 ? "#icon-star" : "#icon-spark"} width="15" height="15" x="-7.5" y="-7.5" className="opacity-95">
+                                        <animateMotion dur={`${12 + id * 4}s`} repeatCount="indefinite" rotate="auto" path={id === 1 ? "M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" : id === 2 ? "M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" : id === 3 ? "M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" : "M 540 100 C 660 60, 780 40, 1260 40"} begin={`${id * 3}s`} />
+                                    </use>
+                                    
+                                    {/* Soft Glow behind icon */}
+                                    <circle r="18" fill="url(#nodeGlowContact)" className="opacity-30">
+                                        <animateMotion dur={`${12 + id * 4}s`} repeatCount="indefinite" rotate="auto" path={id === 1 ? "M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" : id === 2 ? "M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" : id === 3 ? "M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" : "M 540 100 C 660 60, 780 40, 1260 40"} begin={`${id * 3}s`} />
+                                    </circle>
+                                </g>
+                            </g>
+                        ))}
 
-                    {/* Moving Nodes (Data Particles traveling along paths) */}
-                    {[1, 2, 3, 4, 5].map((id) => (
-                        <circle key={id} r="0.6" fill="url(#nodeGlow)" className="opacity-80">
-                            <animateMotion 
-                                dur={`${3 + id}s`} 
-                                repeatCount="indefinite" 
-                                rotate="auto" 
-                                path={
-                                    id === 1 ? "M 10 20 L 25 45 L 15 75 L 30 85" :
-                                    id === 2 ? "M 85 15 L 70 50 L 90 85 L 75 95" :
-                                    id === 3 ? "M 5 60 L 20 80 L 50 65 L 80 80 L 95 65" :
-                                    id === 4 ? "M 45 5 L 55 40 L 40 90" :
-                                    "M 30 10 L 15 30 L 40 45 L 60 30 L 80 15"
-                                }
-                                begin={`${id * 0.5}s`}
-                            />
-                        </circle>
-                    ))}
-
-                    {/* Pulse Nodes (Static glowing dots at intersections) */}
-                    {[
-                        { x: 10, y: 20 }, { x: 25, y: 45 }, { x: 15, y: 75 }, { x: 30, y: 85 },
-                        { x: 85, y: 15 }, { x: 70, y: 50 }, { x: 90, y: 85 }, { x: 75, y: 95 },
-                        { x: 5, y: 60 }, { x: 20, y: 80 }, { x: 50, y: 65 }, { x: 80, y: 80 }, { x: 95, y: 65 },
-                        { x: 45, y: 5 }, { x: 55, y: 40 }, { x: 40, y: 90 },
-                        { x: 30, y: 10 }, { x: 15, y: 30 }, { x: 40, y: 45 }, { x: 60, y: 30 }, { x: 80, y: 15 }
-                    ].map((node, i) => (
-                        <circle 
-                            key={i} 
-                            cx={`${node.x}%`} 
-                            cy={`${node.y}%`} 
-                            r="0.5" 
-                            fill="url(#nodeGlow)" 
-                            className="animate-pulse opacity-60"
-                            style={{ animationDelay: `${i * 0.2}s`, animationDuration: '4s' }}
-                        />
-                    ))}
-                </svg>
+                        {/* Static Pulse Nodes (Dimmed for less contrast - Subtle Pulsing) */}
+                        {[
+                            { x: 60, y: 80, icon: '#icon-pin', size: 12 }, { x: 360, y: 240, icon: '#icon-spark', size: 15 }, { x: 600, y: 200, icon: '#icon-star', size: 12 }, { x: 960, y: 320, icon: '#icon-pin', size: 10 }, 
+                            { x: 120, y: 280, icon: '#icon-star', size: 10 }, { x: 480, y: 120, icon: '#icon-pin', size: 12 }, { x: 720, y: 160, icon: '#icon-spark', size: 15 },
+                            { x: 300, y: 180, icon: '#icon-star', size: 14 }, { x: 540, y: 100, icon: '#icon-spark', size: 16 }, { x: 900, y: 260, icon: '#icon-pin', size: 12 },
+                            { x: 780, y: 40, icon: '#icon-spark', size: 12 }, { x: 1080, y: 40, icon: '#icon-star', size: 12 }
+                        ].map((node, i) => (
+                            <g key={i}>
+                                <g className="text-blue-500/25 dark:text-blue-400/15">
+                                    <use href={node.icon} x={node.x - node.size/2} y={node.y - node.size/2} width={node.size} height={node.size} className="animate-pulse" style={{ animationDelay: `${i * 0.4}s`, animationDuration: '8s' }} />
+                                    <circle cx={node.x} cy={node.y} r={node.size/2 + 5} fill="url(#nodeGlowContact)" className="opacity-10 animate-pulse" style={{ animationDelay: `${i * 0.4}s`, animationDuration: '8s' }} />
+                                </g>
+                            </g>
+                        ))}
+                    </svg>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-center text-center mt-8 lg:mt-0">
