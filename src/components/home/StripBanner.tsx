@@ -7,7 +7,7 @@ const StripBanner: React.FC = () => {
             {/* VIVID & IMPRESSIVE Background Decoration */}
             <div className="absolute inset-0 z-0">
                 {/* 1. Base Layer: Deep noise texture */}
-                <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] pointer-events-none"></div>
+                <div className="absolute inset-0 opacity-[0.05] bg-[url('/noise.svg')] pointer-events-none"></div>
 
                 {/* 2. Primary Neon BLOOMS (Brighter & Larger) */}
                 <div className="absolute -top-[20%] -left-[10%] w-[80%] h-[140%] bg-blue-500/30 dark:bg-blue-600/20 blur-[120px] rounded-full animate-pulse duration-[6s] opacity-80"></div>
