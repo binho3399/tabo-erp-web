@@ -3,11 +3,11 @@ import { Icon, Button, Badge } from '@/components/ui';
 
 const HeroSection: React.FC = () => {
     return (
-        <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-32 pb-16 lg:pt-[164px] lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center transition-colors duration-500">
+        <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-32 pb-16 lg:pt-[164px] lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center">
             {/* Ambient Blurry Blobs */}
-            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light transition-all duration-700"></div>
-            <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 dark:bg-cyan-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light transition-all duration-700"></div>
-            <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full bg-purple-300/10 dark:bg-purple-600/5 blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light transition-all duration-700"></div>
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light"></div>
+            <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 dark:bg-cyan-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light"></div>
+            <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full bg-purple-300/10 dark:bg-purple-600/5 blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light"></div>
 
             {/* Small Floating Decorations with Animations */}
             <div className="absolute top-[15%] left-[15%] w-2 h-2 bg-blue-500 rounded-full opacity-40 pointer-events-none animate-bounce" style={{ animationDuration: '4s' }}></div>
@@ -133,7 +133,7 @@ const HeroSection: React.FC = () => {
                 {/* Floating Elements - Positioned relative to max-w-7xl for core content alignment */}
                 
                 {/* 1. Doanh thu tổng (Light card) */}
-                <div className="absolute left-[0%] lg:left-[-2%] top-[-135px] lg:top-[5%] -rotate-[8deg] bg-white dark:bg-slate-900 p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 dark:border-slate-800 z-0 scale-[0.42] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-left transition-colors duration-500">
+                <div className="absolute left-[0%] lg:left-[-2%] top-[-135px] lg:top-[5%] -rotate-[8deg] bg-white dark:bg-slate-900 p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] w-[260px] transform transition-transform hover:scale-105 hover:-rotate-3 border border-slate-100/50 dark:border-slate-800 z-0 scale-[0.42] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-left">
                     <div className="flex justify-between items-center mb-1">
                         <h4 className="font-bold text-slate-800 dark:text-slate-200 text-sm">Doanh thu tổng</h4>
                         <span className="text-[10px] text-slate-400">20%</span>
@@ -158,9 +158,9 @@ const HeroSection: React.FC = () => {
                 {/* 2. Khách hàng hài lòng (Dark card) */}
                 <div className="absolute left-[0%] lg:left-[5%] bottom-[15%] lg:bottom-[5%] rotate-12 bg-[#1A1A1A] dark:bg-slate-900 p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-0 scale-[0.5] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-left transition-colors">
                     <div className="flex justify-center -space-x-2 mb-3">
-                        <img src="https://i.pravatar.cc/100?img=4" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
-                        <img src="https://i.pravatar.cc/100?img=5" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
-                        <img src="https://i.pravatar.cc/100?img=6" alt="User" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
+                        <img src="https://i.pravatar.cc/100?img=4" alt="User" loading="lazy" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
+                        <img src="https://i.pravatar.cc/100?img=5" alt="User" loading="lazy" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
+                        <img src="https://i.pravatar.cc/100?img=6" alt="User" loading="lazy" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
                     </div>
                     <h4 className="font-bold text-white text-lg">100K+</h4>
                     <p className="text-[10px] text-slate-400">Khách hàng hài lòng</p>
@@ -215,7 +215,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Bottom Gradient for smooth transition */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F8F8] dark:from-slate-950 to-transparent pointer-events-none z-10 transition-colors duration-500"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F8F8] dark:from-slate-950 to-transparent pointer-events-none z-10 transition-colors"></div>
         </section>
     );
 };

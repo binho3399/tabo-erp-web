@@ -1,24 +1,41 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import HeroSection from '../components/home/HeroSection';
 import FeaturesSection from '../components/home/FeaturesSection';
 import StripBanner from '../components/home/StripBanner';
-import StrategySection from '../components/home/StrategySection';
 import VisionSection from '../components/home/VisionSection';
-import SolutionsSection from '../components/home/SolutionsSection';
-import PricingSection from '../components/pricing/PricingSection';
-import TestimonialsSection from '../components/home/TestimonialsSection';
+
+// Lazy loaded components for better initial performance
+const SolutionsSection = lazy(() => import('../components/home/SolutionsSection'));
+const StrategySection = lazy(() => import('../components/home/StrategySection'));
+const PricingSection = lazy(() => import('../components/pricing/PricingSection'));
+const TestimonialsSection = lazy(() => import('../components/home/TestimonialsSection'));
+
+// Simple loading placeholder
+const SectionLoader = () => (
+    <div className="py-20 flex items-center justify-center min-h-[400px] bg-slate-50 dark:bg-slate-900/20">
+        <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+);
 
 const Home: React.FC = () => {
     return (
-        <div className="font-sans text-gray-900 dark:text-white bg-[#F7F8F8] dark:bg-slate-950 transition-colors duration-500">
+        <div className="font-sans text-gray-900 dark:text-white bg-[#F7F8F8] dark:bg-slate-950">
             <HeroSection />
             <FeaturesSection />
             <StripBanner />
-            <SolutionsSection />
+            <Suspense fallback={<SectionLoader />}>
+                <SolutionsSection />
+            </Suspense>
             <VisionSection />
-            <StrategySection />
-            <PricingSection />
-            <TestimonialsSection />
+            <Suspense fallback={<SectionLoader />}>
+                <StrategySection />
+            </Suspense>
+            <Suspense fallback={<SectionLoader />}>
+                <PricingSection />
+            </Suspense>
+            <Suspense fallback={<SectionLoader />}>
+                <TestimonialsSection />
+            </Suspense>
         </div>
     );
 };
