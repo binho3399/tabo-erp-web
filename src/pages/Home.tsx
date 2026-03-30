@@ -2,13 +2,13 @@ import React, { Suspense, lazy } from 'react';
 import HeroSection from '../components/home/HeroSection';
 import FeaturesSection from '../components/home/FeaturesSection';
 import StripBanner from '../components/home/StripBanner';
-import VisionSection from '../components/home/VisionSection';
 
 // Lazy loaded components for better initial performance
 const SolutionsSection = lazy(() => import('../components/home/SolutionsSection'));
 const StrategySection = lazy(() => import('../components/home/StrategySection'));
 const PricingSection = lazy(() => import('../components/pricing/PricingSection'));
 const TestimonialsSection = lazy(() => import('../components/home/TestimonialsSection'));
+const VisionSection = lazy(() => import('../components/home/VisionSection'));
 
 // Simple loading placeholder
 const SectionLoader = () => (
@@ -26,7 +26,9 @@ const Home: React.FC = () => {
             <Suspense fallback={<SectionLoader />}>
                 <SolutionsSection />
             </Suspense>
-            <VisionSection />
+            <Suspense fallback={<SectionLoader />}>
+                <VisionSection />
+            </Suspense>
             <Suspense fallback={<SectionLoader />}>
                 <StrategySection />
             </Suspense>
