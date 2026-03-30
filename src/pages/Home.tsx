@@ -5,7 +5,7 @@ import StripBanner from '../components/home/StripBanner';
 import StrategySection from '../components/home/StrategySection';
 import VisionSection from '../components/home/VisionSection';
 import SolutionsSection from '../components/home/SolutionsSection';
-import PricingSection from '../components/home/PricingSection';
+import PricingSection from '../components/pricing/PricingSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 
 const Home: React.FC = () => {

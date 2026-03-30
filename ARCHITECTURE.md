@@ -39,11 +39,16 @@ graph TD
     Page_Home --- HomeTest(TestimonialsSection)
 
     %% Pricing Page Layout
-    Page_Pricing --- PriHead(PricingSection - Tái sử dụng)
+    Page_Pricing --- PriHero(PricingHero)
+    Page_Pricing --- PriHead(PricingSection)
     Page_Pricing --- PriFeat(PricingFeatures - Accordion)
     Page_Pricing --- PriFAQ(PricingFAQ - Accordion)
 
     %% About Page Layout
+    Page_About --- AboHero(AboutHero)
+    Page_About --- AboMiss(AboutMission)
+    Page_About --- AboGrid(AboutGrid)
+    Page_About --- AboCTA(AboutBottomCTA)
     Page_About --- AboFAQ(AboutFAQ - Accordion)
 
     %% Contact Page Layout
@@ -76,8 +81,9 @@ graph TD
 | `src/App.tsx` | Quản lý điều hướng (React Router), chèn `Layout` vào tất cả các lộ trình (Routes). |
 | `src/pages/` | Chứa các màn hình cấp cao nhất tương ứng với một URL cụ thể. Chúng hoạt động như những "Container" chỉ để sắp xếp và gọi các `components/` tương ứng. |
 | `src/components/layout/` | Chứa thiết kế bố cục bọc ngoài (Navbar tĩnh có menu mobile thông minh, Footer đồ họa watermark "TABO ERP" lớn). |
-| `src/components/home/` | Chứa tất cả các vùng (Sections) được xây dựng dành cho Trang Chủ, nhưng cũng cho phép tái sử dụng ở trang khác (ví dụ: PricingSection tái sử dụng qua trang Bảng giá). Đặc trưng thiết kế: Đồ họa bóng bẩy, Micro-animations, Thống nhất kích thước Mobile. |
-| `src/components/about/` | Chứa các khối giao diện chuyên cho trang Giới thiệu. |
+| `src/components/home/` | Chứa tất cả các vùng (Sections) được xây dựng dành cho Trang Chủ (Hero, Features, Vision, v.v.). |
+| `src/components/pricing/` | Chứa các khối giao diện chuyên cho trang Bảng giá (Hero, Bảng giá chi tiết, Tính năng, FAQ). |
+| `src/components/about/` | Chứa các khối giao diện chuyên cho trang Giới thiệu (Hero, Tầm nhìn, Thành tựu, CTA). |
 | `src/components/contact/` | Chứa các khối giao diện chuyên cho trang Liên hệ. |
 | `src/components/common/` | Các thành phần căn bản, nhỏ nhất (Atomic design) như `Button`, `Badge`, `Icon`, được thiết kế riêng theo hệ thống màu sắc và variant của dự án. Không phụ thuộc vào business logic. |
 

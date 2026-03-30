@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, useMemo, useCallback, useLayoutEffect } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -12,7 +12,9 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Initialize theme from localStorage or OS preference
+  // The blocking script in index.html already sets the class on <html>
   const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === 'undefined') return 'light';
     const saved = localStorage.getItem('tabo-theme') as Theme;
     if (saved && (saved === 'light' || saved === 'dark')) return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
@@ -20,47 +22,47 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const isDark = theme === 'dark';
 
-  const setTheme = (newTheme: Theme) => {
+  const setTheme = useCallback((newTheme: Theme) => {
     setThemeState(newTheme);
     localStorage.setItem('tabo-theme', newTheme);
-  };
+  }, []);
 
-  useEffect(() => {
+  // Use layout effect to apply classes BEFORE paint for any state changes
+  useLayoutEffect(() => {
     const root = window.document.documentElement;
-    
-    // Apply classes to root element
     if (theme === 'dark') {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
     }
-
-    // Listener for system preference changes (keep website in sync if user wishes)
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleSystemChange = (e: MediaQueryListEvent) => {
-      // Automatically sync if the system changes
-      const systemTheme = e.matches ? 'dark' : 'light';
-      setTheme(systemTheme);
-    };
-
-    mediaQuery.addEventListener('change', handleSystemChange);
-    return () => mediaQuery.removeEventListener('change', handleSystemChange);
   }, [theme]);
 
-  // Initial sync check on mount just in case
+  // Handle system preference changes
   useEffect(() => {
-    const syncWithSystem = () => {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const handleSystemChange = (e: MediaQueryListEvent) => {
+      // Only sync if there is no user preference saved OR if we want to follow system
       const saved = localStorage.getItem('tabo-theme');
       if (!saved) {
-        setTheme(systemTheme);
+        setTheme(e.matches ? 'dark' : 'light');
       }
     };
-    syncWithSystem();
-  }, []);
+
+    // Modern browsers use addEventListener
+    mediaQuery.addEventListener('change', handleSystemChange);
+    return () => mediaQuery.removeEventListener('change', handleSystemChange);
+  }, [setTheme]);
+
+  // Memoize context value to prevent unnecessary re-renders of all consumers
+  const value = useMemo(() => ({
+    theme,
+    setTheme,
+    isDark
+  }), [theme, setTheme, isDark]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, isDark }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );
