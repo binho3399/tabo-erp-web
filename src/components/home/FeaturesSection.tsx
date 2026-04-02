@@ -30,14 +30,21 @@ const FeatureCard: React.FC<{ item: FeatureItem }> = ({ item }) => {
     );
 };
 
-const SectorTicker: React.FC<{ items: SectorItem[], reverse?: boolean }> = ({ items, reverse }) => (
-    <div className={`flex animate-marquee whitespace-nowrap gap-3 py-2 ${reverse ? 'flex-row-reverse' : ''}`} style={reverse ? { animationDirection: 'reverse' } : {}}>
-        {items.concat(items).map((sector, idx) => (
-            <div key={idx} className="bg-white dark:bg-slate-800 flex items-center gap-3 px-4 py-2.5 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 shrink-0">
+const SectorTickerGroup: React.FC<{ items: SectorItem[] }> = ({ items }) => (
+    <div className="flex shrink-0 whitespace-nowrap gap-4 pr-4">
+        {items.map((sector) => (
+            <div key={sector.name} className="bg-white dark:bg-slate-800 flex items-center gap-3 px-4 py-2 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 shrink-0">
                 <Icon name={sector.icon} className="text-blue-500 dark:text-blue-400 text-lg" />
                 <span className="text-slate-700 dark:text-slate-300 text-[13px] font-medium">{sector.name}</span>
             </div>
         ))}
+    </div>
+);
+
+const SectorTicker: React.FC<{ items: SectorItem[], reverse?: boolean }> = ({ items, reverse }) => (
+    <div className={`flex w-max animate-marquee whitespace-nowrap ${reverse ? 'flex-row-reverse' : ''}`} style={reverse ? { animationDirection: 'reverse', animationDuration: '60s' } : { animationDuration: '60s' }}>
+        <SectorTickerGroup items={items} />
+        <SectorTickerGroup items={items} />
     </div>
 );
 
@@ -75,11 +82,21 @@ const FeaturesSection: React.FC = () => {
                         {/* Mobile Layout: 2 Rows + Marquee Animation */}
                         <div className="flex lg:hidden relative overflow-hidden pb-4 -mx-4">
                             <div className="flex flex-col gap-0 w-full mask-image-linear-gradient">
-                                <div className="flex animate-marquee whitespace-nowrap gap-3 py-2 pl-4">
-                                    {FEATURE_ITEMS.slice(0, 5).concat(FEATURE_ITEMS.slice(0, 5)).map((item, i) => <FeatureCard key={i} item={item} />)}
+                                <div className="flex w-max animate-marquee whitespace-nowrap py-2 pl-4" style={{ animationDuration: '60s' }}>
+                                    <div className="flex shrink-0 gap-4 pr-4">
+                                        {FEATURE_ITEMS.slice(0, 5).map((item, i) => <FeatureCard key={`row-a-${i}`} item={item} />)}
+                                    </div>
+                                    <div className="flex shrink-0 gap-4 pr-4">
+                                        {FEATURE_ITEMS.slice(0, 5).map((item, i) => <FeatureCard key={`row-b-${i}`} item={item} />)}
+                                    </div>
                                 </div>
-                                <div className="flex animate-marquee whitespace-nowrap gap-3 py-2 pl-4" style={{ animationDirection: 'reverse' }}>
-                                    {FEATURE_ITEMS.slice(5, 10).concat(FEATURE_ITEMS.slice(5, 10)).map((item, i) => <FeatureCard key={i} item={item} />)}
+                                <div className="flex w-max animate-marquee whitespace-nowrap py-2 pl-4" style={{ animationDirection: 'reverse', animationDuration: '60s' }}>
+                                    <div className="flex shrink-0 gap-4 pr-4">
+                                        {FEATURE_ITEMS.slice(5, 10).map((item, i) => <FeatureCard key={`row-c-${i}`} item={item} />)}
+                                    </div>
+                                    <div className="flex shrink-0 gap-4 pr-4">
+                                        {FEATURE_ITEMS.slice(5, 10).map((item, i) => <FeatureCard key={`row-d-${i}`} item={item} />)}
+                                    </div>
                                 </div>
                             </div>
                             <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
@@ -178,9 +195,9 @@ const FeaturesSection: React.FC = () => {
                     </div>
 
                     {/* Col 2: Feature Card */}
-                    <div className="w-full lg:w-[26%] bg-white dark:bg-slate-900 rounded-[20px] p-4 lg:p-6 flex flex-col h-auto lg:h-[400px] transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative border border-transparent dark:border-slate-800">
+                    <div className="w-full lg:w-[26%] bg-white dark:bg-slate-900 rounded-[20px] p-4 md:p-6 flex flex-col h-auto md:h-[400px] transition-all duration-500 shadow-md hover:shadow-xl hover:-translate-y-1 overflow-hidden relative border border-transparent dark:border-slate-800">
                         <div className="relative z-10 flex flex-col h-full">
-                            <div className="mb-6 text-left">
+                            <div className="text-left">
                                 <h3 className="text-[20px] lg:text-[28px] font-normal text-slate-900 dark:text-white leading-[1.2] tracking-tight mb-4 transition-colors">
                                     Tối ưu hóa cho mọi<br className="hidden lg:block" /> lĩnh vực kinh doanh.
                                 </h3>
@@ -189,9 +206,9 @@ const FeaturesSection: React.FC = () => {
                                 </p>
                             </div>
 
-                            <div className="flex-1 flex flex-col justify-center gap-4">
-                                <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 overflow-hidden relative border border-slate-100/50 dark:border-slate-700">
-                                    <div className="relative overflow-hidden w-full flex flex-col gap-0">
+                            <div className="mt-auto w-full self-stretch">
+                                <div className="relative w-full self-stretch bg-slate-50 dark:bg-slate-800 rounded-xl py-4 overflow-hidden border border-slate-100/50 dark:border-slate-700">
+                                    <div className="relative flex w-full min-w-full self-stretch flex-col gap-2">
                                         <SectorTicker items={SECTOR_ITEMS.slice(0, 10)} />
                                         <SectorTicker items={SECTOR_ITEMS.slice(10, 20)} reverse />
                                         
