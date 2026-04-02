@@ -84,10 +84,10 @@ const HeroSection: React.FC = () => {
                 <div className="text-left lg:text-center max-w-3xl w-full flex flex-col items-start lg:items-center relative z-20">
                     {/* Sparkles Decoration */}
                     <div className="absolute top-[-100px] left-1/2 hidden lg:block -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
-                    <Badge variant="primary" className="mb-6 uppercase shadow-sm relative z-10 select-none">
+                    <Badge variant="primary" className="mb-4 uppercase shadow-sm relative z-10 select-none">
                         HỆ ĐIỀU HÀNH DOANH NGHIỆP
                     </Badge>
-                    <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.25] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white font-sans w-full transition-colors relative z-10">
+                    <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.25] lg:leading-[1.1] font-normal tracking-tight mb-4 text-slate-900 dark:text-white font-sans w-full transition-colors relative z-10">
                         Quản lý <span className="text-blue-500">bán hàng</span> và <br className="hidden md:block" /><span className="text-blue-500">vận hành</span> doanh nghiệp trên <br className="hidden md:block" />một <span className="text-blue-500">nền tảng duy nhất.</span>
                     </h1>
 
@@ -128,6 +128,88 @@ const HeroSection: React.FC = () => {
                                     ))}
                                 </div>
                             ))}
+                        </div>
+                    </div>
+
+                    <div className="relative h-[124px] w-full lg:hidden mt-6 overflow-visible">
+                        <div className="absolute inset-x-0 bottom-[-74px] flex items-end justify-center">
+                            <div className="relative h-[230px] w-full max-w-[392px]">
+                                <div className="absolute left-1/2 bottom-6 z-10 w-[168px] -translate-x-[156px] rotate-[-14deg] rounded-[18px] border border-slate-100/80 bg-white p-3 shadow-[0_18px_36px_-18px_rgba(15,23,42,0.14)]">
+                                    <div className="mb-1 flex items-center justify-between">
+                                        <h4 className="text-[10px] font-bold text-slate-800">Doanh thu tổng</h4>
+                                        <span className="text-[9px] text-slate-400">20%</span>
+                                    </div>
+                                    <div className="flex items-baseline gap-1 text-slate-800">
+                                        <span className="text-[22px] font-bold leading-none">5.23</span>
+                                        <span className="text-[10px] font-medium text-slate-400">triệu đ</span>
+                                    </div>
+                                    <div className="mt-2.5 flex h-8 items-end justify-between gap-1">
+                                        <div className="h-[30%] w-full rounded-t-sm bg-blue-300"></div>
+                                        <div className="h-[45%] w-full rounded-t-sm bg-blue-400"></div>
+                                        <div className="h-[80%] w-full rounded-t-sm bg-blue-500"></div>
+                                        <div className="h-[60%] w-full rounded-t-sm bg-blue-400"></div>
+                                        <div className="h-[100%] w-full rounded-t-sm bg-blue-600"></div>
+                                    </div>
+                                </div>
+
+                                <div className="absolute left-1/2 bottom-8 z-20 flex w-[168px] -translate-x-[96px] rotate-[-5deg] flex-col items-center justify-center rounded-[18px] border border-slate-800 bg-[#1A1A1A] p-3 text-center text-white shadow-[0_22px_40px_-20px_rgba(15,23,42,0.4)]">
+                                    <div className="mb-2.5 flex justify-center -space-x-2">
+                                        <img src="https://i.pravatar.cc/100?img=4" alt="User" loading="lazy" className="h-6 w-6 rounded-full border border-[#1A1A1A] object-cover" />
+                                        <img src="https://i.pravatar.cc/100?img=5" alt="User" loading="lazy" className="h-6 w-6 rounded-full border border-[#1A1A1A] object-cover" />
+                                        <img src="https://i.pravatar.cc/100?img=6" alt="User" loading="lazy" className="h-6 w-6 rounded-full border border-[#1A1A1A] object-cover" />
+                                    </div>
+                                    <h4 className="text-[22px] font-bold leading-none">100K+</h4>
+                                    <p className="mt-1 text-[10px] text-slate-400">Khách hàng hài lòng</p>
+                                </div>
+
+                                <div className="absolute left-1/2 bottom-10 z-30 w-[184px] -translate-x-1/2 rounded-[20px] border border-slate-800 bg-[#1A1A1A] p-3 shadow-[0_28px_48px_-24px_rgba(15,23,42,0.45)]">
+                                    <div className="mb-2.5 flex items-start gap-2.5">
+                                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-blue-500/30 bg-blue-500/10">
+                                            <Icon name="account_balance_wallet" className="text-[16px] text-blue-400" />
+                                        </div>
+                                        <div className="min-w-0">
+                                            <p className="text-[9px] uppercase tracking-[0.16em] text-slate-400">Sổ quỹ doanh nghiệp</p>
+                                            <p className="mt-1 text-[17px] font-bold leading-none tracking-tight text-white">
+                                                4.25B <span className="text-[11px] font-medium text-slate-400">₫</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="rounded-2xl bg-slate-800/80 px-2.5 py-2">
+                                        <div className="flex items-center justify-between">
+                                            <span className="max-w-[84px] text-[10px] leading-[1.2] text-slate-400">Ngân quỹ ổn định</span>
+                                            <span className="text-[10px] font-semibold text-emerald-600">+20%</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="absolute left-1/2 bottom-6 z-20 w-[170px] translate-x-[12px] rotate-[12deg] rounded-[18px] border border-slate-100/80 bg-white p-3 shadow-[0_18px_36px_-18px_rgba(15,23,42,0.14)]">
+                                    <div className="mb-2.5 flex items-center gap-2">
+                                        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-indigo-50">
+                                            <Icon name="storefront" className="text-[14px] text-indigo-500" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-[11px] font-bold leading-tight text-slate-800">Mạng lưới</h4>
+                                            <p className="text-[9px] text-slate-400">Chi nhánh đồng bộ</p>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <div className="flex items-center justify-between rounded-lg bg-slate-50 px-2 py-1.5 text-[10px]">
+                                            <span className="flex items-center gap-1 text-slate-600">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                                HCM
+                                            </span>
+                                            <span className="font-semibold text-emerald-600">Mở cửa</span>
+                                        </div>
+                                        <div className="flex items-center justify-between rounded-lg bg-slate-50 px-2 py-1.5 text-[10px]">
+                                            <span className="flex items-center gap-1 text-slate-600">
+                                                <span className="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                                                Hà Nội
+                                            </span>
+                                            <span className="font-semibold text-emerald-600">Mở cửa</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -218,7 +300,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Bottom Gradient for smooth transition */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F7F8F8] dark:from-slate-950 to-transparent pointer-events-none z-10 transition-colors"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-[#FBFCFE] to-transparent dark:from-slate-950 dark:via-slate-950/92 dark:to-transparent pointer-events-none z-10 transition-colors"></div>
         </section>
     );
 };
