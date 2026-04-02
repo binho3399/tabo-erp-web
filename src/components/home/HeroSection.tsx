@@ -95,7 +95,7 @@ const HeroSection: React.FC = () => {
                         Luôn cập nhật dữ liệu tài chính, kho bãi và tiến độ công việc theo thời gian thực <br className="hidden md:block" />để đưa ra các quyết định chiến lược chuẩn xác nhất.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-start lg:justify-center gap-4 mb-32 lg:mb-20 relative z-10">
+                    <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center justify-start lg:justify-center gap-4 mb-8 lg:mb-20 relative z-10">
                         <Button to="/contact" variant="primary" size="md" className="w-full sm:w-auto text-center justify-center lg:px-10 lg:py-4 lg:text-lg">
                             Bắt đầu ngay
                         </Button>
@@ -106,15 +106,15 @@ const HeroSection: React.FC = () => {
 
                     {/* Auto-scrolling Features Ticker */}
                     <div
-                        className="relative hidden lg:block w-full max-w-2xl mx-auto overflow-hidden mt-2 z-10"
+                        className="relative w-full max-w-2xl mx-auto overflow-hidden mt-2 z-10"
                         style={{
                             maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
                             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
                         }}
                     >
-                        <div className="flex gap-10 whitespace-nowrap animate-[marquee_25s_linear_infinite] w-max">
+                        <div className="flex gap-6 lg:gap-10 whitespace-nowrap animate-[marquee_25s_linear_infinite] w-max">
                             {[...Array(2)].map((_, i) => (
-                                <div key={i} className="flex gap-10 items-center">
+                                <div key={i} className="flex gap-6 lg:gap-10 items-center">
                                     {[
                                         { text: "Chiến Lược Dữ Liệu", icon: "pie_chart" },
                                         { text: "Kết Quả Thực Tế", icon: "track_changes" },
@@ -122,8 +122,8 @@ const HeroSection: React.FC = () => {
                                         { text: "Chuyên Môn Tin Cậy", icon: "gpp_good" }
                                     ].map((item, index) => (
                                         <div key={`${i}-${index}`} className="flex items-center text-slate-400 dark:text-slate-500 hover:text-primary-600 dark:hover:text-blue-400 transition-colors cursor-default">
-                                            <Icon name={item.icon} className="text-[24px] mr-2 opacity-70" />
-                                            <span className="font-normal text-base leading-6 uppercase tracking-wider">{item.text}</span>
+                                            <Icon name={item.icon} className="text-[18px] lg:text-[24px] mr-2 opacity-70" />
+                                            <span className="font-normal text-sm lg:text-base leading-6 uppercase tracking-[0.18em] lg:tracking-wider">{item.text}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -131,19 +131,6 @@ const HeroSection: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="mt-2 flex flex-wrap gap-3 lg:hidden">
-                        {[
-                            { text: "Chiến lược dữ liệu", icon: "pie_chart" },
-                            { text: "Kết quả thực tế", icon: "track_changes" },
-                            { text: "Tăng trưởng mở rộng", icon: "trending_up" },
-                            { text: "Chuyên môn tin cậy", icon: "gpp_good" }
-                        ].map((item) => (
-                            <div key={item.text} className="inline-flex items-center gap-2 rounded-full border border-slate-200/80 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 px-4 py-2 text-sm text-slate-500 dark:text-slate-400 shadow-sm">
-                                <Icon name={item.icon} className="text-[18px] text-blue-500 dark:text-blue-400" />
-                                <span>{item.text}</span>
-                            </div>
-                        ))}
-                    </div>
                 </div>
 
                 {/* Floating Elements - Positioned relative to max-w-7xl for core content alignment */}
