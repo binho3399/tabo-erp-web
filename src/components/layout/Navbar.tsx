@@ -11,19 +11,40 @@ const Navbar: React.FC = () => {
     const { isDark } = useTheme();
 
     useEffect(() => {
+        let ticking = false;
+
         const handleScroll = () => {
-            if (window.scrollY > 10) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
+            if (ticking) return;
+
+            ticking = true;
+            window.requestAnimationFrame(() => {
+                setIsScrolled(window.scrollY > 10);
+                ticking = false;
+            });
         };
 
-        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    useEffect(() => {
+        if (!isOpen) {
+            return;
+        }
+
+        const closeMenu = () => {
+            if (window.innerWidth >= 1024) {
+                setIsOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', closeMenu, { passive: true });
+        return () => window.removeEventListener('resize', closeMenu);
+    }, [isOpen]);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -37,7 +58,7 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isOpen ? 'bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm' : isScrolled ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 shadow-sm' : 'bg-transparent border-transparent'}`}>
+        <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isOpen ? 'bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm' : isScrolled ? 'bg-white/95 dark:bg-slate-900/95 lg:bg-white/80 lg:dark:bg-slate-900/80 lg:backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 shadow-sm' : 'bg-transparent border-transparent'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center h-[76px]">
                     {/* Logo Section - Aligned Left */}

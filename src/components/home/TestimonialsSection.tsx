@@ -37,6 +37,11 @@ const TestimonialsSection: React.FC = () => {
                     border-color: rgba(59, 130, 246, 0.4);
                     box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5);
                 }
+                @media (max-width: 1023px) {
+                    .animate-marquee-slow {
+                        animation: none;
+                    }
+                }
             `}} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10 text-left lg:text-center">
@@ -51,8 +56,8 @@ const TestimonialsSection: React.FC = () => {
                 </p>
             </div>
 
-            <div className="relative flex overflow-x-hidden">
-                <div className="flex animate-marquee-slow whitespace-normal gap-12 px-6">
+            <div className="relative flex overflow-x-auto lg:overflow-x-hidden snap-x snap-mandatory px-4 lg:px-0">
+                <div className="flex animate-marquee-slow whitespace-normal gap-6 lg:gap-12 px-2 lg:px-6">
                     {[
                         { quote: 'Tabo ERP đã đồng bộ hóa toàn bộ chuỗi cung ứng của chúng tôi, mang lại sự nhất quán hoàn hảo.', highlight: 'Tốc độ mở rộng gấp 3 lần', icon: 'speed' },
                         { quote: 'Việc quản lý 50 chi nhánh trở nên đơn giản như quản lý 1 cửa hàng. Dữ liệu thực rất quan trọng.', highlight: 'Doanh thu tăng 45% sau 6 tháng', icon: 'trending_up' },
@@ -76,7 +81,7 @@ const TestimonialsSection: React.FC = () => {
                         { quote: 'Khả năng bảo mật tuyệt đối giúp chúng tôi yên tâm hơn khi quản lý dữ liệu khách hàng nhạy cảm.', highlight: 'An tâm bảo mật dữ liệu', icon: 'shield' },
                         { quote: 'Hệ thống chạy mượt mà trên cả mobile giúp đội ngũ kinh doanh chốt đơn mọi lúc mọi nơi.', highlight: 'Vận hành linh hoạt 24/7', icon: 'stay_primary_portrait' },
                     ]).map((item, i) => (
-                        <div key={i} className="flex-shrink-0 w-[450px] p-4 lg:p-6 premium-card transition-all duration-500 ease-out hover:-translate-y-1 rounded-[20px] flex flex-col group relative overflow-hidden">
+                        <div key={i} className="flex-shrink-0 snap-start w-[85vw] max-w-[450px] p-4 lg:p-6 premium-card transition-all duration-500 ease-out hover:-translate-y-1 rounded-[20px] flex flex-col group relative overflow-hidden">
                             {/* Subtle Hover Background Pattern */}
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 bg-[radial-gradient(#0052FF_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
 

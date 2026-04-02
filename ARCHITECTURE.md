@@ -8,14 +8,16 @@ Tài liệu này cung cấp cái nhìn tổng quan về cấu trúc mã nguồn 
 ```mermaid
 graph TD
     %% Root Level
-    Main[main.tsx] --> App[App.tsx]
+    Main[main.tsx] --> ThemeProvider[context/ThemeContext.tsx]
+    ThemeProvider --> App[App.tsx]
     
     %% Layout Component (Wrapper)
-    App --> C_Scr(ScrollToTop.tsx)
+    App --> C_Scr(components/layout/ScrollToTop.tsx)
     App --> Layout[[components/layout/Layout.tsx]]
     Layout --> Navbar(Navbar.tsx)
     Layout --> Footer(Footer.tsx)
     Layout --> CTA(home/CTASection.tsx)
+    Navbar --> ThemeToggle(ui/ThemeToggle.tsx)
 
     %% Routes/Pages
     App ==> Route_Home(Route: /)
@@ -32,40 +34,46 @@ graph TD
     Page_Home --- HomeHero(HeroSection)
     Page_Home --- HomeFeat(FeaturesSection)
     Page_Home --- HomeStrip(StripBanner)
-    Page_Home --- HomeSol(SolutionsSection)
-    Page_Home --- HomeVis(VisionSection)
-    Page_Home --- HomeStra(StrategySection)
-    Page_Home --- HomePri(PricingSection)
-    Page_Home --- HomeTest(TestimonialsSection)
+    Page_Home --- HomeSol(SolutionsSection - Lazy)
+    Page_Home --- HomeVis(VisionSection - Lazy)
+    Page_Home --- HomeStra(StrategySection - Lazy)
+    Page_Home --- HomePri(pricing/PricingSection - Lazy)
+    Page_Home --- HomeTest(TestimonialsSection - Lazy)
+    Page_Home --- HomeErr(common/ErrorBoundary)
 
     %% Pricing Page Layout
     Page_Pricing --- PriHero(PricingHero)
-    Page_Pricing --- PriHead(PricingSection)
-    Page_Pricing --- PriFeat(PricingFeatures - Accordion)
-    Page_Pricing --- PriFAQ(PricingFAQ - Accordion)
+    Page_Pricing --- PriHead(PricingSection - Lazy)
+    Page_Pricing --- PriFeat(PricingFeatures)
+    Page_Pricing --- PriFAQ(PricingFAQ)
 
     %% About Page Layout
     Page_About --- AboHero(AboutHero)
     Page_About --- AboMiss(AboutMission)
     Page_About --- AboGrid(AboutGrid)
     Page_About --- AboCTA(AboutBottomCTA)
-    Page_About --- AboFAQ(AboutFAQ - Accordion)
+    Page_About --- AboFAQ(AboutFAQ)
 
     %% Contact Page Layout
     Page_Contact --- ConHero(ContactHero)
     Page_Contact --- ConInfo(ContactInfo)
-    Page_Contact --- ConFAQ(ContactFAQ - Accordion)
+    Page_Contact --- ConFAQ(ContactFAQ)
 
     %% Common Reusable Components
-    subgraph components/common [Các Components dùng chung (Common/UI)]
+    subgraph components/ui [Các UI Components (Atomic)]
         C_Btn(Button.tsx)
         C_Icon(Icon.tsx)
         C_Badge(Badge.tsx)
         C_Acc(Accordion.tsx)
-        C_Scr
+        ThemeToggle
+    end
+    
+    subgraph components/common [Common Components]
+        C_Err(ErrorBoundary.tsx)
     end
     
     %% Implicit Usage
+    ThemeToggle -.-> ThemeProvider
     C_Btn -.-> Page_Home
     C_Icon -.-> Page_Home
     C_Icon -.-> Page_Pricing
@@ -78,16 +86,18 @@ graph TD
 | Đường dẫn / Thư mục | Chức năng (Trách nhiệm) |
 | --- | --- |
 | `src/main.tsx` | Điểm bắt đầu (Entry point), thiết lập React DOM và Strict Mode. |
-| `src/App.tsx` | Quản lý điều hướng (React Router), chèn `Layout` vào tất cả các lộ trình (Routes). |
-| `src/pages/` | Chứa các màn hình cấp cao nhất tương ứng với một URL cụ thể. Chúng hoạt động như những "Container" chỉ để sắp xếp và gọi các `components/` tương ứng. |
-| `src/components/layout/` | Chứa thiết kế bố cục bọc ngoài (Navbar tĩnh có menu mobile thông minh, Footer đồ họa watermark "TABO ERP" lớn). |
-| `src/components/home/` | Chứa tất cả các vùng (Sections) được xây dựng dành cho Trang Chủ (Hero, Features, Vision, v.v.). |
-| `src/components/pricing/` | Chứa các khối giao diện chuyên cho trang Bảng giá (Hero, Bảng giá chi tiết, Tính năng, FAQ). |
-| `src/components/about/` | Chứa các khối giao diện chuyên cho trang Giới thiệu (Hero, Tầm nhìn, Thành tựu, CTA). |
-| `src/components/contact/` | Chứa các khối giao diện chuyên cho trang Liên hệ. |
-| `src/components/common/` | Các thành phần căn bản, nhỏ nhất (Atomic design) như `Button`, `Badge`, `Icon`, được thiết kế riêng theo hệ thống màu sắc và variant của dự án. Không phụ thuộc vào business logic. |
+| `src/context/` | Chứa `ThemeContext` và `ThemeProvider`, quản lý light/dark mode cho toàn ứng dụng. |
+| `src/App.tsx` | Quản lý điều hướng (React Router), chèn `Layout` vào tất cả các lộ trình (Routes) và xử lý `ScrollToTop`. |
+| `src/pages/` | Chứa các màn hình cấp cao nhất tương ứng với một URL cụ thể. Chúng hoạt động như những "Container" sắp xếp và gọi các `components/` tương ứng. Thường sử dụng `lazy()` để tối ưu performance. |
+| `src/components/layout/` | Chứa thiết kế bố cục bọc ngoài (Navbar, Footer, ScrollToTop). |
+| `src/components/ui/` | **Các thành phần Atomic (Button, Badge, Icon, Accordion)**. Được thiết kế riêng theo hệ thống màu sắc của dự án, độc lập với business logic. |
+| `src/components/home/` | Chứa các vùng (Sections) cho Trang Chủ (Hero, Features, Vision, v.v.). |
+| `src/components/pricing/` | Chứa các khối giao diện cho trang Bảng giá. `PricingSection` được tái sử dụng cả ở trang Home. |
+| `src/components/about/` | Chứa các khối giao diện cho trang Giới thiệu. |
+| `src/components/contact/` | Chứa các khối giao diện cho trang Liên hệ. |
+| `src/components/common/` | Các tiện ích chung cho component như `ErrorBoundary`. |
 
 ## 3. Lợi ích của Kiến trúc Này
-1. **Lắp ghép tinh gọn:** Thay vì gom tất cả code vào file `Home.tsx` khổng lồ, mọi logic và UI được chẻ nhỏ ra (Modularize). Điều này giúp trình duyệt kết xuất giao diện mượt mà và bảo trì dễ hơn.
-2. **Khả năng Tái sử dụng cao:** Lấy ví dụ `PricingSection.tsx` được dùng làm đoạn gọi action (hooking) ở cuối trang Home, lại vừa được dùng làm phần mở đầu ở trang Pricing.
-3. **Phân hóa Cấu trúc Atomic rõ ràng:** Việc đóng gói `Button` và `Badge` giúp khi anh/chị đổi thiết kế một nút bấm, nó sẽ đồng loạt cập nhật ở mọi Section mà không cần sửa từng nơi.
+1. **Lắp ghép tinh gọn:** Logic và UI được chẻ nhỏ (Modularize). Sử dụng `React.lazy` để giảm kích thước bundle ban đầu, giúp trình duyệt kết xuất mượt mà.
+2. **Khả năng Tái sử dụng cao:** `PricingSection.tsx` được thiết kế linh hoạt để dùng ở cả trang Home (hooking) và trang Pricing (chi tiết).
+3. **Quản lý UI tập trung:** Các component trong `src/components/ui/` giúp đảm bảo tính nhất quán (Consistency) của ngôn ngữ thiết kế trên toàn bộ ứng dụng. 

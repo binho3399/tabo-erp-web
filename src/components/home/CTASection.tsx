@@ -5,6 +5,10 @@ const CTASection: React.FC = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
+        if (window.innerWidth < 1024 || window.matchMedia('(pointer: coarse)').matches) {
+            return;
+        }
+
         const handleMouseMove = (e: MouseEvent) => {
             setMousePosition({
                 x: (e.clientX - window.innerWidth / 2) / 35,
@@ -22,11 +26,11 @@ const CTASection: React.FC = () => {
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 {/* Floating Animated Glows - Significantly more visible with Parallax */}
                 <div
-                    className="absolute top-[-25%] left-[-15%] w-[80%] h-[80%] rounded-full bg-blue-600/25 blur-[130px] animate-float transition-all duration-300 ease-out"
+                    className="absolute top-[-25%] left-[-15%] hidden lg:block w-[80%] h-[80%] rounded-full bg-blue-600/25 blur-[130px] animate-float transition-all duration-300 ease-out"
                     style={{ transform: `translate(${mousePosition.x * -1}px, ${mousePosition.y * -1}px)` }}
                 ></div>
                 <div
-                    className="absolute bottom-[-25%] right-[-15%] w-[70%] h-[70%] rounded-full bg-blue-500/20 blur-[110px] animate-float opacity-80 transition-all duration-300 ease-out"
+                    className="absolute bottom-[-25%] right-[-15%] hidden lg:block w-[70%] h-[70%] rounded-full bg-blue-500/20 blur-[110px] animate-float opacity-80 transition-all duration-300 ease-out"
                     style={{
                         animationDelay: '-5s',
                         animationDirection: 'reverse',
@@ -34,18 +38,21 @@ const CTASection: React.FC = () => {
                     }}
                 ></div>
                 <div
-                    className="absolute top-[15%] right-[5%] w-[40%] h-[40%] rounded-full bg-indigo-500/15 blur-[90px] animate-float opacity-70 transition-all duration-300 ease-out"
+                    className="absolute top-[15%] right-[5%] hidden lg:block w-[40%] h-[40%] rounded-full bg-indigo-500/15 blur-[90px] animate-float opacity-70 transition-all duration-300 ease-out"
                     style={{
                         animationDelay: '-2s',
                         transform: `translate(${mousePosition.x * 0.8}px, ${mousePosition.y * 0.8}px)`
                     }}
                 ></div>
 
+                <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.18),transparent_70%)] lg:hidden"></div>
+                <div className="absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(circle_at_bottom,rgba(37,99,235,0.16),transparent_70%)] lg:hidden"></div>
+
                 {/* Subtle Moving Grid Pattern */}
-                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem] lg:opacity-[0.03] opacity-[0.015]"></div>
 
                 {/* Animated Light Beams running on Grid - Lower Opacity for Subtlety */}
-                <svg className="absolute inset-0 w-full h-full opacity-[0.2] mix-blend-screen" preserveAspectRatio="none" viewBox="0 0 100 100">
+                <svg className="absolute inset-0 hidden lg:block w-full h-full opacity-[0.2] mix-blend-screen" preserveAspectRatio="none" viewBox="0 0 100 100">
                     <path d="M 0 20 H 100" fill="none" stroke="#60a5fa" strokeWidth="0.15" pathLength="1" strokeDasharray="0.15 0.85" className="animate-beam-run" style={{ animationDuration: '4s' }} />
                     <path d="M 0 50 H 100" fill="none" stroke="#3b82f6" strokeWidth="0.15" pathLength="1" strokeDasharray="0.1 0.9" className="animate-beam-run" style={{ animationDuration: '7s', animationDelay: '-2s' }} />
                     <path d="M 0 80 H 100" fill="none" stroke="#60a5fa" strokeWidth="0.15" pathLength="1" strokeDasharray="0.2 0.8" className="animate-beam-run" style={{ animationDuration: '5s', animationDelay: '-4s' }} />

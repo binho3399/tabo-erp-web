@@ -137,4 +137,35 @@
 body {
   min-height: 100vh;
   font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.animate-marquee,
+.animate-grid-flow-x,
+.animate-grid-flow-y,
+.animate-float,
+.animate-pulse,
+.animate-bounce {
+  will-change: transform, opacity;
+}
+
+/* Optimize SVG performance */
+svg path, 
+svg circle {
+  transform-box: fill-box;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

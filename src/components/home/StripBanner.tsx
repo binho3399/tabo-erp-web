@@ -10,8 +10,8 @@ const StripBanner: React.FC = () => {
                 <div className="absolute inset-0 opacity-[0.05] bg-[url('/noise.svg')] pointer-events-none"></div>
 
                 {/* 2. Primary Neon BLOOMS (Brighter & Larger) */}
-                <div className="absolute -top-[20%] -left-[10%] w-[80%] h-[140%] bg-blue-500/30 dark:bg-blue-600/20 blur-[120px] rounded-full animate-pulse duration-[6s] opacity-80"></div>
-                <div className="absolute -bottom-[20%] -right-[10%] w-[70%] h-[120%] bg-indigo-500/25 dark:bg-indigo-600/15 blur-[100px] rounded-full animate-pulse duration-[8s] delay-700 opacity-70"></div>
+                <div className="absolute -top-[20%] -left-[10%] hidden lg:block w-[80%] h-[140%] bg-blue-500/30 dark:bg-blue-600/20 blur-[120px] rounded-full animate-pulse duration-[6s] opacity-80"></div>
+                <div className="absolute -bottom-[20%] -right-[10%] hidden lg:block w-[70%] h-[120%] bg-indigo-500/25 dark:bg-indigo-600/15 blur-[100px] rounded-full animate-pulse duration-[8s] delay-700 opacity-70"></div>
 
                 {/* 3. Intense Light Beams */}
                 <div className="absolute top-0 left-1/3 w-[2px] h-full bg-gradient-to-b from-transparent via-blue-400/30 dark:via-blue-500/20 to-transparent skew-x-[30deg] blur-[1px]"></div>
@@ -33,27 +33,25 @@ const StripBanner: React.FC = () => {
                     }}></div>
 
                 {/* 6. Floating 'Sparks' (More visible) */}
-                <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-300 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-ping opacity-60"></div>
-                <div className="absolute bottom-1/4 right-1/3 w-1.5 h-1.5 bg-indigo-300 rounded-full shadow-[0_0_12px_rgba(129,140,248,0.8)] animate-ping opacity-50 delay-1000"></div>
+                <div className="absolute top-1/4 left-1/4 hidden lg:block w-2 h-2 bg-blue-300 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-ping opacity-60"></div>
+                <div className="absolute bottom-1/4 right-1/3 hidden lg:block w-1.5 h-1.5 bg-indigo-300 rounded-full shadow-[0_0_12px_rgba(129,140,248,0.8)] animate-ping opacity-50 delay-1000"></div>
 
                 {/* 7. Vivid Edge Accents */}
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950 opacity-60"></div>
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent shadow-[0_0_25px_rgba(59,130,246,0.5)]"></div>
                 <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent shadow-[0_0_25px_rgba(59,130,246,0.5)]"></div>
 
-                {/* 8. BRIGHT Connecting Flow Lines */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" preserveAspectRatio="none" viewBox="0 0 1000 400">
+                {/* 8. BRIGHT Connecting Flow Lines - SIMPLIFIED for performance */}
+                <svg className="absolute inset-0 hidden lg:block w-full h-full pointer-events-none z-0" preserveAspectRatio="none" viewBox="0 0 1000 400">
                     <defs>
                         <linearGradient id="brightFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stopColor="transparent" />
-                            <stop offset="30%" stopColor="rgba(96, 165, 250, 0.7)" />
-                            <stop offset="70%" stopColor="rgba(59, 130, 246, 0.7)" />
+                            <stop offset="50%" stopColor="rgba(59, 130, 246, 0.5)" />
                             <stop offset="100%" stopColor="transparent" />
                         </linearGradient>
                     </defs>
-                    <path d="M 50,150 Q 300,50 600,200 T 950,250" fill="none" stroke="url(#brightFlowGradient)" strokeWidth="2" strokeDasharray="12 12" className="animate-flow-dash" />
-                    <path d="M 0,250 C 200,250 400,350 700,250 S 1000,150 1000,150" fill="none" stroke="url(#brightFlowGradient)" strokeWidth="1.5" strokeDasharray="8 16" className="animate-flow-dash opacity-50" style={{ animationDelay: '0.5s' }} />
-                    <path d="M 100,350 Q 400,450 800,300" fill="none" stroke="url(#brightFlowGradient)" strokeWidth="2.5" strokeDasharray="15 25" className="animate-flow-dash opacity-30" style={{ animationDuration: '4s' }} />
+                    <path d="M 0,200 Q 250,100 500,200 T 1000,200" fill="none" stroke="url(#brightFlowGradient)" strokeWidth="1.5" strokeDasharray="10 20" className="animate-flow-dash" />
+                    <path d="M 0,300 C 300,300 600,100 1000,300" fill="none" stroke="url(#brightFlowGradient)" strokeWidth="1" strokeDasharray="5 15" className="animate-flow-dash opacity-30" style={{ animationDuration: '5s', animationDelay: '1s' }} />
                 </svg>
             </div>
 
