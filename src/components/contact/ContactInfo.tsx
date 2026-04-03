@@ -1,4 +1,7 @@
 import React from 'react';
+import SectionContainer from '@/components/common/SectionContainer';
+import SectionHeader from '@/components/common/SectionHeader';
+import SurfaceCard from '@/components/common/SurfaceCard';
 import { Icon, Button } from '@/components/ui';
 import LazyMapEmbed from '@/components/contact/LazyMapEmbed';
 import { contactCards, siteMetadata } from '@/config/site';
@@ -6,18 +9,21 @@ import { contactCards, siteMetadata } from '@/config/site';
 const ContactInfo: React.FC = () => {
     return (
         <section className="py-16 lg:py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden transition-colors duration-500">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <SectionContainer className="relative z-10">
                 <div className="flex flex-col gap-16">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                         {/* Col 1: Header + Trụ sở chính */}
                         <div className="flex flex-col w-full gap-5 h-full">
                             <div className="flex-1">
-                                <h3 className="text-[28px] md:text-[42px] font-normal text-slate-900 dark:text-white tracking-tight mb-4 md:mb-5 transition-colors">Thông tin <span className="text-blue-500 dark:text-blue-400">liên hệ</span></h3>
-                                <p className="text-slate-500 dark:text-slate-400 font-normal text-base transition-colors">Kết nối với chúng tôi qua các kênh dưới đây <br className="hidden md:block" /> để nhận được sự hỗ trợ nhanh nhất.</p>
+                                <SectionHeader
+                                    className="mb-0"
+                                    title={<>Thông tin <span className="text-blue-500 dark:text-blue-400">liên hệ</span></>}
+                                    description={<>Kết nối với chúng tôi qua các kênh dưới đây <br className="hidden md:block" /> để nhận được sự hỗ trợ nhanh nhất.</>}
+                                />
                             </div>
 
                             {/* Trụ sở chính Card */}
-                            <div className="flex flex-col w-full gap-4 lg:gap-8 p-4 lg:p-6 bg-white dark:bg-slate-900 rounded-[20px] border border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-slate-950/20 hover:shadow-xl transition-all duration-300 group">
+                            <SurfaceCard className="group flex flex-col w-full gap-4 lg:gap-8 p-4 lg:p-6">
                                 <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
                                     <Icon name="location_on" className="text-2xl text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
                                 </div>
@@ -27,13 +33,13 @@ const ContactInfo: React.FC = () => {
                                         {siteMetadata.address}
                                     </p>
                                 </div>
-                            </div>
+                            </SurfaceCard>
                         </div>
 
                         {/* Col 2: Hotline + Email */}
                         <div className="flex flex-col w-full gap-5 h-full">
                             {contactCards.map((card) => (
-                                <div key={card.title} className="flex flex-col gap-4 lg:gap-8 p-4 lg:p-6 bg-white dark:bg-slate-900 rounded-[20px] border border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-slate-950/20 hover:shadow-xl transition-all duration-300 group">
+                                <SurfaceCard key={card.title} className="group flex flex-col gap-4 lg:gap-8 p-4 lg:p-6">
                                     <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
                                         <Icon name={card.icon} className="text-2xl text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
                                     </div>
@@ -54,7 +60,7 @@ const ContactInfo: React.FC = () => {
                                             ))}
                                         </div>
                                     </div>
-                                </div>
+                                </SurfaceCard>
                             ))}
                         </div>
 
@@ -128,7 +134,7 @@ const ContactInfo: React.FC = () => {
                     {/* Map (Bottom) */}
                     <LazyMapEmbed />
                 </div>
-            </div>
+            </SectionContainer>
         </section>
     );
 };

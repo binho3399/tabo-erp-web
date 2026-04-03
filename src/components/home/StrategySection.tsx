@@ -1,4 +1,6 @@
 import React from 'react';
+import SectionContainer from '@/components/common/SectionContainer';
+import SurfaceCard from '@/components/common/SurfaceCard';
 import { Icon, Badge, Button } from '@/components/ui';
 import type { IconName } from '@/components/ui/Icon';
 
@@ -38,20 +40,20 @@ const StrategySection: React.FC = () => {
 
     return (
         <section className="py-16 lg:py-24 bg-slate-50 dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 relative overflow-hidden text-left transition-colors duration-500">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <SectionContainer className="relative z-10">
                 {/* Section Header Badge */}
-                <Badge variant="primary" className="mb-4 md:mb-5">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
+                <Badge variant="primary" className="section-kicker">CHIẾN LƯỢC TĂNG TRƯỞNG</Badge>
 
                 {/* Header Row: Split Title & Desc */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] mb-16 items-end">
                     <div className="text-left">
-                        <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 dark:text-white tracking-tight leading-[1.15] font-sans mb-4 md:mb-0 transition-colors">
+                        <h2 className="section-title mb-4 md:mb-0">
                             Thúc đẩy thành công qua <br />
                             <span className="text-blue-500 dark:text-blue-400 font-normal">quản trị thông minh.</span>
                         </h2>
                     </div>
                     <div className="text-left pb-2">
-                        <p className="text-base text-slate-500 dark:text-slate-400 leading-relaxed font-normal transition-colors">
+                        <p className="section-description">
                             Chúng tôi mang đến tư duy quản trị mới, giải pháp thực tiễn và lộ trình triển khai tối ưu giúp mọi quyết định dựa trên dữ liệu thực tế.
                         </p>
                     </div>
@@ -60,7 +62,7 @@ const StrategySection: React.FC = () => {
                 {/* Grid Layout inspired by Figure 2: 4 columns */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {strategies.map((item, i) => (
-                        <div key={i} className="bg-white dark:bg-slate-900 border border-slate-50 dark:border-slate-800 rounded-[20px] p-4 lg:p-6 shadow-md dark:shadow-slate-950/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out group flex flex-col h-full">
+                        <SurfaceCard key={i} className="group p-4 lg:p-6 flex flex-col h-full">
                             <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 dark:text-blue-400 group-hover:bg-blue-600 dark:group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 ease-out shadow-sm mb-4">
                                 <Icon name={item.icon} className="text-xl lg:text-2xl" />
                             </div>
@@ -72,7 +74,7 @@ const StrategySection: React.FC = () => {
                                     {item.desc}
                                 </p>
                             </div>
-                        </div>
+                        </SurfaceCard>
                     ))}
 
                     {/* Big CTA Card: Spans 2 columns on large screens */}
@@ -126,7 +128,7 @@ const StrategySection: React.FC = () => {
                         <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
                     </div>
                 </div>
-            </div>
+            </SectionContainer>
         </section>
     );
 };

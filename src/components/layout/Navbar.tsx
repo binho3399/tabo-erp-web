@@ -94,7 +94,15 @@ const Navbar: React.FC = () => {
                         {/* Logo Section - Aligned Left */}
                         <div className="flex-1 flex items-center">
                             <PrefetchLink to="/" className="flex-shrink-0 flex items-center" aria-label={siteMetadata.name}>
-                                <img src={isDark ? logoWhite : logoBlack} alt={`${siteMetadata.name} Logo`} className="h-[40px] md:h-[44px] w-auto object-contain transition-all duration-500" />
+                                <img
+                                    src={isDark ? logoWhite : logoBlack}
+                                    alt={`${siteMetadata.name} Logo`}
+                                    width="131"
+                                    height="44"
+                                    decoding="async"
+                                    fetchPriority="high"
+                                    className="h-[40px] md:h-[44px] w-auto object-contain transition-all duration-500"
+                                />
                             </PrefetchLink>
                         </div>
 

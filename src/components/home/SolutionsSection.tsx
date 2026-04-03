@@ -1,4 +1,6 @@
 import React from 'react';
+import SectionContainer from '@/components/common/SectionContainer';
+import SurfaceCard from '@/components/common/SurfaceCard';
 import { Icon, Button, Badge } from '@/components/ui';
 import { SOLUTIONS } from '@/constants/landing';
 import type { SolutionItem } from '@/types/landing';
@@ -8,16 +10,16 @@ const SolutionsSection: React.FC = () => {
 
     return (
         <section className="py-16 lg:py-24 bg-white dark:bg-slate-950 border-y border-slate-100 dark:border-slate-800 transition-colors duration-500 relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionContainer>
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start lg:items-stretch">
                     {/* Left Column: Text + CTA */}
                     <div className="lg:col-span-6 lg:self-stretch">
                         <div className="flex flex-col items-start text-left pt-0 lg:pt-10 lg:sticky lg:top-28 lg:h-fit">
-                            <Badge variant="primary" className="mb-4 md:mb-5">GIẢI PHÁP</Badge>
-                            <h2 className="text-[28px] md:text-[42px] font-normal text-slate-900 dark:text-white mb-4 md:mb-5 tracking-tight leading-[1.15] transition-colors">
+                            <Badge variant="primary" className="section-kicker">GIẢI PHÁP</Badge>
+                            <h2 className="section-title mb-4 md:mb-5">
                                 Giải quyết mọi<br /><span className="text-blue-500 dark:text-blue-400">nỗi đau</span> doanh nghiệp.
                             </h2>
-                            <p className="text-slate-500 dark:text-slate-400 font-normal text-base mb-0 md:mb-6 leading-relaxed transition-colors">
+                            <p className="section-description mb-0 md:mb-6">
                                 Chuẩn hóa quy trình và minh bạch dữ liệu để doanh nghiệp <br className="hidden md:block" /> vận hành trơn tru, ổn định và hiệu quả lâu dài.
                             </p>
                             <div className="hidden lg:block">
@@ -31,7 +33,7 @@ const SolutionsSection: React.FC = () => {
                     {/* Right Column: Stacked Cards (keeping original UI) */}
                     <div className="lg:col-span-6 flex flex-col gap-8 lg:self-start">
                         {solutions.map((sol: SolutionItem, i: number) => (
-                            <div key={i} className="group bg-white dark:bg-slate-900 rounded-[20px] p-4 lg:p-6 shadow-md dark:shadow-slate-950/20 hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-transparent dark:border-slate-800">
+                            <SurfaceCard key={i} className="group p-4 lg:p-6 flex flex-col h-full">
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="text-sm font-bold text-blue-500 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">{sol.id}</span>
                                     <div className="w-11 h-11 lg:w-10 lg:h-10 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-sm group-hover:bg-blue-500 dark:group-hover:bg-blue-600 group-hover:text-white transition-colors">
@@ -57,7 +59,7 @@ const SolutionsSection: React.FC = () => {
                                         </div>
                                     ))}
                                 </div>
-                            </div>
+                            </SurfaceCard>
                         ))}
                     </div>
 
@@ -68,7 +70,7 @@ const SolutionsSection: React.FC = () => {
                         </Button>
                     </div>
                 </div>
-            </div>
+            </SectionContainer>
         </section>
     );
 };

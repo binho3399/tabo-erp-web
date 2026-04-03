@@ -78,6 +78,9 @@ const AboutGrid: React.FC = () => {
                                     src={aboutTeamIllustration}
                                     alt="Doi ngu chuyen gia Tabo"
                                     loading="lazy"
+                                    decoding="async"
+                                    width="1200"
+                                    height="800"
                                     className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-[15s] ease-out"
                                 />
                                 <div className="absolute inset-x-4 bottom-4 z-20 rounded-2xl border border-white/70 bg-white/85 p-4 shadow-lg backdrop-blur dark:border-slate-700/60 dark:bg-slate-900/80">

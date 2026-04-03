@@ -1,9 +1,11 @@
 import React from 'react';
+import DeferredSection from '@/components/common/DeferredSection';
 import PricingHero from '@/components/pricing/PricingHero';
-import PricingFeatures from '@/components/pricing/PricingFeatures';
-import PricingFAQ from '@/components/pricing/PricingFAQ';
+const PricingFeatures = React.lazy(() => import('@/components/pricing/PricingFeatures'));
+const PricingFAQ = React.lazy(() => import('@/components/pricing/PricingFAQ'));
 
 const PricingSection = React.lazy(() => import('@/components/pricing/PricingSection'));
+const deferredFallback = <div className="deferred-section min-h-[320px] bg-transparent" />;
 
 const Pricing: React.FC = () => {
     return (
@@ -17,10 +19,18 @@ const Pricing: React.FC = () => {
             </React.Suspense>
 
             {/* 3. Detailed Features Accordion */}
-            <PricingFeatures />
+            <DeferredSection fallback={deferredFallback} minHeight={720}>
+                <React.Suspense fallback={deferredFallback}>
+                    <PricingFeatures />
+                </React.Suspense>
+            </DeferredSection>
 
             {/* 4. FAQ Section */}
-            <PricingFAQ />
+            <DeferredSection fallback={deferredFallback} minHeight={420}>
+                <React.Suspense fallback={deferredFallback}>
+                    <PricingFAQ />
+                </React.Suspense>
+            </DeferredSection>
         </div>
     );
 };

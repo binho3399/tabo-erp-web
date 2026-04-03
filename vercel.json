@@ -29,7 +29,7 @@
       ]
     },
     {
-      "source": "/(favicon\\.svg|noise\\.svg|vite\\.svg)",
+      "source": "/(favicon\\.svg|noise\\.svg)",
       "headers": [
         {
           "key": "Cache-Control",

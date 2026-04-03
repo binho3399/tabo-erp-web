@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import HeroSection from '../components/home/HeroSection';
 import FeaturesSection from '../components/home/FeaturesSection';
 import StripBanner from '../components/home/StripBanner';
+import DeferredSection from '../components/common/DeferredSection';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 
 // Lazy loaded components for better initial performance
@@ -13,7 +14,7 @@ const VisionSection = lazy(() => import('../components/home/VisionSection'));
 
 // Enhanced loading placeholder with better aesthetic
 const SectionLoader = () => (
-    <div className="py-24 flex flex-col items-center justify-center min-h-[400px] bg-slate-50/50 dark:bg-slate-950/50 backdrop-blur-sm transition-all duration-700">
+    <div className="deferred-section py-24 flex flex-col items-center justify-center min-h-[400px] bg-slate-50/50 dark:bg-slate-950/50 backdrop-blur-sm transition-all duration-700">
         <div className="relative w-16 h-16 mb-6">
             <div className="absolute inset-0 border-4 border-blue-500/20 rounded-full"></div>
             <div className="absolute inset-0 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
@@ -30,15 +31,33 @@ const Home: React.FC = () => {
             <FeaturesSection />
             <StripBanner />
             <ErrorBoundary>
-                <Suspense fallback={<SectionLoader />}>
-                    <div className="flex flex-col gap-0">
-                        <SolutionsSection />
-                        <VisionSection />
-                        <StrategySection />
-                        <PricingSection />
-                        <TestimonialsSection />
-                    </div>
-                </Suspense>
+                <div className="flex flex-col gap-0">
+                    <DeferredSection fallback={<SectionLoader />} minHeight={520}>
+                        <Suspense fallback={<SectionLoader />}>
+                            <SolutionsSection />
+                        </Suspense>
+                    </DeferredSection>
+                    <DeferredSection fallback={<SectionLoader />} minHeight={420}>
+                        <Suspense fallback={<SectionLoader />}>
+                            <VisionSection />
+                        </Suspense>
+                    </DeferredSection>
+                    <DeferredSection fallback={<SectionLoader />} minHeight={540}>
+                        <Suspense fallback={<SectionLoader />}>
+                            <StrategySection />
+                        </Suspense>
+                    </DeferredSection>
+                    <DeferredSection fallback={<SectionLoader />} minHeight={560}>
+                        <Suspense fallback={<SectionLoader />}>
+                            <PricingSection />
+                        </Suspense>
+                    </DeferredSection>
+                    <DeferredSection fallback={<SectionLoader />} minHeight={420}>
+                        <Suspense fallback={<SectionLoader />}>
+                            <TestimonialsSection />
+                        </Suspense>
+                    </DeferredSection>
+                </div>
             </ErrorBoundary>
         </div>
     );

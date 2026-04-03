@@ -52,7 +52,15 @@ const Footer: React.FC = () => {
                 {/* Main Row: Logo and Nav */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
                     <PrefetchLink to="/" className="transition-transform hover:scale-[1.02]">
-                        <img src={logoWhite} alt={siteMetadata.name} className="h-[44px] w-auto opacity-90 transition-transform hover:scale-[1.02]" />
+                        <img
+                            src={logoWhite}
+                            alt={siteMetadata.name}
+                            width="131"
+                            height="44"
+                            loading="lazy"
+                            decoding="async"
+                            className="h-[44px] w-auto opacity-90 transition-transform hover:scale-[1.02]"
+                        />
                     </PrefetchLink>
 
                     <nav className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row justify-start md:justify-end gap-4 md:gap-x-8 md:gap-y-4">

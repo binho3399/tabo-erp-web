@@ -1,7 +1,10 @@
 import React from 'react';
+import DeferredSection from '../components/common/DeferredSection';
 import ContactHero from '../components/contact/ContactHero';
 import ContactInfo from '../components/contact/ContactInfo';
-import ContactFAQ from '../components/contact/ContactFAQ';
+const ContactFAQ = React.lazy(() => import('../components/contact/ContactFAQ'));
+
+const deferredFallback = <div className="deferred-section min-h-[320px] bg-transparent" />;
 
 const Contact: React.FC = () => {
     return (
@@ -13,7 +16,11 @@ const Contact: React.FC = () => {
             <ContactInfo />
 
             {/* FAQ Section */}
-            <ContactFAQ />
+            <DeferredSection fallback={deferredFallback} minHeight={420}>
+                <React.Suspense fallback={deferredFallback}>
+                    <ContactFAQ />
+                </React.Suspense>
+            </DeferredSection>
         </div>
     );
 };
