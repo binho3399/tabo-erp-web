@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { PrefetchLink } from '@/components/ui';
+import { legalLinks, siteMetadata, siteRoutes } from '@/config/site';
 import logoWhite from '../../assets/Logo-white.png';
 
 const Footer: React.FC = () => {
@@ -50,25 +51,20 @@ const Footer: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Main Row: Logo and Nav */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
-                    <Link to="/" className="transition-transform hover:scale-[1.02]">
-                        <img src={logoWhite} alt="Tabo ERP" className="h-[44px] w-auto opacity-90 transition-transform hover:scale-[1.02]" />
-                    </Link>
+                    <PrefetchLink to="/" className="transition-transform hover:scale-[1.02]">
+                        <img src={logoWhite} alt={siteMetadata.name} className="h-[44px] w-auto opacity-90 transition-transform hover:scale-[1.02]" />
+                    </PrefetchLink>
 
                     <nav className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row justify-start md:justify-end gap-4 md:gap-x-8 md:gap-y-4">
-                        {[
-                            { name: 'Trang chủ', path: '/' },
-                            { name: 'Bảng giá', path: '/pricing' },
-                            { name: 'Về chúng tôi', path: '/about' },
-                            { name: 'Liên hệ', path: '/contact' }
-                        ].map((link, idx) => (
-                            <Link
-                                key={idx}
+                        {siteRoutes.map((link) => (
+                            <PrefetchLink
+                                key={link.path}
                                 to={link.path}
                                 className="group relative text-[16px] font-medium text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1"
                             >
-                                <span>{link.name}</span>
+                                <span>{link.label}</span>
                                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                            </Link>
+                            </PrefetchLink>
                         ))}
                     </nav>
                 </div>
@@ -76,17 +72,15 @@ const Footer: React.FC = () => {
                 {/* Bottom Row: Copyright */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <p className="text-[16px] font-medium text-gray-500 dark:text-gray-400">
-                        &copy; {new Date().getFullYear()} Tabo <span className="text-blue-500 dark:text-blue-400 uppercase">ERP</span>. Bảo lưu mọi quyền.
+                        &copy; {new Date().getFullYear()} {siteMetadata.shortName} <span className="text-blue-500 dark:text-blue-400 uppercase">ERP</span>. Bao luu moi quyen.
                     </p>
                     <div className="grid grid-cols-2 w-full md:w-auto md:flex md:flex-row gap-4 md:gap-6 text-[16px] text-gray-500 dark:text-gray-400 font-medium">
-                        <span className="group relative cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1">
-                            <span>Chính sách bảo mật</span>
-                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                        </span>
-                        <span className="group relative cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1">
-                            <span>Điều khoản dịch vụ</span>
-                            <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                        </span>
+                        {legalLinks.map((link) => (
+                            <a key={link.label} href={link.href} className="group relative cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors py-1">
+                                <span>{link.label}</span>
+                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>

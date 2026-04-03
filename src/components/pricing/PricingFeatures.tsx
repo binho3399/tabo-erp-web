@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { startTransition, useState } from 'react';
 import { Icon, Badge } from '@/components/ui';
 
 interface FeatureItem {
@@ -151,7 +151,7 @@ const PricingFeatures: React.FC = () => {
                                 }`}
                             ></div>
                             <button
-                                onClick={() => setActiveTab('free')}
+                                onClick={() => startTransition(() => setActiveTab('free'))}
                                 className={`relative z-10 w-24 sm:w-32 py-2 text-[13px] sm:text-sm font-semibold rounded-full transition-colors ${
                                     activeTab === 'free' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                                 }`}
@@ -159,7 +159,7 @@ const PricingFeatures: React.FC = () => {
                                 Miễn phí
                             </button>
                             <button
-                                onClick={() => setActiveTab('premium')}
+                                onClick={() => startTransition(() => setActiveTab('premium'))}
                                 className={`relative z-10 w-24 sm:w-32 py-2 text-[13px] sm:text-sm font-semibold rounded-full transition-colors ${
                                     activeTab === 'premium' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                                 }`}

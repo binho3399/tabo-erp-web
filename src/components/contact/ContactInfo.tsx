@@ -1,5 +1,7 @@
 import React from 'react';
 import { Icon, Button } from '@/components/ui';
+import LazyMapEmbed from '@/components/contact/LazyMapEmbed';
+import { contactCards, siteMetadata } from '@/config/site';
 
 const ContactInfo: React.FC = () => {
     return (
@@ -22,7 +24,7 @@ const ContactInfo: React.FC = () => {
                                 <div className="flex flex-col">
                                     <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 dark:text-white tracking-tight mb-4 transition-colors">Trụ sở chính</h4>
                                     <p className="text-slate-500 dark:text-slate-400 font-normal text-base leading-relaxed line-clamp-2 transition-colors">
-                                        Tòa nhà Landmark 81, Vinhomes Central Park, Phường 22, Bình Thạnh, TP. Hồ Chí Minh
+                                        {siteMetadata.address}
                                     </p>
                                 </div>
                             </div>
@@ -30,41 +32,30 @@ const ContactInfo: React.FC = () => {
 
                         {/* Col 2: Hotline + Email */}
                         <div className="flex flex-col w-full gap-5 h-full">
-                            {/* Đường dây nóng Card */}
-                            <div className="flex flex-col w-full gap-4 lg:gap-8 p-4 lg:p-6 bg-white dark:bg-slate-900 rounded-[20px] border border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-slate-950/20 hover:shadow-xl transition-all duration-300 group">
-                                <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
-                                    <Icon name="phone_in_talk" className="text-2xl text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 dark:text-white tracking-tight mb-4 transition-colors">Đường dây nóng</h4>
-                                    <div className="space-y-1">
-                                        <p className="text-slate-500 dark:text-slate-400 font-normal text-base leading-relaxed transition-colors">
-                                            Doanh nghiệp: <strong className="text-slate-900 dark:text-slate-200">1900 1234</strong>
-                                        </p>
-                                        <p className="text-slate-500 dark:text-slate-400 font-normal text-base leading-relaxed transition-colors">
-                                            Kỹ thuật: <strong className="text-slate-900 dark:text-slate-200">(028) 3888 9999</strong>
-                                        </p>
+                            {contactCards.map((card) => (
+                                <div key={card.title} className="flex flex-col gap-4 lg:gap-8 p-4 lg:p-6 bg-white dark:bg-slate-900 rounded-[20px] border border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-slate-950/20 hover:shadow-xl transition-all duration-300 group">
+                                    <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
+                                        <Icon name={card.icon} className="text-2xl text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 dark:text-white tracking-tight mb-4 transition-colors">{card.title}</h4>
+                                        <div className="space-y-1">
+                                            {card.lines.map((line) => (
+                                                <p key={`${card.title}-${line.label}`} className="text-slate-500 dark:text-slate-400 font-normal text-base leading-relaxed transition-colors">
+                                                    {line.label}:{' '}
+                                                    {line.href ? (
+                                                        <a href={line.href} className="text-blue-500 dark:text-blue-400 hover:text-blue-600 transition-colors">
+                                                            {line.value}
+                                                        </a>
+                                                    ) : (
+                                                        <strong className="text-slate-900 dark:text-slate-200">{line.value}</strong>
+                                                    )}
+                                                </p>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* Email hỗ trợ Card */}
-                            <div className="flex flex-col gap-4 lg:gap-8 p-4 lg:p-6 bg-white dark:bg-slate-900 rounded-[20px] border border-slate-100 dark:border-slate-800 shadow-sm dark:shadow-slate-950/20 hover:shadow-xl transition-all duration-300 group">
-                                <div className="w-11 h-11 lg:w-14 lg:h-14 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors duration-300">
-                                    <Icon name="mail" className="text-2xl text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300" />
-                                </div>
-                                <div className="flex flex-col">
-                                    <h4 className="text-[20px] lg:text-[28px] font-normal text-slate-900 dark:text-white tracking-tight mb-4 transition-colors">Email hỗ trợ</h4>
-                                    <div className="space-y-1">
-                                        <p className="text-slate-500 dark:text-slate-400 font-normal text-base leading-relaxed transition-colors">
-                                            Kinh doanh: <a href="mailto:sales@tabo.vn" className="text-blue-500 dark:text-blue-400 hover:text-blue-600 transition-colors">sales@tabo.vn</a>
-                                        </p>
-                                        <p className="text-slate-500 dark:text-slate-400 font-normal text-base leading-relaxed transition-colors">
-                                            Truyền thông: <a href="mailto:press@tabo.vn" className="text-blue-500 dark:text-blue-400 hover:text-blue-600 transition-colors">press@tabo.vn</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
 
                         {/* Col 3: Package CTA */}
@@ -135,19 +126,7 @@ const ContactInfo: React.FC = () => {
                     </div>
 
                     {/* Map (Bottom) */}
-                    <div className="w-full h-[400px] md:h-[500px] bg-slate-200 dark:bg-slate-800 rounded-[20px] overflow-hidden relative shadow-[0_20px_50px_-15px_rgba(0,0,0,0.1)] border border-slate-200 dark:border-slate-800 transition-colors">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15676.657512140884!2d106.7118225554199!3d10.798492000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528a45fe27d85%3A0xc4eb0a6cf64ac19b!2sLandmark%2081!5e0!3m2!1svi!2s!4v1714032174360!5m2!1svi!2s"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen={false}
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            className="absolute inset-0 w-full h-full grayscale-[20%] dark:grayscale-[30%] contrast-125 hover:grayscale-0 transition-all duration-500 cursor-pointer"
-                            title="Tabo ERP Location"
-                        ></iframe>
-                    </div>
+                    <LazyMapEmbed />
                 </div>
             </div>
         </section>

@@ -2,4 +2,5 @@ export { default as Accordion } from './Accordion';
 export { default as Badge } from './Badge';
 export { default as Button } from './Button';
 export { default as Icon } from './Icon';
+export { default as PrefetchLink } from './PrefetchLink';
 export { default as ThemeToggle } from './ThemeToggle';

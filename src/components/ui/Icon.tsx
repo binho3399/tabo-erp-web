@@ -1,35 +1,179 @@
-import React from 'react';
+import type { SVGProps } from 'react'
+import {
+  ArrowUpRight,
+  Baby,
+  BadgeCheck,
+  BarChart3,
+  Bike,
+  BookOpen,
+  Bot,
+  Boxes,
+  Braces,
+  Brush,
+  Check,
+  ChevronDown,
+  ChevronRight,
+  CircleHelp,
+  Clock3,
+  Coffee,
+  CreditCard,
+  Croissant,
+  Ellipsis,
+  Factory,
+  FileText,
+  Gift,
+  Grid2x2,
+  Gauge,
+  Hammer,
+  Headset,
+  Heart,
+  History,
+  House,
+  Landmark,
+  Layers3,
+  Leaf,
+  LineChart,
+  Mail,
+  MapPin,
+  Martini,
+  Menu,
+  Mic,
+  MonitorSmartphone,
+  Network,
+  Package,
+  PhoneCall,
+  PieChart,
+  Quote,
+  Rocket,
+  ScanLine,
+  Settings2,
+  Shield,
+  ShieldCheck,
+  ShoppingBag,
+  ShoppingCart,
+  Shirt,
+  Smartphone,
+  Smile,
+  Sofa,
+  Soup,
+  Star,
+  Stethoscope,
+  Store,
+  Target,
+  Triangle,
+  TrendingUp,
+  Truck,
+  Users,
+  UtensilsCrossed,
+  WalletCards,
+  Waypoints,
+  X,
+  type LucideIcon,
+} from 'lucide-react'
 
-export interface IconProps extends React.HTMLAttributes<HTMLSpanElement> {
-    /** 
-     * The name of the Google Material Symbol 
-     * Find names at: https://fonts.google.com/icons
-     */
-    name: string;
-    /**
-     * Set to true to use filled icon variant instead of outline
-     */
-    filled?: boolean;
+export const iconMap = {
+  account_balance: Landmark,
+  account_balance_wallet: WalletCards,
+  account_tree: Network,
+  api: Braces,
+  apps: Grid2x2,
+  arrow_outward: ArrowUpRight,
+  bakery_dining: Croissant,
+  bar_chart: BarChart3,
+  brush: Brush,
+  call: PhoneCall,
+  card_giftcard: Gift,
+  category: Boxes,
+  change_history: Triangle,
+  check: Check,
+  checkroom: Shirt,
+  chevron_right: ChevronRight,
+  child_care: Baby,
+  close: X,
+  coffee: Coffee,
+  construction: Hammer,
+  contact_support: CircleHelp,
+  description: FileText,
+  devices: MonitorSmartphone,
+  directions_bike: Bike,
+  expand_more: ChevronDown,
+  factory: Factory,
+  favorite: Heart,
+  format_quote: Quote,
+  gpp_good: ShieldCheck,
+  grass: Leaf,
+  groups: Users,
+  hub: Waypoints,
+  history: History,
+  home: House,
+  insights: LineChart,
+  inventory_2: Package,
+  layers: Layers3,
+  local_bar: Martini,
+  local_mall: ShoppingBag,
+  local_shipping: Truck,
+  location_on: MapPin,
+  mail: Mail,
+  medical_services: Stethoscope,
+  menu: Menu,
+  menu_book: BookOpen,
+  mic: Mic,
+  more_horiz: Ellipsis,
+  payments: CreditCard,
+  phone_in_talk: PhoneCall,
+  pie_chart: PieChart,
+  point_of_sale: ScanLine,
+  precision_manufacturing: Factory,
+  ramen_dining: Soup,
+  restaurant: UtensilsCrossed,
+  rocket_launch: Rocket,
+  savings: WalletCards,
+  schedule: Clock3,
+  security: Shield,
+  settings_suggest: Settings2,
+  shield: Shield,
+  shopping_cart: ShoppingCart,
+  smart_toy: Bot,
+  speed: Gauge,
+  star: Star,
+  stay_primary_portrait: Smartphone,
+  storefront: Store,
+  support_agent: Headset,
+  task: Boxes,
+  track_changes: Target,
+  trending_up: TrendingUp,
+  verified: BadgeCheck,
+  weekend: Sofa,
+  analytics: BarChart3,
+  mood: Smile,
+} as const
+
+export type IconName = keyof typeof iconMap
+
+export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'name'> {
+  name: IconName
+  filled?: boolean
 }
 
-const Icon: React.FC<IconProps> = ({
-    name,
-    filled = false,
-    className = "",
-    ...props
-}) => {
-    return (
-        <span
-            className={`material-symbols-outlined select-none ${className}`}
-            style={{
-                fontVariationSettings: filled ? "'FILL' 1" : "'FILL' 0",
-                ...props.style
-            }}
-            {...props}
-        >
-            {name}
-        </span>
-    );
-};
+const fallbackIcon = CircleHelp
 
-export default Icon;
+export default function Icon({
+  name,
+  filled = false,
+  className = '',
+  strokeWidth,
+  ...props
+}: IconProps) {
+  const LucideIcon: LucideIcon = iconMap[name] ?? fallbackIcon
+
+  return (
+    <LucideIcon
+      aria-hidden="true"
+      className={className}
+      fill={filled ? 'currentColor' : 'none'}
+      size="1em"
+      strokeWidth={strokeWidth ?? (filled ? 1.6 : 1.85)}
+      {...props}
+    />
+  )
+}

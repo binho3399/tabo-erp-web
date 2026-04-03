@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# Tabo ERP Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website marketing cho Tabo ERP, xây bằng `React 19 + Vite + TypeScript + Tailwind CSS`.
 
-Currently, two official plugins are available:
+## Yêu cầu môi trường
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `Node.js >= 20.19.0`
+- `npm`
 
-## React Compiler
+Repo có file [.nvmrc](/Users/macbook/Documents/Tabo%20ERP/.nvmrc) để đồng bộ version Node giữa các máy.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Scripts
 
-## Expanding the ESLint configuration
+- `npm run dev`: chạy local dev server.
+- `npm run build`: build production và kiểm tra budget của entry bundle.
+- `npm run build:app`: chỉ build production, không chạy bundle budget check.
+- `npm run lint`: chạy ESLint với type-aware rules.
+- `npm run preview`: preview bản build.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Kiến trúc chính
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- `src/pages/`: route-level pages, chỉ chịu trách nhiệm compose.
+- `src/components/`: UI sections và reusable components.
+- `src/config/site.ts`: route metadata, navigation, SEO cơ bản, contact metadata.
+- `src/content/`: nội dung typed cho các section có tính marketing.
+- `src/lib/route-prefetch.ts`: prefetch route modules khi hover/focus link nội bộ.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Sơ đồ chi tiết nằm trong [ARCHITECTURE.md](/Users/macbook/Documents/Tabo%20ERP/ARCHITECTURE.md).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Checklist hiệu năng hiện tại
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Route-level lazy loading cho các page chính.
+- Section-level lazy loading cho phần dưới fold của Home/Pricing.
+- Không dùng Google-hosted fonts hoặc Material Symbols trong critical path.
+- Prefetch module cho internal routes ở navigation và buttons dùng router links.
+- Google Maps chỉ tải khi section đi vào viewport.
+- Build có bundle budget check cho entry JS/CSS.
+- HTTP cache đã được cấu hình trong `vercel.json` và `public/_headers`:
+  HTML cache ngắn với `must-revalidate`, static assets cache dài hạn với `immutable`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Ghi chú vận hành
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Nếu `npm run build` báo warning về Node version, hãy chuyển đúng version theo `.nvmrc`.
+- Nếu `npm run lint` lỗi do dependency local bị lệch, chạy `npm install` để đồng bộ lại `node_modules`.

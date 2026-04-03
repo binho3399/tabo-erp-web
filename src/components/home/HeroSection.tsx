@@ -1,5 +1,16 @@
 import React from 'react';
 import { Icon, Button, Badge } from '@/components/ui';
+import { heroAvatarBadges, heroTickerItems } from '@/content/home';
+
+const AvatarBadge: React.FC<{ initials: string; className: string; sizeClassName: string }> = ({
+    initials,
+    className,
+    sizeClassName,
+}) => (
+    <span className={`inline-flex items-center justify-center rounded-full border border-[#1A1A1A] dark:border-slate-900 font-semibold tracking-[0.08em] ${className} ${sizeClassName}`}>
+        {initials}
+    </span>
+);
 
 const HeroSection: React.FC = () => {
     return (
@@ -113,14 +124,9 @@ const HeroSection: React.FC = () => {
                         }}
                     >
                         <div className="flex gap-6 lg:gap-10 whitespace-nowrap animate-[marquee_25s_linear_infinite] w-max">
-                            {[...Array(2)].map((_, i) => (
+                            {Array.from({ length: 2 }).map((_, i) => (
                                 <div key={i} className="flex gap-6 lg:gap-10 items-center">
-                                    {[
-                                        { text: "Chiến Lược Dữ Liệu", icon: "pie_chart" },
-                                        { text: "Kết Quả Thực Tế", icon: "track_changes" },
-                                        { text: "Tăng Trưởng Mở Rộng", icon: "trending_up" },
-                                        { text: "Chuyên Môn Tin Cậy", icon: "gpp_good" }
-                                    ].map((item, index) => (
+                                    {heroTickerItems.map((item, index) => (
                                         <div key={`${i}-${index}`} className="flex items-center text-slate-400 dark:text-slate-500 hover:text-primary-600 dark:hover:text-blue-400 transition-colors cursor-default">
                                             <Icon name={item.icon} className="text-[18px] lg:text-[24px] mr-2 opacity-70" />
                                             <span className="font-normal text-sm lg:text-base leading-6 uppercase tracking-[0.18em] lg:tracking-wider">{item.text}</span>
@@ -154,9 +160,9 @@ const HeroSection: React.FC = () => {
 
                                 <div className="absolute left-1/2 bottom-8 z-20 flex w-[168px] -translate-x-[96px] rotate-[-5deg] flex-col items-center justify-center rounded-[18px] border border-slate-800 bg-[#1A1A1A] p-3 text-center text-white shadow-[0_22px_40px_-20px_rgba(15,23,42,0.4)]">
                                     <div className="mb-2.5 flex justify-center -space-x-2">
-                                        <img src="https://i.pravatar.cc/100?img=4" alt="User" loading="lazy" className="h-6 w-6 rounded-full border border-[#1A1A1A] object-cover" />
-                                        <img src="https://i.pravatar.cc/100?img=5" alt="User" loading="lazy" className="h-6 w-6 rounded-full border border-[#1A1A1A] object-cover" />
-                                        <img src="https://i.pravatar.cc/100?img=6" alt="User" loading="lazy" className="h-6 w-6 rounded-full border border-[#1A1A1A] object-cover" />
+                                        {heroAvatarBadges.map((avatar) => (
+                                            <AvatarBadge key={avatar.initials} initials={avatar.initials} className={`${avatar.className} text-[9px]`} sizeClassName="h-6 w-6" />
+                                        ))}
                                     </div>
                                     <h4 className="text-[22px] font-bold leading-none">100K+</h4>
                                     <p className="mt-1 text-[10px] text-slate-400">Khách hàng hài lòng</p>
@@ -243,9 +249,9 @@ const HeroSection: React.FC = () => {
                 {/* 2. Khách hàng hài lòng (Dark card) */}
                 <div className="absolute left-[0%] lg:left-[5%] bottom-[15%] lg:bottom-[5%] hidden lg:flex rotate-12 bg-[#1A1A1A] dark:bg-slate-900 p-5 rounded-[20px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex-col items-center justify-center w-44 text-center transform transition-transform hover:scale-105 hover:rotate-6 border border-slate-800 z-0 scale-[0.5] lg:scale-100 pointer-events-none lg:pointer-events-auto origin-bottom-left transition-colors">
                     <div className="flex justify-center -space-x-2 mb-3">
-                        <img src="https://i.pravatar.cc/100?img=4" alt="User" loading="lazy" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
-                        <img src="https://i.pravatar.cc/100?img=5" alt="User" loading="lazy" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
-                        <img src="https://i.pravatar.cc/100?img=6" alt="User" loading="lazy" className="w-8 h-8 rounded-full border border-[#1A1A1A] dark:border-slate-900 object-cover" />
+                        {heroAvatarBadges.map((avatar) => (
+                            <AvatarBadge key={avatar.initials} initials={avatar.initials} className={`${avatar.className} text-xs`} sizeClassName="h-8 w-8" />
+                        ))}
                     </div>
                     <h4 className="font-bold text-white text-lg">100K+</h4>
                     <p className="text-[10px] text-slate-400">Khách hàng hài lòng</p>

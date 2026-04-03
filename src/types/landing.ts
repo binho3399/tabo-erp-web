@@ -1,13 +1,15 @@
+import type { IconName } from '@/components/ui/Icon';
+
 export interface FeatureItem {
     name: string;
-    icon: string;
+    icon: IconName;
     desc: string;
     color: string;
 }
 
 export interface SectorItem {
     name: string;
-    icon: string;
+    icon: IconName;
 }
 
 export interface SolutionItem {
@@ -16,7 +18,7 @@ export interface SolutionItem {
     description: string;
     features: string[];
     color: string;
-    icon: string;
+    icon: IconName;
     image?: string;
 }
 

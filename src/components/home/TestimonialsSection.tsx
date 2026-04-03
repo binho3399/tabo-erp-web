@@ -1,6 +1,20 @@
 import { Icon, Badge } from '@/components/ui';
+import type { IconName } from '@/components/ui/Icon';
 
 const TestimonialsSection: React.FC = () => {
+    const testimonialItems: Array<{ quote: string; highlight: string; icon: IconName }> = [
+        { quote: 'Tabo ERP đã đồng bộ hóa toàn bộ chuỗi cung ứng của chúng tôi, mang lại sự nhất quán hoàn hảo.', highlight: 'Tốc độ mở rộng gấp 3 lần', icon: 'speed' },
+        { quote: 'Việc quản lý 50 chi nhánh trở nên đơn giản như quản lý 1 cửa hàng. Dữ liệu thực rất quan trọng.', highlight: 'Doanh thu tăng 45% sau 6 tháng', icon: 'trending_up' },
+        { quote: 'Không chỉ là phần mềm, đội ngũ hỗ trợ của Tabo thực sự hiểu nghiệp vụ và cực kỳ chuyên nghiệp.', highlight: 'Giảm 30% chi phí vận hành', icon: 'savings' },
+        { quote: 'Chúng tôi tiết kiệm được hàng trăm giờ làm việc mỗi tháng nhờ hệ thống tự động hóa của Tabo.', highlight: 'Tối ưu 70% quy trình', icon: 'settings_suggest' },
+        { quote: 'Chi phí triển khai cực kỳ hợp lý so với những tính năng cao cấp mà hệ thống mang lại.', highlight: 'ROI đạt 200% năm đầu', icon: 'analytics' },
+        { quote: 'Giao diện thân thiện giúp nhân viên của chúng tôi làm quen chỉ sau 2 ngày đào tạo.', highlight: '98% nhân viên hài lòng', icon: 'mood' },
+        { quote: 'Khả năng tuỳ biến linh hoạt của Tabo ERP cho phép chúng tôi tích hợp sâu vào quy trình đặc thù.', highlight: 'Tích hợp 100% nghiệp vụ', icon: 'hub' },
+        { quote: 'Báo cáo thông minh giúp tôi ra quyết định chính xác hơn dựa trên số liệu thực tế.', highlight: 'Tăng 25% hiệu quả quản trị', icon: 'insights' },
+        { quote: 'Khả năng bảo mật tuyệt đối giúp chúng tôi yên tâm hơn khi quản lý dữ liệu khách hàng nhạy cảm.', highlight: 'An tâm bảo mật dữ liệu', icon: 'shield' },
+        { quote: 'Hệ thống chạy mượt mà trên cả mobile giúp đội ngũ kinh doanh chốt đơn mọi lúc mọi nơi.', highlight: 'Vận hành linh hoạt 24/7', icon: 'stay_primary_portrait' },
+    ];
+
     return (
         <section className="py-16 lg:py-24 bg-[#F7F8F8] dark:bg-slate-950 overflow-hidden relative transition-colors duration-500">
             {/* Decorative background elements - subtle for light mode, slightly stronger for dark */}
@@ -58,29 +72,7 @@ const TestimonialsSection: React.FC = () => {
 
             <div className="relative flex overflow-x-auto lg:overflow-x-hidden snap-x snap-mandatory px-4 lg:px-0">
                 <div className="flex animate-marquee-slow whitespace-normal gap-6 lg:gap-12 px-2 lg:px-6">
-                    {[
-                        { quote: 'Tabo ERP đã đồng bộ hóa toàn bộ chuỗi cung ứng của chúng tôi, mang lại sự nhất quán hoàn hảo.', highlight: 'Tốc độ mở rộng gấp 3 lần', icon: 'speed' },
-                        { quote: 'Việc quản lý 50 chi nhánh trở nên đơn giản như quản lý 1 cửa hàng. Dữ liệu thực rất quan trọng.', highlight: 'Doanh thu tăng 45% sau 6 tháng', icon: 'trending_up' },
-                        { quote: 'Không chỉ là phần mềm, đội ngũ hỗ trợ của Tabo thực sự hiểu nghiệp vụ và cực kỳ chuyên nghiệp.', highlight: 'Giảm 30% chi phí vận hành', icon: 'savings' },
-                        { quote: 'Chúng tôi tiết kiệm được hàng trăm giờ làm việc mỗi tháng nhờ hệ thống tự động hóa của Tabo.', highlight: 'Tối ưu 70% quy trình', icon: 'settings_suggest' },
-                        { quote: 'Chi phí triển khai cực kỳ hợp lý so với những tính năng cao cấp mà hệ thống mang lại.', highlight: 'ROI đạt 200% năm đầu', icon: 'analytics' },
-                        { quote: 'Giao diện thân thiện giúp nhân viên của chúng tôi làm quen chỉ sau 2 ngày đào tạo.', highlight: '98% nhân viên hài lòng', icon: 'mood' },
-                        { quote: 'Khả năng tuỳ biến linh hoạt của Tabo ERP cho phép chúng tôi tích hợp sâu vào quy trình đặc thù.', highlight: 'Tích hợp 100% nghiệp vụ', icon: 'hub' },
-                        { quote: 'Báo cáo thông minh giúp tôi ra quyết định chính xác hơn dựa trên số liệu thực tế.', highlight: 'Tăng 25% hiệu quả quản trị', icon: 'insights' },
-                        { quote: 'Khả năng bảo mật tuyệt đối giúp chúng tôi yên tâm hơn khi quản lý dữ liệu khách hàng nhạy cảm.', highlight: 'An tâm bảo mật dữ liệu', icon: 'shield' },
-                        { quote: 'Hệ thống chạy mượt mà trên cả mobile giúp đội ngũ kinh doanh chốt đơn mọi lúc mọi nơi.', highlight: 'Vận hành linh hoạt 24/7', icon: 'stay_primary_portrait' },
-                    ].concat([
-                        { quote: 'Tabo ERP đã đồng bộ hóa toàn bộ chuỗi cung ứng của chúng tôi, mang lại sự nhất quán hoàn hảo.', highlight: 'Tốc độ mở rộng gấp 3 lần', icon: 'speed' },
-                        { quote: 'Việc quản lý 50 chi nhánh trở nên đơn giản như quản lý 1 cửa hàng. Dữ liệu thực rất quan trọng.', highlight: 'Doanh thu tăng 45% sau 6 tháng', icon: 'trending_up' },
-                        { quote: 'Không chỉ là phần mềm, đội ngũ hỗ trợ của Tabo thực sự hiểu nghiệp vụ và cực kỳ chuyên nghiệp.', highlight: 'Giảm 30% chi phí vận hành', icon: 'savings' },
-                        { quote: 'Chúng tôi tiết kiệm được hàng trăm giờ làm việc mỗi tháng nhờ hệ thống tự động hóa của Tabo.', highlight: 'Tối ưu 70% quy trình', icon: 'settings_suggest' },
-                        { quote: 'Chi phí triển khai cực kỳ hợp lý so với những tính năng cao cấp mà hệ thống mang lại.', highlight: 'ROI đạt 200% năm đầu', icon: 'analytics' },
-                        { quote: 'Giao diện thân thiện giúp nhân viên của chúng tôi làm quen chỉ sau 2 ngày đào tạo.', highlight: '98% nhân viên hài lòng', icon: 'mood' },
-                        { quote: 'Khả năng tuỳ biến linh hoạt của Tabo ERP cho phép chúng tôi tích hợp sâu vào quy trình đặc thù.', highlight: 'Tích hợp 100% nghiệp vụ', icon: 'hub' },
-                        { quote: 'Báo cáo thông minh giúp tôi ra quyết định chính xác hơn dựa trên số liệu thực tế.', highlight: 'Tăng 25% hiệu quả quản trị', icon: 'insights' },
-                        { quote: 'Khả năng bảo mật tuyệt đối giúp chúng tôi yên tâm hơn khi quản lý dữ liệu khách hàng nhạy cảm.', highlight: 'An tâm bảo mật dữ liệu', icon: 'shield' },
-                        { quote: 'Hệ thống chạy mượt mà trên cả mobile giúp đội ngũ kinh doanh chốt đơn mọi lúc mọi nơi.', highlight: 'Vận hành linh hoạt 24/7', icon: 'stay_primary_portrait' },
-                    ]).map((item, i) => (
+                    {testimonialItems.concat(testimonialItems).map((item, i) => (
                         <div key={i} className="flex-shrink-0 snap-start w-[85vw] max-w-[450px] p-4 lg:p-6 premium-card transition-all duration-500 ease-out hover:-translate-y-1 rounded-[20px] flex flex-col group relative overflow-hidden">
                             {/* Subtle Hover Background Pattern */}
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-[0.03] transition-opacity duration-700 bg-[radial-gradient(#0052FF_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>

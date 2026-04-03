@@ -1,16 +1,27 @@
-import React, { type ButtonHTMLAttributes } from 'react';
-import { Link } from 'react-router-dom';
+import React, { type AnchorHTMLAttributes, type ButtonHTMLAttributes } from 'react';
+import PrefetchLink from './PrefetchLink';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonBaseProps {
     variant?: ButtonVariant;
     size?: ButtonSize;
     fullWidth?: boolean;
-    to?: string; // Tùy chọn truyền đường dẫn để biến Button thành <Link>
     children: React.ReactNode;
 }
+
+type ButtonAsButtonProps = ButtonBaseProps &
+    ButtonHTMLAttributes<HTMLButtonElement> & {
+        to?: undefined;
+    };
+
+type ButtonAsLinkProps = ButtonBaseProps &
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
+        to: string;
+    };
+
+export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
 const Button: React.FC<ButtonProps> = ({
     variant = 'primary',
@@ -45,16 +56,18 @@ const Button: React.FC<ButtonProps> = ({
 
     // Nếu có prop "to", render thành react-router-dom Link
     if (to) {
+        const linkProps = props as Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>;
         return (
-            <Link to={to} className={combinedClasses} {...(props as any)}>
+            <PrefetchLink to={to} className={combinedClasses} {...linkProps}>
                 {children}
-            </Link>
+            </PrefetchLink>
         );
     }
 
     // Nếu không có, mặc định trả về thẻ button HTML
+    const buttonProps = props as ButtonHTMLAttributes<HTMLButtonElement>;
     return (
-        <button className={combinedClasses} {...props}>
+        <button className={combinedClasses} {...buttonProps}>
             {children}
         </button>
     );

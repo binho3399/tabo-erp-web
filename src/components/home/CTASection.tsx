@@ -1,47 +1,61 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Icon } from '@/components/ui';
 
 const CTASection: React.FC = () => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const sectionRef = useRef<HTMLElement | null>(null);
 
     useEffect(() => {
-        if (window.innerWidth < 1024 || window.matchMedia('(pointer: coarse)').matches) {
+        const section = sectionRef.current;
+        if (!section || window.innerWidth < 1024 || window.matchMedia('(pointer: coarse)').matches) {
             return;
         }
 
+        let frameId = 0;
         const handleMouseMove = (e: MouseEvent) => {
-            setMousePosition({
-                x: (e.clientX - window.innerWidth / 2) / 35,
-                y: (e.clientY - window.innerHeight / 2) / 35,
+            const nextX = (e.clientX - window.innerWidth / 2) / 35;
+            const nextY = (e.clientY - window.innerHeight / 2) / 35;
+
+            if (frameId) {
+                cancelAnimationFrame(frameId);
+            }
+
+            frameId = window.requestAnimationFrame(() => {
+                section.style.setProperty('--cta-mouse-x', `${nextX}px`);
+                section.style.setProperty('--cta-mouse-y', `${nextY}px`);
             });
         };
 
         window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        return () => {
+            if (frameId) {
+                cancelAnimationFrame(frameId);
+            }
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
     }, []);
 
     return (
-        <section className="bg-[#020617] text-white overflow-hidden relative py-16 lg:pt-24 lg:pb-32 border-t border-white/5">
+        <section ref={sectionRef} className="bg-[#020617] text-white overflow-hidden relative py-16 lg:pt-24 lg:pb-32 border-t border-white/5 [--cta-mouse-x:0px] [--cta-mouse-y:0px]">
             {/* Dynamic Background Animation Elements */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 {/* Floating Animated Glows - Significantly more visible with Parallax */}
                 <div
                     className="absolute top-[-25%] left-[-15%] hidden lg:block w-[80%] h-[80%] rounded-full bg-blue-600/25 blur-[130px] animate-float transition-all duration-300 ease-out"
-                    style={{ transform: `translate(${mousePosition.x * -1}px, ${mousePosition.y * -1}px)` }}
+                    style={{ transform: 'translate(calc(var(--cta-mouse-x) * -1), calc(var(--cta-mouse-y) * -1))' }}
                 ></div>
                 <div
                     className="absolute bottom-[-25%] right-[-15%] hidden lg:block w-[70%] h-[70%] rounded-full bg-blue-500/20 blur-[110px] animate-float opacity-80 transition-all duration-300 ease-out"
                     style={{
                         animationDelay: '-5s',
                         animationDirection: 'reverse',
-                        transform: `translate(${mousePosition.x * 1.2}px, ${mousePosition.y * 1.2}px)`
+                        transform: 'translate(calc(var(--cta-mouse-x) * 1.2), calc(var(--cta-mouse-y) * 1.2))'
                     }}
                 ></div>
                 <div
                     className="absolute top-[15%] right-[5%] hidden lg:block w-[40%] h-[40%] rounded-full bg-indigo-500/15 blur-[90px] animate-float opacity-70 transition-all duration-300 ease-out"
                     style={{
                         animationDelay: '-2s',
-                        transform: `translate(${mousePosition.x * 0.8}px, ${mousePosition.y * 0.8}px)`
+                        transform: 'translate(calc(var(--cta-mouse-x) * 0.8), calc(var(--cta-mouse-y) * 0.8))'
                     }}
                 ></div>
 

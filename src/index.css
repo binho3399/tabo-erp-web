@@ -8,7 +8,7 @@
   --color-tabo-secondary: #0f172a;
   --color-tabo-accent: #f59e0b;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "SF Pro Display", "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --animate-marquee: marquee 25s linear infinite;
   --animate-grid-flow-x: grid-flow-x 8s linear infinite;
@@ -172,17 +172,14 @@ body {
 .animate-marquee,
 .animate-grid-flow-x,
 .animate-grid-flow-y,
-.animate-float,
-.animate-pulse,
-.animate-bounce {
+.animate-float {
   will-change: transform, opacity;
 }
 
 /* Optimize SVG performance */
-svg path, 
+svg path,
 svg circle {
   transform-box: fill-box;
-  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {

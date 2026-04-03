@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Icon, Button, ThemeToggle } from '@/components/ui';
+import { useLocation } from 'react-router-dom';
+import { Icon, Button, ThemeToggle, PrefetchLink } from '@/components/ui';
 import { useTheme } from '@/context/ThemeContext';
+import { siteMetadata, siteRoutes } from '@/config/site';
 import logoBlack from '../../assets/logo-black.png';
 import logoWhite from '../../assets/Logo-white.png';
 
@@ -76,13 +77,6 @@ const Navbar: React.FC = () => {
         setIsOpen(!isOpen);
     };
 
-    const navLinks = [
-        { name: 'Trang chủ', path: '/', icon: 'home' },
-        { name: 'Bảng giá', path: '/pricing', icon: 'payments' },
-        { name: 'Về chúng tôi', path: '/about', icon: 'groups' },
-        { name: 'Liên hệ', path: '/contact', icon: 'contact_support' },
-    ];
-
     return (
         <>
             {isOpen && (
@@ -99,22 +93,22 @@ const Navbar: React.FC = () => {
                     <div className="flex items-center h-[76px]">
                         {/* Logo Section - Aligned Left */}
                         <div className="flex-1 flex items-center">
-                            <Link to="/" className="flex-shrink-0 flex items-center">
-                                <img src={isDark ? logoWhite : logoBlack} alt="Tabo ERP Logo" className="h-[40px] md:h-[44px] w-auto object-contain transition-all duration-500" />
-                            </Link>
+                            <PrefetchLink to="/" className="flex-shrink-0 flex items-center" aria-label={siteMetadata.name}>
+                                <img src={isDark ? logoWhite : logoBlack} alt={`${siteMetadata.name} Logo`} className="h-[40px] md:h-[44px] w-auto object-contain transition-all duration-500" />
+                            </PrefetchLink>
                         </div>
 
                         {/* Desktop Menu Section - Perfectly Centered */}
                         <div className="hidden lg:flex lg:items-center lg:space-x-10">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.name}
+                            {siteRoutes.map((link) => (
+                                <PrefetchLink
+                                    key={link.path}
                                     to={link.path}
                                     className="group relative text-[15px] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors flex items-center py-1"
                                 >
-                                    <span>{link.name}</span>
+                                    <span>{link.label}</span>
                                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-                                </Link>
+                                </PrefetchLink>
                             ))}
                         </div>
 
@@ -157,10 +151,10 @@ const Navbar: React.FC = () => {
                         className="lg:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-2xl overflow-hidden animate-[mobileNavEnter_320ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
                     >
                         <div className="px-2 py-4 space-y-2">
-                            <div className="grid grid-cols-1 gap-1">
-                                {navLinks.map((link, idx) => (
+                                <div className="grid grid-cols-1 gap-1">
+                                {siteRoutes.map((link, idx) => (
                                     <Button
-                                        key={link.name}
+                                        key={link.path}
                                         to={link.path}
                                         variant="ghost"
                                         className="flex items-center justify-start gap-4 !p-2 !rounded-2xl transition-all duration-200 hover:bg-slate-50 dark:hover:bg-slate-800 active:bg-slate-100 dark:active:bg-slate-700 group !h-auto !font-normal border-none"
@@ -168,15 +162,15 @@ const Navbar: React.FC = () => {
                                         style={{ animationDelay: `${idx * 50}ms` }}
                                     >
                                         <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 transition-colors">
-                                            <Icon name={link.icon} className="text-xl text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                                            <Icon name={link.navIcon} className="text-xl text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
                                         </div>
                                         <div className="flex flex-col text-left">
-                                            <span className="text-[17px] font-medium text-slate-900 dark:text-slate-100">{link.name}</span>
+                                            <span className="text-[17px] font-medium text-slate-900 dark:text-slate-100">{link.label}</span>
                                             <span className="text-[13px] text-slate-500 dark:text-slate-400 font-light translate-y-[-2px]">
-                                                {link.name === 'Trang chủ' && 'Khám phá thế giới Tabo'}
-                                                {link.name === 'Bảng giá' && 'Giải pháp và bảng giá tối ưu'}
-                                                {link.name === 'Về chúng tôi' && 'Câu chuyện và sứ mệnh'}
-                                                {link.name === 'Liên hệ' && 'Hỗ trợ 24/7 cho doanh nghiệp'}
+                                                {link.path === '/' && 'Kham pha giai phap Tabo ERP'}
+                                                {link.path === '/pricing' && 'Giai phap va bang gia toi uu'}
+                                                {link.path === '/about' && 'Cau chuyen va su menh'}
+                                                {link.path === '/contact' && 'Ho tro 24/7 cho doanh nghiep'}
                                             </span>
                                         </div>
                                         <Icon name="chevron_right" className="ml-auto text-slate-300 dark:text-slate-600 group-hover:text-slate-400 dark:group-hover:text-slate-500 text-lg translate-x-1 opacity-0 group-hover:opacity-100 transition-all" />

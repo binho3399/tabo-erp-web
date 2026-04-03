@@ -1,8 +1,9 @@
 import React from 'react';
 import { Icon, Badge, Button } from '@/components/ui';
+import type { IconName } from '@/components/ui/Icon';
 
 const StrategySection: React.FC = () => {
-    const strategies = [
+    const strategies: Array<{ title: string; desc: string; icon: IconName }> = [
         {
             title: "Kiến trúc dữ liệu lõi",
             desc: "Đồng bộ hóa dữ liệu giữa các phòng ban, xóa bỏ rào cản thông tin và tối ưu hóa quản trị.",
@@ -115,7 +116,7 @@ const StrategySection: React.FC = () => {
                         {/* Decorative Stripes from Figure 2 */}
                         <div className="absolute inset-x-0 top-0 h-full opacity-[0.07] pointer-events-none flex justify-end">
                             <div className="h-full w-1/2 flex gap-5 pr-12">
-                                {[...Array(12)].map((_, i) => (
+                                {Array.from({ length: 12 }).map((_, i) => (
                                     <div key={i} className="h-full w-px bg-white"></div>
                                 ))}
                             </div>
