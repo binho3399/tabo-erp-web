@@ -2,9 +2,10 @@ import React from 'react';
 import DeferredSection from '../components/common/DeferredSection';
 import ContactHero from '../components/contact/ContactHero';
 import ContactInfo from '../components/contact/ContactInfo';
+import { FAQSkeleton } from '../components/common/SkeletonLayouts';
 const ContactFAQ = React.lazy(() => import('../components/contact/ContactFAQ'));
 
-const deferredFallback = <div className="deferred-section min-h-[320px] bg-transparent" />;
+const contactFaqFallback = <FAQSkeleton rows={4} centered={false} />;
 
 const Contact: React.FC = () => {
     return (
@@ -16,8 +17,8 @@ const Contact: React.FC = () => {
             <ContactInfo />
 
             {/* FAQ Section */}
-            <DeferredSection fallback={deferredFallback} minHeight={420}>
-                <React.Suspense fallback={deferredFallback}>
+            <DeferredSection fallback={contactFaqFallback} minHeight={620}>
+                <React.Suspense fallback={contactFaqFallback}>
                     <ContactFAQ />
                 </React.Suspense>
             </DeferredSection>

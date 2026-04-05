@@ -4,6 +4,11 @@ import FeaturesSection from '../components/home/FeaturesSection';
 import StripBanner from '../components/home/StripBanner';
 import DeferredSection from '../components/common/DeferredSection';
 import ErrorBoundary from '../components/common/ErrorBoundary';
+import {
+    ContentGridSkeleton,
+    FAQSkeleton,
+    PricingTableSkeleton,
+} from '../components/common/SkeletonLayouts';
 
 // Lazy loaded components for better initial performance
 const SolutionsSection = lazy(() => import('../components/home/SolutionsSection'));
@@ -12,17 +17,11 @@ const PricingSection = lazy(() => import('../components/pricing/PricingSection')
 const TestimonialsSection = lazy(() => import('../components/home/TestimonialsSection'));
 const VisionSection = lazy(() => import('../components/home/VisionSection'));
 
-// Enhanced loading placeholder with better aesthetic
-const SectionLoader = () => (
-    <div className="deferred-section py-24 flex flex-col items-center justify-center min-h-[400px] bg-slate-50/50 dark:bg-slate-950/50 backdrop-blur-sm transition-all duration-700">
-        <div className="relative w-16 h-16 mb-6">
-            <div className="absolute inset-0 border-4 border-blue-500/20 rounded-full"></div>
-            <div className="absolute inset-0 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-            <div className="absolute inset-4 bg-blue-500/10 rounded-full animate-pulse"></div>
-        </div>
-        <p className="text-slate-400 dark:text-slate-500 text-sm font-medium animate-pulse">Đang tải nội dung...</p>
-    </div>
-);
+const solutionsFallback = <ContentGridSkeleton variant="split" />;
+const visionFallback = <ContentGridSkeleton variant="cards" />;
+const strategyFallback = <ContentGridSkeleton variant="cards" />;
+const pricingFallback = <PricingTableSkeleton withHeader={false} compact />;
+const testimonialsFallback = <FAQSkeleton rows={3} centered />;
 
 const Home: React.FC = () => {
     return (
@@ -32,28 +31,28 @@ const Home: React.FC = () => {
             <StripBanner />
             <ErrorBoundary>
                 <div className="flex flex-col gap-0">
-                    <DeferredSection fallback={<SectionLoader />} minHeight={520}>
-                        <Suspense fallback={<SectionLoader />}>
+                    <DeferredSection fallback={solutionsFallback} minHeight={920}>
+                        <Suspense fallback={solutionsFallback}>
                             <SolutionsSection />
                         </Suspense>
                     </DeferredSection>
-                    <DeferredSection fallback={<SectionLoader />} minHeight={420}>
-                        <Suspense fallback={<SectionLoader />}>
+                    <DeferredSection fallback={visionFallback} minHeight={720}>
+                        <Suspense fallback={visionFallback}>
                             <VisionSection />
                         </Suspense>
                     </DeferredSection>
-                    <DeferredSection fallback={<SectionLoader />} minHeight={540}>
-                        <Suspense fallback={<SectionLoader />}>
+                    <DeferredSection fallback={strategyFallback} minHeight={760}>
+                        <Suspense fallback={strategyFallback}>
                             <StrategySection />
                         </Suspense>
                     </DeferredSection>
-                    <DeferredSection fallback={<SectionLoader />} minHeight={560}>
-                        <Suspense fallback={<SectionLoader />}>
+                    <DeferredSection fallback={pricingFallback} minHeight={980}>
+                        <Suspense fallback={pricingFallback}>
                             <PricingSection />
                         </Suspense>
                     </DeferredSection>
-                    <DeferredSection fallback={<SectionLoader />} minHeight={420}>
-                        <Suspense fallback={<SectionLoader />}>
+                    <DeferredSection fallback={testimonialsFallback} minHeight={520}>
+                        <Suspense fallback={testimonialsFallback}>
                             <TestimonialsSection />
                         </Suspense>
                     </DeferredSection>
