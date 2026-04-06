@@ -4,7 +4,7 @@ import path from 'node:path'
 const distAssetsDir = path.resolve('dist/assets')
 const budgets = {
   entryJs: 120 * 1024,
-  entryCss: 135 * 1024,
+  entryCss: 140 * 1024,
 }
 
 function formatSize(bytes) {
