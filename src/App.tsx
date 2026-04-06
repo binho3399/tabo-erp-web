@@ -12,22 +12,26 @@ const routes: SiteRoute[] = siteRoutes.map((route) => ({
     Component: lazy(route.load),
 }));
 
-const routeFallback = <RouteSkeleton />;
+const routeFallback = (
+    <Layout loadingState="route">
+        <RouteSkeleton />
+    </Layout>
+);
 
 const App: React.FC = () => {
     return (
         <Router>
             <ScrollToTop />
             <RouteDocumentMeta />
-            <Layout>
-                <Suspense fallback={routeFallback}>
+            <Suspense fallback={routeFallback}>
+                <Layout>
                     <Routes>
                         {routes.map(({ path, Component }) => (
                             <Route key={path} path={path} element={<Component />} />
                         ))}
                     </Routes>
-                </Suspense>
-            </Layout>
+                </Layout>
+            </Suspense>
         </Router>
     );
 };
