@@ -1,0 +1,19 @@
+{
+  "updatedAt": "2026-04-09T00:00:00+07:00",
+  "subagents": [
+    {
+      "name": "Dev fullstack",
+      "nickname": "Helmholtz",
+      "id": "019d70ec-27d0-7c73-85e2-e697b4bbc0db",
+      "role": "Fullstack development",
+      "model": "gpt-5.4-mini",
+      "runtime": {
+        "status": "idle",
+        "currentTask": "",
+        "queueState": "empty",
+        "lastUpdate": "2026-04-09T00:00:00+07:00",
+        "note": "Ready for work"
+      }
+    }
+  ]
+}
