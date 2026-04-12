@@ -8,8 +8,8 @@ const Footer: React.FC = () => {
         <footer className="bg-[#020408] dark:bg-slate-950 text-gray-500 pt-16 pb-6 md:py-16 relative z-20 transition-colors duration-500">
             {/* Background Glow Container (Safe overflow) */}
             <div className="absolute inset-0 pointer-events-none z-0">
-                <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 dark:bg-blue-500/5 blur-[120px]"></div>
-                <div className="absolute bottom-0 left-0 w-1/4 h-full bg-blue-900/10 dark:bg-blue-900/5 blur-[100px]"></div>
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-600/5 dark:bg-blue-500/5 blur-[80px]"></div>
+                <div className="absolute bottom-0 left-0 w-1/4 h-full bg-blue-900/10 dark:bg-blue-900/5 blur-[72px]"></div>
 
                 {/* Large Background Text Watermark */}
                 <div className="absolute inset-x-0 bottom-0 top-0 flex items-center justify-center pointer-events-none select-none overflow-visible uppercase font-bold">
@@ -34,7 +34,6 @@ const Footer: React.FC = () => {
 
             {/* Top Light Beam Effect - Moved slightly up with Soft Pulse Animation */}
             <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent z-40 animate-soft-pulse"></div>
-            <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent z-40 mt-[0.5px] animate-soft-pulse" style={{ animationDelay: '1s' }}></div>
 
             {/* Decorative Fading Lines - 6 tiers stacking towards footer */}
             <div className="absolute -top-[40px] md:-top-[80px] left-0 w-full pointer-events-none select-none z-30">

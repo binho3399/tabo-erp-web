@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon, Button, ThemeToggle, PrefetchLink } from '@/components/ui';
 import { useTheme } from '@/context/ThemeContext';
 import { siteMetadata, siteRoutes } from '@/config/site';
+import type { NavRoutePath } from '@/config/routes';
 import logoBlack from '../../assets/logo-black.png';
 import logoWhite from '../../assets/Logo-white.png';
 
@@ -11,6 +12,7 @@ const Navbar: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const { isDark } = useTheme();
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         let ticking = false;
@@ -77,6 +79,29 @@ const Navbar: React.FC = () => {
         setIsOpen(!isOpen);
     };
 
+    const handleNavClick = (targetPath: NavRoutePath) => (event: React.MouseEvent<HTMLElement>) => {
+        const isSamePath = location.pathname === targetPath;
+        const isBlogDetailToIndex = targetPath === '/blog' && location.pathname.startsWith('/blog/');
+
+        if (!isSamePath && !isBlogDetailToIndex) {
+            return;
+        }
+
+        event.preventDefault();
+        setIsOpen(false);
+
+        if (isBlogDetailToIndex) {
+            void navigate('/blog');
+            return;
+        }
+
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <>
             {isOpen && (
@@ -112,6 +137,7 @@ const Navbar: React.FC = () => {
                                 <PrefetchLink
                                     key={link.path}
                                     to={link.path}
+                                    onClick={handleNavClick(link.path)}
                                     className="group relative text-[15px] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors flex items-center py-1"
                                 >
                                     <span>{link.label}</span>
@@ -166,7 +192,7 @@ const Navbar: React.FC = () => {
                                         to={link.path}
                                         variant="ghost"
                                         className="flex items-center justify-start gap-4 !p-2 !rounded-2xl transition-all duration-200 hover:bg-slate-50 dark:hover:bg-slate-800 active:bg-slate-100 dark:active:bg-slate-700 group !h-auto !font-normal border-none"
-                                        onClick={() => setIsOpen(false)}
+                                        onClick={handleNavClick(link.path)}
                                         style={{ animationDelay: `${idx * 50}ms` }}
                                     >
                                         <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 transition-colors">
@@ -175,10 +201,11 @@ const Navbar: React.FC = () => {
                                         <div className="flex flex-col text-left">
                                             <span className="text-[17px] font-medium text-slate-900 dark:text-slate-100">{link.label}</span>
                                             <span className="text-[13px] text-slate-500 dark:text-slate-400 font-light translate-y-[-2px]">
-                                                {link.path === '/' && 'Kham pha giai phap Tabo ERP'}
-                                                {link.path === '/pricing' && 'Giai phap va bang gia toi uu'}
-                                                {link.path === '/about' && 'Cau chuyen va su menh'}
-                                                {link.path === '/contact' && 'Ho tro 24/7 cho doanh nghiep'}
+                                                {link.path === '/' && 'Khám phá giải pháp Tabo ERP'}
+                                                {link.path === '/pricing' && 'Giải pháp và bảng giá tối ưu'}
+                                                {link.path === '/about' && 'Câu chuyện và sứ mệnh'}
+                                                {link.path === '/contact' && 'Hỗ trợ 24/7 cho doanh nghiệp'}
+                                                {link.path === '/blog' && 'Kiến thức ERP và vận hành'}
                                             </span>
                                         </div>
                                         <Icon name="chevron_right" className="ml-auto text-slate-300 dark:text-slate-600 group-hover:text-slate-400 dark:group-hover:text-slate-500 text-lg translate-x-1 opacity-0 group-hover:opacity-100 transition-all" />

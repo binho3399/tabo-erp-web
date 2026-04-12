@@ -8,6 +8,8 @@
   --color-tabo-secondary: #0f172a;
   --color-tabo-accent: #f59e0b;
 
+  --size-7xl: 76rem;
+
   --font-sans: "SF Pro Display", "Segoe UI", "Helvetica Neue", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --animate-marquee: marquee 25s linear infinite;
@@ -217,9 +219,36 @@ body {
 
 .section-container {
   width: 100%;
-  max-width: 80rem;
+  max-width: 76rem;
   margin-inline: auto;
   padding-inline: 1rem;
+}
+
+.ambient-grid {
+  background-image:
+    linear-gradient(to right, rgb(128 128 128 / 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(128 128 128 / 0.18) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+.ambient-grid-blue {
+  background-image:
+    linear-gradient(to right, rgb(59 130 246 / 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(59 130 246 / 0.16) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+.ambient-noise {
+  background-image: url('/noise.svg');
+  background-repeat: repeat;
+}
+
+.motion-gated {
+  will-change: transform, opacity;
+}
+
+[data-motion-active='false'] .motion-gated {
+  animation-play-state: paused !important;
 }
 
 .section-header {
@@ -295,7 +324,7 @@ body {
 
 @media (width >= 64rem) {
   .section-container {
-    padding-inline: 2rem;
+    padding-inline: 0;
   }
 }
 

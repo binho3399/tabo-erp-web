@@ -40,11 +40,15 @@ graph TD
     Router --> RoutePricing[Route: /pricing]
     Router --> RouteAbout[Route: /about]
     Router --> RouteContact[Route: /contact]
+    Router --> RouteBlog[Route: /blog]
+    Router --> RouteBlogPost[Route: /blog/:slug]
 
     RouteHome --> HomePage[src/pages/Home.tsx]
     RoutePricing --> PricingPage[src/pages/Pricing.tsx]
     RouteAbout --> AboutPage[src/pages/About.tsx]
     RouteContact --> ContactPage[src/pages/Contact.tsx]
+    RouteBlog --> BlogIndex[src/pages/BlogIndex.tsx]
+    RouteBlogPost --> BlogPost[src/pages/BlogPost.tsx]
 
     %% Home page
     HomePage --> HomeHero[components/home/HeroSection.tsx]
@@ -94,6 +98,16 @@ graph TD
     ContactInfo --> LazyMap[components/contact/LazyMapEmbed.tsx]
     ContactInfo --> SiteConfig
 
+    %% Blog page
+    BlogIndex --> BlogCard[components/blog/BlogCard.tsx]
+    BlogIndex --> BlogRepo[lib/blog/repository.ts]
+    BlogIndex --> SeoHook[components/seo/usePageMetadata.ts]
+
+    BlogPost --> BlogArticleBody[components/blog/BlogArticleBody.tsx]
+    BlogPost --> BlogCard
+    BlogPost --> BlogRepo
+    BlogPost --> SeoHook
+
     %% Shared UI primitives
     subgraph UI_Primitives[components/ui]
         Button[Button.tsx]
@@ -117,6 +131,9 @@ graph TD
     subgraph Common[Common / Infra]
         ErrorBoundary
         Supabase[src/lib/supabase.ts]
+        BlogRepo
+        BlogSeo[lib/blog/seo.ts]
+        MetadataProvider[components/seo/MetadataProvider.tsx]
         RoutePrefetch[src/lib/route-prefetch.ts]
     end
 
@@ -202,7 +219,9 @@ Khi cần sửa một phần cụ thể, đọc theo thứ tự này để giả
 5. `src/types/landing.ts` là hợp đồng dữ liệu. Nếu thay cấu trúc `constants/landing`, nên cập nhật type trước để tránh lan lỗi.
 6. `src/config/site.ts` là nguồn sự thật cho route metadata, label navigation và SEO cơ bản. Nếu thêm route, sửa ở đây trước.
 7. `src/components/ui/PrefetchLink.tsx` và `src/lib/route-prefetch.ts` là lớp prefetch dùng cho route lazy. Nếu link nội bộ không prefetch như kỳ vọng, đọc hai file này trước.
-8. `src/lib/supabase.ts` hiện chưa nằm trong runtime path chính. Nếu task không liên quan auth/backend, thường không cần mở file này.
+8. Blog dùng adapter ở `src/lib/blog/repository.ts` và metadata động qua `components/seo/usePageMetadata.ts`; page/component không đọc mock data trực tiếp.
+9. Build production hiện có thêm bước prerender blog routes qua `src/entry-server.tsx` và `scripts/prerender.mjs`.
+10. `src/lib/supabase.ts` hiện chưa nằm trong runtime path chính. Nếu task không liên quan auth/backend, thường không cần mở file này.
 
 ## 5. Quy Tắc Đồng Bộ Cho Agent
 

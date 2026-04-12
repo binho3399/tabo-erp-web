@@ -1,24 +1,6 @@
-import type { ComponentType, LazyExoticComponent } from 'react'
-
+import { primaryNavRoutes, type NavRoutePath } from '@/config/routes'
 import type { IconName } from '@/components/ui/Icon'
-
-export type RoutePath = '/' | '/pricing' | '/about' | '/contact'
-
-type PageModule = { default: ComponentType }
-type PageLoader = () => Promise<PageModule>
-
-export interface SiteRouteDefinition {
-  path: RoutePath
-  label: string
-  navIcon: IconName
-  title: string
-  description: string
-  load: PageLoader
-}
-
-export interface SiteRoute extends SiteRouteDefinition {
-  Component: LazyExoticComponent<ComponentType>
-}
+import type { MetadataInput } from '@/lib/seo/types'
 
 interface ContactLine {
   label: string
@@ -35,9 +17,13 @@ interface ContactCard {
 export const siteMetadata = {
   name: 'Tabo ERP',
   shortName: 'Tabo',
+  organizationName: 'Tabo ERP',
   description:
     'Tabo ERP là nền tảng điều hành doanh nghiệp hợp nhất bán hàng, kho bãi và tài chính trên một hệ thống duy nhất.',
   titleTemplate: '%s | Tabo ERP',
+  siteUrl: 'https://tabo.vn',
+  defaultOgImage: '/favicon.svg',
+  twitterHandle: '@taboerp',
   phone: '1800 356 893',
   email: 'contact@tabo.vn',
   salesEmail: 'sales@tabo.vn',
@@ -46,44 +32,40 @@ export const siteMetadata = {
     'Tòa nhà Landmark 81, Vinhomes Central Park, Phường 22, Bình Thạnh, TP. Hồ Chí Minh',
 } as const
 
-export const siteRoutes: SiteRouteDefinition[] = [
-  {
-    path: '/',
-    label: 'Trang chủ',
-    navIcon: 'home',
+export const siteRoutes = primaryNavRoutes
+
+export const staticPageMetadata: Record<NavRoutePath, MetadataInput> = {
+  '/': {
     title: 'Điều hành doanh nghiệp tất cả trong một',
     description:
       'Theo dõi bán hàng, kho bãi và tài chính theo thời gian thực trên một nền tảng ERP duy nhất.',
-    load: () => import('@/pages/Home'),
+    canonicalPath: '/',
   },
-  {
-    path: '/pricing',
-    label: 'Bảng giá',
-    navIcon: 'payments',
+  '/pricing': {
     title: 'Bảng giá dịch vụ',
     description:
       'Khám phá các gói giải pháp Tabo ERP phù hợp với quy mô doanh nghiệp và mục tiêu tăng trưởng.',
-    load: () => import('@/pages/Pricing'),
+    canonicalPath: '/pricing',
   },
-  {
-    path: '/about',
-    label: 'Về chúng tôi',
-    navIcon: 'groups',
+  '/about': {
     title: 'Câu chuyện và tầm nhìn',
     description:
       'Tìm hiểu cách Tabo ERP xây dựng giải pháp quản trị gọn, mở rộng linh hoạt và hướng đến tăng trưởng bền vững.',
-    load: () => import('@/pages/About'),
+    canonicalPath: '/about',
   },
-  {
-    path: '/contact',
-    label: 'Liên hệ',
-    navIcon: 'contact_support',
+  '/contact': {
     title: 'Liên hệ và tư vấn',
     description:
       'Kết nối với Tabo ERP để nhận tư vấn, hỗ trợ kỹ thuật và giải pháp quản trị phù hợp doanh nghiệp.',
-    load: () => import('@/pages/Contact'),
+    canonicalPath: '/contact',
   },
-]
+  '/blog': {
+    title: 'Blog ERP và vận hành doanh nghiệp',
+    description:
+      'Blog Tabo ERP chia sẻ kinh nghiệm ERP, tài chính, tồn kho và chuyển đổi số để doanh nghiệp ra quyết định nhanh hơn.',
+    canonicalPath: '/blog',
+  },
+}
 
 export const legalLinks = [
   { label: 'Chính sách bảo mật', href: '#' },

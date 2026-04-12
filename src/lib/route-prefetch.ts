@@ -1,15 +1,27 @@
-import type { RoutePath } from '@/config/site'
-import { siteRoutes } from '@/config/site'
+import { appRouteDefinitions, type AppRoutePath } from '@/config/routes'
 
-const prefetchedRoutes = new Set<RoutePath>()
-const routeLoaders = new Map(siteRoutes.map((route) => [route.path, route.load]))
+const prefetchedRoutes = new Set<AppRoutePath>()
+const routeLoaders = new Map(appRouteDefinitions.map((route) => [route.path, route.load]))
+
+function normalizeRoutePath(path: string): AppRoutePath | null {
+  if (routeLoaders.has(path as AppRoutePath)) {
+    return path as AppRoutePath
+  }
+
+  if (path.startsWith('/blog/')) {
+    return '/blog/:slug'
+  }
+
+  return null
+}
 
 export function prefetchRoute(path: string): void {
-  if (!routeLoaders.has(path as RoutePath)) {
+  const routePath = normalizeRoutePath(path)
+
+  if (!routePath) {
     return
   }
 
-  const routePath = path as RoutePath
   if (prefetchedRoutes.has(routePath)) {
     return
   }

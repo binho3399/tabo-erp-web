@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Button, Badge } from '@/components/ui';
 import { heroAvatarBadges, heroTickerItems } from '@/content/home';
+import { useViewportActivity } from '@/hooks/useViewportActivity';
 
 const AvatarBadge: React.FC<{ initials: string; className: string; sizeClassName: string }> = ({
     initials,
@@ -13,29 +14,29 @@ const AvatarBadge: React.FC<{ initials: string; className: string; sizeClassName
 );
 
 const HeroSection: React.FC = () => {
+    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
+
     return (
-        <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-32 pb-16 lg:pt-[164px] lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center">
+        <section
+            ref={sectionRef}
+            data-motion-active={isActive}
+            className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-32 pb-16 lg:pt-[164px] lg:pb-24 overflow-hidden min-h-[85vh] lg:min-h-[80vh] flex items-center justify-center"
+        >
             {/* Ambient Blurry Blobs */}
-            <div className="absolute top-[-10%] left-[-10%] hidden lg:block w-[50%] h-[50%] rounded-full bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light"></div>
-            <div className="absolute bottom-[-10%] right-[-5%] hidden lg:block w-[40%] h-[40%] rounded-full bg-cyan-300/20 dark:bg-cyan-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light"></div>
-            <div className="absolute top-[20%] right-[10%] hidden lg:block w-[30%] h-[30%] rounded-full bg-purple-300/10 dark:bg-purple-600/5 blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-soft-light"></div>
+            <div className="absolute top-[-8%] left-[-8%] hidden lg:block h-[42%] w-[42%] rounded-full bg-blue-400/16 blur-[88px] pointer-events-none dark:bg-blue-600/8"></div>
+            <div className="absolute bottom-[-8%] right-[-4%] hidden lg:block h-[34%] w-[34%] rounded-full bg-cyan-300/14 blur-[80px] pointer-events-none dark:bg-cyan-600/8"></div>
 
             <div className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_72%)] lg:hidden"></div>
 
             {/* Small Floating Decorations with Animations */}
-            <div className="absolute top-[15%] left-[15%] hidden lg:block w-2 h-2 bg-blue-500 rounded-full opacity-40 pointer-events-none animate-bounce" style={{ animationDuration: '4s' }}></div>
-            <div className="absolute bottom-[25%] right-[15%] hidden lg:block border-[1.5px] border-indigo-400 w-3 h-3 rounded-sm opacity-30 rotate-45 pointer-events-none animate-[spin]" style={{ animationDuration: '6s' }}></div>
-            <div className="absolute top-[25%] right-[20%] hidden lg:block opacity-30 text-blue-600 dark:text-blue-400 pointer-events-none animate-pulse" style={{ animationDuration: '3s' }}>
+            <div className="motion-gated absolute top-[18%] left-[16%] hidden lg:block w-2 h-2 bg-blue-500 rounded-full opacity-35 pointer-events-none animate-bounce" style={{ animationDuration: '5s' }}></div>
+            <div className="motion-gated absolute top-[25%] right-[20%] hidden lg:block opacity-25 text-blue-600 dark:text-blue-400 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }}>
                 <Icon name="star" className="text-[18px]" />
             </div>
-            <div className="absolute bottom-[35%] left-[10%] hidden lg:block opacity-30 text-cyan-600 dark:text-cyan-400 pointer-events-none -rotate-12 animate-bounce" style={{ animationDuration: '5s', animationDelay: '1s' }}>
-                <Icon name="change_history" className="text-[20px]" />
-            </div>
-            <div className="absolute top-[10%] left-[80%] hidden lg:block w-2 h-2 bg-orange-400 rounded-full opacity-40 pointer-events-none animate-pulse" style={{ animationDuration: '2s' }}></div>
 
             {/* Subtle Grid Pattern Overlay with Animated SVG Beams */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+                <div className="ambient-grid absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"></div>
 
                 <svg className="absolute inset-0 hidden lg:block w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 100">
                     <defs>
@@ -48,32 +49,13 @@ const HeroSection: React.FC = () => {
 
                     {/* Randomized snaking paths flowing top-to-bottom */}
                     <path
-                        d="M 15 0 V 25 H 30 V 45 H 10 V 70 H 25 V 100"
-                        fill="none"
-                        stroke="url(#beamGradient)"
-                        strokeWidth="0.04"
-                        pathLength="1"
-                        strokeDasharray="0.12 0.88"
-                        className="animate-grid-dash"
-                    />
-                    <path
-                        d="M 85 0 V 35 H 70 V 65 H 90 V 85 H 75 V 100"
-                        fill="none"
-                        stroke="url(#beamGradient)"
-                        strokeWidth="0.04"
-                        pathLength="1"
-                        strokeDasharray="0.15 0.85"
-                        className="animate-grid-dash"
-                        style={{ animationDelay: '3s', animationDuration: '20s' }}
-                    />
-                    <path
                         d="M 45 0 V 15 H 55 V 35 H 40 V 60 H 60 V 80 H 50 V 100"
                         fill="none"
                         stroke="url(#beamGradient)"
                         strokeWidth="0.025"
                         pathLength="1"
                         strokeDasharray="0.1 0.9"
-                        className="animate-grid-dash"
+                        className="motion-gated animate-grid-dash"
                         style={{ animationDelay: '6s', animationDuration: '25s' }}
                     />
                     <path
@@ -83,7 +65,7 @@ const HeroSection: React.FC = () => {
                         strokeWidth="0.025"
                         pathLength="1"
                         strokeDasharray="0.08 0.92"
-                        className="animate-grid-dash"
+                        className="motion-gated animate-grid-dash"
                         style={{ animationDelay: '9s', animationDuration: '30s' }}
                     />
                 </svg>
@@ -94,7 +76,7 @@ const HeroSection: React.FC = () => {
                 {/* Centered Content */}
                 <div className="text-left lg:text-center max-w-3xl w-full flex flex-col items-start lg:items-center relative z-20">
                     {/* Sparkles Decoration */}
-                    <div className="absolute top-[-100px] left-1/2 hidden lg:block -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
+                    <div className="absolute top-[-90px] left-1/2 hidden lg:block -translate-x-1/2 w-full max-w-[700px] h-[240px] pointer-events-none opacity-16 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-2xl"></div>
                     <Badge variant="primary" className="mb-4 uppercase shadow-sm relative z-10 select-none">
                         HỆ ĐIỀU HÀNH DOANH NGHIỆP
                     </Badge>
@@ -123,7 +105,10 @@ const HeroSection: React.FC = () => {
                             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
                         }}
                     >
-                        <div className="flex gap-6 lg:gap-10 whitespace-nowrap animate-[marquee_25s_linear_infinite] w-max">
+                        <div
+                            className="motion-gated flex gap-6 lg:gap-10 whitespace-nowrap animate-[marquee_25s_linear_infinite] w-max"
+                            style={{ animationPlayState: isActive ? 'running' : 'paused' }}
+                        >
                             {Array.from({ length: 2 }).map((_, i) => (
                                 <div key={i} className="flex gap-6 lg:gap-10 items-center">
                                     {heroTickerItems.map((item, index) => (

@@ -69,12 +69,11 @@ const ContactInfo: React.FC = () => {
                             <div className="bg-[#0057E7] w-full p-4 lg:p-6 rounded-[20px] flex flex-col gap-4 lg:gap-6 h-full relative overflow-hidden group">
                                 {/* Intense Gradient & Mesh Effect */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-700 opacity-90"></div>
-                                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-sky-400/20 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none animate-pulse"></div>
-                                <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-indigo-500/30 rounded-full blur-[80px] -ml-24 -mb-24 pointer-events-none"></div>
+                                <div className="absolute top-0 right-0 h-[320px] w-[320px] -mr-40 -mt-40 rounded-full bg-sky-400/16 blur-[72px] pointer-events-none"></div>
+                                <div className="absolute bottom-0 left-0 h-[240px] w-[240px] -ml-20 -mb-20 rounded-full bg-indigo-500/24 blur-[56px] pointer-events-none"></div>
 
                                 {/* Decorative Rings */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-white/10 rounded-full pointer-events-none group-hover:scale-150 transition-transform duration-[1500ms]"></div>
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/5 rounded-full pointer-events-none group-hover:scale-125 transition-transform duration-[2000ms]"></div>
+                                <div className="absolute top-1/2 left-1/2 h-[260px] w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/8 pointer-events-none transition-transform duration-[1400ms] group-hover:scale-125"></div>
 
                                 {/* Light Sweep Beam */}
                                 <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -98,8 +97,8 @@ const ContactInfo: React.FC = () => {
 
                                 <div className="relative z-10 flex flex-col h-full">
                                     <div className="mb-8">
-                                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-6">
-                                            <div className="w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+                                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
+                                            <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                                             <span className="text-[11px] font-bold text-white tracking-widest uppercase">TABO ERP</span>
                                         </div>
                                         <h4 className="text-[20px] lg:text-[28px] font-normal text-white mb-4 underline underline-offset-8 decoration-white/20">Giải pháp doanh nghiệp</h4>

@@ -48,23 +48,20 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
                                             <div className="absolute inset-0 bg-gradient-to-b from-[#0F172A] to-[#020617]"></div>
                                             
                                             {/* Animated Glowing Orbs */}
-                                            <div className="absolute -top-[30%] -right-[10%] w-[70%] h-[70%] bg-blue-600/30 rounded-full blur-[80px]"></div>
-                                            <div className="absolute bottom-[10%] -left-[20%] w-[60%] h-[60%] bg-indigo-600/20 rounded-full blur-[80px]"></div>
+                                            <div className="absolute -top-[24%] -right-[8%] h-[58%] w-[58%] rounded-full bg-blue-600/18 blur-[56px]"></div>
+                                            <div className="absolute bottom-[12%] -left-[18%] h-[44%] w-[44%] rounded-full bg-indigo-600/14 blur-[56px]"></div>
                                             
                                             {/* Premium Grid Pattern - using CSS gradient for reliable rendering */}
-                                            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:linear-gradient(to_bottom,white_40%,transparent_100%)] opacity-80"></div>
+                                            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:linear-gradient(to_bottom,white_40%,transparent_100%)] opacity-65"></div>
                                             
                                             {/* Glassmorphism Border Reflections */}
-                                            <div className="absolute inset-0 rounded-[20px] border border-white/10 mix-blend-overlay"></div>
+                                            <div className="absolute inset-0 rounded-[20px] border border-white/10"></div>
                                             <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent"></div>
                                         </div>
 
                                         {/* Magic Border Badge */}
                                         <div className="absolute -top-[14px] left-1/2 -translate-x-1/2 z-30 group">
-                                            <div className="relative flex items-center justify-center p-[1.5px] rounded-full overflow-hidden shadow-[0_0_20px_rgba(37,99,235,0.6)]">
-                                                {/* Rotating Beam */}
-                                                <div className="absolute w-[400%] h-[400%] animate-[spin_2.5s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_280deg,white_360deg)] opacity-100" />
-                                                
+                                            <div className="relative flex items-center justify-center rounded-full p-[1.5px] overflow-hidden shadow-[0_0_16px_rgba(37,99,235,0.45)]">
                                                 {/* Badge Content */}
                                                 <span className="relative z-10 bg-blue-600 text-white text-[10px] font-bold px-5 py-[5.5px] rounded-full uppercase tracking-widest">
                                                     Đề xuất
@@ -148,7 +145,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
             </div>
 
             {/* Background elements */}
-            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-50/30 dark:bg-blue-600/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-colors"></div>
+            <div className="absolute top-1/2 left-0 h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-50/22 blur-[72px] pointer-events-none transition-colors dark:bg-blue-600/5"></div>
         </section>
     );
 };

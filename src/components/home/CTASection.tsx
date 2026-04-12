@@ -1,77 +1,91 @@
 import React, { useEffect, useRef } from 'react';
 import { Icon } from '@/components/ui';
+import { useViewportActivity } from '@/hooks/useViewportActivity';
 
 const CTASection: React.FC = () => {
-    const sectionRef = useRef<HTMLElement | null>(null);
+    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
+    const frameRef = useRef<number | null>(null);
 
     useEffect(() => {
-        const section = sectionRef.current;
-        if (!section || window.innerWidth < 1024 || window.matchMedia('(pointer: coarse)').matches) {
-            return;
-        }
-
-        let frameId = 0;
-        const handleMouseMove = (e: MouseEvent) => {
-            const nextX = (e.clientX - window.innerWidth / 2) / 35;
-            const nextY = (e.clientY - window.innerHeight / 2) / 35;
-
-            if (frameId) {
-                cancelAnimationFrame(frameId);
-            }
-
-            frameId = window.requestAnimationFrame(() => {
-                section.style.setProperty('--cta-mouse-x', `${nextX}px`);
-                section.style.setProperty('--cta-mouse-y', `${nextY}px`);
-            });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
         return () => {
-            if (frameId) {
-                cancelAnimationFrame(frameId);
+            if (frameRef.current) {
+                cancelAnimationFrame(frameRef.current);
             }
-            window.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
 
+    const handlePointerMove: React.PointerEventHandler<HTMLElement> = (event) => {
+        const section = sectionRef.current;
+
+        if (
+            !section ||
+            !isActive ||
+            window.innerWidth < 1024 ||
+            window.matchMedia('(pointer: coarse)').matches ||
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ) {
+            return;
+        }
+
+        const nextX = (event.clientX - window.innerWidth / 2) / 48;
+        const nextY = (event.clientY - window.innerHeight / 2) / 48;
+
+        if (frameRef.current) {
+            cancelAnimationFrame(frameRef.current);
+        }
+
+        frameRef.current = window.requestAnimationFrame(() => {
+            section.style.setProperty('--cta-mouse-x', `${nextX}px`);
+            section.style.setProperty('--cta-mouse-y', `${nextY}px`);
+        });
+    };
+
+    const handlePointerLeave: React.PointerEventHandler<HTMLElement> = () => {
+        const section = sectionRef.current;
+
+        if (!section) {
+            return;
+        }
+
+        if (frameRef.current) {
+            cancelAnimationFrame(frameRef.current);
+        }
+
+        section.style.setProperty('--cta-mouse-x', '0px');
+        section.style.setProperty('--cta-mouse-y', '0px');
+    };
+
     return (
-        <section ref={sectionRef} className="bg-[#020617] text-white overflow-hidden relative py-16 lg:pt-24 lg:pb-32 border-t border-white/5 [--cta-mouse-x:0px] [--cta-mouse-y:0px]">
+        <section
+            ref={sectionRef}
+            data-motion-active={isActive}
+            onPointerMove={handlePointerMove}
+            onPointerLeave={handlePointerLeave}
+            className="bg-[#020617] text-white overflow-hidden relative py-16 lg:pt-24 lg:pb-32 border-t border-white/5 [--cta-mouse-x:0px] [--cta-mouse-y:0px]"
+        >
             {/* Dynamic Background Animation Elements */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                {/* Floating Animated Glows - Significantly more visible with Parallax */}
+                {/* Floating glows with lighter parallax */}
                 <div
-                    className="absolute top-[-25%] left-[-15%] hidden lg:block w-[80%] h-[80%] rounded-full bg-blue-600/25 blur-[130px] animate-float transition-all duration-300 ease-out"
+                    className="motion-gated absolute top-[-20%] left-[-12%] hidden lg:block h-[68%] w-[68%] rounded-full bg-blue-600/18 blur-[96px] transition-transform duration-300 ease-out"
                     style={{ transform: 'translate(calc(var(--cta-mouse-x) * -1), calc(var(--cta-mouse-y) * -1))' }}
-                ></div>
+                />
                 <div
-                    className="absolute bottom-[-25%] right-[-15%] hidden lg:block w-[70%] h-[70%] rounded-full bg-blue-500/20 blur-[110px] animate-float opacity-80 transition-all duration-300 ease-out"
+                    className="motion-gated absolute bottom-[-22%] right-[-12%] hidden lg:block h-[58%] w-[58%] rounded-full bg-cyan-500/14 blur-[88px] opacity-80 transition-transform duration-300 ease-out"
                     style={{
-                        animationDelay: '-5s',
-                        animationDirection: 'reverse',
-                        transform: 'translate(calc(var(--cta-mouse-x) * 1.2), calc(var(--cta-mouse-y) * 1.2))'
+                        transform: 'translate(calc(var(--cta-mouse-x) * 0.9), calc(var(--cta-mouse-y) * 0.9))'
                     }}
-                ></div>
-                <div
-                    className="absolute top-[15%] right-[5%] hidden lg:block w-[40%] h-[40%] rounded-full bg-indigo-500/15 blur-[90px] animate-float opacity-70 transition-all duration-300 ease-out"
-                    style={{
-                        animationDelay: '-2s',
-                        transform: 'translate(calc(var(--cta-mouse-x) * 0.8), calc(var(--cta-mouse-y) * 0.8))'
-                    }}
-                ></div>
+                />
 
                 <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.18),transparent_70%)] lg:hidden"></div>
                 <div className="absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(circle_at_bottom,rgba(37,99,235,0.16),transparent_70%)] lg:hidden"></div>
 
-                {/* Subtle Moving Grid Pattern */}
-                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem] lg:opacity-[0.03] opacity-[0.015]"></div>
+                <div className="ambient-grid absolute inset-0 opacity-[0.02] lg:opacity-[0.03]"></div>
 
-                {/* Animated Light Beams running on Grid - Lower Opacity for Subtlety */}
-                <svg className="absolute inset-0 hidden lg:block w-full h-full opacity-[0.2] mix-blend-screen" preserveAspectRatio="none" viewBox="0 0 100 100">
-                    <path d="M 0 20 H 100" fill="none" stroke="#60a5fa" strokeWidth="0.15" pathLength="1" strokeDasharray="0.15 0.85" className="animate-beam-run" style={{ animationDuration: '4s' }} />
-                    <path d="M 0 50 H 100" fill="none" stroke="#3b82f6" strokeWidth="0.15" pathLength="1" strokeDasharray="0.1 0.9" className="animate-beam-run" style={{ animationDuration: '7s', animationDelay: '-2s' }} />
-                    <path d="M 0 80 H 100" fill="none" stroke="#60a5fa" strokeWidth="0.15" pathLength="1" strokeDasharray="0.2 0.8" className="animate-beam-run" style={{ animationDuration: '5s', animationDelay: '-4s' }} />
-                    <path d="M 30 0 V 100" fill="none" stroke="#60a5fa" strokeWidth="0.05" pathLength="1" strokeDasharray="0.12 0.88" className="animate-beam-run" style={{ animationDuration: '6s', animationDelay: '-1s' }} />
-                    <path d="M 70 0 V 100" fill="none" stroke="#3b82f6" strokeWidth="0.05" pathLength="1" strokeDasharray="0.15 0.85" className="animate-beam-run" style={{ animationDuration: '8s', animationDelay: '-5s' }} />
+                <svg className="absolute inset-0 hidden lg:block w-full h-full opacity-[0.14] mix-blend-screen" preserveAspectRatio="none" viewBox="0 0 100 100">
+                    <path d="M 0 24 H 100" fill="none" stroke="#60a5fa" strokeWidth="0.12" pathLength="1" strokeDasharray="0.15 0.85" className="motion-gated animate-beam-run" style={{ animationDuration: '6s' }} />
+                    <path d="M 0 76 H 100" fill="none" stroke="#3b82f6" strokeWidth="0.12" pathLength="1" strokeDasharray="0.1 0.9" className="motion-gated animate-beam-run" style={{ animationDuration: '8s', animationDelay: '-2s' }} />
+                    <path d="M 32 0 V 100" fill="none" stroke="#60a5fa" strokeWidth="0.05" pathLength="1" strokeDasharray="0.12 0.88" className="motion-gated animate-beam-run" style={{ animationDuration: '7s', animationDelay: '-1s' }} />
                 </svg>
             </div>
 

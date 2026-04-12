@@ -1,42 +1,66 @@
-import type { FocusEventHandler, MouseEventHandler, TouchEventHandler } from 'react'
+import { useEffect, useRef, type FocusEventHandler, type MouseEventHandler } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 
 import { prefetchRoute } from '@/lib/route-prefetch'
 
-function callAll<T>(...handlers: Array<((event: T) => void) | undefined>) {
-  return (event: T) => {
-    handlers.forEach((handler) => handler?.(event))
-  }
-}
+const HOVER_INTENT_DELAY_MS = 120
 
 export default function PrefetchLink({
   to,
   onMouseEnter,
+  onMouseLeave,
   onFocus,
-  onTouchStart,
   ...props
 }: LinkProps) {
   const route = typeof to === 'string' ? to : to.pathname ?? ''
-  const handlePrefetch = () => prefetchRoute(route)
+  const hoverIntentTimeoutRef = useRef<number | null>(null)
+
+  const clearHoverIntent = () => {
+    if (hoverIntentTimeoutRef.current) {
+      window.clearTimeout(hoverIntentTimeoutRef.current)
+      hoverIntentTimeoutRef.current = null
+    }
+  }
+
+  useEffect(() => clearHoverIntent, [])
+
+  const handlePrefetch = () => {
+    clearHoverIntent()
+    prefetchRoute(route)
+  }
+
   const handleMouseEnter: MouseEventHandler<HTMLAnchorElement> = (event) => {
     onMouseEnter?.(event)
-    handlePrefetch()
+
+    if (!route) {
+      return
+    }
+
+    clearHoverIntent()
+    hoverIntentTimeoutRef.current = window.setTimeout(handlePrefetch, HOVER_INTENT_DELAY_MS)
   }
+
+  const handleMouseLeave: MouseEventHandler<HTMLAnchorElement> = (event) => {
+    onMouseLeave?.(event)
+    clearHoverIntent()
+  }
+
   const handleFocus: FocusEventHandler<HTMLAnchorElement> = (event) => {
     onFocus?.(event)
-    handlePrefetch()
-  }
-  const handleTouchStart: TouchEventHandler<HTMLAnchorElement> = (event) => {
-    onTouchStart?.(event)
+
+    if (!route) {
+      return
+    }
+
     handlePrefetch()
   }
 
   return (
     <Link
       to={to}
-      onMouseEnter={callAll(handleMouseEnter)}
-      onFocus={callAll(handleFocus)}
-      onTouchStart={callAll(handleTouchStart)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onFocus={handleFocus}
       {...props}
     />
   )

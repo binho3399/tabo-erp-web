@@ -1,24 +1,25 @@
 import React from 'react';
 import { Icon, Badge } from '@/components/ui';
+import { useViewportActivity } from '@/hooks/useViewportActivity';
 
 const ContactHero: React.FC = () => {
+    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
+
     return (
-        <section className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[40vh] flex items-center justify-center transition-colors duration-500">
+        <section
+            ref={sectionRef}
+            data-motion-active={isActive}
+            className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[40vh] flex items-center justify-center transition-colors duration-500"
+        >
             {/* Ambient Blurry Blobs */}
-            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 dark:bg-blue-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-all duration-700"></div>
-            <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-cyan-300/20 dark:bg-cyan-600/10 blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-all duration-700"></div>
-            <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full bg-purple-300/10 dark:bg-purple-600/5 blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-screen transition-all duration-700"></div>
+            <div className="absolute top-[-8%] left-[-8%] h-[42%] w-[42%] rounded-full bg-blue-400/16 blur-[88px] pointer-events-none transition-all duration-700 dark:bg-blue-600/8"></div>
+            <div className="absolute bottom-[-8%] right-[-4%] h-[34%] w-[34%] rounded-full bg-cyan-300/16 blur-[88px] pointer-events-none transition-all duration-700 dark:bg-cyan-600/8"></div>
 
             {/* Small Floating Decorations with Animations */}
-            <div className="absolute top-[15%] left-[15%] w-2 h-2 bg-blue-500 rounded-full opacity-40 pointer-events-none animate-bounce" style={{ animationDuration: '4s' }}></div>
-            <div className="absolute bottom-[25%] right-[15%] border-[1.5px] border-indigo-400 w-3 h-3 rounded-sm opacity-30 rotate-45 pointer-events-none animate-[spin]" style={{ animationDuration: '6s' }}></div>
-            <div className="absolute top-[25%] right-[20%] opacity-30 text-blue-600 pointer-events-none animate-pulse" style={{ animationDuration: '3s' }}>
+            <div className="motion-gated absolute top-[15%] left-[15%] h-2 w-2 rounded-full bg-blue-500 opacity-35 pointer-events-none animate-bounce" style={{ animationDuration: '5s' }}></div>
+            <div className="motion-gated absolute top-[25%] right-[20%] opacity-25 text-blue-600 pointer-events-none animate-pulse" style={{ animationDuration: '4s' }}>
                 <Icon name="star" className="text-[18px]" />
             </div>
-            <div className="absolute bottom-[35%] left-[10%] opacity-30 text-cyan-600 pointer-events-none -rotate-12 animate-bounce" style={{ animationDuration: '5s', animationDelay: '1s' }}>
-                <Icon name="change_history" className="text-[20px]" />
-            </div>
-            <div className="absolute top-[10%] left-[80%] w-2 h-2 bg-orange-400 rounded-full opacity-40 pointer-events-none animate-pulse" style={{ animationDuration: '2s' }}></div>
 
             {/* Decorative Background Layer - Option 1: The Connective Pulse */}
             <div 
@@ -29,10 +30,10 @@ const ContactHero: React.FC = () => {
                 }}
             >
                 {/* Subtle Grid Pattern Overlay */}
-                <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+                <div className="ambient-grid absolute inset-0 opacity-[0.03]"></div>
 
                     {/* Network Nodes & Connecting Lines (SVG) - Refined Mesh */}
-                    <svg className="absolute inset-0 w-full h-full animate-breathing" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 400" style={{ animationDuration: '10s' }}>
+                    <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 400">
                         <defs>
                             <radialGradient id="nodeGlowContact" cx="50%" cy="50%" r="50%">
                                 <stop offset="0%" stopColor="#3b82f6" stopOpacity="1" />
@@ -56,53 +57,27 @@ const ContactHero: React.FC = () => {
                         </defs>
 
                         {/* Connection Lines (Long, Elegant, Spanning Screen - Now all curved) */}
-                        <g className="stroke-blue-500/20 dark:stroke-blue-400/15" strokeWidth="1.2" fill="none" filter="url(#lineGlow)">
+                        <g className="stroke-blue-500/18 dark:stroke-blue-400/12" strokeWidth="1.1" fill="none" filter="url(#lineGlow)">
                             <path d="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" />
                             <path d="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" />
                             <path d="M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" />
-                            <path d="M 540 100 C 660 60, 780 40, 1260 40" />
                         </g>
 
                         {/* Animated Data Pulses (Curved Paths) */}
-                        <g className="stroke-blue-400/60 dark:stroke-blue-400/40" strokeWidth="2" fill="none" strokeDasharray="40 960" pathLength="1000">
-                            <path d="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" className="animate-grid-dash" style={{ animationDuration: '9s' }} />
-                            <path d="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" className="animate-grid-dash" style={{ animationDuration: '12s', animationDelay: '1.5s' }} />
-                            <path d="M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" className="animate-grid-dash" style={{ animationDuration: '8s', animationDelay: '3s' }} />
-                            <path d="M 540 100 C 660 60, 780 40, 1260 40" className="animate-grid-dash" style={{ animationDuration: '7s', animationDelay: '4s' }} />
+                        <g className="stroke-blue-400/55 dark:stroke-blue-400/30" strokeWidth="1.8" fill="none" strokeDasharray="40 960" pathLength="1000">
+                            <path d="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" className="motion-gated animate-grid-dash" style={{ animationDuration: '10s' }} />
+                            <path d="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" className="motion-gated animate-grid-dash" style={{ animationDuration: '13s', animationDelay: '1.5s' }} />
                         </g>
-
-                        {/* Moving Nodes (Data Particles - Slowed Down further) */}
-                        {[1, 2, 3, 4].map((id) => (
-                            <g key={id}>
-                                <g className="text-blue-500 dark:text-blue-400">
-                                    {/* White Glassy Background Circle */}
-                                    <circle r="12" fill="white" className="opacity-15 dark:opacity-10" filter="url(#lineGlow)">
-                                        <animateMotion dur={`${12 + id * 4}s`} repeatCount="indefinite" rotate="auto" path={id === 1 ? "M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" : id === 2 ? "M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" : id === 3 ? "M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" : "M 540 100 C 660 60, 780 40, 1260 40"} begin={`${id * 3}s`} />
-                                    </circle>
-                                    
-                                    <use href={id === 1 ? "#icon-spark" : id === 2 ? "#icon-pin" : id === 3 ? "#icon-star" : "#icon-spark"} width="15" height="15" x="-7.5" y="-7.5" className="opacity-95">
-                                        <animateMotion dur={`${12 + id * 4}s`} repeatCount="indefinite" rotate="auto" path={id === 1 ? "M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" : id === 2 ? "M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" : id === 3 ? "M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" : "M 540 100 C 660 60, 780 40, 1260 40"} begin={`${id * 3}s`} />
-                                    </use>
-                                    
-                                    {/* Soft Glow behind icon */}
-                                    <circle r="18" fill="url(#nodeGlowContact)" className="opacity-30">
-                                        <animateMotion dur={`${12 + id * 4}s`} repeatCount="indefinite" rotate="auto" path={id === 1 ? "M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" : id === 2 ? "M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" : id === 3 ? "M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260" : "M 540 100 C 660 60, 780 40, 1260 40"} begin={`${id * 3}s`} />
-                                    </circle>
-                                </g>
-                            </g>
-                        ))}
 
                         {/* Static Pulse Nodes (Dimmed for less contrast - Subtle Pulsing) */}
                         {[
                             { x: 60, y: 80, icon: '#icon-pin', size: 12 }, { x: 360, y: 240, icon: '#icon-spark', size: 15 }, { x: 600, y: 200, icon: '#icon-star', size: 12 }, { x: 960, y: 320, icon: '#icon-pin', size: 10 }, 
-                            { x: 120, y: 280, icon: '#icon-star', size: 10 }, { x: 480, y: 120, icon: '#icon-pin', size: 12 }, { x: 720, y: 160, icon: '#icon-spark', size: 15 },
-                            { x: 300, y: 180, icon: '#icon-star', size: 14 }, { x: 540, y: 100, icon: '#icon-spark', size: 16 }, { x: 900, y: 260, icon: '#icon-pin', size: 12 },
-                            { x: 780, y: 40, icon: '#icon-spark', size: 12 }, { x: 1080, y: 40, icon: '#icon-star', size: 12 }
+                            { x: 120, y: 280, icon: '#icon-star', size: 10 }, { x: 480, y: 120, icon: '#icon-pin', size: 12 }
                         ].map((node, i) => (
                             <g key={i}>
                                 <g className="text-blue-500/25 dark:text-blue-400/15">
-                                    <use href={node.icon} x={node.x - node.size/2} y={node.y - node.size/2} width={node.size} height={node.size} className="animate-pulse" style={{ animationDelay: `${i * 0.4}s`, animationDuration: '8s' }} />
-                                    <circle cx={node.x} cy={node.y} r={node.size/2 + 5} fill="url(#nodeGlowContact)" className="opacity-10 animate-pulse" style={{ animationDelay: `${i * 0.4}s`, animationDuration: '8s' }} />
+                                    <use href={node.icon} x={node.x - node.size/2} y={node.y - node.size/2} width={node.size} height={node.size} />
+                                    <circle cx={node.x} cy={node.y} r={node.size/2 + 5} fill="url(#nodeGlowContact)" className="opacity-[0.08]" />
                                 </g>
                             </g>
                         ))}
@@ -111,7 +86,7 @@ const ContactHero: React.FC = () => {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-center text-center mt-8 lg:mt-0">
                 {/* Sparkles Decoration */}
-                <div className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[300px] pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-3xl"></div>
+                <div className="absolute top-[-90px] left-1/2 -translate-x-1/2 w-full max-w-[700px] h-[240px] pointer-events-none opacity-16 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-2xl"></div>
                 
                 <Badge variant="primary" className="mb-6 uppercase shadow-sm relative z-10 select-none">
                     LIÊN HỆ

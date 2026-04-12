@@ -1,47 +1,32 @@
 import React from 'react';
 import { Icon, Button } from '@/components/ui';
+import { useViewportActivity } from '@/hooks/useViewportActivity';
 
 const StripBanner: React.FC = () => {
+    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
+
     return (
-        <section className="bg-slate-950 dark:bg-slate-950 text-white py-16 lg:py-24 relative overflow-hidden transition-colors duration-500">
+        <section ref={sectionRef} data-motion-active={isActive} className="bg-slate-950 dark:bg-slate-950 text-white py-16 lg:py-24 relative overflow-hidden transition-colors duration-500">
             {/* VIVID & IMPRESSIVE Background Decoration */}
             <div className="absolute inset-0 z-0">
-                {/* 1. Base Layer: Deep noise texture */}
-                <div className="absolute inset-0 opacity-[0.05] bg-[url('/noise.svg')] pointer-events-none"></div>
+                <div className="ambient-noise absolute inset-0 opacity-[0.04] pointer-events-none"></div>
 
-                {/* 2. Primary Neon BLOOMS (Brighter & Larger) */}
-                <div className="absolute -top-[20%] -left-[10%] hidden lg:block w-[80%] h-[140%] bg-blue-500/30 dark:bg-blue-600/20 blur-[120px] rounded-full animate-pulse duration-[6s] opacity-80"></div>
-                <div className="absolute -bottom-[20%] -right-[10%] hidden lg:block w-[70%] h-[120%] bg-indigo-500/25 dark:bg-indigo-600/15 blur-[100px] rounded-full animate-pulse duration-[8s] delay-700 opacity-70"></div>
+                <div className="motion-gated absolute -top-[16%] -left-[8%] hidden lg:block h-[110%] w-[68%] rounded-full bg-blue-500/18 blur-[88px] opacity-75"></div>
+                <div className="motion-gated absolute -bottom-[18%] -right-[8%] hidden lg:block h-[95%] w-[58%] rounded-full bg-indigo-500/14 blur-[80px] opacity-65"></div>
 
-                {/* 3. Intense Light Beams */}
-                <div className="absolute top-0 left-1/3 w-[2px] h-full bg-gradient-to-b from-transparent via-blue-400/30 dark:via-blue-500/20 to-transparent skew-x-[30deg] blur-[1px]"></div>
-                <div className="absolute top-0 right-1/4 w-[3px] h-full bg-gradient-to-b from-transparent via-indigo-400/20 dark:via-indigo-500/15 to-transparent -skew-x-[20deg] blur-[2px]"></div>
+                <div className="motion-gated absolute top-0 left-1/3 hidden lg:block h-full w-px bg-gradient-to-b from-transparent via-blue-400/25 to-transparent"></div>
 
-                {/* 4. Enhanced Concentric Geo-Circles */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-blue-500/10 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] border border-blue-500/15 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-blue-500/20 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[760px] h-[760px] border border-blue-500/12 rounded-full"></div>
 
-                {/* 5. Clear Grid/Data Layer */}
-                <div className="absolute inset-0 opacity-[0.08]"
-                    style={{
-                        backgroundImage: `
-                            linear-gradient(to right, rgba(59, 130, 246, 0.2) 1px, transparent 1px),
-                            linear-gradient(to bottom, rgba(59, 130, 246, 0.2) 1px, transparent 1px)
-                         `,
-                        backgroundSize: '100px 16.666%'
-                    }}></div>
+                <div className="ambient-grid-blue absolute inset-0 opacity-[0.04]"></div>
 
-                {/* 6. Floating 'Sparks' (More visible) */}
-                <div className="absolute top-1/4 left-1/4 hidden lg:block w-2 h-2 bg-blue-300 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)] animate-ping opacity-60"></div>
-                <div className="absolute bottom-1/4 right-1/3 hidden lg:block w-1.5 h-1.5 bg-indigo-300 rounded-full shadow-[0_0_12px_rgba(129,140,248,0.8)] animate-ping opacity-50 delay-1000"></div>
+                <div className="motion-gated absolute top-1/4 left-1/4 hidden lg:block h-2 w-2 rounded-full bg-blue-300 opacity-40 shadow-[0_0_10px_rgba(59,130,246,0.55)]"></div>
 
-                {/* 7. Vivid Edge Accents */}
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950 opacity-60"></div>
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent shadow-[0_0_25px_rgba(59,130,246,0.5)]"></div>
                 <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/60 to-transparent shadow-[0_0_25px_rgba(59,130,246,0.5)]"></div>
 
-                {/* 8. BRIGHT Connecting Flow Lines - SIMPLIFIED for performance */}
                 <svg className="absolute inset-0 hidden lg:block w-full h-full pointer-events-none z-0" preserveAspectRatio="none" viewBox="0 0 1000 400">
                     <defs>
                         <linearGradient id="brightFlowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -50,8 +35,7 @@ const StripBanner: React.FC = () => {
                             <stop offset="100%" stopColor="transparent" />
                         </linearGradient>
                     </defs>
-                    <path d="M 0,200 Q 250,100 500,200 T 1000,200" fill="none" stroke="url(#brightFlowGradient)" strokeWidth="1.5" strokeDasharray="10 20" className="animate-flow-dash" />
-                    <path d="M 0,300 C 300,300 600,100 1000,300" fill="none" stroke="url(#brightFlowGradient)" strokeWidth="1" strokeDasharray="5 15" className="animate-flow-dash opacity-30" style={{ animationDuration: '5s', animationDelay: '1s' }} />
+                    <path d="M 0,200 Q 250,100 500,200 T 1000,200" fill="none" stroke="url(#brightFlowGradient)" strokeWidth="1.2" strokeDasharray="10 20" className="motion-gated animate-flow-dash" style={{ animationDuration: '5s' }} />
                 </svg>
             </div>
 
@@ -70,15 +54,15 @@ const StripBanner: React.FC = () => {
                 {/* Right: Impressive Decoration */}
                 <div className="relative h-[320px] w-full hidden lg:flex items-center justify-center">
                     {/* Central Glowing Icon */}
-                    <div className="relative z-20 w-32 h-32 bg-blue-500/10 rounded-[20px] border border-blue-500/20 backdrop-blur-xl flex items-center justify-center animate-bounce shadow-[0_0_60px_-15px_rgba(59,130,246,0.5)]">
+                    <div className="relative z-20 flex h-28 w-28 items-center justify-center rounded-[20px] border border-blue-500/20 bg-blue-500/10 shadow-[0_0_45px_-18px_rgba(59,130,246,0.45)]">
                         <Icon name="history" className="text-5xl text-blue-400" />
                         {/* Orbiting particles */}
-                        <div className="absolute -top-4 -right-4 w-10 h-10 bg-indigo-500/20 rounded-full blur-xl"></div>
-                        <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-sky-500/20 rounded-full blur-lg"></div>
+                        <div className="absolute -top-4 -right-4 h-8 w-8 rounded-full bg-indigo-500/18 blur-lg"></div>
+                        <div className="absolute -bottom-4 -left-4 h-6 w-6 rounded-full bg-sky-500/16 blur-md"></div>
                     </div>
 
                     {/* Floating Glass Cards */}
-                    <div className="absolute top-0 right-0 z-30 p-5 rounded-[20px] bg-white/5 border border-white/10 backdrop-blur-2xl shadow-2xl animate-pulse delay-75 transform hover:scale-105 transition-transform">
+                    <div className="absolute top-0 right-0 z-30 rounded-[20px] border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-md transition-transform hover:scale-105">
                         <div className="flex items-center gap-4">
                             <div className="w-10 h-10 bg-green-500/20 rounded-[10px] flex items-center justify-center">
                                 <Icon name="trending_up" className="text-green-400" />
@@ -90,7 +74,7 @@ const StripBanner: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="absolute bottom-0 left-0 z-30 p-5 rounded-[20px] bg-white/5 border border-white/10 backdrop-blur-2xl shadow-2xl animate-pulse delay-300 transform hover:scale-105 transition-transform">
+                    <div className="absolute bottom-0 left-0 z-30 rounded-[20px] border border-white/10 bg-white/5 p-5 shadow-2xl backdrop-blur-md transition-transform hover:scale-105">
                         <div className="flex items-center gap-4">
                             <div className="w-10 h-10 bg-blue-500/20 rounded-[10px] flex items-center justify-center">
                                 <Icon name="schedule" className="text-blue-400" />

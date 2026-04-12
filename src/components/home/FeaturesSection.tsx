@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon, Badge } from '@/components/ui';
 import { FEATURE_ITEMS, SECTOR_ITEMS } from '@/constants/landing';
 import type { FeatureItem, SectorItem } from '@/types/landing';
+import { useViewportActivity } from '@/hooks/useViewportActivity';
 
 const FeatureCard: React.FC<{ item: FeatureItem }> = ({ item }) => {
     const colors: { [key: string]: string } = {
@@ -41,16 +42,23 @@ const SectorTickerGroup: React.FC<{ items: SectorItem[] }> = ({ items }) => (
     </div>
 );
 
-const SectorTicker: React.FC<{ items: SectorItem[], reverse?: boolean }> = ({ items, reverse }) => (
-    <div className={`flex w-max animate-marquee whitespace-nowrap ${reverse ? 'flex-row-reverse' : ''}`} style={reverse ? { animationDirection: 'reverse', animationDuration: '60s' } : { animationDuration: '60s' }}>
+const SectorTicker: React.FC<{ items: SectorItem[], reverse?: boolean; isActive: boolean }> = ({ items, reverse, isActive }) => (
+    <div
+        className={`motion-gated flex w-max animate-marquee whitespace-nowrap ${reverse ? 'flex-row-reverse' : ''}`}
+        style={reverse
+            ? { animationDirection: 'reverse', animationDuration: '80s', animationPlayState: isActive ? 'running' : 'paused' }
+            : { animationDuration: '80s', animationPlayState: isActive ? 'running' : 'paused' }}
+    >
         <SectorTickerGroup items={items} />
         <SectorTickerGroup items={items} />
     </div>
 );
 
 const FeaturesSection: React.FC = () => {
+    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
+
     return (
-        <section className="py-16 lg:py-24 bg-white dark:bg-slate-950 transition-colors duration-500">
+        <section ref={sectionRef} data-motion-active={isActive} className="py-16 lg:py-24 bg-white dark:bg-slate-950 transition-colors duration-500">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Row */}
                 <div className="flex flex-col lg:flex-row items-start lg:items-end mb-8 lg:mb-16 gap-y-5 lg:gap-5 text-left lg:text-left">
@@ -82,7 +90,7 @@ const FeaturesSection: React.FC = () => {
                         {/* Mobile Layout: 2 Rows + Marquee Animation */}
                         <div className="flex lg:hidden relative overflow-hidden pb-4 -mx-4">
                             <div className="flex flex-col gap-0 w-full mask-image-linear-gradient">
-                                <div className="flex w-max animate-marquee whitespace-nowrap py-2 pl-4" style={{ animationDuration: '60s' }}>
+                                <div className="motion-gated flex w-max animate-marquee whitespace-nowrap py-2 pl-4" style={{ animationDuration: '80s', animationPlayState: isActive ? 'running' : 'paused' }}>
                                     <div className="flex shrink-0 gap-4 pr-4">
                                         {FEATURE_ITEMS.slice(0, 5).map((item, i) => <FeatureCard key={`row-a-${i}`} item={item} />)}
                                     </div>
@@ -90,7 +98,7 @@ const FeaturesSection: React.FC = () => {
                                         {FEATURE_ITEMS.slice(0, 5).map((item, i) => <FeatureCard key={`row-b-${i}`} item={item} />)}
                                     </div>
                                 </div>
-                                <div className="flex w-max animate-marquee whitespace-nowrap py-2 pl-4" style={{ animationDirection: 'reverse', animationDuration: '60s' }}>
+                                <div className="motion-gated flex w-max animate-marquee whitespace-nowrap py-2 pl-4" style={{ animationDirection: 'reverse', animationDuration: '80s', animationPlayState: isActive ? 'running' : 'paused' }}>
                                     <div className="flex shrink-0 gap-4 pr-4">
                                         {FEATURE_ITEMS.slice(5, 10).map((item, i) => <FeatureCard key={`row-c-${i}`} item={item} />)}
                                     </div>
@@ -209,8 +217,8 @@ const FeaturesSection: React.FC = () => {
                             <div className="mt-auto w-full self-stretch">
                                 <div className="relative w-full self-stretch bg-slate-50 dark:bg-slate-800 rounded-xl py-4 overflow-hidden border border-slate-100/50 dark:border-slate-700">
                                     <div className="relative flex w-full min-w-full self-stretch flex-col gap-2">
-                                        <SectorTicker items={SECTOR_ITEMS.slice(0, 10)} />
-                                        <SectorTicker items={SECTOR_ITEMS.slice(10, 20)} reverse />
+                                        <SectorTicker items={SECTOR_ITEMS.slice(0, 10)} isActive={isActive} />
+                                        <SectorTicker items={SECTOR_ITEMS.slice(10, 20)} reverse isActive={isActive} />
                                         
                                         {/* Gradient Shadows */}
                                         <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-slate-50 dark:from-slate-800 to-transparent z-10 pointer-events-none"></div>
