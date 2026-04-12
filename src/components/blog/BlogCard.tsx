@@ -53,7 +53,7 @@ export default function BlogCard({ post, featured = false }: { post: BlogPostSum
           {post.excerpt}
         </p>
 
-        <div className="mt-auto flex items-center justify-between gap-4 border-t border-slate-100/90 pt-4 dark:border-slate-800/80">
+        <div className="mt-auto flex items-center justify-between gap-4 border-t border-slate-100/90 dark:border-slate-800/80">
           <div>
             <p className="text-sm font-medium text-slate-900 dark:text-slate-100">{post.author.name}</p>
             <p className="text-sm text-slate-500 dark:text-slate-400">{dateFormatter.format(new Date(post.publishedAt))}</p>
@@ -61,7 +61,7 @@ export default function BlogCard({ post, featured = false }: { post: BlogPostSum
 
           <PrefetchLink
             to={post.canonicalPath}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 transition-all duration-500 group-hover:translate-x-1 dark:text-blue-400"
+            className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-base font-medium text-blue-600 transition-all duration-500 group-hover:translate-x-1 dark:text-blue-400"
           >
             Đọc bài viết
             <Icon name="arrow_outward" className="text-[16px]" />

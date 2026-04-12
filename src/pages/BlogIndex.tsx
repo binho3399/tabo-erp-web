@@ -6,7 +6,7 @@ import { usePageMetadata } from '@/components/seo/usePageMetadata'
 
 import BlogSidebar from '@/components/blog/BlogSidebar'
 import BlogCard from '@/components/blog/BlogCard'
-import { Badge, Button } from '@/components/ui'
+import { Badge, Button, Icon } from '@/components/ui'
 
 const INITIAL_POSTS_COUNT = 6
 const LOAD_MORE_STEP = 4
@@ -88,8 +88,9 @@ export default function BlogIndex() {
 
                   {hasMorePosts ? (
                     <div className="mt-8 flex justify-center lg:mt-10">
-                      <Button type="button" size="md" onClick={handleLoadMore}>
-                        Xem thêm bài viết
+                      <Button type="button" size="lg" onClick={handleLoadMore} className="gap-2">
+                        <span>Xem thêm bài viết</span>
+                        <Icon name="expand_more" className="text-[20px]" />
                       </Button>
                     </div>
                   ) : null}
