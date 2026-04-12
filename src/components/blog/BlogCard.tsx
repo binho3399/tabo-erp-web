@@ -61,10 +61,10 @@ export default function BlogCard({ post, featured = false }: { post: BlogPostSum
 
           <PrefetchLink
             to={post.canonicalPath}
-            className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-base font-medium text-blue-600 transition-all duration-500 group-hover:translate-x-1 dark:text-blue-400"
+            className="inline-flex items-center justify-center gap-2 rounded-full px-0 py-2.5 text-base font-medium text-blue-600 transition-all duration-500 group-hover:translate-x-1 hover:underline dark:text-blue-400"
           >
             Đọc bài viết
-            <Icon name="arrow_outward" className="text-[16px]" />
+            <Icon name="arrow_outward" className="text-[24px]" />
           </PrefetchLink>
         </div>
       </div>
