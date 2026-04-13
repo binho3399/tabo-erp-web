@@ -55,7 +55,7 @@ export default function BlogIndex() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-white dark:to-slate-950" />
       </section>
 
-      <section className="px-4 py-24 sm:px-6 lg:px-8">
+      <section className="px-4 pt-0 pb-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-[1216px]">
           {featuredPost ? (
             <div className="grid gap-6 lg:grid-cols-2 xl:gap-8">

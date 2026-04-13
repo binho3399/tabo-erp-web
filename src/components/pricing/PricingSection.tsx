@@ -12,7 +12,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
     const comparisonFeatures = COMPARISON_FEATURES;
 
     return (
-        <section className="py-16 lg:py-24 bg-white dark:bg-slate-950 transition-colors duration-500 relative overflow-clip">
+        <section className="pt-0 pb-16 lg:pb-24 bg-white dark:bg-slate-950 transition-colors duration-500 relative overflow-clip">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {!hideHeader && (
                     <div className="text-left lg:text-center mb-16">
@@ -26,7 +26,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({ hideHeader = false }) =
                 {/* Main Grid Layout */}
                 <div className="relative">
                     {/* Header Row with Plan Cards */}
-                    <div className="md:sticky md:top-[72px] z-40 md:bg-white/95 dark:md:bg-slate-950/95 md:backdrop-blur-md pt-6 pb-6 grid grid-cols-1 md:grid-cols-[22%_1fr_1fr] gap-6 lg:gap-8 mb-2 border-b border-transparent transition-colors">
+                    <div className="md:sticky md:top-[72px] z-40 md:bg-white/95 dark:md:bg-slate-950/95 md:backdrop-blur-md pt-0 pb-6 grid grid-cols-1 md:grid-cols-[22%_1fr_1fr] gap-6 lg:gap-8 mb-2 border-b border-transparent transition-colors">
                         {/* Title corner */}
                         <div className="hidden md:flex flex-col justify-end pb-8">
                             <h4 className="text-[16px] font-semibold text-slate-900 dark:text-slate-100 tracking-tight">Nhóm tính năng</h4>
