@@ -114,14 +114,23 @@ export default function BlogPostSidebar({ tableOfContents }: BlogPostSidebarProp
                     }`}
                   />
                 </span>
-                <span
-                  className={`text-[14px] leading-[1.5] transition-colors ${
-                    activeId === createHeadingId(heading)
-                      ? 'font-semibold text-slate-900 dark:text-white'
-                      : 'font-normal text-slate-600 dark:text-slate-300'
-                  }`}
-                >
-                  {heading}
+                <span className="grid min-w-0">
+                  {/* Ghost span (always semibold) reserves bold-width/height so font-weight toggle never shifts layout */}
+                  <span
+                    aria-hidden="true"
+                    className="invisible col-start-1 row-start-1 select-none pointer-events-none font-semibold text-[14px] leading-[1.5]"
+                  >
+                    {heading}
+                  </span>
+                  <span
+                    className={`col-start-1 row-start-1 transition-colors text-[14px] leading-[1.5] ${
+                      activeId === createHeadingId(heading)
+                        ? 'font-semibold text-slate-900 dark:text-white'
+                        : 'font-normal text-slate-600 dark:text-slate-300'
+                    }`}
+                  >
+                    {heading}
+                  </span>
                 </span>
               </a>
             ))}
