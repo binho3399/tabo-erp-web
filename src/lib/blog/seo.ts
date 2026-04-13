@@ -1,13 +1,14 @@
 import type { BlogPost, BlogPostSummary } from '@/lib/blog/types'
+import type { BlogCategorySummary } from '@/lib/blog/repository'
 import { buildAbsoluteUrl, resolveMetadata } from '@/lib/seo/metadata'
 import type { MetadataInput, ResolvedMetadata } from '@/lib/seo/types'
 import { siteMetadata } from '@/config/site'
 
 export function buildBlogIndexMetadata(posts: BlogPostSummary[]): ResolvedMetadata {
   return resolveMetadata({
-    title: 'Blog ERP, vận hành và chuyển đổi số',
+    title: 'Tin tức ERP, vận hành và chuyển đổi số',
     description:
-      'Blog Tabo ERP chia sẻ kinh nghiệm vận hành, tồn kho, tài chính và chuyển đổi số để doanh nghiệp ra quyết định nhanh hơn.',
+      'Tin tức Tabo ERP chia sẻ kinh nghiệm vận hành, tồn kho, tài chính và chuyển đổi số để doanh nghiệp ra quyết định nhanh hơn.',
     canonicalPath: '/blog',
     openGraph: {
       type: 'website',
@@ -16,7 +17,7 @@ export function buildBlogIndexMetadata(posts: BlogPostSummary[]): ResolvedMetada
       {
         '@context': 'https://schema.org',
         '@type': 'Blog',
-        name: `${siteMetadata.name} Blog`,
+        name: `${siteMetadata.name} Tin tức`,
         description:
           'Nội dung chuyên sâu về ERP, vận hành, tài chính và kho vận cho doanh nghiệp đang tăng trưởng.',
         url: buildAbsoluteUrl('/blog'),
@@ -71,6 +72,40 @@ export function buildBlogPostMetadata(post: BlogPost): ResolvedMetadata {
         },
         keywords: post.tags.join(', '),
         articleSection: post.category,
+      },
+    ],
+  })
+}
+
+export function buildBlogCategoryMetadata(
+  category: BlogCategorySummary,
+  posts: BlogPostSummary[],
+): ResolvedMetadata {
+  const canonicalPath = `/blog/category/${category.slug}`
+
+  return resolveMetadata({
+    title: `${category.name}: Bài viết mới nhất`,
+    description: category.description,
+    canonicalPath,
+    openGraph: {
+      type: 'website',
+    },
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: `${category.name} | ${siteMetadata.name} Tin tức`,
+        description: category.description,
+        url: buildAbsoluteUrl(canonicalPath),
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListElement: posts.slice(0, 10).map((post, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            url: buildAbsoluteUrl(post.canonicalPath),
+            name: post.title,
+          })),
+        },
       },
     ],
   })

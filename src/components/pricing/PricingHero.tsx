@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Badge } from '@/components/ui';
+import { Icon, PrefetchLink } from '@/components/ui';
 import { useViewportActivity } from '@/hooks/useViewportActivity';
 
 const PricingHero: React.FC = () => {
@@ -120,9 +120,13 @@ const PricingHero: React.FC = () => {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-center text-center">
-                <Badge variant="primary" className="mb-6 uppercase shadow-sm relative z-10 select-none">
-                    BẢNG GIÁ DỊCH VỤ
-                </Badge>
+                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+                    <PrefetchLink to="/" className="transition-colors duration-500 hover:text-blue-600 dark:hover:text-blue-400">
+                        Trang chủ
+                    </PrefetchLink>
+                    <Icon name="chevron_right" className="text-[14px]" />
+                    <span className="text-slate-900 dark:text-slate-200">Bảng giá</span>
+                </div>
                 <h1 className="text-4xl sm:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
                     Đầu tư thông minh cho sự <span className="text-blue-500 dark:text-blue-400">tăng trưởng bền vững.</span>
                 </h1>

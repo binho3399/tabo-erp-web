@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Badge } from '@/components/ui';
+import { Icon, PrefetchLink } from '@/components/ui';
 import { useViewportActivity } from '@/hooks/useViewportActivity';
 
 const ContactHero: React.FC = () => {
@@ -88,9 +88,13 @@ const ContactHero: React.FC = () => {
                 {/* Sparkles Decoration */}
                 <div className="absolute top-[-90px] left-1/2 -translate-x-1/2 w-full max-w-[700px] h-[240px] pointer-events-none opacity-16 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-2xl"></div>
                 
-                <Badge variant="primary" className="mb-6 uppercase shadow-sm relative z-10 select-none">
-                    LIÊN HỆ
-                </Badge>
+                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+                    <PrefetchLink to="/" className="transition-colors duration-500 hover:text-blue-600 dark:hover:text-blue-400">
+                        Trang chủ
+                    </PrefetchLink>
+                    <Icon name="chevron_right" className="text-[14px]" />
+                    <span className="text-slate-900 dark:text-slate-200">Liên hệ</span>
+                </div>
 
                 <h1 className="text-4xl sm:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
                     Sẵn sàng hỗ trợ <br className="md:hidden" /> <span className="text-blue-500 dark:text-blue-400">doanh nghiệp bạn.</span>

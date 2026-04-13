@@ -60,9 +60,9 @@ export const staticPageMetadata: Record<NavRoutePath, MetadataInput> = {
     canonicalPath: '/contact',
   },
   '/blog': {
-    title: 'Blog ERP và vận hành doanh nghiệp',
+    title: 'Tin tức ERP và vận hành doanh nghiệp',
     description:
-      'Blog Tabo ERP chia sẻ kinh nghiệm ERP, tài chính, tồn kho và chuyển đổi số để doanh nghiệp ra quyết định nhanh hơn.',
+      'Tin tức Tabo ERP chia sẻ kinh nghiệm ERP, tài chính, tồn kho và chuyển đổi số để doanh nghiệp ra quyết định nhanh hơn.',
     canonicalPath: '/blog',
   },
 }

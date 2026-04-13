@@ -41,6 +41,7 @@ graph TD
     Router --> RouteAbout[Route: /about]
     Router --> RouteContact[Route: /contact]
     Router --> RouteBlog[Route: /blog]
+    Router --> RouteBlogCategory[Route: /blog/category/:categorySlug]
     Router --> RouteBlogPost[Route: /blog/:slug]
 
     RouteHome --> HomePage[src/pages/Home.tsx]
@@ -48,6 +49,7 @@ graph TD
     RouteAbout --> AboutPage[src/pages/About.tsx]
     RouteContact --> ContactPage[src/pages/Contact.tsx]
     RouteBlog --> BlogIndex[src/pages/BlogIndex.tsx]
+    RouteBlogCategory --> BlogCategory[src/pages/BlogCategory.tsx]
     RouteBlogPost --> BlogPost[src/pages/BlogPost.tsx]
 
     %% Home page
@@ -101,7 +103,12 @@ graph TD
     %% Blog page
     BlogIndex --> BlogCard[components/blog/BlogCard.tsx]
     BlogIndex --> BlogRepo[lib/blog/repository.ts]
+    BlogIndex --> BlogCategoryMap[lib/blog/categories.ts]
     BlogIndex --> SeoHook[components/seo/usePageMetadata.ts]
+
+    BlogCategory --> BlogCard
+    BlogCategory --> BlogRepo
+    BlogCategory --> SeoHook
 
     BlogPost --> BlogArticleBody[components/blog/BlogArticleBody.tsx]
     BlogPost --> BlogCard
@@ -132,6 +139,7 @@ graph TD
         ErrorBoundary
         Supabase[src/lib/supabase.ts]
         BlogRepo
+        BlogCategoryMap
         BlogSeo[lib/blog/seo.ts]
         MetadataProvider[components/seo/MetadataProvider.tsx]
         RoutePrefetch[src/lib/route-prefetch.ts]
@@ -221,7 +229,8 @@ Khi cần sửa một phần cụ thể, đọc theo thứ tự này để giả
 7. `src/components/ui/PrefetchLink.tsx` và `src/lib/route-prefetch.ts` là lớp prefetch dùng cho route lazy. Nếu link nội bộ không prefetch như kỳ vọng, đọc hai file này trước.
 8. Blog dùng adapter ở `src/lib/blog/repository.ts` và metadata động qua `components/seo/usePageMetadata.ts`; page/component không đọc mock data trực tiếp.
 9. Build production hiện có thêm bước prerender blog routes qua `src/entry-server.tsx` và `scripts/prerender.mjs`.
-10. `src/lib/supabase.ts` hiện chưa nằm trong runtime path chính. Nếu task không liên quan auth/backend, thường không cần mở file này.
+10. Blog category detail route dùng path `/blog/category/:categorySlug`; mapping slug/category nằm ở `src/lib/blog/categories.ts`.
+11. `src/lib/supabase.ts` hiện chưa nằm trong runtime path chính. Nếu task không liên quan auth/backend, thường không cần mở file này.
 
 ## 5. Quy Tắc Đồng Bộ Cho Agent
 

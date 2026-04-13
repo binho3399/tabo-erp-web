@@ -8,6 +8,10 @@ function normalizeRoutePath(path: string): AppRoutePath | null {
     return path as AppRoutePath
   }
 
+  if (path.startsWith('/blog/category/')) {
+    return '/blog/category/:categorySlug'
+  }
+
   if (path.startsWith('/blog/')) {
     return '/blog/:slug'
   }

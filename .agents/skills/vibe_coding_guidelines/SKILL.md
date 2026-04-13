@@ -69,3 +69,9 @@ Vibe của dự án là một hệ thống **SỐNG**. AI **PHẢI TỰ ĐỘNG 
 1. User yêu cầu điều chỉnh một quy tắc thị giác chung (VD: "Từ nay đổi font tiêu đề sang 24px", "Chốt dùng padding 20px thay vì 16px nhé").
 2. AI và User vừa sáng tạo & chốt xong một Mẫu (Pattern) Component mới chưa có trong cẩm nang (VD: Phong cách làm Accordion, Popup, hay Dropdown).
 👉 **Hành động của AI:** Nạp thêm/cập nhật quy tắc mới (class, spacing, color...) vào các Mục ở trên để cẩm nang Vibe Code luôn phản ánh phiên bản thiết kế hoàn hảo nhất.
+
+## 8. Chuẩn Ngôn ngữ Nội dung (Content Language)
+- **Ngôn ngữ hiển thị mặc định của website là tiếng Việt.**
+- Mọi text UI public-facing (tiêu đề, mô tả, nút, CTA, breadcrumb, label, empty state) phải dùng tiếng Việt nhất quán.
+- Tránh để sót cụm tiếng Anh trong giao diện (`See all`, `Latest`, `Read more`, ...), trừ khi là tên thương hiệu/sản phẩm bắt buộc.
+- Khi chỉnh sửa hoặc tạo mới section, AI phải tự rà soát text hiển thị để đảm bảo chuẩn tiếng Việt trước khi hoàn tất.

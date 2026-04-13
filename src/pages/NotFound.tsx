@@ -15,14 +15,14 @@ export default function NotFound() {
           Trang nay khong ton tai trong he thong Tabo ERP.
         </h1>
         <p className="mx-auto max-w-2xl text-base leading-relaxed text-slate-500 dark:text-slate-400">
-          Hay quay lai trang chu hoac vao Blog de tiep tuc kham pha cac tai nguyen ve ERP, ton kho va dieu hanh doanh nghiep.
+          Hay quay lai trang chu hoac vao Tin tức de tiep tuc kham pha cac tai nguyen ve ERP, ton kho va dieu hanh doanh nghiep.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button to="/" size="lg">
             Ve trang chu
           </Button>
           <Button to="/blog" variant="outline" size="lg">
-            Xem Blog
+            Xem Tin tức
           </Button>
         </div>
       </div>

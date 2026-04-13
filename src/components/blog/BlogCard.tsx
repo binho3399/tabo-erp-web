@@ -17,6 +17,9 @@ export default function BlogCard({ post, featured = false }: { post: BlogPostSum
 
       {/* Image header */}
       <PrefetchLink to={post.canonicalPath} className="block aspect-[16/10] w-full shrink-0 overflow-hidden bg-slate-100 dark:bg-slate-800 relative z-10">
+        <Badge variant="secondary" className="absolute right-4 top-4 z-20 uppercase tracking-[0.1em]">
+          {post.category}
+        </Badge>
         <div className="absolute inset-0 bg-blue-500/10 mix-blend-multiply dark:bg-slate-900/50 dark:mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <img
           src={post.coverImage || 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop'}
@@ -28,9 +31,6 @@ export default function BlogCard({ post, featured = false }: { post: BlogPostSum
 
       <div className={`relative flex h-full flex-col z-10 p-5 md:p-6 ${featured ? 'lg:p-8' : ''}`}>
         <div className="mb-4 flex items-center justify-between gap-3 md:mb-5">
-          <Badge variant="primary" className="mb-0">
-            {post.category}
-          </Badge>
           <span className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
             <Icon name="schedule" className="text-[16px] text-blue-500" />
             {post.readingTimeMinutes} phút đọc

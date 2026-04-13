@@ -6,7 +6,7 @@ type PageModule = { default: ComponentType }
 type PageLoader = () => Promise<PageModule>
 
 export type NavRoutePath = '/' | '/pricing' | '/about' | '/contact' | '/blog'
-export type AppRoutePath = NavRoutePath | '/blog/:slug' | '*'
+export type AppRoutePath = NavRoutePath | '/blog/category/:categorySlug' | '/blog/:slug' | '*'
 
 export interface NavRouteDefinition {
   path: NavRoutePath
@@ -60,9 +60,9 @@ export const primaryNavRoutes: NavRouteDefinition[] = [
   },
   {
     path: '/blog',
-    label: 'Blog',
+    label: 'Tin tức',
     navIcon: 'menu_book',
-    title: 'Blog ERP và vận hành doanh nghiệp',
+    title: 'Tin tức ERP và vận hành doanh nghiệp',
     description:
       'Không gian chia sẻ kinh nghiệm ERP, tài chính, tồn kho và chuyển đổi số cho doanh nghiệp đang tăng trưởng.',
   },
@@ -74,6 +74,7 @@ export const appRouteDefinitions: AppRouteDefinition[] = [
   { path: '/about', load: () => import('@/pages/About') },
   { path: '/contact', load: () => import('@/pages/Contact') },
   { path: '/blog', load: () => import('@/pages/BlogIndex') },
+  { path: '/blog/category/:categorySlug', load: () => import('@/pages/BlogCategory') },
   { path: '/blog/:slug', load: () => import('@/pages/BlogPost') },
   { path: '*', load: () => import('@/pages/NotFound') },
 ]

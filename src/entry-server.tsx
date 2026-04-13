@@ -10,6 +10,7 @@ import { buildNotFoundMetadata } from '@/lib/blog/seo'
 import { renderMetadataToHead, resolveMetadata } from '@/lib/seo/metadata'
 import type { ResolvedMetadata } from '@/lib/seo/types'
 import About from '@/pages/About'
+import BlogCategory from '@/pages/BlogCategory'
 import BlogIndex from '@/pages/BlogIndex'
 import BlogPost from '@/pages/BlogPost'
 import Contact from '@/pages/Contact'
@@ -23,6 +24,7 @@ const serverRoutes = [
   { path: '/about', Component: About },
   { path: '/contact', Component: Contact },
   { path: '/blog', Component: BlogIndex },
+  { path: '/blog/category/:categorySlug', Component: BlogCategory },
   { path: '/blog/:slug', Component: BlogPost },
   { path: '*', Component: NotFound },
 ]
@@ -34,7 +36,8 @@ function resolveFallbackMetadata(pathname: string): ResolvedMetadata {
 
 export function getPrerenderPaths() {
   const blogPaths = blogRepository.listIndexablePaths()
-  return ['/blog', ...blogPaths]
+  const categoryPaths = blogRepository.listCategoryIndexablePaths()
+  return ['/blog', ...categoryPaths, ...blogPaths]
 }
 
 export function renderPath(pathname: string) {

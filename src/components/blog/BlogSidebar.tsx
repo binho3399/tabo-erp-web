@@ -3,17 +3,19 @@ import type { BlogPostSummary } from '@/lib/blog/types'
 
 interface BlogSidebarProps {
   topPosts: BlogPostSummary[];
+  selectedCategory: string | null;
+  onCategorySelect: (category: string | null) => void;
 }
 
-const categories = [
-  { name: 'Kho bãi', colorFrom: 'from-blue-600', colorTo: 'to-indigo-500' },
-  { name: 'Tài chính', colorFrom: 'from-sky-500', colorTo: 'to-cyan-400' },
-  { name: 'Vận hành', colorFrom: 'from-emerald-500', colorTo: 'to-teal-400' },
-  { name: 'Nhân sự', colorFrom: 'from-orange-500', colorTo: 'to-amber-400' },
-  { name: 'Chuyển đổi số', colorFrom: 'from-violet-600', colorTo: 'to-purple-500' },
+export const blogCategories = [
+  { label: 'Kho bãi', value: 'Kho vận', colorFrom: 'from-blue-600', colorTo: 'to-indigo-500' },
+  { label: 'Tài chính', value: 'Tài chính', colorFrom: 'from-sky-500', colorTo: 'to-cyan-400' },
+  { label: 'Vận hành', value: 'Vận hành', colorFrom: 'from-emerald-500', colorTo: 'to-teal-400' },
+  { label: 'Nhân sự', value: 'Nhân sự', colorFrom: 'from-orange-500', colorTo: 'to-amber-400' },
+  { label: 'Chuyển đổi số', value: 'Chuyển đổi số', colorFrom: 'from-violet-600', colorTo: 'to-purple-500' },
 ]
 
-export default function BlogSidebar({ topPosts }: BlogSidebarProps) {
+export default function BlogSidebar({ topPosts, selectedCategory, onCategorySelect }: BlogSidebarProps) {
   return (
     <aside className="w-full space-y-12 lg:w-[320px] flex-shrink-0">
       {/* Search Bar */}
@@ -31,22 +33,36 @@ export default function BlogSidebar({ topPosts }: BlogSidebarProps) {
 
       {/* Categories */}
       <div>
-        <h3 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">Danh mục</h3>
+        <div className="mb-2 flex items-center justify-between gap-3">
+          <h3 className="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">Danh mục</h3>
+          <button
+            type="button"
+            onClick={() => onCategorySelect(null)}
+            className="text-xs font-semibold uppercase tracking-[0.08em] text-blue-600 transition-colors hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
+          >
+            Tất cả
+          </button>
+        </div>
         <div className="mt-4 flex flex-col gap-3">
-          {categories.map((cat) => (
-            <PrefetchLink
-              key={cat.name}
-              to="/blog"
-              className="group relative h-[56px] w-full overflow-hidden rounded-[20px] shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+          {blogCategories.map((cat) => {
+            const isActive = selectedCategory === cat.value
+
+            return (
+            <button
+              type="button"
+              key={cat.value}
+              aria-pressed={isActive}
+              onClick={() => onCategorySelect(cat.value)}
+              className={`group relative h-[56px] w-full overflow-hidden rounded-[20px] shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md ${isActive ? 'ring-2 ring-blue-500/70 ring-offset-2 ring-offset-[#F7F8F8] dark:ring-blue-400/70 dark:ring-offset-slate-950' : ''}`}
             >
               <div
-                className={`absolute inset-0 bg-gradient-to-r md:bg-gradient-to-br ${cat.colorFrom} ${cat.colorTo} opacity-80 mix-blend-multiply transition-transform duration-500 group-hover:scale-110 dark:opacity-60 dark:mix-blend-screen`}
+                className={`absolute inset-0 bg-gradient-to-r md:bg-gradient-to-br ${cat.colorFrom} ${cat.colorTo} ${isActive ? 'opacity-100' : 'opacity-80'} mix-blend-multiply transition-transform duration-500 group-hover:scale-110 dark:mix-blend-screen ${isActive ? 'dark:opacity-80' : 'dark:opacity-60'}`}
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-[2px]">
-                <span className="text-[16px] font-semibold text-white tracking-wide">{cat.name}</span>
+                <span className="text-[16px] font-semibold text-white tracking-wide">{cat.label}</span>
               </div>
-            </PrefetchLink>
-          ))}
+            </button>
+          )})}
         </div>
       </div>
 
