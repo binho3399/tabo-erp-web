@@ -59,9 +59,9 @@ export default function BlogIndex() {
         <div className="mx-auto w-full max-w-[1216px]">
           {featuredPost ? (
             <div className="grid gap-6 lg:grid-cols-2 xl:gap-8">
-              <article className="group overflow-hidden rounded-[20px] border border-transparent bg-white dark:bg-slate-900 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out dark:border-slate-800">
-                <PrefetchLink to={featuredPost.canonicalPath} className="relative block aspect-[16/9] overflow-hidden bg-slate-100 dark:bg-slate-800">
-                  <Badge variant="secondary" className="absolute right-4 top-4 z-20 uppercase tracking-[0.12em]">
+              <article className="group rounded-[20px] border border-transparent bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out dark:border-slate-800">
+                <PrefetchLink to={featuredPost.canonicalPath} className="relative mb-4 block aspect-[16/9] overflow-hidden rounded-[16px] bg-slate-100 dark:bg-slate-800">
+                  <Badge variant="secondary" className="absolute right-3 top-3 z-20 uppercase tracking-[0.1em]">
                     {featuredPost.category}
                   </Badge>
                   <img
@@ -72,10 +72,10 @@ export default function BlogIndex() {
                   />
                 </PrefetchLink>
 
-                <div className="p-4 md:p-6 lg:p-8">
+                <div>
                   <PrefetchLink
                     to={featuredPost.canonicalPath}
-                    className="mb-4 block text-[20px] font-normal leading-[1.2] tracking-tight text-slate-900 transition-colors duration-500 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 md:mb-5 lg:text-[28px]"
+                    className="mb-4 line-clamp-2 text-[20px] font-normal leading-[1.2] tracking-tight text-slate-900 transition-colors duration-500 hover:text-blue-600 dark:text-white dark:hover:text-blue-400 md:mb-5 lg:text-[28px]"
                   >
                     {featuredPost.title}
                   </PrefetchLink>
@@ -85,8 +85,6 @@ export default function BlogIndex() {
                   </p>
 
                   <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
-                    <span className="font-medium text-slate-900 dark:text-slate-100">{featuredPost.author.name}</span>
-                    <span className="text-slate-300 dark:text-slate-700">•</span>
                     <span>{dateFormatter.format(new Date(featuredPost.publishedAt))}</span>
                     <span className="text-slate-300 dark:text-slate-700">•</span>
                     <span>{featuredPost.readingTimeMinutes} phút</span>
@@ -98,7 +96,7 @@ export default function BlogIndex() {
                 {latestSidePosts.map((post) => (
                   <article
                     key={post.slug}
-                    className="group rounded-[20px] border border-transparent bg-white dark:bg-slate-900 p-4 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out dark:border-slate-800"
+                    className="group rounded-[20px] border border-transparent bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out dark:border-slate-800"
                   >
                     <PrefetchLink
                       to={post.canonicalPath}
@@ -117,7 +115,7 @@ export default function BlogIndex() {
 
                     <PrefetchLink
                       to={post.canonicalPath}
-                      className="mb-3 block text-base font-medium leading-snug text-slate-900 transition-colors duration-500 hover:text-blue-600 dark:text-slate-100 dark:hover:text-blue-400"
+                      className="mb-3 overflow-hidden text-ellipsis line-clamp-2 text-base font-medium leading-snug text-slate-900 transition-colors duration-500 hover:text-blue-600 dark:text-slate-100 dark:hover:text-blue-400"
                     >
                       {post.title}
                     </PrefetchLink>

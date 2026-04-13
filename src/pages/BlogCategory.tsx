@@ -119,7 +119,7 @@ export default function BlogCategory() {
         <div className="mx-auto w-full max-w-[1216px]">
           {visiblePosts.length ? (
             <>
-              <div className="grid gap-6 sm:grid-cols-2 xl:gap-8">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
                 {visiblePosts.map((post) => (
                   <BlogCard key={post.slug} post={post} />
                 ))}
