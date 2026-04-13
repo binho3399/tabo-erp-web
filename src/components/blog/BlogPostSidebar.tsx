@@ -77,7 +77,7 @@ export default function BlogPostSidebar({ tableOfContents }: BlogPostSidebarProp
   return (
     <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start lg:z-20">
       <div>
-        <p className="mb-4 text-sm font-semibold text-blue-600 dark:text-blue-400">
+        <p className="mb-3 text-sm font-normal text-slate-400 dark:text-slate-500">
           Mục lục bài viết
         </p>
         <div ref={tocContainerRef} className="relative pl-0">
@@ -117,7 +117,7 @@ export default function BlogPostSidebar({ tableOfContents }: BlogPostSidebarProp
                 <span
                   className={`text-[14px] leading-[1.5] transition-colors ${
                     activeId === createHeadingId(heading)
-                      ? 'font-semibold text-slate-900 dark:text-white'
+                      ? 'font-normal text-blue-600 dark:text-blue-400'
                       : 'font-normal text-slate-600 dark:text-slate-300'
                   }`}
                 >

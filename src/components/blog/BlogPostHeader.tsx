@@ -59,9 +59,9 @@ export default function BlogPostHeader({ post }: BlogPostHeaderProps) {
           <h1 className="mb-4 text-[28px] font-normal tracking-tight leading-[1.15] text-slate-900 dark:text-white md:mb-5 md:text-4xl lg:text-[56px]">
             {post.title}
           </h1>
-          <p className="max-w-3xl text-base leading-relaxed text-slate-500 dark:text-slate-400">{post.excerpt}</p>
+          <p className="max-w-[848px] text-base leading-relaxed text-slate-500 dark:text-slate-400">{post.excerpt}</p>
 
-          <div className="mt-8 mb-12 grid gap-6 md:inline-grid md:grid-cols-4 md:gap-12">
+          <div className="mt-8 mb-12 grid gap-6 md:grid-cols-4 md:gap-6 lg:w-[848px] lg:max-w-full">
             <div>
               <p className="mb-1 text-sm text-slate-400 dark:text-slate-500">Chuyên mục</p>
               <Badge variant="secondary">{post.category}</Badge>
