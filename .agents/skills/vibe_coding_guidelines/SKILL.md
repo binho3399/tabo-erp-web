@@ -64,6 +64,47 @@ Kể từ bây giờ, khi User sử dụng lệnh (prompt) ngắn gọn như:
 
 👉 **Nhận diện Vibe Coding:** AI **BẮT BUỘC** tự động áp dụng toàn bộ Class Tailwind, Font size (`text-[20px]`, `text-[28px]`), Spacing (`p-4`, `mb-4` trên Mobile), Micro-animation theo đúng tài liệu này, giúp sinh ra đoạn Code hoàn chỉnh thẩm mỹ nhất mà KHÔNG CẦN User chỉ định kích thước class bằng tay.
 
+## 9. Pattern Lazy Load Chuẩn Của Dự Án (Lazy Loading Pattern)
+Mọi section nặng (heavy section) nằm bên dưới màn hình đầu phải dùng pattern sau — tuyệt đối không dùng `React.lazy + Suspense` đơn thuần mà không có `DeferredSection`:
+
+```tsx
+// 1. Khai báo lazy component
+const MySection = React.lazy(() => import('@/components/xxx/MySection'));
+
+// 2. Khai báo fallback skeleton phù hợp
+const myFallback = <ContentGridSkeleton rows={3} />;
+
+// 3. Bọc bằng DeferredSection (IntersectionObserver mount trigger)
+<DeferredSection fallback={myFallback} minHeight={800}>
+    <React.Suspense fallback={myFallback}>
+        <MySection />
+    </React.Suspense>
+</DeferredSection>
+```
+
+- `DeferredSection` từ `@/components/common/DeferredSection`
+- Skeleton templates nhập từ `@/components/common/SkeletonLayouts` (các export: `RouteSkeleton`, `PricingTableSkeleton`, `FAQSkeleton`, `ContentGridSkeleton`, `HeroSkeleton`...)
+- `minHeight` phải ước tính gần với chiều cao thực tế của section để tránh layout shift.
+
+## 10. Pattern Viewport Animation (`useViewportActivity`)
+Mọi Hero section hoặc section muốn kích hoạt micro-animation khi scroll vào viewport phải dùng hook này:
+
+```tsx
+import { useViewportActivity } from '@/hooks/useViewportActivity';
+
+const MySection: React.FC = () => {
+    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
+    return (
+        <section ref={sectionRef} data-motion-active={isActive} className="motion-gated ...">
+            {/* Các element có class animate-* sẽ tự động được kích hoạt */}
+        </section>
+    );
+};
+```
+
+- Class `motion-gated` trên element con sẽ ẩn animation cho đến khi `data-motion-active` là `true`.
+- Pattern này đã áp dụng cho: `HeroSection`, `FeaturesSection`, `StripBanner`, `PricingHero`, `ContactHero`, `AboutHero`, `AboutBottomCTA`.
+
 ## 7. Liên tục Cập nhật Cẩm nang (Auto-Evolution)
 Vibe của dự án là một hệ thống **SỐNG**. AI **PHẢI TỰ ĐỘNG MỞ VÀ CẬP NHẬT FILE SKILL NÀY** (`SKILL.md`) ngay lập tức nếu:
 1. User yêu cầu điều chỉnh một quy tắc thị giác chung (VD: "Từ nay đổi font tiêu đề sang 24px", "Chốt dùng padding 20px thay vì 16px nhé").
