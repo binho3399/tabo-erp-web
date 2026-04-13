@@ -46,16 +46,16 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="overflow-x-hidden bg-[#F7F8F8] font-sans text-gray-900 transition-colors duration-500 dark:bg-slate-950 dark:text-white">
+    <div className="overflow-x-hidden lg:overflow-x-visible bg-[#F7F8F8] font-sans text-gray-900 transition-colors duration-500 dark:bg-slate-950 dark:text-white">
       <BlogPostHeader post={post} />
 
       <section className="px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
-        <div className="mx-auto grid w-full max-w-[1216px] gap-8 lg:grid-cols-[minmax(0,1fr)_320px] xl:gap-12">
+        <div className="mx-auto grid w-full max-w-[1216px] gap-8 items-start lg:grid-cols-[minmax(0,1fr)_320px] xl:gap-12">
           <div>
             <BlogArticleBody sections={post.content} />
           </div>
 
-          <BlogPostSidebar tableOfContents={post.content.map((section) => section.heading)} tags={post.tags} />
+          <BlogPostSidebar tableOfContents={post.content.map((section) => section.heading)} />
         </div>
       </section>
 

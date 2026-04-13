@@ -64,7 +64,7 @@ export default function BlogPostHeader({ post }: BlogPostHeaderProps) {
           <div className="mt-8 mb-12 grid gap-6 md:inline-grid md:grid-cols-4 md:gap-12">
             <div>
               <p className="mb-1 text-sm text-slate-400 dark:text-slate-500">Chuyên mục</p>
-              <Badge variant="primary">{post.category}</Badge>
+              <Badge variant="secondary">{post.category}</Badge>
             </div>
             <div>
               <p className="mb-1 text-sm text-slate-400 dark:text-slate-500">Tác giả</p>

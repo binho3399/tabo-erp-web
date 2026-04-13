@@ -58,7 +58,7 @@ export default function BlogIndex() {
       <section className="px-4 pt-0 pb-24 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-[1216px]">
           {featuredPost ? (
-            <div className="grid gap-6 lg:grid-cols-2 xl:gap-8">
+            <div className="grid gap-4 lg:grid-cols-2 lg:gap-6">
               <article className="group rounded-[20px] border border-transparent bg-white dark:bg-slate-900 p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ease-out dark:border-slate-800">
                 <PrefetchLink to={featuredPost.canonicalPath} className="relative mb-4 block aspect-[16/9] overflow-hidden rounded-[16px] bg-slate-100 dark:bg-slate-800">
                   <Badge variant="secondary" className="absolute right-3 top-3 z-20 uppercase tracking-[0.1em]">
@@ -92,7 +92,7 @@ export default function BlogIndex() {
                 </div>
               </article>
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-2 lg:gap-6">
                 {latestSidePosts.map((post) => (
                   <article
                     key={post.slug}
@@ -148,7 +148,7 @@ export default function BlogIndex() {
             </h2>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3 xl:gap-8">
+          <div className="grid gap-4 lg:grid-cols-2 lg:gap-6 xl:grid-cols-3">
             {categorySections.map((section) => {
               const [mainPost, ...sidePosts] = section.posts
 
