@@ -1,18 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon, Button, ThemeToggle, PrefetchLink } from '@/components/ui';
 import { useTheme } from '@/context/ThemeContext';
 import { siteMetadata, siteRoutes } from '@/config/site';
 import type { NavRoutePath } from '@/config/routes';
+import { blogRepository } from '@/lib/blog/repository';
 import logoBlack from '../../assets/logo-black.png';
 import logoWhite from '../../assets/Logo-white.png';
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isNewsExpanded, setIsNewsExpanded] = useState(false);
+    const [isNewsDropdownOpen, setIsNewsDropdownOpen] = useState(false);
+    const newsDropdownCloseTimeoutRef = useRef<number | null>(null);
     const { isDark } = useTheme();
     const location = useLocation();
     const navigate = useNavigate();
+    const blogCategories = blogRepository.listCategories();
+    const nonBlogRoutes = siteRoutes.filter((route) => route.path !== '/blog');
+    const isBlogRouteActive = location.pathname === '/blog' || location.pathname.startsWith('/blog/');
 
     useEffect(() => {
         let ticking = false;
@@ -52,7 +59,17 @@ const Navbar: React.FC = () => {
 
     useEffect(() => {
         setIsOpen(false);
+        setIsNewsExpanded(false);
+        setIsNewsDropdownOpen(false);
     }, [location.pathname]);
+
+    useEffect(() => {
+        return () => {
+            if (newsDropdownCloseTimeoutRef.current !== null) {
+                window.clearTimeout(newsDropdownCloseTimeoutRef.current);
+            }
+        };
+    }, []);
 
     useEffect(() => {
         if (!isOpen) {
@@ -113,7 +130,7 @@ const Navbar: React.FC = () => {
                 />
             )}
 
-            <nav className={`fixed top-0 left-0 w-full z-50 ${isOpen ? 'bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm' : 'transition-colors duration-200'} ${isScrolled ? 'bg-white/95 dark:bg-slate-900/95 lg:bg-white/80 lg:dark:bg-slate-900/80 lg:backdrop-blur-md border-b border-slate-200/60 dark:border-slate-800/60 shadow-sm' : 'border-transparent'} ${!isOpen && !isScrolled ? 'bg-transparent' : ''}`}>
+            <nav className={`fixed top-0 left-0 w-full z-50 ${isOpen ? 'bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-sm' : 'transition-colors duration-200'} ${isScrolled && !isOpen ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-[16px] border-b border-slate-200/60 dark:border-slate-800/60 shadow-sm' : 'border-transparent'} ${!isOpen && !isScrolled ? 'bg-transparent' : ''}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center h-[76px]">
                         {/* Logo Section - Aligned Left */}
@@ -133,7 +150,7 @@ const Navbar: React.FC = () => {
 
                         {/* Desktop Menu Section - Perfectly Centered */}
                         <div className="hidden lg:flex lg:items-center lg:space-x-10">
-                            {siteRoutes.map((link) => (
+                            {nonBlogRoutes.map((link) => (
                                 <PrefetchLink
                                     key={link.path}
                                     to={link.path}
@@ -144,6 +161,68 @@ const Navbar: React.FC = () => {
                                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
                                 </PrefetchLink>
                             ))}
+                            <div
+                                className="group relative py-1"
+                                onMouseEnter={() => {
+                                    if (newsDropdownCloseTimeoutRef.current !== null) {
+                                        window.clearTimeout(newsDropdownCloseTimeoutRef.current);
+                                    }
+                                    setIsNewsDropdownOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                    newsDropdownCloseTimeoutRef.current = window.setTimeout(() => {
+                                        setIsNewsDropdownOpen(false);
+                                    }, 160);
+                                }}
+                                onFocus={() => {
+                                    if (newsDropdownCloseTimeoutRef.current !== null) {
+                                        window.clearTimeout(newsDropdownCloseTimeoutRef.current);
+                                    }
+                                    setIsNewsDropdownOpen(true);
+                                }}
+                                onBlur={(event) => {
+                                    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                                        setIsNewsDropdownOpen(false);
+                                    }
+                                }}
+                            >
+                                <PrefetchLink
+                                    to="/blog"
+                                    onClick={handleNavClick('/blog')}
+                                    aria-haspopup="menu"
+                                    aria-expanded={isNewsDropdownOpen}
+                                    aria-controls="desktop-news-menu"
+                                    className={`relative flex items-center gap-1 text-[15px] font-medium transition-colors ${isBlogRouteActive ? 'text-slate-900 dark:text-white' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}`}
+                                >
+                                    <span>Tin tức</span>
+                                    <Icon
+                                        name={isNewsDropdownOpen ? 'remove' : 'add'}
+                                        className="text-base text-blue-600 transition-colors duration-200"
+                                        aria-hidden="true"
+                                    />
+                                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+                                </PrefetchLink>
+                                <div
+                                    id="desktop-news-menu"
+                                    role="menu"
+                                    className={`absolute left-1/2 top-full z-30 w-72 -translate-x-1/2 pt-2 transition-all duration-200 ${isNewsDropdownOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
+                                >
+                                    <div className="rounded-2xl border border-slate-200/70 bg-white/95 p-2 shadow-2xl shadow-slate-900/10 backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/95 dark:shadow-black/30">
+                                    {blogCategories.map((category) => (
+                                        <PrefetchLink
+                                            key={category.slug}
+                                            to={`/blog/category/${category.slug}`}
+                                            role="menuitem"
+                                            className="group/item flex items-center rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100/80 dark:hover:bg-slate-800/80"
+                                        >
+                                            <span className="text-sm font-medium text-slate-700 transition-colors group-hover/item:text-slate-900 dark:text-slate-300 dark:group-hover/item:text-white">
+                                                {category.name}
+                                            </span>
+                                        </PrefetchLink>
+                                    ))}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Desktop Actions & Mobile Toggle Section - Aligned Right */}
@@ -182,11 +261,11 @@ const Navbar: React.FC = () => {
                 {isOpen && (
                     <div
                         id="mobile-nav-panel"
-                        className="lg:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-2xl overflow-hidden animate-[mobileNavEnter_320ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
+                        className="lg:hidden absolute top-full left-0 w-full max-h-[calc(100vh-76px)] overflow-y-auto bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-2xl animate-[mobileNavEnter_320ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
                     >
                         <div className="px-2 py-4 space-y-2">
                                 <div className="grid grid-cols-1 gap-1">
-                                {siteRoutes.map((link, idx) => (
+                                {nonBlogRoutes.map((link, idx) => (
                                     <Button
                                         key={link.path}
                                         to={link.path}
@@ -211,6 +290,62 @@ const Navbar: React.FC = () => {
                                         <Icon name="chevron_right" className="ml-auto text-slate-300 dark:text-slate-600 group-hover:text-slate-400 dark:group-hover:text-slate-500 text-lg translate-x-1 opacity-0 group-hover:opacity-100 transition-all" />
                                     </Button>
                                 ))}
+                                <button
+                                    type="button"
+                                    onClick={() => setIsNewsExpanded((current) => !current)}
+                                    className="flex w-full items-center justify-start gap-4 rounded-2xl p-2 text-left transition-all duration-200 hover:bg-slate-50 active:bg-slate-100 dark:hover:bg-slate-800 dark:active:bg-slate-700"
+                                    aria-expanded={isNewsExpanded}
+                                    aria-controls="mobile-news-categories"
+                                >
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 transition-colors dark:bg-slate-800">
+                                        <Icon name="menu_book" className="text-xl text-slate-500 dark:text-slate-400" />
+                                    </div>
+                                    <div className="flex flex-col text-left">
+                                        <span className="text-[17px] font-medium text-slate-900 dark:text-slate-100">Tin tức</span>
+                                        <span className="translate-y-[-2px] text-[13px] font-light text-slate-500 dark:text-slate-400">
+                                            Kiến thức ERP và vận hành
+                                        </span>
+                                    </div>
+                                    <Icon
+                                        name="chevron_right"
+                                        className={`ml-auto text-lg text-slate-400 transition-transform dark:text-slate-500 ${isNewsExpanded ? 'rotate-90' : ''}`}
+                                        aria-hidden="true"
+                                    />
+                                </button>
+                                <div
+                                    id="mobile-news-categories"
+                                    className={`overflow-hidden transition-all duration-250 ${isNewsExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                                >
+                                    <div className="ml-7 mt-1 space-y-1 border-l border-slate-200 pl-5 dark:border-slate-700">
+                                        <Button
+                                            to="/blog"
+                                            variant="ghost"
+                                            fullWidth
+                                            className="!h-auto !justify-start !rounded-xl !px-3 !py-2 !font-normal text-slate-600 dark:text-slate-300"
+                                            onClick={() => {
+                                                setIsOpen(false);
+                                                setIsNewsExpanded(false);
+                                            }}
+                                        >
+                                            Tất cả bài viết
+                                        </Button>
+                                        {blogCategories.map((category) => (
+                                            <Button
+                                                key={category.slug}
+                                                to={`/blog/category/${category.slug}`}
+                                                variant="ghost"
+                                                fullWidth
+                                                className="!h-auto !justify-start !rounded-xl !px-3 !py-2 !font-normal text-slate-600 dark:text-slate-300"
+                                                onClick={() => {
+                                                    setIsOpen(false);
+                                                    setIsNewsExpanded(false);
+                                                }}
+                                            >
+                                                {category.name}
+                                            </Button>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="px-4 pt-4 pb-2">
