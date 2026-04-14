@@ -119,15 +119,15 @@ const PricingHero: React.FC = () => {
                 </svg>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-center text-center">
-                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-start text-left">
+                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-start gap-3 text-sm text-slate-500 dark:text-slate-400">
                     <PrefetchLink to="/" className="transition-colors duration-500 hover:text-blue-600 dark:hover:text-blue-400">
                         Trang chủ
                     </PrefetchLink>
                     <Icon name="chevron_right" className="text-[14px]" />
                     <span className="text-slate-900 dark:text-slate-200">Bảng giá</span>
                 </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
+                <h1 className="max-w-4xl text-4xl sm:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
                     Đầu tư thông minh cho sự <span className="text-blue-500 dark:text-blue-400">tăng trưởng bền vững.</span>
                 </h1>
                 <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl font-normal transition-colors relative z-10">

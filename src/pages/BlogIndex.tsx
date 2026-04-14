@@ -36,7 +36,7 @@ export default function BlogIndex() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.18),transparent_30%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.16),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,255,255,1))] dark:bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.18),transparent_26%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.16),transparent_24%),linear-gradient(180deg,rgba(2,6,23,0.86),rgba(2,6,23,1))]" />
 
         <div className="relative mx-auto w-full max-w-[1216px]">
-          <div className="mb-4 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500 dark:text-slate-400 md:mb-5">
+          <div className="mb-4 flex flex-wrap items-center justify-start gap-3 text-sm text-slate-500 dark:text-slate-400 md:mb-5">
             <PrefetchLink to="/" className="transition-colors duration-500 hover:text-blue-600 dark:hover:text-blue-400">
               Trang chủ
             </PrefetchLink>
@@ -44,10 +44,10 @@ export default function BlogIndex() {
             <span className="text-slate-900 dark:text-slate-200">Tin tức</span>
           </div>
 
-          <h1 className="mb-4 text-center text-[28px] font-normal leading-[1.15] tracking-tight text-slate-900 dark:text-white md:mb-5 md:text-4xl lg:text-[56px]">
+          <h1 className="mb-4 text-left text-[28px] font-normal leading-[1.15] tracking-tight text-slate-900 dark:text-white md:mb-5 md:text-4xl lg:text-[56px]">
             Kiến thức ERP, vận hành và tài chính.
           </h1>
-          <p className="mx-auto max-w-2xl text-center text-base font-normal leading-relaxed text-slate-500 dark:text-slate-400">
+          <p className="max-w-2xl text-left text-base font-normal leading-relaxed text-slate-500 dark:text-slate-400">
             Cập nhật bài viết mới nhất cho nhà quản trị muốn vận hành doanh nghiệp nhanh hơn và dữ liệu hơn.
           </p>
         </div>

@@ -307,8 +307,8 @@ const Navbar: React.FC = () => {
                                         </span>
                                     </div>
                                     <Icon
-                                        name="chevron_right"
-                                        className={`ml-auto text-lg text-slate-400 transition-transform dark:text-slate-500 ${isNewsExpanded ? 'rotate-90' : ''}`}
+                                        name={isNewsExpanded ? 'remove' : 'add'}
+                                        className="ml-auto text-lg text-blue-600 transition-colors duration-200"
                                         aria-hidden="true"
                                     />
                                 </button>

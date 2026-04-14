@@ -43,9 +43,9 @@ const AboutHero: React.FC = () => {
                     <div className="motion-gated absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square w-[320px] md:w-[420px] rounded-full border border-blue-500/16 bg-gradient-to-b from-blue-500/8 to-transparent shadow-[0_0_56px_rgba(59,130,246,0.12)] dark:border-blue-400/16 dark:from-blue-600/8 dark:shadow-[0_0_56px_rgba(59,130,246,0.2)] animate-breathing" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
                 </div>
 
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col items-center text-center">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col items-start text-left">
 
-                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-start gap-3 text-sm text-slate-500 dark:text-slate-400">
                     <PrefetchLink to="/" className="transition-colors duration-500 hover:text-blue-600 dark:hover:text-blue-400">
                         Trang chủ
                     </PrefetchLink>
@@ -57,7 +57,7 @@ const AboutHero: React.FC = () => {
                     Về chúng tôi <span className="text-blue-500 dark:text-blue-400 block sm:inline mt-2 sm:mt-0">— Tabo ERP</span>
                 </h1>
 
-                <p className="text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl mx-auto relative z-10">
+                <p className="text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl relative z-10">
                     Tabo ra đời từ khát vọng kiến tạo một hệ điều hành doanh nghiệp "tất cả trong một", giúp đồng bộ dữ liệu và quy trình một cách hiệu quả nhất.
                 </p>
             </div>
