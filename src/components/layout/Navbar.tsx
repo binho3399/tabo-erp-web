@@ -261,9 +261,9 @@ const Navbar: React.FC = () => {
                 {isOpen && (
                     <div
                         id="mobile-nav-panel"
-                        className="lg:hidden absolute top-full left-0 w-full max-h-[calc(100vh-76px)] overflow-y-auto overscroll-contain touch-pan-y [-webkit-overflow-scrolling:touch] bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-2xl animate-[mobileNavEnter_320ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
+                        className="lg:hidden fixed inset-x-0 top-[76px] bottom-0 overflow-y-auto overscroll-contain touch-pan-y [-webkit-overflow-scrolling:touch] bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-2xl animate-[mobileNavEnter_320ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
                     >
-                        <div className="px-2 py-4 space-y-2">
+                        <div className="px-2 py-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] space-y-2 min-h-full">
                                 <div className="grid grid-cols-1 gap-1">
                                 {nonBlogRoutes.map((link, idx) => (
                                     <Button
