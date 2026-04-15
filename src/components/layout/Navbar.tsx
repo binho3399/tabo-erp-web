@@ -76,18 +76,40 @@ const Navbar: React.FC = () => {
             return;
         }
 
-        const previousOverflow = document.body.style.overflow;
+        const scrollY = window.scrollY;
+        const previousBodyOverflow = document.body.style.overflow;
+        const previousBodyPosition = document.body.style.position;
+        const previousBodyTop = document.body.style.top;
+        const previousBodyLeft = document.body.style.left;
+        const previousBodyRight = document.body.style.right;
+        const previousBodyWidth = document.body.style.width;
+        const previousHtmlOverscroll = document.documentElement.style.overscrollBehavior;
+
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.left = '0';
+        document.body.style.right = '0';
+        document.body.style.width = '100%';
+        document.documentElement.style.overscrollBehavior = 'none';
+
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
                 setIsOpen(false);
             }
         };
 
-        document.body.style.overflow = 'hidden';
         window.addEventListener('keydown', handleKeyDown);
 
         return () => {
-            document.body.style.overflow = previousOverflow;
+            document.body.style.overflow = previousBodyOverflow;
+            document.body.style.position = previousBodyPosition;
+            document.body.style.top = previousBodyTop;
+            document.body.style.left = previousBodyLeft;
+            document.body.style.right = previousBodyRight;
+            document.body.style.width = previousBodyWidth;
+            document.documentElement.style.overscrollBehavior = previousHtmlOverscroll;
+            window.scrollTo(0, scrollY);
             window.removeEventListener('keydown', handleKeyDown);
         };
     }, [isOpen]);
@@ -261,7 +283,7 @@ const Navbar: React.FC = () => {
                 {isOpen && (
                     <div
                         id="mobile-nav-panel"
-                        className="lg:hidden fixed inset-x-0 top-[76px] bottom-0 overflow-y-auto overscroll-contain touch-pan-y [-webkit-overflow-scrolling:touch] bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-2xl animate-[mobileNavEnter_320ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
+                        className="lg:hidden fixed inset-x-0 top-[76px] bottom-0 z-50 max-h-[calc(100dvh-76px)] overflow-y-auto overscroll-y-contain touch-pan-y [-webkit-overflow-scrolling:touch] bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shadow-2xl animate-[mobileNavEnter_320ms_cubic-bezier(0.22,1,0.36,1)_forwards]"
                     >
                         <div className="px-2 py-4 pb-[calc(env(safe-area-inset-bottom)+1rem)] space-y-2 min-h-full">
                                 <div className="grid grid-cols-1 gap-1">
