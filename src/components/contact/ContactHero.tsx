@@ -3,7 +3,7 @@ import { Icon, PrefetchLink } from '@/components/ui';
 import { useViewportActivity } from '@/hooks/useViewportActivity';
 
 const ContactHero: React.FC = () => {
-    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
+    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>({ disabled: true });
 
     return (
         <section
@@ -54,6 +54,12 @@ const ContactHero: React.FC = () => {
                             <symbol id="icon-pin" viewBox="0 0 24 24">
                                 <path d="M12,2C8.14,2 5,5.14 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.14 15.86,2 12,2M12,4C14.76,4 17,6.24 17,9C17,11.88 14.22,16.21 12,19.19C9.77,16.24 7,11.85 7,9C7,6.24 9.24,4 12,4M12,7A2,2 0 0,0 10,9A2,2 0 0,0 12,11A2,2 0 0,0 14,9A2,2 0 0,0 12,7Z" fill="currentColor" />
                             </symbol>
+                            <symbol id="icon-call" viewBox="0 0 24 24">
+                                <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.68,14.91 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5C20.55,15.5 21,15.95 21,16.5V20C21,20.55 20.55,21 20,21C10.61,21 3,13.39 3,4C3,3.45 3.45,3 4,3H7.5C8.05,3 8.5,3.45 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.09,8.32 8.82,8.59L6.62,10.79Z" fill="currentColor" />
+                            </symbol>
+                            <symbol id="icon-mail" viewBox="0 0 24 24">
+                                <path d="M20,4H4C2.9,4 2.01,4.9 2.01,6L2,18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V6C22,4.9 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z" fill="currentColor" />
+                            </symbol>
                         </defs>
 
                         {/* Connection Lines (Long, Elegant, Spanning Screen - Now all curved) */}
@@ -67,6 +73,45 @@ const ContactHero: React.FC = () => {
                         <g className="stroke-blue-400/55 dark:stroke-blue-400/30" strokeWidth="1.8" fill="none" strokeDasharray="40 960" pathLength="1000">
                             <path d="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" className="motion-gated animate-grid-dash" style={{ animationDuration: '10s' }} />
                             <path d="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" className="motion-gated animate-grid-dash" style={{ animationDuration: '13s', animationDelay: '1.5s' }} />
+                        </g>
+
+                        {/* Contact-themed moving nodes */}
+                        <g className="motion-gated text-blue-600/85 dark:text-blue-300/80">
+                            <g>
+                                <circle cx="0" cy="0" r="12" className="fill-white/90 dark:fill-slate-900/85" />
+                                <circle cx="0" cy="0" r="16" className="fill-blue-500/10 dark:fill-blue-400/20" />
+                                <use href="#icon-call" x="-5" y="-5" width="10" height="10" />
+                                <animateMotion
+                                    dur="11s"
+                                    repeatCount="indefinite"
+                                    rotate="auto"
+                                    path="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320"
+                                />
+                            </g>
+                            <g>
+                                <circle cx="0" cy="0" r="11" className="fill-white/90 dark:fill-slate-900/85" />
+                                <circle cx="0" cy="0" r="14.5" className="fill-cyan-500/10 dark:fill-cyan-400/20" />
+                                <use href="#icon-mail" x="-4.5" y="-4.5" width="9" height="9" />
+                                <animateMotion
+                                    dur="13.5s"
+                                    begin="-2.4s"
+                                    repeatCount="indefinite"
+                                    rotate="auto"
+                                    path="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40"
+                                />
+                            </g>
+                            <g>
+                                <circle cx="0" cy="0" r="10.5" className="fill-white/90 dark:fill-slate-900/85" />
+                                <circle cx="0" cy="0" r="14" className="fill-indigo-500/10 dark:fill-indigo-400/20" />
+                                <use href="#icon-pin" x="-4.8" y="-4.8" width="9.6" height="9.6" />
+                                <animateMotion
+                                    dur="15s"
+                                    begin="-4.2s"
+                                    repeatCount="indefinite"
+                                    rotate="auto"
+                                    path="M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260"
+                                />
+                            </g>
                         </g>
 
                         {/* Static Pulse Nodes (Dimmed for less contrast - Subtle Pulsing) */}

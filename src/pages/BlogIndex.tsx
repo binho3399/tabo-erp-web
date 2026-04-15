@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 
 import { usePageMetadata } from '@/components/seo/usePageMetadata'
 import { Badge, Icon, PrefetchLink } from '@/components/ui'
+import { useViewportActivity } from '@/hooks/useViewportActivity'
 import { blogRepository } from '@/lib/blog/repository'
 import { buildBlogIndexMetadata } from '@/lib/blog/seo'
 
@@ -12,6 +13,7 @@ const dateFormatter = new Intl.DateTimeFormat('vi-VN', {
 })
 
 export default function BlogIndex() {
+  const { ref: heroRef, isActive: isHeroActive } = useViewportActivity<HTMLElement>()
   const posts = blogRepository.listPosts()
 
   const featuredPost = posts[0] ?? null
@@ -32,8 +34,62 @@ export default function BlogIndex() {
 
   return (
     <div className="overflow-x-hidden bg-white font-sans text-gray-900 transition-colors duration-500 dark:bg-slate-950 dark:text-white">
-      <section className="relative isolate overflow-hidden px-4 pb-14 pt-32 sm:px-6 lg:px-8 lg:pb-24 lg:pt-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.18),transparent_30%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.16),transparent_26%),linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,255,255,1))] dark:bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.18),transparent_26%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.16),transparent_24%),linear-gradient(180deg,rgba(2,6,23,0.86),rgba(2,6,23,1))]" />
+      <section
+        ref={heroRef}
+        data-motion-active={isHeroActive}
+        className="relative isolate overflow-hidden px-4 pb-14 pt-32 sm:px-6 lg:px-8 lg:pb-24 lg:pt-32"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.2),transparent_32%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.18),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.84),rgba(255,255,255,1))] dark:bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.22),transparent_30%),radial-gradient(circle_at_top_right,rgba(14,165,233,0.2),transparent_26%),linear-gradient(180deg,rgba(2,6,23,0.88),rgba(2,6,23,1))]" />
+        <div className="pointer-events-none absolute inset-0 ambient-grid opacity-[0.03] dark:opacity-[0.06]" />
+        <div className="pointer-events-none absolute inset-0">
+          <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 420">
+            <defs>
+              <linearGradient id="blogHeroFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#93c5fd" stopOpacity="0" />
+                <stop offset="50%" stopColor="#2563eb" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M -80 90 C 220 120, 340 60, 540 98 C 760 138, 920 80, 1280 110"
+              fill="none"
+              stroke="url(#blogHeroFlow)"
+              strokeWidth="1.25"
+              className="opacity-45 dark:opacity-35"
+            />
+            <path
+              d="M -120 250 C 170 210, 340 300, 560 250 C 790 200, 980 282, 1320 230"
+              fill="none"
+              stroke="url(#blogHeroFlow)"
+              strokeWidth="1.15"
+              pathLength="1000"
+              strokeDasharray="80 920"
+              className="motion-gated animate-grid-dash opacity-65 dark:opacity-40"
+              style={{ animationDuration: '16s' }}
+            />
+            <path
+              d="M -100 170 C 200 132, 390 206, 590 164 C 790 122, 960 210, 1290 180"
+              fill="none"
+              stroke="url(#blogHeroFlow)"
+              strokeWidth="1.1"
+              pathLength="1000"
+              strokeDasharray="60 940"
+              className="motion-gated animate-grid-dash opacity-55 dark:opacity-35"
+              style={{ animationDuration: '20s', animationDelay: '1.2s' }}
+            />
+            {[
+              { x: 170, y: 214 },
+              { x: 420, y: 146 },
+              { x: 710, y: 196 },
+              { x: 980, y: 126 },
+            ].map((point) => (
+              <g key={`${point.x}-${point.y}`} className="opacity-70 dark:opacity-50">
+                <circle cx={point.x} cy={point.y} r="2.8" className="fill-blue-500 dark:fill-blue-400" />
+                <circle cx={point.x} cy={point.y} r="10" className="fill-blue-400/20 dark:fill-blue-500/20 motion-gated animate-soft-pulse" />
+              </g>
+            ))}
+          </svg>
+        </div>
 
         <div className="relative mx-auto w-full max-w-[1216px]">
           <div className="mb-4 flex flex-wrap items-center justify-start gap-3 text-sm text-slate-500 dark:text-slate-400 md:mb-5">
@@ -50,6 +106,17 @@ export default function BlogIndex() {
           <p className="max-w-2xl text-left text-base font-normal leading-relaxed text-slate-500 dark:text-slate-400">
             Cập nhật bài viết mới nhất cho nhà quản trị muốn vận hành doanh nghiệp nhanh hơn và dữ liệu hơn.
           </p>
+          <div className="mt-6 hidden items-center gap-2 lg:flex">
+            {blogRepository.listCategories().slice(0, 4).map((category) => (
+              <span
+                key={category.slug}
+                className="inline-flex items-center gap-1 rounded-full border border-blue-100/80 bg-white/70 px-3 py-1 text-xs tracking-[0.1em] text-slate-500 backdrop-blur-sm dark:border-blue-900/40 dark:bg-slate-900/60 dark:text-slate-300"
+              >
+                <Icon name="menu_book" className="text-[13px] text-blue-600 dark:text-blue-400" />
+                {category.name.toUpperCase()}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-b from-transparent to-white dark:to-slate-950" />

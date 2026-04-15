@@ -20,6 +20,22 @@ const Navbar: React.FC = () => {
     const blogCategories = blogRepository.listCategories();
     const nonBlogRoutes = siteRoutes.filter((route) => route.path !== '/blog');
     const isBlogRouteActive = location.pathname === '/blog' || location.pathname.startsWith('/blog/');
+    const getCategoryIconName = (slug: string) => {
+        switch (slug) {
+            case 'kho-van':
+                return 'inventory_2';
+            case 'tai-chinh':
+                return 'account_balance_wallet';
+            case 'van-hanh':
+                return 'settings_suggest';
+            case 'nhan-su':
+                return 'groups';
+            case 'chuyen-doi-so':
+                return 'insights';
+            default:
+                return 'description';
+        }
+    };
 
     useEffect(() => {
         let ticking = false;
@@ -231,7 +247,7 @@ const Navbar: React.FC = () => {
                                 <div
                                     id="desktop-news-menu"
                                     role="menu"
-                                    className={`absolute left-1/2 top-full z-30 w-72 -translate-x-1/2 pt-2 transition-all duration-200 ${isNewsDropdownOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
+                                    className={`absolute left-1/2 top-full z-30 w-96 -translate-x-1/2 pt-2 transition-all duration-200 ${isNewsDropdownOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
                                 >
                                     <div className="rounded-2xl border border-slate-200/70 bg-white/95 p-2 shadow-2xl shadow-slate-900/10 backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/95 dark:shadow-black/30">
                                     {blogCategories.map((category) => (
@@ -239,11 +255,19 @@ const Navbar: React.FC = () => {
                                             key={category.slug}
                                             to={`/blog/category/${category.slug}`}
                                             role="menuitem"
-                                            className="group/item flex items-center rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100/80 dark:hover:bg-slate-800/80"
+                                            className="group/item flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-slate-100/80 dark:hover:bg-slate-800/80"
                                         >
-                                            <span className="text-sm font-medium text-slate-700 transition-colors group-hover/item:text-slate-900 dark:text-slate-300 dark:group-hover/item:text-white">
-                                                {category.name}
-                                            </span>
+                                            <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors group-hover/item:bg-blue-50 group-hover/item:text-blue-600 dark:bg-slate-800 dark:text-slate-300 dark:group-hover/item:bg-blue-900/40 dark:group-hover/item:text-blue-300">
+                                                <Icon name={getCategoryIconName(category.slug)} className="text-[18px]" aria-hidden="true" />
+                                            </div>
+                                            <div className="min-w-0">
+                                                <p className="text-sm font-medium text-slate-700 transition-colors group-hover/item:text-slate-900 dark:text-slate-300 dark:group-hover/item:text-white">
+                                                    {category.name}
+                                                </p>
+                                                <p className="mt-0.5 line-clamp-2 text-xs leading-relaxed text-slate-500 transition-colors group-hover/item:text-slate-600 dark:text-slate-400 dark:group-hover/item:text-slate-300">
+                                                    {category.description}
+                                                </p>
+                                            </div>
                                         </PrefetchLink>
                                     ))}
                                     </div>
