@@ -177,7 +177,11 @@ const Navbar: React.FC = () => {
                                     key={link.path}
                                     to={link.path}
                                     onClick={handleNavClick(link.path)}
-                                    className="group relative text-[15px] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white font-medium transition-colors flex items-center py-1"
+                                    className={`group relative text-[15px] font-medium transition-colors flex items-center py-1 ${
+                                        location.pathname === link.path
+                                            ? 'text-slate-900 dark:text-white'
+                                            : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                                    }`}
                                 >
                                     <span>{link.label}</span>
                                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full transition-all duration-300"></span>
