@@ -9,7 +9,7 @@ const AboutHero: React.FC = () => {
         <section
             ref={sectionRef}
             data-motion-active={isActive}
-            className="relative pt-28 pb-16 lg:pt-32 lg:pb-24 min-h-[40vh] flex flex-col justify-center"
+            className="relative pt-28 pb-10 lg:pt-32 lg:pb-14 min-h-[32vh] flex flex-col justify-center"
         >
             {/* Background Decorations Container with Smooth Fade Mask */}
             <div className="absolute inset-0 z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]">
@@ -43,24 +43,26 @@ const AboutHero: React.FC = () => {
                     <div className="motion-gated absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square w-[320px] md:w-[420px] rounded-full border border-blue-500/16 bg-gradient-to-b from-blue-500/8 to-transparent shadow-[0_0_56px_rgba(59,130,246,0.12)] dark:border-blue-400/16 dark:from-blue-600/8 dark:shadow-[0_0_56px_rgba(59,130,246,0.2)] animate-breathing" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
                 </div>
 
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 flex flex-col items-start text-left">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-start text-left">
+                    <div className="max-w-4xl">
 
-                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-start gap-3 text-sm text-slate-500 dark:text-slate-400">
-                    <PrefetchLink to="/" className="transition-colors duration-500 hover:text-blue-600 dark:hover:text-blue-400">
-                        Trang chủ
-                    </PrefetchLink>
-                    <Icon name="chevron_right" className="text-[14px]" />
-                    <span className="text-slate-900 dark:text-slate-200">Về chúng tôi</span>
-                </div>
+                        <div className="relative z-10 mb-6 flex flex-wrap items-center justify-start gap-3 text-sm text-slate-500 dark:text-slate-400">
+                            <PrefetchLink to="/" className="transition-colors duration-500 hover:text-blue-600 dark:hover:text-blue-400">
+                                Trang chủ
+                            </PrefetchLink>
+                            <Icon name="chevron_right" className="text-[14px]" />
+                            <span className="text-slate-900 dark:text-slate-200">Về chúng tôi</span>
+                        </div>
                 
-                <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-slate-900 dark:text-white leading-[1.2] lg:leading-[1.1] mb-6 transition-colors relative z-10">
-                    Về chúng tôi <span className="text-blue-500 dark:text-blue-400 block sm:inline mt-2 sm:mt-0">— Tabo ERP</span>
-                </h1>
+                        <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-tight text-slate-900 dark:text-white leading-[1.2] lg:leading-[1.1] mb-6 transition-colors relative z-10">
+                            Về chúng tôi <span className="text-blue-500 dark:text-blue-400 block sm:inline mt-2 sm:mt-0">— Tabo ERP</span>
+                        </h1>
 
-                <p className="text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl relative z-10">
-                    Tabo ra đời từ khát vọng kiến tạo một hệ điều hành doanh nghiệp "tất cả trong một", giúp đồng bộ dữ liệu và quy trình một cách hiệu quả nhất.
-                </p>
-            </div>
+                        <p className="text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed max-w-2xl lg:max-w-none lg:whitespace-nowrap relative z-10 block lg:inline-block lg:w-fit">
+                            Tabo ra đời từ khát vọng kiến tạo một hệ điều hành doanh nghiệp "tất cả trong một", giúp đồng bộ dữ liệu và quy trình một cách hiệu quả nhất.
+                        </p>
+                    </div>
+                </div>
         </div>
 
             {/* Small Floating Decorations with Animations - Restored */}

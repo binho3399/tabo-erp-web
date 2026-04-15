@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutMission: React.FC = () => {
     return (
-        <section className="py-16 lg:py-24 relative z-20">
+        <section className="pt-10 pb-16 lg:pt-14 lg:pb-24 relative z-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start mb-24 lg:mb-0">
                     <div className="lg:col-span-7">

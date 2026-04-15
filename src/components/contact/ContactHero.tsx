@@ -9,7 +9,7 @@ const ContactHero: React.FC = () => {
         <section
             ref={sectionRef}
             data-motion-active={isActive}
-            className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[40vh] flex items-center justify-center transition-colors duration-500"
+            className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-24 pb-10 lg:pt-32 lg:pb-14 overflow-hidden min-h-[32vh] flex items-center justify-center transition-colors duration-500"
         >
             {/* Ambient Blurry Blobs */}
             <div className="absolute top-[-8%] left-[-8%] h-[42%] w-[42%] rounded-full bg-blue-400/16 blur-[88px] pointer-events-none transition-all duration-700 dark:bg-blue-600/8"></div>
@@ -99,7 +99,7 @@ const ContactHero: React.FC = () => {
                 <h1 className="text-4xl sm:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
                     Sẵn sàng hỗ trợ <br className="md:hidden" /> <span className="text-blue-500 dark:text-blue-400">doanh nghiệp bạn.</span>
                 </h1>
-                <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl font-normal transition-colors">
+                <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl lg:max-w-none lg:whitespace-nowrap font-normal transition-colors">
                     Dù bạn có thắc mắc về tính năng, giá cả, hay cần tư vấn giải pháp quản trị,
                     đội ngũ chuyên gia từ Tabo luôn sẵn lòng giải đáp.
                 </p>

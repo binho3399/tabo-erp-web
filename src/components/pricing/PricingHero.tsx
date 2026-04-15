@@ -127,10 +127,10 @@ const PricingHero: React.FC = () => {
                     <Icon name="chevron_right" className="text-[14px]" />
                     <span className="text-slate-900 dark:text-slate-200">Bảng giá</span>
                 </div>
-                <h1 className="max-w-4xl text-4xl sm:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
+                <h1 className="max-w-4xl text-4xl sm:text-5xl lg:max-w-none lg:whitespace-nowrap lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
                     Đầu tư thông minh cho sự <span className="text-blue-500 dark:text-blue-400">tăng trưởng bền vững.</span>
                 </h1>
-                <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl font-normal transition-colors relative z-10">
+                <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl lg:max-w-none lg:whitespace-nowrap font-normal transition-colors relative z-10">
                     Lựa chọn gói giải pháp tối ưu phù hợp với quy mô doanh nghiệp bạn. Minh bạch, hiệu quả và không chi phí ẩn.
                 </p>
             </div>
