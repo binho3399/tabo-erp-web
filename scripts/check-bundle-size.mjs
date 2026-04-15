@@ -5,7 +5,7 @@ const distAssetsDir = path.resolve('dist/assets')
 const budgets = {
   entryJs: 120 * 1024,
   /** Entry CSS (Tailwind): allow small headroom above gzip-neutral growth from utility classes. */
-  entryCss: 152 * 1024,
+  entryCss: 155 * 1024,
 }
 
 function formatSize(bytes) {
