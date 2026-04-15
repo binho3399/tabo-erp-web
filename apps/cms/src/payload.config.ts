@@ -34,9 +34,6 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL || '',
     },
   }),
-  editor: {
-    lexical: true,
-  },
   collections: [Users, Authors, Categories, Media, Posts],
   sharp,
   typescript: {
