@@ -1,24 +1,18 @@
-# Kế hoạch thực hiện: Website Tabo ERP
+# Task Tracker: Tabo ERP Web + CMS
 
-- [x] Khởi tạo dự án
-  - [x] Khởi tạo Vite React
-  - [x] Cài đặt Tailwind CSS và cấu hình
-  - [x] Cài đặt các thư viện cần thiết (react-router-dom, lucide-react, v.v...)
-- [x] Xây dựng UI
-  - [x] Thiết lập Layout chính
-  - [x] Trang Chủ (Home)
-  - [ ] Trang Tính năng (Features)
-  - [x] Trang Giới thiệu (About Us)
-  - [x] Trang Liên hệ (Contact)
-- [x] (Linh) Lên plan và thực thi chuẩn hóa Responsive Mobile cho các trang Home, Pricing, About.
-- [x] (Linh) Loại bỏ khoảng cách margin-bottom phần giới thiệu Giải pháp trên Mobile.
-- [x] (Linh) Kiểm tra và chuẩn hóa padding top/bottom của section các trang web theo Contact Page Mobile.
-- [x] (Linh) Loại bỏ padding top trên Mobile cho cột văn bản trong trang Giải pháp.
-- [x] (Linh) Nâng cấp và đồng bộ UI/UX cho section Bottom CTA theo chuẩn Vibe Coding.
-- [x] (Linh) Đồng bộ size Button về chuẩn size='lg' của UI System.
-- [x] (Linh) Triển khai Neural Grid Background và Animated Beams cho section Bottom CTA.
-- [x] (Linh) Giảm contrast background decor trang About để đạt độ tinh tế (Premium Vibe).
-- [x] (Linh) Điều chỉnh contrast background decor trang About ở mức cân bằng (Balanced Tech Vibe).
-- [x] (Linh) Nới rộng container text Bottom CTA lên 'max-w-6xl' để hiển thị tối ưu 3 hàng chữ trên Desktop.
-- [x] (Linh) Cố định ngắt dòng (Line break) sau chữ 'hảo' và 'trình' trên Desktop cho Bottom CTA.
-- [x] (Linh) Điều chỉnh Padding Top/Bottom của Bottom CTA thành chính xác 96px (py-24) trên Desktop.
+## Đã hoàn thành
+- [x] Khởi tạo website marketing bằng `React + Vite + TypeScript`.
+- [x] Hoàn thiện UI/UX và responsive cho các trang chính.
+- [x] Xây dựng blog routes và luồng prerender/sitemap.
+- [x] Thiết kế kế hoạch nhúng Payload CMS theo mô hình app riêng (`apps/cms`).
+- [x] Tạo schema CMS cho `posts/categories/authors/media/users`.
+- [x] Tích hợp data source blog theo adapter (`mock` / `payload`) qua env.
+- [x] Chuyển CMS runtime sang Next.js App Router để hỗ trợ `/admin` và `/api`.
+- [x] Kết nối Supabase Postgres bằng `DATABASE_URL` trong `apps/cms/.env`.
+- [x] Cập nhật tài liệu `README.md` cho scripts và hướng vận hành CMS.
+
+## Đang mở / cần theo dõi
+- [ ] Seed dữ liệu blog từ mock vào CMS trên môi trường ổn định.
+- [ ] Tạo user admin đầu tiên cho Payload và xác nhận đăng nhập `/admin`.
+- [ ] Kiểm tra e2e luồng publish: CMS -> web blog -> prerender build.
+- [ ] Chuẩn hóa tài liệu deploy CMS (staging/production envs).

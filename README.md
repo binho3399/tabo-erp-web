@@ -5,17 +5,21 @@ Website marketing cho Tabo ERP, xây bằng `React 19 + Vite + TypeScript + Tail
 ## Yêu cầu môi trường
 
 - `Node.js >= 20.19.0`
-- `npm`
+- `pnpm@10.19.0`
 
 Repo có file [.nvmrc](/Users/macbook/Documents/Tabo%20ERP/.nvmrc) để đồng bộ version Node giữa các máy.
 
 ## Scripts
 
-- `npm run dev`: chạy local dev server.
-- `npm run build`: build production và kiểm tra budget của entry bundle.
-- `npm run build:app`: build production, prerender Blog và sinh `sitemap.xml`/`robots.txt`, không chạy bundle budget check.
-- `npm run lint`: chạy ESLint với type-aware rules.
-- `npm run preview`: preview bản build.
+- `pnpm dev`: chạy local dev server.
+- `pnpm build`: build production và kiểm tra budget của entry bundle.
+- `pnpm build:app`: build production, prerender Blog và sinh `sitemap.xml`/`robots.txt`, không chạy bundle budget check.
+- `pnpm lint`: chạy ESLint với type-aware rules.
+- `pnpm preview`: preview bản build.
+- `pnpm blog:sync`: đồng bộ snapshot dữ liệu blog từ Payload về web app (khi `BLOG_SOURCE=payload`).
+- `pnpm cms:dev`: chạy Payload CMS app tại `apps/cms` (Next.js runtime).
+- `pnpm cms:build`: generate import map + types và build CMS app.
+- `pnpm cms:seed`: import dữ liệu blog mock hiện tại vào Payload.
 
 ## Kiến trúc chính
 
@@ -25,6 +29,7 @@ Repo có file [.nvmrc](/Users/macbook/Documents/Tabo%20ERP/.nvmrc) để đồng
 - `src/config/routes.ts`: route registry cho navigation, client lazy routes và prefetch.
 - `src/content/`: nội dung typed cho các section có tính marketing.
 - `src/lib/blog/`: adapter dữ liệu blog, mock source và helper SEO cho bài viết.
+- `apps/cms/`: ứng dụng Payload CMS (admin + API) dùng Postgres/Supabase.
 - `src/lib/route-prefetch.ts`: prefetch route modules khi hover/focus link nội bộ.
 
 Sơ đồ chi tiết nằm trong [ARCHITECTURE.md](/Users/macbook/Documents/Tabo%20ERP/ARCHITECTURE.md).
@@ -40,8 +45,12 @@ Sơ đồ chi tiết nằm trong [ARCHITECTURE.md](/Users/macbook/Documents/Tabo
 - HTTP cache đã được cấu hình trong `vercel.json` và `public/_headers`:
   HTML cache ngắn với `must-revalidate`, static assets cache dài hạn với `immutable`.
 - Blog được prerender ra HTML tĩnh cho `/blog` và từng `/blog/:slug`; build cũng sinh `sitemap.xml` và `robots.txt`.
+- Khi `BLOG_SOURCE=payload`, bước build sẽ chạy `blog:sync` để lấy dữ liệu blog từ Payload API trước khi prerender.
 
 ## Ghi chú vận hành
 
-- Nếu `npm run build` báo warning về Node version, hãy chuyển đúng version theo `.nvmrc`.
-- Nếu `npm run lint` lỗi do dependency local bị lệch, chạy `npm install` để đồng bộ lại `node_modules`.
+- CMS admin mặc định chạy tại `http://localhost:3001/admin`; REST API nằm dưới `http://localhost:3001/api/*`.
+- File env local của CMS là `apps/cms/.env`; bắt buộc có `DATABASE_URL` (Supabase/Postgres) và `PAYLOAD_SECRET`.
+- Với Supabase Pooler, ưu tiên thêm `uselibpqcompat=true&sslmode=require` trong `DATABASE_URL` để tránh lỗi SSL chain khi chạy local.
+- Nếu `pnpm build` báo warning về Node version, hãy chuyển đúng version theo `.nvmrc`.
+- Nếu `pnpm lint` lỗi do dependency local bị lệch, chạy `pnpm install` để đồng bộ lại `node_modules`.

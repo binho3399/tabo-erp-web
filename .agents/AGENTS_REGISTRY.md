@@ -14,8 +14,9 @@ Tài liệu này giúp AI nhanh chóng xác định các quy chuẩn và hướn
 - **Cập nhật sơ đồ kiến trúc:** Sử dụng skill [.agents/skills/sync_architecture_graph/SKILL.md](file:///Users/macbook/Documents/Tabo%20ERP/.agents/skills/sync_architecture_graph/SKILL.md).
 
 ## 📋 Tài liệu tham khảo khác (Docs)
-- **Kế hoạch triển khai gốc:** [docs/implementation_plan.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/implementation_plan.md).
+- **Kế hoạch triển khai gốc:** [implementation_plan.md](file:///Users/macbook/Documents/Tabo%20ERP/implementation_plan.md).
 - **Lịch sử task:** [docs/task.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/task.md).
+- **Walkthrough hiện tại (web + cms):** [docs/walkthrough.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/walkthrough.md).
 
 ---
 > [!IMPORTANT]

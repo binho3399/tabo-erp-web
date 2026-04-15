@@ -9,9 +9,10 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 const tsconfigRootDir = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', '**/.next/**']),
   {
     files: ['**/*.{ts,tsx}'],
+    ignores: ['apps/cms/**/*'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommendedTypeChecked,
@@ -28,6 +29,25 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/no-floating-promises': 'error',
       'react-refresh/only-export-components': 'off',
+    },
+  },
+  {
+    files: ['apps/cms/**/*.{ts,tsx}'],
+    extends: [js.configs.recommended, tseslint.configs.recommendedTypeChecked],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.node,
+      parserOptions: {
+        project: ['./apps/cms/tsconfig.json'],
+        tsconfigRootDir,
+      },
+    },
+    rules: {
+      '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      '@typescript-eslint/no-unsafe-call': 'off',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unsafe-argument': 'off',
     },
   },
 ])

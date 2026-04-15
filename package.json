@@ -10,11 +10,15 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs && node scripts/check-bundle-size.mjs",
-    "build:app": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
+    "blog:sync": "node scripts/sync-payload-blog.mjs",
+    "build": "pnpm blog:sync && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs && node scripts/check-bundle-size.mjs",
+    "build:app": "pnpm blog:sync && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
     "check:bundle": "node scripts/check-bundle-size.mjs",
     "lint": "eslint . --max-warnings=0",
     "preview": "vite preview",
+    "cms:dev": "pnpm --filter @tabo/cms dev",
+    "cms:build": "pnpm --filter @tabo/cms build",
+    "cms:seed": "pnpm --filter @tabo/cms seed:from-mock",
     "push": "./scripts/push.sh",
     "pull": "./scripts/pull.sh"
   },

@@ -1,4 +1,5 @@
 import { blogPosts } from '@/lib/blog/mock'
+import { payloadBlogSnapshot } from '@/lib/blog/payload-cache.generated'
 import {
   findBlogCategoryBySlug,
   listBlogCategoryDefinitions,
@@ -10,6 +11,15 @@ import type { BlogPost, BlogPostSummary } from '@/lib/blog/types'
 export interface BlogCategorySummary extends BlogCategoryDefinition {
   postCount: number
 }
+
+const blogSource = (import.meta.env.BLOG_SOURCE as string | undefined) ?? 'mock'
+const activePosts = blogSource === 'payload' && payloadBlogSnapshot.posts.length > 0
+  ? payloadBlogSnapshot.posts
+  : blogPosts
+
+const payloadCategoryDescriptionMap: Record<string, string> = Object.fromEntries(
+  payloadBlogSnapshot.categories.map((category) => [category.slug, category.description ?? '']),
+)
 
 function sortByPublishedAtDesc<T extends BlogPostSummary>(posts: T[]) {
   return [...posts].sort((left, right) => right.publishedAt.localeCompare(left.publishedAt))
@@ -34,7 +44,7 @@ function toSummary(post: BlogPost): BlogPostSummary {
 
 export const blogRepository = {
   listPosts(): BlogPostSummary[] {
-    return sortByPublishedAtDesc(blogPosts).map(toSummary)
+    return sortByPublishedAtDesc(activePosts).map(toSummary)
   },
 
   listNewestPosts(limit = 5): BlogPostSummary[] {
@@ -42,11 +52,11 @@ export const blogRepository = {
   },
 
   getPostBySlug(slug: string): BlogPost | null {
-    return blogPosts.find((post) => post.slug === slug) ?? null
+    return activePosts.find((post) => post.slug === slug) ?? null
   },
 
   listIndexablePaths(): string[] {
-    return sortByPublishedAtDesc(blogPosts)
+    return sortByPublishedAtDesc(activePosts)
       .filter((post) => !post.noindex)
       .map((post) => post.canonicalPath)
   },
@@ -61,6 +71,7 @@ export const blogRepository = {
     return listBlogCategoryDefinitions()
       .map((category) => ({
         ...category,
+        description: payloadCategoryDescriptionMap[category.slug] || category.description,
         postCount: postCountByCategory[category.name] ?? 0,
       }))
       .filter((category) => category.postCount > 0)
