@@ -1,0 +1,1 @@
+import{j as i}from"./react-vendor-sX-wbe1p.js";function u({as:r,children:t,className:a="",interactive:e=!0,...s}){const c=r??"div",n=e?"surface-card-interactive":"";return i.jsx(c,{className:`surface-card ${n} ${a}`.trim(),...s,children:t})}export{u as S};

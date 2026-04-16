@@ -11,9 +11,11 @@ const AboutGrid: React.FC = () => {
                 {/* Left Column (Giải pháp) */}
                 <div className="lg:col-span-1 lg:pr-8">
                     <div className="group">
-                        <div className="w-full h-[3px] bg-[#0070F3] dark:bg-blue-500 mb-8 transition-colors"></div>
-                        <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 mb-6 shadow-sm transition-colors">
-                            <span className="text-sm font-bold text-[#0070F3] dark:text-blue-400 uppercase">Giải pháp</span>
+                        <div className="mb-6 flex items-center gap-4">
+                            <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 shadow-sm transition-colors">
+                                <span className="text-sm font-bold text-[#0070F3] dark:text-blue-400 uppercase">Giải pháp</span>
+                            </div>
+                            <div className="h-[3px] flex-1 rounded-full bg-[#0070F3] dark:bg-blue-500 transition-colors" />
                         </div>
                         <h3 className="text-[28px] font-normal tracking-tight text-slate-900 dark:text-white leading-[1.4] transition-colors">
                             Giải pháp quản trị toàn diện với dấu ấn cá nhân hóa. Chuyển đổi số dễ dàng, liền mạch.
@@ -27,9 +29,11 @@ const AboutGrid: React.FC = () => {
                         
                         {/* Item 2: Our Core Values (Text) */}
                         <div className="group">
-                            <div className="w-full h-[3px] bg-[#0070F3] dark:bg-blue-500 mb-8 transition-colors"></div>
-                            <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 mb-6 shadow-sm transition-colors">
-                                <span className="text-sm font-bold text-[#0070F3] dark:text-blue-400 uppercase">{aboutGridContent[0].eyebrow}</span>
+                            <div className="mb-6 flex items-center gap-4">
+                                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 shadow-sm transition-colors">
+                                    <span className="text-sm font-bold text-[#0070F3] dark:text-blue-400 uppercase">{aboutGridContent[0].eyebrow}</span>
+                                </div>
+                                <div className="h-[3px] flex-1 rounded-full bg-[#0070F3] dark:bg-blue-500 transition-colors" />
                             </div>
                             <div className="text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed space-y-4 transition-colors">
                                 {aboutGridContent[0].body.map((paragraph) => (
@@ -40,9 +44,11 @@ const AboutGrid: React.FC = () => {
 
                         {/* Item 3: Stats / Accessibility equivalent */}
                         <div className="group">
-                            <div className="w-full h-[3px] bg-[#0070F3] dark:bg-blue-500 mb-8 transition-colors"></div>
-                            <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 mb-6 shadow-sm transition-colors">
-                                <span className="text-sm font-bold text-[#0070F3] dark:text-blue-400 uppercase">{aboutGridContent[1].eyebrow}</span>
+                            <div className="mb-6 flex items-center gap-4">
+                                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 shadow-sm transition-colors">
+                                    <span className="text-sm font-bold text-[#0070F3] dark:text-blue-400 uppercase">{aboutGridContent[1].eyebrow}</span>
+                                </div>
+                                <div className="h-[3px] flex-1 rounded-full bg-[#0070F3] dark:bg-blue-500 transition-colors" />
                             </div>
                             <div className="text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed space-y-4 transition-colors">
                                 <p className="text-slate-800 dark:text-slate-200 font-medium transition-colors">
@@ -56,9 +62,11 @@ const AboutGrid: React.FC = () => {
 
                         {/* Item 3: Tầm nhìn */}
                         <div className="group">
-                            <div className="w-full h-[3px] bg-[#0070F3] dark:bg-blue-500 mb-8 transition-colors"></div>
-                            <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 mb-6 shadow-sm transition-colors">
-                                <span className="text-sm font-bold text-[#0070F3] dark:text-blue-400 uppercase">{aboutGridContent[2].eyebrow}</span>
+                            <div className="mb-6 flex items-center gap-4">
+                                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-blue-50/80 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800 shadow-sm transition-colors">
+                                    <span className="text-sm font-bold text-[#0070F3] dark:text-blue-400 uppercase">{aboutGridContent[2].eyebrow}</span>
+                                </div>
+                                <div className="h-[3px] flex-1 rounded-full bg-[#0070F3] dark:bg-blue-500 transition-colors" />
                             </div>
                             <div className="text-base text-slate-500 dark:text-slate-400 font-normal leading-relaxed space-y-4 transition-colors">
                                 <p className="text-slate-800 dark:text-slate-200 font-medium transition-colors">

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tabo ERP là hệ điều hành doanh nghiệp tất cả trong một, giúp quản lý bán hàng, kho bãi và tài chính trên một nền tảng duy nhất." />
+  <meta name="theme-color" content="#0f172a" />
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    .dark {
+      color-scheme: dark;
+    }
+
+    #app-splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.18), transparent 28%),
+        radial-gradient(circle at 80% 24%, rgba(37, 99, 235, 0.18), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
+      transition: opacity 420ms ease, visibility 420ms ease;
+    }
+
+    .dark #app-splash {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.16), transparent 28%),
+        radial-gradient(circle at 80% 24%, rgba(37, 99, 235, 0.18), transparent 24%),
+        linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    }
+
+    #app-splash::before,
+    #app-splash::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    #app-splash::before {
+      background-image:
+        linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity: 0.18;
+      mask-image: radial-gradient(circle at center, black 38%, transparent 85%);
+    }
+
+    #app-splash::after {
+      background:
+        linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.18), transparent);
+      width: 22rem;
+      left: -22rem;
+      transform: skewX(-24deg);
+      animation: splash-sweep 1800ms linear infinite;
+      opacity: 0.65;
+    }
+
+    .dark #app-splash::after {
+      background:
+        linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.22), transparent);
+    }
+
+    #app-splash[data-state="hidden"] {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .app-splash-shell {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .app-splash-mark {
+      position: relative;
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 1.75rem;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow:
+        0 24px 60px -28px rgba(15, 23, 42, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(22px);
+    }
+
+    .dark .app-splash-mark {
+      background: rgba(15, 23, 42, 0.78);
+      border-color: rgba(148, 163, 184, 0.16);
+      box-shadow:
+        0 24px 60px -28px rgba(2, 6, 23, 0.62),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .app-splash-logo {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font: 700 2rem/1 "SF Pro Display", "Segoe UI", sans-serif;
+      letter-spacing: 0.08em;
+      color: #0f172a;
+    }
+
+    .dark .app-splash-logo {
+      color: #f8fafc;
+    }
+
+    .app-splash-pulse {
+      position: absolute;
+      inset: -1.2rem;
+      border-radius: 2.2rem;
+      border: 1px solid rgba(59, 130, 246, 0.22);
+      animation: splash-pulse 1600ms ease-out infinite;
+    }
+
+    .app-splash-pulse:nth-child(2) {
+      inset: -2rem;
+      animation-delay: 220ms;
+      opacity: 0.6;
+    }
+
+    .app-splash-pulse:nth-child(3) {
+      inset: -2.8rem;
+      animation-delay: 440ms;
+      opacity: 0.36;
+    }
+
+    .app-splash-beams {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.55rem;
+      width: 7rem;
+      height: 3rem;
+      align-items: end;
+    }
+
+    .app-splash-beams span {
+      display: block;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(56, 189, 248, 0.15), rgba(37, 99, 235, 0.92));
+      animation: splash-beam 900ms ease-in-out infinite;
+    }
+
+    .app-splash-beams span:nth-child(2) {
+      animation-delay: 120ms;
+    }
+
+    .app-splash-beams span:nth-child(3) {
+      animation-delay: 240ms;
+    }
+
+    .app-splash-title {
+      margin: 0;
+      font: 600 0.92rem/1.4 "SF Pro Display", "Segoe UI", sans-serif;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #2563eb;
+    }
+
+    .app-splash-copy {
+      margin: 0;
+      max-width: 28rem;
+      color: #475569;
+      font: 400 0.98rem/1.7 "SF Pro Display", "Segoe UI", sans-serif;
+    }
+
+    .dark .app-splash-copy {
+      color: #cbd5e1;
+    }
+
+    @keyframes splash-pulse {
+      0% {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+
+      25% {
+        opacity: 0.75;
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.12);
+      }
+    }
+
+    @keyframes splash-beam {
+      0%, 100% {
+        height: 0.65rem;
+        opacity: 0.45;
+      }
+
+      50% {
+        height: 2.8rem;
+        opacity: 1;
+      }
+    }
+
+    @keyframes splash-sweep {
+      from {
+        transform: translateX(0) skewX(-24deg);
+      }
+
+      to {
+        transform: translateX(calc(100vw + 22rem)) skewX(-24deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #app-splash::after,
+      .app-splash-pulse,
+      .app-splash-beams span {
+        animation: none !important;
+      }
+    }
+  </style>
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('tabo-theme');
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && supportDarkMode)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {}
+
+      try {
+        var debugSplash = new URLSearchParams(window.location.search).get('debugSplash') === '1';
+        var hasSeenSplash = sessionStorage.getItem('tabo-splash-seen');
+        window.__TABO_SHOW_SPLASH__ = debugSplash || !hasSeenSplash;
+        sessionStorage.setItem('tabo-splash-seen', '1');
+      } catch (e) {
+        window.__TABO_SHOW_SPLASH__ = true;
+      }
+    })();
+  </script>
+  <title>Điều hành doanh nghiệp tất cả trong một | Tabo ERP</title>
+  <script type="module" crossorigin src="/assets/index-1y3j4vuk.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/react-vendor-sX-wbe1p.js">
+  <link rel="modulepreload" crossorigin href="/assets/icon-vendor-B6ungNFN.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-CjjoIKGY.css">
+</head>
+
+<body>
+  <div id="app-splash" aria-hidden="true">
+    <div class="app-splash-shell">
+      <div class="app-splash-mark">
+        <span class="app-splash-pulse"></span>
+        <span class="app-splash-pulse"></span>
+        <span class="app-splash-pulse"></span>
+        <div class="app-splash-logo">T</div>
+      </div>
+      <div class="app-splash-beams">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p class="app-splash-title">Data Pulse</p>
+      <p class="app-splash-copy">Đồng bộ vận hành, tài chính và kho bãi vào một nhịp điều hành duy nhất.</p>
+    </div>
+  </div>
+  <div id="root"></div>
+</body>
+
+</html>

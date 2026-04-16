@@ -2,6 +2,15 @@
 
 Website marketing cho Tabo ERP, xây bằng `React 19 + Vite + TypeScript + Tailwind CSS`.
 
+## Project URLs
+
+- Marketing website (local): `http://localhost:5173`
+- Marketing website (Vercel/production): `https://tabo.vn`
+- CMS app (local): `http://localhost:3001`
+- CMS app (Vercel/production): `https://<your-cms-project>.vercel.app`
+- CMS admin (local): `http://localhost:3001/admin`
+- CMS API (local): `http://localhost:3001/api/*`
+
 ## Yêu cầu môi trường
 
 - `Node.js >= 20.19.0`
