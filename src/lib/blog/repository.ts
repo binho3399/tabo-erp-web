@@ -42,9 +42,31 @@ function toSummary(post: BlogPost): BlogPostSummary {
   }
 }
 
+const sortedPosts = sortByPublishedAtDesc(activePosts)
+const sortedPostSummaries = sortedPosts.map(toSummary)
+const postBySlug = new Map(activePosts.map((post) => [post.slug, post]))
+const postCountByCategory = sortedPostSummaries.reduce<Record<string, number>>((accumulator, post) => {
+  accumulator[post.category] = (accumulator[post.category] ?? 0) + 1
+  return accumulator
+}, {})
+const categoriesWithPosts: BlogCategorySummary[] = listBlogCategoryDefinitions()
+  .map((category) => ({
+    ...category,
+    description: payloadCategoryDescriptionMap[category.slug] || category.description,
+    postCount: postCountByCategory[category.name] ?? 0,
+  }))
+  .filter((category) => category.postCount > 0)
+const categoryBySlug = new Map(categoriesWithPosts.map((category) => [category.slug, category]))
+const postsByCategorySlug = new Map<string, BlogPostSummary[]>(
+  categoriesWithPosts.map((category) => [
+    category.slug,
+    sortedPostSummaries.filter((post) => post.category === category.name),
+  ]),
+)
+
 export const blogRepository = {
   listPosts(): BlogPostSummary[] {
-    return sortByPublishedAtDesc(activePosts).map(toSummary)
+    return [...sortedPostSummaries]
   },
 
   listNewestPosts(limit = 5): BlogPostSummary[] {
@@ -52,44 +74,29 @@ export const blogRepository = {
   },
 
   getPostBySlug(slug: string): BlogPost | null {
-    return activePosts.find((post) => post.slug === slug) ?? null
+    return postBySlug.get(slug) ?? null
   },
 
   listIndexablePaths(): string[] {
-    return sortByPublishedAtDesc(activePosts)
+    return sortedPosts
       .filter((post) => !post.noindex)
       .map((post) => post.canonicalPath)
   },
 
   listCategories(): BlogCategorySummary[] {
-    const posts = this.listPosts()
-    const postCountByCategory = posts.reduce<Record<string, number>>((accumulator, post) => {
-      accumulator[post.category] = (accumulator[post.category] ?? 0) + 1
-      return accumulator
-    }, {})
-
-    return listBlogCategoryDefinitions()
-      .map((category) => ({
-        ...category,
-        description: payloadCategoryDescriptionMap[category.slug] || category.description,
-        postCount: postCountByCategory[category.name] ?? 0,
-      }))
-      .filter((category) => category.postCount > 0)
+    return [...categoriesWithPosts]
   },
 
   getCategoryBySlug(slug: string): BlogCategorySummary | null {
-    const category = this.listCategories().find((item) => item.slug === slug)
-    return category ?? null
+    return categoryBySlug.get(slug) ?? null
   },
 
   listPostsByCategorySlug(slug: string): BlogPostSummary[] {
-    const categoryName = findBlogCategoryBySlug(slug)?.name
-
-    if (!categoryName) {
+    if (!findBlogCategoryBySlug(slug)) {
       return []
     }
 
-    return this.listPosts().filter((post) => post.category === categoryName)
+    return [...(postsByCategorySlug.get(slug) ?? [])]
   },
 
   listCategoryIndexablePaths(): string[] {

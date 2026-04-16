@@ -36,6 +36,9 @@ graph TD
     Navbar --> ThemeToggle[components/ui/ThemeToggle.tsx]
     Navbar --> UiIndex[components/ui/index.ts]
     Navbar --> Prefetch[components/ui/PrefetchLink.tsx]
+    Navbar --> DesktopNav[components/layout/navbar/DesktopNavigation.tsx]
+    Navbar --> MobileNav[components/layout/navbar/MobileNavigation.tsx]
+    Navbar --> NavbarShared[components/layout/navbar/shared.ts]
     Footer --> LogoWhite[src/assets/Logo-white.png]
     Navbar --> LogoBlack[src/assets/logo-black.png]
     Navbar --> LogoWhite
@@ -75,12 +78,15 @@ graph TD
 
     HomeHero --> HomeContent[src/content/home.ts]
     HomeHero --> ViewportHook[src/hooks/useViewportActivity.ts]
+    HomeHero --> HeroAvatarBadge[components/home/hero/AvatarBadge.tsx]
 
     SolutionsSection --> LandingConstants[src/constants/landing/index.ts]
     SolutionsSection --> LandingTypes[src/types/landing.ts]
     HomeFeatures --> LandingConstants
     HomeFeatures --> LandingTypes
     HomeFeatures --> ViewportHook
+    HomeFeatures --> FeatureCard[components/home/features/FeatureCard.tsx]
+    HomeFeatures --> SectorTicker[components/home/features/SectorTicker.tsx]
     PricingSection --> LandingConstants
     PricingSection --> LandingTypes
 
@@ -264,7 +270,10 @@ Khi cần sửa một phần cụ thể, đọc theo thứ tự này để giả
 | `src/config/site.ts` | Nguồn sự thật cho site metadata, navigation labels, contact info và SEO cơ bản. |
 | `src/pages/` | Mỗi file là một route-level page, chủ yếu chỉ lắp ráp các section. |
 | `src/components/layout/` | Navbar, Footer, ScrollToTop, và shell bố cục chung. |
+| `src/components/layout/navbar/` | Sub-components cho điều hướng desktop/mobile và shared navbar mappings. |
 | `src/components/home/` | Các section của Home, trong đó một phần được lazy load qua `DeferredSection`. |
+| `src/components/home/features/` | Primitive cho `FeaturesSection` (feature chip + ticker) để tách layout khỏi view primitives. |
+| `src/components/home/hero/` | Primitive cho `HeroSection` (avatar badge và phần tử con). |
 | `src/components/pricing/` | Các khối giao diện của trang Pricing; `PricingSection` được tái sử dụng ở Home. |
 | `src/components/about/` | Các section của trang About; phần dưới lazy qua `DeferredSection`. |
 | `src/components/contact/` | Các section của trang Contact; FAQ lazy qua `DeferredSection`. |

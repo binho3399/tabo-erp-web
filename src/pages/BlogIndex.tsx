@@ -15,19 +15,19 @@ const dateFormatter = new Intl.DateTimeFormat('vi-VN', {
 export default function BlogIndex() {
   const { ref: heroRef, isActive: isHeroActive } = useViewportActivity<HTMLElement>()
   const posts = blogRepository.listPosts()
+  const categories = blogRepository.listCategories()
 
   const featuredPost = posts[0] ?? null
   const latestSidePosts = posts.slice(1, 5)
   const categorySections = useMemo(
     () =>
-      blogRepository
-        .listCategories()
+      categories
         .map((category) => ({
           ...category,
           posts: blogRepository.listPostsByCategorySlug(category.slug).slice(0, 3),
         }))
         .filter((category) => category.posts.length > 0),
-    [posts],
+    [categories],
   )
 
   usePageMetadata(buildBlogIndexMetadata(posts))
@@ -107,7 +107,7 @@ export default function BlogIndex() {
             Cập nhật bài viết mới nhất cho nhà quản trị muốn vận hành doanh nghiệp nhanh hơn và dữ liệu hơn.
           </p>
           <div className="mt-6 hidden items-center gap-2 lg:flex">
-            {blogRepository.listCategories().slice(0, 4).map((category) => (
+            {categories.slice(0, 4).map((category) => (
               <span
                 key={category.slug}
                 className="inline-flex items-center gap-1 rounded-full border border-blue-100/80 bg-white/70 px-3 py-1 text-xs tracking-[0.1em] text-slate-500 backdrop-blur-sm dark:border-blue-900/40 dark:bg-slate-900/60 dark:text-slate-300"

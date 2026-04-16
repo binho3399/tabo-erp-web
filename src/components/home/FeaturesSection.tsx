@@ -1,58 +1,9 @@
 import React from 'react';
 import { Icon, Badge } from '@/components/ui';
 import { FEATURE_ITEMS, SECTOR_ITEMS } from '@/constants/landing';
-import type { FeatureItem, SectorItem } from '@/types/landing';
 import { useViewportActivity } from '@/hooks/useViewportActivity';
-
-const FeatureCard: React.FC<{ item: FeatureItem }> = ({ item }) => {
-    const colors: { [key: string]: string } = {
-        blue: "bg-blue-50 dark:bg-blue-900/30 text-blue-500 dark:text-blue-400",
-        orange: "bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400",
-        emerald: "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400",
-        purple: "bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400",
-        pink: "bg-pink-50 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400",
-        cyan: "bg-cyan-50 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400",
-        red: "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400",
-        teal: "bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400",
-        indigo: "bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400",
-        amber: "bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400"
-    };
-    
-    return (
-        <div className="flex items-center gap-3 bg-white dark:bg-slate-900 pr-6 pl-2 py-2 rounded-full shadow-sm hover:shadow-md transition-all cursor-default shrink-0 group border border-transparent dark:border-slate-800">
-            <div className={`w-10 h-10 rounded-full flex items-center justify-center ${colors[item.color]}`}>
-                <Icon name={item.icon} className="text-xl" />
-            </div>
-            <div className="">
-                <h4 className="text-slate-800 dark:text-slate-200 text-[13px] font-normal leading-tight">{item.name}</h4>
-                <p className="text-slate-400 dark:text-slate-500 text-[10px] mt-0.5">{item.desc}</p>
-            </div>
-        </div>
-    );
-};
-
-const SectorTickerGroup: React.FC<{ items: SectorItem[] }> = ({ items }) => (
-    <div className="flex shrink-0 whitespace-nowrap gap-4 pr-4">
-        {items.map((sector) => (
-            <div key={sector.name} className="bg-white dark:bg-slate-800 flex items-center gap-3 px-4 py-2 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 shrink-0">
-                <Icon name={sector.icon} className="text-blue-500 dark:text-blue-400 text-lg" />
-                <span className="text-slate-700 dark:text-slate-300 text-[13px] font-medium">{sector.name}</span>
-            </div>
-        ))}
-    </div>
-);
-
-const SectorTicker: React.FC<{ items: SectorItem[], reverse?: boolean; isActive: boolean }> = ({ items, reverse, isActive }) => (
-    <div
-        className={`motion-gated flex w-max animate-marquee whitespace-nowrap ${reverse ? 'flex-row-reverse' : ''}`}
-        style={reverse
-            ? { animationDirection: 'reverse', animationDuration: '80s', animationPlayState: isActive ? 'running' : 'paused' }
-            : { animationDuration: '80s', animationPlayState: isActive ? 'running' : 'paused' }}
-    >
-        <SectorTickerGroup items={items} />
-        <SectorTickerGroup items={items} />
-    </div>
-);
+import { FeatureCard } from '@/components/home/features/FeatureCard';
+import { SectorTicker } from '@/components/home/features/SectorTicker';
 
 const FeaturesSection: React.FC = () => {
     const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();

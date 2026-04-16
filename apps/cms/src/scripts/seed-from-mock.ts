@@ -3,7 +3,6 @@ import 'dotenv/config'
 import { getPayload } from 'payload'
 
 import { blogPosts } from '../../../../src/lib/blog/mock'
-import { listBlogCategoryDefinitions } from '../../../../src/lib/blog/categories'
 import config from '../payload.config'
 
 if (!process.env.PAYLOAD_SECRET) {
@@ -30,12 +29,35 @@ function toSectionRows(
   }))
 }
 
+function toSlug(value: string) {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
 async function run() {
   const payload = await getPayload({ config })
 
-  const categoryDefinitions = listBlogCategoryDefinitions()
+  const categoryDefinitions = Array.from(
+    new Map(
+      blogPosts.map((post) => [
+        post.category,
+        {
+          name: post.category,
+          slug: toSlug(post.category),
+          description: `Nội dung chuyên sâu về ${post.category.toLowerCase()} trong hệ sinh thái Tabo ERP.`,
+        },
+      ]),
+    ).values(),
+  )
   const categoryIdByName = new Map<string, number | string>()
   const authorIdByName = new Map<string, number | string>()
+  let createdPosts = 0
+  let updatedPosts = 0
+  let skippedPosts = 0
 
   for (const category of categoryDefinitions) {
     const existing = await payload.find({
@@ -93,6 +115,8 @@ async function run() {
 
     const categoryId = categoryIdByName.get(post.category)
     if (!categoryId || !authorId) {
+      skippedPosts += 1
+      console.warn(`Skipped post "${post.slug}" because author/category could not be resolved.`)
       continue
     }
 
@@ -133,6 +157,7 @@ async function run() {
         id: existingPost.docs[0].id,
         data: postData,
       })
+      updatedPosts += 1
       continue
     }
 
@@ -140,9 +165,12 @@ async function run() {
       collection: 'posts',
       data: postData,
     })
+    createdPosts += 1
   }
 
-  console.log(`Seeded ${blogPosts.length} posts from mock data.`)
+  console.log(
+    `Seed complete. total=${blogPosts.length}, created=${createdPosts}, updated=${updatedPosts}, skipped=${skippedPosts}.`,
+  )
   process.exit(0)
 }
 

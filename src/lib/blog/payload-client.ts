@@ -2,6 +2,9 @@ import type { BlogPost, BlogContentSection } from '@/lib/blog/types'
 
 interface PayloadListResponse<TDocument> {
   docs: TDocument[]
+  page?: number
+  totalPages?: number
+  hasNextPage?: boolean
 }
 
 interface PayloadAuthorDocument {
@@ -130,20 +133,35 @@ async function fetchPayloadCollection<TDocument>(
   collection: string,
   apiKey?: string,
 ): Promise<TDocument[]> {
-  const endpoint = new URL(`/api/${collection}`, baseUrl)
-  endpoint.searchParams.set('limit', '200')
-  endpoint.searchParams.set('depth', '1')
+  const documents: TDocument[] = []
+  let page = 1
 
-  const response = await fetch(endpoint, {
-    headers: buildHeaders(apiKey),
-  })
+  while (true) {
+    const endpoint = new URL(`/api/${collection}`, baseUrl)
+    endpoint.searchParams.set('limit', '200')
+    endpoint.searchParams.set('depth', '1')
+    endpoint.searchParams.set('page', String(page))
 
-  if (!response.ok) {
-    throw new Error(`Payload request failed for ${collection}: ${response.status} ${response.statusText}`)
+    const response = await fetch(endpoint, {
+      headers: buildHeaders(apiKey),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Payload request failed for ${collection}: ${response.status} ${response.statusText}`)
+    }
+
+    const payload = (await response.json()) as PayloadListResponse<TDocument>
+    documents.push(...payload.docs)
+
+    const hasNextPage = payload.hasNextPage ?? (payload.totalPages !== undefined ? page < payload.totalPages : false)
+    if (!hasNextPage) {
+      break
+    }
+
+    page += 1
   }
 
-  const payload = (await response.json()) as PayloadListResponse<TDocument>
-  return payload.docs
+  return documents
 }
 
 export async function fetchPayloadBlogData(baseUrl: string, apiKey?: string): Promise<PayloadBlogData> {

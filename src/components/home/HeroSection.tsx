@@ -2,16 +2,7 @@ import React from 'react';
 import { Icon, Button, Badge } from '@/components/ui';
 import { heroAvatarBadges, heroTickerItems } from '@/content/home';
 import { useViewportActivity } from '@/hooks/useViewportActivity';
-
-const AvatarBadge: React.FC<{ initials: string; className: string; sizeClassName: string }> = ({
-    initials,
-    className,
-    sizeClassName,
-}) => (
-    <span className={`inline-flex items-center justify-center rounded-full border border-[#1A1A1A] dark:border-slate-900 font-semibold tracking-[0.08em] ${className} ${sizeClassName}`}>
-        {initials}
-    </span>
-);
+import { AvatarBadge } from '@/components/home/hero/AvatarBadge';
 
 const HeroSection: React.FC = () => {
     const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();

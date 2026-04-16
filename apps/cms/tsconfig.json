@@ -42,8 +42,6 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "src/server.ts",
-    "src/scripts/**/*"
+    "node_modules"
   ]
 }

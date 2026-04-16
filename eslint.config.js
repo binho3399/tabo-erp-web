@@ -50,4 +50,22 @@ export default defineConfig([
       '@typescript-eslint/no-unsafe-argument': 'off',
     },
   },
+  {
+    files: ['apps/cms/src/scripts/**/*.{ts,tsx}'],
+    ignores: ['apps/cms/src/scripts/seed-from-mock.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['../../../../src/*'],
+              message:
+                'Do not import frontend app modules directly from CMS scripts. Use shared data modules or API-backed sources instead.',
+            },
+          ],
+        },
+      ],
+    },
+  },
 ])

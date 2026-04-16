@@ -10,12 +10,16 @@
   },
   "scripts": {
     "dev": "vite",
-    "blog:sync": "node scripts/sync-payload-blog.mjs",
+    "blog:sync": "node --import tsx scripts/sync-payload-blog.mjs",
+    "typecheck": "tsc -b",
     "build": "pnpm blog:sync && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs && node scripts/check-bundle-size.mjs",
     "build:app": "pnpm blog:sync && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
     "check:bundle": "node scripts/check-bundle-size.mjs",
     "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "preview": "vite preview",
+    "ci": "pnpm lint && pnpm typecheck && pnpm build && pnpm check:bundle && pnpm format:check",
     "cms:dev": "pnpm --filter @tabo/cms dev",
     "cms:build": "pnpm --filter @tabo/cms build",
     "cms:seed": "pnpm --filter @tabo/cms seed:from-mock",
@@ -43,9 +47,14 @@
     "globals": "^16.5.0",
     "playwright": "^1.58.2",
     "typescript": "5.9.3",
+    "tsx": "^4.21.0",
     "typescript-eslint": "^8.48.0",
+    "prettier": "^3.6.2",
     "vite": "^7.3.1",
     "zod": "^4.3.6",
     "zod-validation-error": "^4.0.2"
+  },
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,tsx,json,md,yml,yaml}": "prettier --write"
   }
 }
