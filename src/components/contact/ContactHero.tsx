@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Icon, PrefetchLink } from '@/components/ui';
 import { useViewportActivity } from '@/hooks/useViewportActivity';
+import { useSvgPathMotion } from '@/hooks/useSvgPathMotion';
+
+const PATH_CALL = 'M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320';
+const PATH_MAIL = 'M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40';
+const PATH_PIN = 'M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260';
+
+interface ContactPathMoverProps {
+    pathD: string;
+    durationSec: number;
+    phaseSec?: number;
+    isActive: boolean;
+    /** Optional id for tests / debugging (e.g. pin mover on contact hero). */
+    moverTrack?: string;
+    children: React.ReactNode;
+}
+
+const ContactPathMover: React.FC<ContactPathMoverProps> = ({
+    pathD,
+    durationSec,
+    phaseSec = 0,
+    isActive,
+    moverTrack,
+    children,
+}) => {
+    const pathRef = useRef<SVGPathElement>(null);
+    const gRef = useRef<SVGGElement>(null);
+    useSvgPathMotion(pathRef, gRef, { durationSec, phaseSec, rotateAuto: true, enabled: isActive });
+
+    return (
+        <>
+            <path ref={pathRef} d={pathD} fill="none" stroke="none" className="opacity-0" aria-hidden />
+            <g ref={gRef} {...(moverTrack ? { 'data-testid': `contact-hero-mover-${moverTrack}` } : {})}>
+                {children}
+            </g>
+        </>
+    );
+};
 
 const ContactHero: React.FC = () => {
-    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>({ disabled: true });
+    const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
 
     return (
         <section
@@ -75,43 +112,29 @@ const ContactHero: React.FC = () => {
                             <path d="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" className="motion-gated animate-grid-dash" style={{ animationDuration: '13s', animationDelay: '1.5s' }} />
                         </g>
 
-                        {/* Contact-themed moving nodes */}
-                        <g className="motion-gated text-blue-600/85 dark:text-blue-300/80">
-                            <g>
+                        {/* Moving nodes: JS-driven path motion — reliable in Chrome after SPA navigation (SMIL animateMotion can stick). */}
+                        <g className="text-blue-600/85 dark:text-blue-300/80">
+                            <ContactPathMover pathD={PATH_CALL} durationSec={11} isActive={isActive}>
                                 <circle cx="0" cy="0" r="12" className="fill-white/90 dark:fill-slate-900/85" />
                                 <circle cx="0" cy="0" r="16" className="fill-blue-500/10 dark:fill-blue-400/20" />
                                 <use href="#icon-call" x="-5" y="-5" width="10" height="10" />
-                                <animateMotion
-                                    dur="11s"
-                                    repeatCount="indefinite"
-                                    rotate="auto"
-                                    path="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320"
-                                />
-                            </g>
-                            <g>
+                            </ContactPathMover>
+                            <ContactPathMover pathD={PATH_MAIL} durationSec={13.5} phaseSec={2.4} isActive={isActive}>
                                 <circle cx="0" cy="0" r="11" className="fill-white/90 dark:fill-slate-900/85" />
                                 <circle cx="0" cy="0" r="14.5" className="fill-cyan-500/10 dark:fill-cyan-400/20" />
                                 <use href="#icon-mail" x="-4.5" y="-4.5" width="9" height="9" />
-                                <animateMotion
-                                    dur="13.5s"
-                                    begin="-2.4s"
-                                    repeatCount="indefinite"
-                                    rotate="auto"
-                                    path="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40"
-                                />
-                            </g>
-                            <g>
+                            </ContactPathMover>
+                            <ContactPathMover
+                                pathD={PATH_PIN}
+                                durationSec={15}
+                                phaseSec={4.2}
+                                isActive={isActive}
+                                moverTrack="pin"
+                            >
                                 <circle cx="0" cy="0" r="10.5" className="fill-white/90 dark:fill-slate-900/85" />
                                 <circle cx="0" cy="0" r="14" className="fill-indigo-500/10 dark:fill-indigo-400/20" />
                                 <use href="#icon-pin" x="-4.8" y="-4.8" width="9.6" height="9.6" />
-                                <animateMotion
-                                    dur="15s"
-                                    begin="-4.2s"
-                                    repeatCount="indefinite"
-                                    rotate="auto"
-                                    path="M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260"
-                                />
-                            </g>
+                            </ContactPathMover>
                         </g>
 
                         {/* Static Pulse Nodes (Dimmed for less contrast - Subtle Pulsing) */}
