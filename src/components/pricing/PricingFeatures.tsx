@@ -69,11 +69,11 @@ const PricingFeatures: React.FC = () => {
                     <div className="text-[17px] font-semibold text-slate-900 dark:text-white transition-colors">Nhóm tính năng</div>
                     {activeTab === 'free' ? (
                         <>
-                            <div className="text-xs font-bold text-slate-400 dark:text-slate-500 text-center uppercase tracking-widest transition-colors">Gói Miễn Phí</div>
+                            <div className="text-xs font-bold text-slate-400 dark:text-slate-500 text-center uppercase tracking-widest transition-colors">Miễn Phí</div>
                             <div className="text-xs font-bold text-slate-400 dark:text-slate-500 text-center uppercase tracking-widest transition-colors">Mở Rộng</div>
                         </>
                     ) : (
-                        <div className="text-xs font-bold text-slate-400 dark:text-slate-500 text-center uppercase tracking-widest transition-colors">Gói Nâng Cao</div>
+                        <div className="text-xs font-bold text-slate-400 dark:text-slate-500 text-center uppercase tracking-widest transition-colors">Nâng Cao</div>
                     )}
                 </div>
 
@@ -110,7 +110,7 @@ const PricingFeatures: React.FC = () => {
                                             {activeTab === 'free' ? (
                                                 <div className="md:hidden grid grid-cols-2 gap-4 pt-2">
                                                     <div className="flex flex-col gap-2">
-                                                        <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-widest text-left transition-colors">Gói Miễn Phí</span>
+                                                        <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-widest text-left transition-colors">Miễn Phí</span>
                                                         <div className="flex justify-start">{renderValue(feat.free)}</div>
                                                     </div>
                                                     <div className="flex flex-col gap-2">
@@ -121,7 +121,7 @@ const PricingFeatures: React.FC = () => {
                                             ) : (
                                                 <div className="md:hidden grid grid-cols-1 gap-4 pt-2">
                                                     <div className="flex flex-col gap-2">
-                                                        <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-widest text-left transition-colors">Gói Nâng Cao</span>
+                                                        <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-widest text-left transition-colors">Nâng Cao</span>
                                                         <div className="flex justify-start">{renderValue(feat.enterprise)}</div>
                                                     </div>
                                                 </div>

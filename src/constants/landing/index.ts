@@ -106,11 +106,12 @@ export const SOLUTIONS: SolutionItem[] = [
 
 export const PRICING_PLANS: PricingPlan[] = [
     {
-        name: "Gói Miễn Phí",
-        tagline: "Gói khởi đầu",
+        name: "Miễn Phí",
+        tagline: "Miễn phí cho tất cả mọi người/doanh nghiệp",
         price: "0đ",
-        period: "/ mãi mãi",
-        description: "Giải pháp cơ bản cho hộ kinh doanh nhỏ.",
+        period: "",
+        priceSubtitle: "Miễn phí cho tất cả mọi người/doanh nghiệp",
+        description: "Giải pháp cơ bản cho hộ kinh doanh",
         features: [
             "1 kênh bán",
             "Chỉ POS Lẻ",
@@ -125,11 +126,12 @@ export const PRICING_PLANS: PricingPlan[] = [
         variant: "secondary"
     },
     {
-        name: "Gói Nâng Cao",
+        name: "Nâng Cao",
         tagline: "Gói toàn diện",
         price: "Liên hệ",
         period: "",
-        description: "Giải pháp ERP may đo cho tập đoàn lớn.",
+        priceSubtitle: "Báo giá theo quy mô doanh nghiệp",
+        description: "Giải pháp ERP may đo cho doanh nghiệp",
         features: [
             "Đa nền tảng (Shopee, Web,...)",
             "POS Sỉ & Lẻ, nhiều giá",
