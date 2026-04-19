@@ -1,9 +1,123 @@
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
-import { fetchPayloadBlogData } from '../src/lib/blog/payload-client.ts'
 
 const blogSource = process.env.BLOG_SOURCE ?? 'mock'
 const outputPath = path.resolve('src/lib/blog/payload-cache.generated.ts')
+
+function normalizeMediaUrl(coverImage) {
+  if (!coverImage) {
+    return '/noise.svg'
+  }
+
+  if (typeof coverImage === 'string') {
+    return coverImage
+  }
+
+  return coverImage.url ?? '/noise.svg'
+}
+
+function mapContentSections(content) {
+  if (!Array.isArray(content) || content.length === 0) {
+    return []
+  }
+
+  return content.map((section) => ({
+    heading: section.heading,
+    paragraphs: (section.paragraphs ?? []).map((item) => item.paragraph),
+    bullets: section.bullets?.map((item) => item.bullet).filter(Boolean),
+    quote: section.quote,
+  }))
+}
+
+function mapPost(document) {
+  const categoryName = typeof document.category === 'string' ? document.category : document.category?.name ?? ''
+  const canonicalPath = document.canonicalPath || `/blog/${document.slug}`
+  const coverImage = normalizeMediaUrl(document.coverImage)
+  const tags = (document.tags ?? []).map((tag) => (typeof tag === 'string' ? tag : tag.value))
+
+  return {
+    slug: document.slug,
+    title: document.title,
+    excerpt: document.excerpt,
+    category: categoryName,
+    tags,
+    publishedAt: document.publishedAt,
+    updatedAt: document.updatedAt,
+    readingTimeMinutes: document.readingTimeMinutes ?? 1,
+    author: {
+      name: document.author?.name ?? '',
+      role: document.author?.role ?? '',
+    },
+    coverImage,
+    canonicalPath,
+    noindex: document.noindex,
+    seo: {
+      title: document.seo?.title ?? document.title,
+      description: document.seo?.description ?? document.excerpt,
+      openGraph: {
+        image: document.seo?.openGraphImage ?? coverImage,
+      },
+      twitter: {
+        image: document.seo?.twitterImage ?? coverImage,
+      },
+    },
+    content: mapContentSections(document.content),
+  }
+}
+
+function buildHeaders(apiKey) {
+  if (!apiKey) {
+    return {}
+  }
+
+  return {
+    Authorization: `users API-Key ${apiKey}`,
+  }
+}
+
+async function fetchPayloadCollection(baseUrl, collection, apiKey) {
+  const documents = []
+  let page = 1
+
+  while (true) {
+    const endpoint = new URL(`/api/${collection}`, baseUrl)
+    endpoint.searchParams.set('limit', '200')
+    endpoint.searchParams.set('depth', '1')
+    endpoint.searchParams.set('page', String(page))
+
+    const response = await fetch(endpoint, {
+      headers: buildHeaders(apiKey),
+    })
+
+    if (!response.ok) {
+      throw new Error(`Payload request failed for ${collection}: ${response.status} ${response.statusText}`)
+    }
+
+    const payload = await response.json()
+    documents.push(...(payload.docs ?? []))
+
+    const hasNextPage = payload.hasNextPage ?? (payload.totalPages !== undefined ? page < payload.totalPages : false)
+    if (!hasNextPage) {
+      break
+    }
+
+    page += 1
+  }
+
+  return documents
+}
+
+async function fetchPayloadBlogData(baseUrl, apiKey) {
+  const [postDocuments, categoryDocuments] = await Promise.all([
+    fetchPayloadCollection(baseUrl, 'posts', apiKey),
+    fetchPayloadCollection(baseUrl, 'categories', apiKey),
+  ])
+
+  return {
+    posts: postDocuments.map(mapPost),
+    categories: categoryDocuments,
+  }
+}
 
 function renderCacheModule(snapshot) {
   return `import type { PayloadBlogSnapshot } from '@/lib/blog/payload-cache'

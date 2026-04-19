@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "blog:sync": "node --import tsx scripts/sync-payload-blog.mjs",
+    "blog:sync": "node scripts/sync-payload-blog.mjs",
     "typecheck": "tsc -b",
     "build": "pnpm blog:sync && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs && node scripts/check-bundle-size.mjs",
     "build:app": "pnpm blog:sync && tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node scripts/prerender.mjs",
