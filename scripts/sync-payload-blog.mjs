@@ -75,14 +75,19 @@ function buildHeaders(apiKey) {
   }
 }
 
-async function fetchPayloadCollection(baseUrl, collection, apiKey) {
+async function fetchPayloadCollection(baseUrl, collection, options = {}, apiKey) {
   const documents = []
   let page = 1
+  const limit = options.limit ?? 100
+  const depth = options.depth ?? 1
 
   while (true) {
     const endpoint = new URL(`/api/${collection}`, baseUrl)
-    endpoint.searchParams.set('limit', '200')
-    endpoint.searchParams.set('depth', '1')
+    endpoint.searchParams.set('limit', String(limit))
+    endpoint.searchParams.set('depth', String(depth))
+    if (options.sort) {
+      endpoint.searchParams.set('sort', options.sort)
+    }
     endpoint.searchParams.set('page', String(page))
 
     const response = await fetch(endpoint, {
@@ -109,8 +114,8 @@ async function fetchPayloadCollection(baseUrl, collection, apiKey) {
 
 async function fetchPayloadBlogData(baseUrl, apiKey) {
   const [postDocuments, categoryDocuments] = await Promise.all([
-    fetchPayloadCollection(baseUrl, 'posts', apiKey),
-    fetchPayloadCollection(baseUrl, 'categories', apiKey),
+    fetchPayloadCollection(baseUrl, 'posts', { limit: 100, depth: 1, sort: '-publishedAt' }, apiKey),
+    fetchPayloadCollection(baseUrl, 'categories', { limit: 100, depth: 0 }, apiKey),
   ])
 
   return {

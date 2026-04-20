@@ -131,15 +131,25 @@ function buildHeaders(apiKey?: string): HeadersInit {
 async function fetchPayloadCollection<TDocument>(
   baseUrl: string,
   collection: string,
+  options: {
+    limit?: number
+    depth?: number
+    sort?: string
+  } = {},
   apiKey?: string,
 ): Promise<TDocument[]> {
   const documents: TDocument[] = []
   let page = 1
+  const limit = options.limit ?? 100
+  const depth = options.depth ?? 1
 
   while (true) {
     const endpoint = new URL(`/api/${collection}`, baseUrl)
-    endpoint.searchParams.set('limit', '200')
-    endpoint.searchParams.set('depth', '1')
+    endpoint.searchParams.set('limit', String(limit))
+    endpoint.searchParams.set('depth', String(depth))
+    if (options.sort) {
+      endpoint.searchParams.set('sort', options.sort)
+    }
     endpoint.searchParams.set('page', String(page))
 
     const response = await fetch(endpoint, {
@@ -166,8 +176,8 @@ async function fetchPayloadCollection<TDocument>(
 
 export async function fetchPayloadBlogData(baseUrl: string, apiKey?: string): Promise<PayloadBlogData> {
   const [postDocuments, categoryDocuments] = await Promise.all([
-    fetchPayloadCollection<PayloadPostDocument>(baseUrl, 'posts', apiKey),
-    fetchPayloadCollection<PayloadCategoryDocument>(baseUrl, 'categories', apiKey),
+    fetchPayloadCollection<PayloadPostDocument>(baseUrl, 'posts', { limit: 100, depth: 1, sort: '-publishedAt' }, apiKey),
+    fetchPayloadCollection<PayloadCategoryDocument>(baseUrl, 'categories', { limit: 100, depth: 0 }, apiKey),
   ])
 
   return {

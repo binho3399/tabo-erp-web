@@ -8,9 +8,9 @@
   },
   "scripts": {
     "dev": "PAYLOAD_SECRET=${PAYLOAD_SECRET:-tabo-cms-local-secret} next dev -p ${PAYLOAD_PORT:-3001}",
-    "build": "PAYLOAD_SECRET=${PAYLOAD_SECRET:-tabo-cms-local-secret} payload generate:importmap && payload generate:types && next build",
-    "start": "PAYLOAD_SECRET=${PAYLOAD_SECRET:-tabo-cms-local-secret} next start -p ${PAYLOAD_PORT:-3001}",
-    "seed:from-mock": "PAYLOAD_SECRET=${PAYLOAD_SECRET:-tabo-cms-local-secret} node --import tsx src/scripts/seed-from-mock.ts"
+    "build": "PAYLOAD_SECRET=${PAYLOAD_SECRET:?PAYLOAD_SECRET is required} payload generate:importmap && payload generate:types && next build",
+    "start": "PAYLOAD_SECRET=${PAYLOAD_SECRET:?PAYLOAD_SECRET is required} next start -p ${PAYLOAD_PORT:-3001}",
+    "seed:from-mock": "PAYLOAD_SECRET=${PAYLOAD_SECRET:?PAYLOAD_SECRET is required} node --import tsx src/scripts/seed-from-mock.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "^3.82.1",

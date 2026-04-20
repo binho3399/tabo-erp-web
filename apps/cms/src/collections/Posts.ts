@@ -9,7 +9,7 @@ export const Posts: CollectionConfig = {
   versions: {
     drafts: {
       autosave: {
-        interval: 200,
+        interval: 1200,
       },
     },
   },
@@ -54,6 +54,7 @@ export const Posts: CollectionConfig = {
       type: 'relationship',
       relationTo: 'categories',
       required: true,
+      index: true,
     },
     {
       name: 'tags',
@@ -70,10 +71,12 @@ export const Posts: CollectionConfig = {
       name: 'publishedAt',
       type: 'date',
       required: true,
+      index: true,
     },
     {
       name: 'updatedAt',
       type: 'date',
+      index: true,
     },
     {
       name: 'readingTimeMinutes',
@@ -101,6 +104,7 @@ export const Posts: CollectionConfig = {
       name: 'noindex',
       type: 'checkbox',
       defaultValue: false,
+      index: true,
     },
     {
       type: 'collapsible',

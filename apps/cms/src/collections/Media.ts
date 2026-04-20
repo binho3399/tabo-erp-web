@@ -11,6 +11,33 @@ export const Media: CollectionConfig = {
   upload: {
     staticDir: path.resolve(dirname, '../../media'),
     mimeTypes: ['image/*'],
+    adminThumbnail: 'card',
+    imageSizes: [
+      {
+        name: 'thumbnail',
+        width: 320,
+        height: 180,
+        position: 'centre',
+      },
+      {
+        name: 'card',
+        width: 640,
+        height: 360,
+        position: 'centre',
+      },
+      {
+        name: 'hero',
+        width: 1280,
+        height: 720,
+        position: 'centre',
+      },
+    ],
+    formatOptions: {
+      format: 'webp',
+      options: {
+        quality: 78,
+      },
+    },
   },
   access: {
     read: () => true,

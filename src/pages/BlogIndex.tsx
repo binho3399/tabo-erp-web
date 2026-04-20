@@ -14,8 +14,8 @@ const dateFormatter = new Intl.DateTimeFormat('vi-VN', {
 
 export default function BlogIndex() {
   const { ref: heroRef, isActive: isHeroActive } = useViewportActivity<HTMLElement>()
-  const posts = blogRepository.listPosts()
-  const categories = blogRepository.listCategories()
+  const posts = useMemo(() => blogRepository.listPosts(), [])
+  const categories = useMemo(() => blogRepository.listCategories(), [])
 
   const featuredPost = posts[0] ?? null
   const latestSidePosts = posts.slice(1, 5)
@@ -30,7 +30,8 @@ export default function BlogIndex() {
     [categories],
   )
 
-  usePageMetadata(buildBlogIndexMetadata(posts))
+  const pageMetadata = useMemo(() => buildBlogIndexMetadata(posts), [posts])
+  usePageMetadata(pageMetadata)
 
   return (
     <div className="overflow-x-hidden bg-white font-sans text-gray-900 transition-colors duration-500 dark:bg-slate-950 dark:text-white">
@@ -134,7 +135,11 @@ export default function BlogIndex() {
                   <img
                     src={featuredPost.coverImage}
                     alt={featuredPost.title}
-                    loading="lazy"
+                    width={1280}
+                    height={720}
+                    loading="eager"
+                    fetchPriority="high"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </PrefetchLink>
@@ -175,7 +180,10 @@ export default function BlogIndex() {
                       <img
                         src={post.coverImage}
                         alt={post.title}
+                        width={960}
+                        height={600}
                         loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
                     </PrefetchLink>
@@ -248,7 +256,10 @@ export default function BlogIndex() {
                     <img
                       src={mainPost.coverImage}
                       alt={mainPost.title}
+                      width={960}
+                      height={600}
                       loading="lazy"
+                      sizes="(max-width: 1280px) 100vw, 33vw"
                       className="aspect-[16/10] h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </PrefetchLink>
@@ -266,6 +277,8 @@ export default function BlogIndex() {
                         <img
                           src={post.coverImage}
                           alt={post.title}
+                          width={320}
+                          height={224}
                           loading="lazy"
                           className="h-14 w-20 shrink-0 rounded-xl object-cover"
                         />
