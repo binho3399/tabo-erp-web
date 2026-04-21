@@ -18,6 +18,14 @@ Website marketing cho Tabo ERP, xây bằng `React 19 + Vite + TypeScript + Tail
 
 Repo có file [.nvmrc](/Users/macbook/Documents/Tabo%20ERP/.nvmrc) để đồng bộ version Node giữa các máy.
 
+## Tech Stack
+
+- Frontend: `React 19`, `TypeScript`, `Vite 7`, `Tailwind CSS 4`, `React Router 7`.
+- CMS/Backend: `Payload CMS 3` chạy trên `Next.js 15`.
+- Database: `PostgreSQL` (ưu tiên `Supabase Postgres` cho môi trường cloud).
+- Build/Tooling: `pnpm`, `ESLint` (type-aware), `tsx` scripts.
+- Deploy: `Vercel` (website + CMS), kèm cấu hình cache trong `vercel.json`.
+
 ## Scripts
 
 - `pnpm dev`: chạy local dev server.
