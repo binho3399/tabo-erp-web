@@ -7,6 +7,11 @@ description: Hướng dẫn phong cách thiết kế (Aesthetic Vibe) và các c
 
 Tai lieu nay mo ta phong cach thiet ke cot loi cua Tabo ERP theo huong practical: uu tien token, primitives dung chung, va tinh nhat quan tren toan bo trang public-facing.
 
+## 0. Pham vi va boundary
+- Skill nay uu tien cho website public-facing trong `src/pages`, `src/components`, `src/app`.
+- Khong ap dung truc tiep cho schema va admin CMS trong `apps/cms/**`.
+- Neu task lien quan ca UI website va contract CMS/blog, ket hop skill nay voi skill release-sync/architecture-sync.
+
 ## 1. Phong cach cot loi
 - Cam giac giao dien: premium, tech-forward, gon gang, de doc, co chieu sau thi giac.
 - MUST uu tien mau xanh thuong hieu tren nen sang va slate (`text-slate-900`, `text-slate-500`, `bg-blue-600`, `bg-white`).
@@ -71,14 +76,24 @@ Khi user yeu cau kieu:
 - "Lay vibe project lam UI cho section nay"
 - "Tao them card dich vu"
 - "Design component abc chuan premium"
+- "Lam lai giao dien pricing/blog/about theo style hien tai"
+- "Can polish UI de dong bo voi trang public-facing"
 
 AI MUST:
 - Uu tien token + primitives truoc.
 - Chon spacing/typography theo system nay.
 - Dam bao language policy (tieng Viet first) truoc khi chot.
 - Giu motion vua du, co accessibility.
+- Giu nhat quan voi pattern website moi: prefetch link cho CTA dieu huong noi bo, metadata/seo khong bi pha vo.
 
 ## 10. Governance va cap nhat guideline
 - SHOULD de xuat cap nhat guideline khi pattern moi duoc dung lap lai >= 2 noi hoac duoc user chot thanh chuan moi.
 - MUST neu ro pham vi thay doi (token/component/pattern) va vi du ap dung truoc khi cap nhat.
 - MAY tam hoan cap nhat tai lieu neu thay doi con dang thu nghiem.
+
+## 11. Guardrail quality gate (truoc khi chot UI)
+- Kiem tra primitive-first: da dung `SectionHeader`/`SurfaceCard`/`Badge`/`Button` truoc khi custom class.
+- Kiem tra responsive va accessibility: mobile-first, focus state, reduced-motion.
+- Kiem tra noi dung: uu tien tieng Viet, khong tron CTA Anh-Viet bat hop ly.
+- Kiem tra integration: internal links can prefetch dung pattern (`PrefetchLink`) neu la CTA dieu huong.
+- Kiem tra pham vi: neu thay doi va cham SEO/blog data flow, phai kich hoat them skill release-sync.
