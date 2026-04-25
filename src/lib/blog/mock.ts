@@ -45,6 +45,8 @@ export const blogPosts: BlogPost[] = [
         ],
         quote:
           'ERP thành công không phải là dự án đầy tính năng, mà là dự án làm cho dữ liệu và quy trình trở nên thông suốt hơn mỗi ngày.',
+        mermaidTitle: 'Lộ trình MVP 90 ngày',
+        mermaid: 'flowchart LR\nA[Khoi dong] --> B[Don hang va ton kho]\nB --> C[Cong no va bao cao]\nC --> D[Danh gia KPI 90 ngay]',
       },
       {
         heading: 'Đặt kỷ luật dữ liệu ngay từ ngày đầu',

@@ -1,4 +1,5 @@
 import type { BlogContentSection } from '@/lib/blog/types'
+import MermaidDiagram from '@/components/common/MermaidDiagram'
 
 function createHeadingId(heading: string) {
   return heading
@@ -46,6 +47,14 @@ export default function BlogArticleBody({ sections }: { sections: BlogContentSec
               <blockquote className="mt-6 rounded-[20px] border border-blue-100 bg-blue-50/80 p-4 text-base font-medium leading-relaxed text-blue-900 dark:border-blue-900/50 dark:bg-blue-950/40 dark:text-blue-100 md:p-6">
                 {section.quote}
               </blockquote>
+            ) : null}
+
+            {section.mermaid ? (
+              <MermaidDiagram
+                chart={section.mermaid}
+                title={section.mermaidTitle ?? 'Sơ đồ minh họa'}
+                className="mt-6"
+              />
             ) : null}
           </section>
         ))}

@@ -159,6 +159,20 @@ export const Posts: CollectionConfig = {
           name: 'quote',
           type: 'textarea',
         },
+        {
+          name: 'mermaid',
+          type: 'textarea',
+          admin: {
+            description: 'Dán Mermaid definition (graph TD..., sequenceDiagram...) để render sơ đồ trong bài viết.',
+          },
+        },
+        {
+          name: 'mermaidTitle',
+          type: 'text',
+          admin: {
+            description: 'Tiêu đề ngắn hiển thị phía trên Mermaid diagram.',
+          },
+        },
       ],
     },
   ],

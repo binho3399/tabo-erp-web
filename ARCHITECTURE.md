@@ -153,6 +153,8 @@ graph TD
     BlogPostHeader --> BlogTypes[lib/blog/types.ts]
     BlogPostHeader --> BlogRepo
     BlogPostHeader --> UiIndex
+    BlogArticleBody --> MermaidDiagram[components/common/MermaidDiagram.tsx]
+    MermaidDiagram --> MermaidLib[mermaid]
     BlogPostSidebar --> UiIndex
     RelatedPostsSection --> BlogCard
     RelatedPostsSection --> BlogTypes
@@ -254,6 +256,7 @@ Khi cần sửa một phần cụ thể, đọc theo thứ tự này để giả
 | Đổi Blog Index / Category | `src/pages/BlogIndex.tsx`, `src/pages/BlogCategory.tsx`, `src/components/blog/BlogCard.tsx`, `src/components/blog/BlogSidebar.tsx` | BlogSidebar dùng tại BlogIndex để lọc category và hiển thị bài nổi bật. |
 | Đổi Blog Post detail | `src/pages/BlogPost.tsx`, `BlogPostHeader`, `BlogArticleBody`, `BlogPostSidebar`, `RelatedPostsSection` | BlogPost ghép 4 sub-component; header, body, sidebar và phần gợi ý bài liên quan. |
 | Đổi blog data layer | `src/lib/blog/repository.ts`, `src/lib/blog/types.ts`, `src/lib/blog/categories.ts` | Repository là adapter, types là hợp đồng, categories là mapping slug/label. |
+| Thêm Mermaid diagram trong bài blog | `src/components/common/MermaidDiagram.tsx`, `src/components/blog/BlogArticleBody.tsx`, `src/lib/blog/types.ts`, `scripts/sync-payload-blog.mjs`, `apps/cms/src/collections/Posts.ts` | Render Mermaid ở frontend, mở rộng contract blog (`mermaid`, `mermaidTitle`) và đồng bộ field từ CMS snapshot. |
 | Đổi navigation / prefetch nội bộ | `src/config/site.ts`, `src/components/ui/PrefetchLink.tsx`, `src/lib/route-prefetch.ts` | Đây là lớp điều hướng dùng chung cho route lazy hiện tại. |
 | Đổi auth / backend helper | `src/lib/supabase.ts` | Hiện tại chưa nằm trong runtime path chính. Nếu task không liên quan auth/backend, thường không cần mở file này. |
 | Đổi branding asset | `src/assets/` | Logo được dùng ở Navbar và Footer. |
@@ -287,6 +290,7 @@ Khi cần sửa một phần cụ thể, đọc theo thứ tự này để giả
 | `src/types/` | TypeScript contracts dùng chung cho data layer và component props. |
 | `src/lib/` | Helper hạ tầng và integration layer (blog repository, blog seo helpers, supabase, route-prefetch). |
 | `src/lib/blog/` | Blog data layer: `repository.ts` (adapter/fetcher), `types.ts` (contracts), `categories.ts` (slug mapping), `seo.ts` (metadata builders), `mock.ts` (dev data). |
+| `src/components/common/MermaidDiagram.tsx` | Client-side Mermaid renderer cho blog content, có fallback khi biểu đồ lỗi hoặc trống. |
 | `src/assets/` | Tài nguyên tĩnh như logo, ảnh thương hiệu. |
 
 ## 4. Các Điểm Quan Trọng Để Giảm Research

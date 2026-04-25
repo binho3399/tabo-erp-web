@@ -26,6 +26,8 @@ function mapContentSections(content) {
     paragraphs: (section.paragraphs ?? []).map((item) => item.paragraph),
     bullets: section.bullets?.map((item) => item.bullet).filter(Boolean),
     quote: section.quote,
+    mermaid: typeof section.mermaid === 'string' ? section.mermaid : undefined,
+    mermaidTitle: typeof section.mermaidTitle === 'string' ? section.mermaidTitle : undefined,
   }))
 }
 

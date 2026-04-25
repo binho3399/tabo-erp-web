@@ -10,6 +10,8 @@ export interface BlogContentSection {
   paragraphs: string[]
   bullets?: string[]
   quote?: string
+  mermaid?: string
+  mermaidTitle?: string
 }
 
 export interface BlogPostSummary {
