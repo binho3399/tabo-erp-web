@@ -5,7 +5,7 @@ Website giới thiệu phần mềm Tabo ERP và thông tin doanh nghiệp. Hệ
 ## User Review Required
 
 > [!IMPORTANT]
-> Vui lòng xem xét file [MVP_Requirements.md](file:///Users/macbook/Documents/Tabo%20ERP/MVP_Requirements.md) để chốt các tính năng cơ bản mong muốn. Sau khi xác nhận các tính năng này, tôi sẽ tiến hành khởi tạo dự án và bắt đầu code.
+> Vui lòng xem xét file [mvp-requirements.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/mvp-requirements.md) để chốt các tính năng cơ bản mong muốn. Sau khi xác nhận các tính năng này, tôi sẽ tiến hành khởi tạo dự án và bắt đầu code.
 
 ## Proposed Changes
 

@@ -40,6 +40,25 @@ Risk level: Moderate
 
 - Planning docs split between root and `docs/` (not confidently junk due process references)
 
+## 2026-04-26 follow-up cleanup (docs dedup)
+
+- Consolidated agent instruction source by turning `CLAUDE.md` into a redirect to `AGENTS.md`.
+- Archived root planning trackers into `docs/archive/`:
+  - `task.md` -> `docs/archive/task.root-legacy.md`
+  - `implementation_plan.md` -> `docs/archive/implementation_plan.root-legacy.md`
+- Added `docs/archive/README.md` to define current documentation placement.
+- Removed duplicate root files (`task.md`, `implementation_plan.md`) after archival.
+- Finalized dedup by removing `CLAUDE.md` and keeping `AGENTS.md` as the only agent instruction source.
+
+## 2026-04-26 naming standardization (docs)
+
+- Standardized active planning docs to kebab-case names:
+  - `docs/implementation_plan.md` -> `docs/implementation-plan.md`
+  - `docs/task.md` -> `docs/task-tracker.md`
+  - `MVP_Requirements.md` -> `docs/mvp-requirements.md`
+- Updated document references in `.agents/AGENTS_REGISTRY.md` and `docs/archive/README.md`.
+- Removed legacy files after content migration to standardized paths.
+
 ## Validation outcome
 
 - `pnpm install --frozen-lockfile`: passed

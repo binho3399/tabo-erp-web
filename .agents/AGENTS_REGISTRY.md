@@ -4,18 +4,18 @@ Tài liệu này giúp AI nhanh chóng xác định các quy chuẩn và hướn
 
 ## 🛠 Quy chuẩn UI/UX & Code
 - **Mọi task liên quan đến Giao diện (Frontend/UI):** Đọc [.agents/skills/vibe_coding_guidelines/SKILL.md](file:///Users/macbook/Documents/Tabo%20ERP/.agents/skills/vibe_coding_guidelines/SKILL.md).
-- **Thiết kế Mobile-first & Responsive:** Đọc mục UI/UX trong [MVP_Requirements.md](file:///Users/macbook/Documents/Tabo%20ERP/MVP_Requirements.md).
+- **Thiết kế Mobile-first & Responsive:** Đọc mục UI/UX trong [docs/mvp-requirements.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/mvp-requirements.md).
 
 ## 🏗 Kiến trúc & Dòng dữ liệu
 - **Sơ đồ Component & Cấu trúc thư mục:** Xem [ARCHITECTURE.md](file:///Users/macbook/Documents/Tabo%20ERP/ARCHITECTURE.md).
-- **Yêu cầu hệ thống (MVP):** Xem [MVP_Requirements.md](file:///Users/macbook/Documents/Tabo%20ERP/MVP_Requirements.md).
+- **Yêu cầu hệ thống (MVP):** Xem [docs/mvp-requirements.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/mvp-requirements.md).
 
 ## 🔄 Công cụ & Tự động hóa
 - **Cập nhật sơ đồ kiến trúc:** Sử dụng skill [.agents/skills/sync_architecture_graph/SKILL.md](file:///Users/macbook/Documents/Tabo%20ERP/.agents/skills/sync_architecture_graph/SKILL.md).
 
 ## 📋 Tài liệu tham khảo khác (Docs)
-- **Kế hoạch triển khai gốc:** [implementation_plan.md](file:///Users/macbook/Documents/Tabo%20ERP/implementation_plan.md).
-- **Lịch sử task:** [docs/task.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/task.md).
+- **Kế hoạch triển khai gốc:** [docs/implementation-plan.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/implementation-plan.md).
+- **Lịch sử task:** [docs/task-tracker.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/task-tracker.md).
 - **Walkthrough hiện tại (web + cms):** [docs/walkthrough.md](file:///Users/macbook/Documents/Tabo%20ERP/docs/walkthrough.md).
 
 ---
