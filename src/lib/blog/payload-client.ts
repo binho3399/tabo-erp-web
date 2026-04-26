@@ -27,6 +27,8 @@ interface PayloadPostSectionDocument {
   paragraphs: { paragraph: string }[]
   bullets?: { bullet: string }[]
   quote?: string
+  mermaid?: string
+  mermaidTitle?: string
 }
 
 interface PayloadPostDocument {
@@ -74,6 +76,11 @@ function mapContentSections(content: PayloadPostSectionDocument[] | undefined): 
   }
 
   return content.map((section) => ({
+    // Legacy Mermaid fields are normalized into text insights.
+    codeInsights: [
+      section.mermaidTitle ? `So do ky thuat: ${section.mermaidTitle}` : undefined,
+      section.mermaid ? 'Chi tiet luong ky thuat duoc luu duoi dang graph definition trong CMS.' : undefined,
+    ].filter(Boolean) as string[],
     heading: section.heading,
     paragraphs: section.paragraphs.map((item) => item.paragraph),
     bullets: section.bullets?.map((item) => item.bullet).filter(Boolean),

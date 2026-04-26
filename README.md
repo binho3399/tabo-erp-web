@@ -38,6 +38,40 @@ Repo có file [.nvmrc](/Users/macbook/Documents/Tabo%20ERP/.nvmrc) để đồng
 - `pnpm cms:build`: generate import map + types và build CMS app.
 - `pnpm cms:seed`: import dữ liệu blog mock hiện tại vào Payload.
 
+## GitNexus (thay workflow Mermaid thủ công)
+
+GitNexus là lớp code-intelligence ưu tiên cho agent/dev để phân tích kiến trúc và blast radius, thay cho quy trình cập nhật sơ đồ Mermaid thủ công.
+
+### First-run (mỗi máy dev)
+
+1. Index repository:
+   - `npx gitnexus analyze`
+2. Kiểm tra trạng thái index:
+   - `npx gitnexus status`
+3. Chạy MCP server standalone (nếu cần):
+   - `npx gitnexus mcp`
+
+### Cấu hình editor
+
+- Codex (project-local) đã được khai báo trong `.codex/config.toml` với server `gitnexus`.
+- Cursor dùng config global tại `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "gitnexus": {
+      "command": "npx",
+      "args": ["-y", "gitnexus@latest", "mcp"]
+    }
+  }
+}
+```
+
+### Lệnh vận hành thường dùng
+
+- Dùng MCP tools `query`, `context`, `impact`, `detect_changes` để tra cứu theo graph.
+- `npx gitnexus wiki` để sinh tài liệu kiến trúc từ knowledge graph khi cần refresh docs.
+
 ## Kiến trúc chính
 
 - `src/pages/`: route-level pages, chỉ chịu trách nhiệm compose.

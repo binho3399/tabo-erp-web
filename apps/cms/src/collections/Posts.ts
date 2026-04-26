@@ -160,17 +160,17 @@ export const Posts: CollectionConfig = {
           type: 'textarea',
         },
         {
-          name: 'mermaid',
-          type: 'textarea',
+          name: 'codeInsights',
+          type: 'array',
+          fields: [
+            {
+              name: 'insight',
+              type: 'textarea',
+              required: true,
+            },
+          ],
           admin: {
-            description: 'Dán Mermaid definition (graph TD..., sequenceDiagram...) để render sơ đồ trong bài viết.',
-          },
-        },
-        {
-          name: 'mermaidTitle',
-          type: 'text',
-          admin: {
-            description: 'Tiêu đề ngắn hiển thị phía trên Mermaid diagram.',
+            description: 'Danh sách insight ky thuat duoc tong hop tu GitNexus (thay cho Mermaid syntax).',
           },
         },
       ],

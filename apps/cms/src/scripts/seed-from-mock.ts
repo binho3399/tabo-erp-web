@@ -19,6 +19,7 @@ function toSectionRows(
     paragraphs: string[]
     bullets?: string[]
     quote?: string
+    codeInsights?: string[]
   }[],
 ) {
   return sections.map((section) => ({
@@ -26,6 +27,7 @@ function toSectionRows(
     paragraphs: section.paragraphs.map((paragraph) => ({ paragraph })),
     bullets: section.bullets?.map((bullet) => ({ bullet })),
     quote: section.quote,
+    codeInsights: section.codeInsights?.map((insight) => ({ insight })),
   }))
 }
 

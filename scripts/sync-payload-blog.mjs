@@ -22,12 +22,14 @@ function mapContentSections(content) {
   }
 
   return content.map((section) => ({
+    codeInsights: [
+      section.mermaidTitle ? `So do ky thuat: ${section.mermaidTitle}` : undefined,
+      section.mermaid ? 'Chi tiet luong ky thuat duoc luu duoi dang graph definition trong CMS.' : undefined,
+    ].filter(Boolean),
     heading: section.heading,
     paragraphs: (section.paragraphs ?? []).map((item) => item.paragraph),
     bullets: section.bullets?.map((item) => item.bullet).filter(Boolean),
     quote: section.quote,
-    mermaid: typeof section.mermaid === 'string' ? section.mermaid : undefined,
-    mermaidTitle: typeof section.mermaidTitle === 'string' ? section.mermaidTitle : undefined,
   }))
 }
 
