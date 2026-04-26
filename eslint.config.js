@@ -12,7 +12,6 @@ export default defineConfig([
   globalIgnores(['dist', '**/.next/**']),
   {
     files: ['**/*.{ts,tsx}'],
-    ignores: ['apps/cms/**/*'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommendedTypeChecked,
@@ -29,43 +28,6 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/no-floating-promises': 'error',
       'react-refresh/only-export-components': 'off',
-    },
-  },
-  {
-    files: ['apps/cms/**/*.{ts,tsx}'],
-    extends: [js.configs.recommended, tseslint.configs.recommendedTypeChecked],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.node,
-      parserOptions: {
-        project: ['./apps/cms/tsconfig.json'],
-        tsconfigRootDir,
-      },
-    },
-    rules: {
-      '@typescript-eslint/no-floating-promises': 'error',
-      '@typescript-eslint/no-unsafe-assignment': 'off',
-      '@typescript-eslint/no-unsafe-call': 'off',
-      '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/no-unsafe-argument': 'off',
-    },
-  },
-  {
-    files: ['apps/cms/src/scripts/**/*.{ts,tsx}'],
-    ignores: ['apps/cms/src/scripts/seed-from-mock.ts'],
-    rules: {
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              group: ['../../../../src/*'],
-              message:
-                'Do not import frontend app modules directly from CMS scripts. Use shared data modules or API-backed sources instead.',
-            },
-          ],
-        },
-      ],
     },
   },
 ])

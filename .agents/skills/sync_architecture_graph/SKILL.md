@@ -10,7 +10,6 @@ Dự án dùng GitNexus làm lớp code-intelligence chính để truy vấn qua
 
 ## Phạm vi áp dụng
 - Skill này áp dụng cho website public-facing trong `src/`.
-- Khi thay đổi ở `apps/cms`, chỉ cập nhật graph nếu thay đổi đó làm đổi luồng dữ liệu website (ví dụ contract blog/SEO giữa CMS va website).
 
 ## Trigger (khi nào AI PHẢI chạy skill này)
 Bất cứ khi nào AI gặp các thay đổi sau, AI **PHẢI** refresh ngữ cảnh kiến trúc bằng GitNexus:
@@ -19,7 +18,6 @@ Bất cứ khi nào AI gặp các thay đổi sau, AI **PHẢI** refresh ngữ c
 3. Thay đổi luồng metadata/SEO trong `src/components/seo/**`, `src/lib/blog/seo.ts`.
 4. Thay đổi luồng dữ liệu blog trong `src/lib/blog/**` hoặc trang blog (`BlogIndex`, `BlogCategory`, `BlogPost`).
 5. Thay đổi prefetch/routing infra trong `src/components/ui/PrefetchLink.tsx` hoặc `src/lib/route-prefetch.ts`.
-6. Thay đổi contract dữ liệu từ CMS làm ảnh hưởng website (như `apps/cms/src/collections/Posts.ts`, `Media.ts`).
 
 ## Quy trình cập nhật bắt buộc
 1. Đọc diff và xác định loại thay đổi: route, component tree, data flow, metadata flow, prefetch flow.

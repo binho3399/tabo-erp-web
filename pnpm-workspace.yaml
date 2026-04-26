@@ -1,7 +1,0 @@
-packages:
-  - "apps/*"
-
-# Cho phép postinstall của esbuild (Vite). Trên Vercel/CI tránh cảnh báo "Ignored build scripts".
-# @see https://pnpm.io/settings#onlybuiltdependencies
-onlyBuiltDependencies:
-  - esbuild

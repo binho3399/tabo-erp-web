@@ -10,7 +10,6 @@ Skill nay dam bao cac thay doi website quan trong duoc validate theo checklist c
 
 ## Pham vi ap dung
 - Uu tien cho website public-facing trong `src/**` va cac file pipeline/deploy.
-- Co theo doi contract tu `apps/cms/src/collections/**` khi no anh huong website blog/SEO.
 - Khong thay the skill UI vibe; skill nay dung de review va dong bo cap he thong.
 
 ## Trigger (khi nao PHẢI kich hoat)
@@ -19,7 +18,6 @@ Kich hoat skill nay neu task co thay doi o it nhat 1 nhom sau:
 2. Blog data flow: `src/lib/blog/**`, `src/pages/Blog*.tsx`, `src/components/blog/**`.
 3. Prefetch/routing infra: `src/components/ui/PrefetchLink.tsx`, `src/lib/route-prefetch.ts`, `src/config/routes.ts`.
 4. Build/perf/deploy: `scripts/**`, `vite.config.ts`, `vercel.json`, `package.json` scripts lien quan build.
-5. CMS contract lien quan website: `apps/cms/src/collections/Posts.ts`, `Media.ts`.
 
 ## Checklist bat buoc
 
@@ -29,9 +27,7 @@ Kich hoat skill nay neu task co thay doi o it nhat 1 nhom sau:
 - OG/Twitter metadata co fallback an toan khi thieu media.
 - JSON-LD dung type theo loai trang (index/category/post).
 
-### 2) Blog-CMS contract checklist
-- Mapping truong SEO tu CMS -> payload client -> repository khop ten va fallback.
-- `BLOG_SOURCE` hoat dong an toan, fallback mock khi payload khong kha dung.
+### 2) Blog data contract checklist
 - Dynamic paths (slug/categorySlug) va indexable path list khong bi vo.
 
 ### 3) Prefetch va routing checklist

@@ -6,10 +6,6 @@ Website marketing cho Tabo ERP, xây bằng `React 19 + Vite + TypeScript + Tail
 
 - Marketing website (local): `http://localhost:5173`
 - Marketing website (Vercel/production): `https://tabo.vn`
-- CMS app (local): `http://localhost:3001`
-- CMS app (Vercel/production): `https://<your-cms-project>.vercel.app`
-- CMS admin (local): `http://localhost:3001/admin`
-- CMS API (local): `http://localhost:3001/api/*`
 
 ## Yêu cầu môi trường
 
@@ -21,7 +17,6 @@ Repo có file [.nvmrc](/Users/macbook/Documents/Tabo%20ERP/.nvmrc) để đồng
 ## Tech Stack
 
 - Frontend: `React 19`, `TypeScript`, `Vite 7`, `Tailwind CSS 4`, `React Router 7`.
-- CMS/Backend: `Payload CMS 3` chạy trên `Next.js 15`.
 - Database: `PostgreSQL` (ưu tiên `Supabase Postgres` cho môi trường cloud).
 - Build/Tooling: `pnpm`, `ESLint` (type-aware), `tsx` scripts.
 - Deploy: `Vercel` (website + CMS), kèm cấu hình cache trong `vercel.json`.
@@ -33,10 +28,6 @@ Repo có file [.nvmrc](/Users/macbook/Documents/Tabo%20ERP/.nvmrc) để đồng
 - `pnpm build:app`: build production, prerender Blog và sinh `sitemap.xml`/`robots.txt`, không chạy bundle budget check.
 - `pnpm lint`: chạy ESLint với type-aware rules.
 - `pnpm preview`: preview bản build.
-- `pnpm blog:sync`: đồng bộ snapshot dữ liệu blog từ Payload về web app (khi `BLOG_SOURCE=payload`).
-- `pnpm cms:dev`: chạy Payload CMS app tại `apps/cms` (Next.js runtime).
-- `pnpm cms:build`: generate import map + types và build CMS app.
-- `pnpm cms:seed`: import dữ liệu blog mock hiện tại vào Payload.
 
 ## GitNexus (thay workflow Mermaid thủ công)
 
@@ -80,7 +71,6 @@ GitNexus là lớp code-intelligence ưu tiên cho agent/dev để phân tích k
 - `src/config/routes.ts`: route registry cho navigation, client lazy routes và prefetch.
 - `src/content/`: nội dung typed cho các section có tính marketing.
 - `src/lib/blog/`: adapter dữ liệu blog, mock source và helper SEO cho bài viết.
-- `apps/cms/`: ứng dụng Payload CMS (admin + API) dùng Postgres/Supabase.
 - `src/lib/route-prefetch.ts`: prefetch route modules khi hover/focus link nội bộ.
 
 Sơ đồ chi tiết nằm trong [ARCHITECTURE.md](/Users/macbook/Documents/Tabo%20ERP/ARCHITECTURE.md).
@@ -96,12 +86,9 @@ Sơ đồ chi tiết nằm trong [ARCHITECTURE.md](/Users/macbook/Documents/Tabo
 - HTTP cache đã được cấu hình trong `vercel.json` và `public/_headers`:
   HTML cache ngắn với `must-revalidate`, static assets cache dài hạn với `immutable`.
 - Blog được prerender ra HTML tĩnh cho `/blog` và từng `/blog/:slug`; build cũng sinh `sitemap.xml` và `robots.txt`.
-- Khi `BLOG_SOURCE=payload`, bước build sẽ chạy `blog:sync` để lấy dữ liệu blog từ Payload API trước khi prerender.
 
 ## Ghi chú vận hành
 
-- CMS admin mặc định chạy tại `http://localhost:3001/admin`; REST API nằm dưới `http://localhost:3001/api/*`.
-- File env local của CMS là `apps/cms/.env`; bắt buộc có `DATABASE_URL` (Supabase/Postgres) và `PAYLOAD_SECRET`.
 - Với Supabase Pooler, ưu tiên thêm `uselibpqcompat=true&sslmode=require` trong `DATABASE_URL` để tránh lỗi SSL chain khi chạy local.
 - Nếu `pnpm build` báo warning về Node version, hãy chuyển đúng version theo `.nvmrc`.
 - Nếu `pnpm lint` lỗi do dependency local bị lệch, chạy `pnpm install` để đồng bộ lại `node_modules`.

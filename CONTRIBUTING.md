@@ -10,12 +10,10 @@
 - `src/components`: reusable UI and section-level blocks.
 - `src/lib`: data access, repository, and domain logic.
 - `src/config` and `src/constants`: static app configuration/content tokens.
-- `apps/cms/src`: CMS app, schema, and CMS-only runtime code.
 
 ## Import Boundaries
 - Do not import `src/pages` from other layers.
 - Keep flow as: pages -> components -> lib/config/constants.
-- CMS scripts must not import frontend app internals from `src/*` via relative climbs.
 
 ## Performance Guidelines
 - Prefer route/section lazy-loading for heavy UI blocks.

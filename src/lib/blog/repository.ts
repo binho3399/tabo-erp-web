@@ -1,5 +1,4 @@
 import { blogPosts } from '@/lib/blog/mock'
-import { payloadBlogSnapshot } from '@/lib/blog/payload-cache.generated'
 import {
   findBlogCategoryBySlug,
   listBlogCategoryDefinitions,
@@ -12,14 +11,7 @@ export interface BlogCategorySummary extends BlogCategoryDefinition {
   postCount: number
 }
 
-const blogSource = (import.meta.env.BLOG_SOURCE as string | undefined) ?? 'mock'
-const activePosts = blogSource === 'payload' && payloadBlogSnapshot.posts.length > 0
-  ? payloadBlogSnapshot.posts
-  : blogPosts
-
-const payloadCategoryDescriptionMap: Record<string, string> = Object.fromEntries(
-  payloadBlogSnapshot.categories.map((category) => [category.slug, category.description ?? '']),
-)
+const activePosts = blogPosts
 
 function sortByPublishedAtDesc<T extends BlogPostSummary>(posts: T[]) {
   return [...posts].sort((left, right) => right.publishedAt.localeCompare(left.publishedAt))
@@ -53,7 +45,6 @@ const postCountByCategory = sortedPostSummaries.reduce<Record<string, number>>((
 const categoriesWithPosts: BlogCategorySummary[] = listBlogCategoryDefinitions()
   .map((category) => ({
     ...category,
-    description: payloadCategoryDescriptionMap[category.slug] || category.description,
     postCount: postCountByCategory[category.name] ?? 0,
   }))
   .filter((category) => category.postCount > 0)

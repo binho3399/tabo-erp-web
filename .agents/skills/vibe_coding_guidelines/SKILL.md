@@ -9,8 +9,7 @@ Tai lieu nay mo ta phong cach thiet ke cot loi cua Tabo ERP theo huong practical
 
 ## 0. Pham vi va boundary
 - Skill nay uu tien cho website public-facing trong `src/pages`, `src/components`, `src/app`.
-- Khong ap dung truc tiep cho schema va admin CMS trong `apps/cms/**`.
-- Neu task lien quan ca UI website va contract CMS/blog, ket hop skill nay voi skill release-sync/architecture-sync.
+- Neu task lien quan ca UI website va blog data flow, ket hop skill nay voi skill release-sync/architecture-sync.
 
 ## 1. Phong cach cot loi
 - Cam giac giao dien: premium, tech-forward, gon gang, de doc, co chieu sau thi giac.
