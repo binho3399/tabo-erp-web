@@ -38,8 +38,7 @@
         linear-gradient(180deg, #020617 0%, #0f172a 100%);
     }
 
-    #app-splash::before,
-    #app-splash::after {
+    #app-splash::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -53,21 +52,6 @@
       background-size: 56px 56px;
       opacity: 0.18;
       mask-image: radial-gradient(circle at center, black 38%, transparent 85%);
-    }
-
-    #app-splash::after {
-      background:
-        linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.18), transparent);
-      width: 22rem;
-      left: -22rem;
-      transform: skewX(-24deg);
-      animation: splash-sweep 1800ms linear infinite;
-      opacity: 0.65;
-    }
-
-    .dark #app-splash::after {
-      background:
-        linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.22), transparent);
     }
 
     #app-splash[data-state="hidden"] {
@@ -155,15 +139,7 @@
       display: block;
       border-radius: 999px;
       background: linear-gradient(180deg, rgba(56, 189, 248, 0.15), rgba(37, 99, 235, 0.92));
-      animation: splash-beam 900ms ease-in-out infinite;
-    }
-
-    .app-splash-beams span:nth-child(2) {
-      animation-delay: 120ms;
-    }
-
-    .app-splash-beams span:nth-child(3) {
-      animation-delay: 240ms;
+      height: 2rem;
     }
 
     .app-splash-title {
@@ -201,32 +177,8 @@
       }
     }
 
-    @keyframes splash-beam {
-      0%, 100% {
-        height: 0.65rem;
-        opacity: 0.45;
-      }
-
-      50% {
-        height: 2.8rem;
-        opacity: 1;
-      }
-    }
-
-    @keyframes splash-sweep {
-      from {
-        transform: translateX(0) skewX(-24deg);
-      }
-
-      to {
-        transform: translateX(calc(100vw + 22rem)) skewX(-24deg);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      #app-splash::after,
-      .app-splash-pulse,
-      .app-splash-beams span {
+      .app-splash-pulse {
         animation: none !important;
       }
     }

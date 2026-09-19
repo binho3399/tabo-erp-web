@@ -2,20 +2,66 @@
 
 Website marketing cho Tabo ERP, xây bằng `React 19 + Vite + TypeScript + Tailwind CSS`.
 
+## Project URLs
+
+- Marketing website (local): `http://localhost:5173`
+- Marketing website (Vercel/production): `https://tabo.vn`
+
 ## Yêu cầu môi trường
 
 - `Node.js >= 20.19.0`
-- `npm`
+- `pnpm@10.19.0`
 
 Repo có file [.nvmrc](/Users/macbook/Documents/Tabo%20ERP/.nvmrc) để đồng bộ version Node giữa các máy.
 
+## Tech Stack
+
+- Frontend: `React 19`, `TypeScript`, `Vite 7`, `Tailwind CSS 4`, `React Router 7`.
+- Database: `PostgreSQL` (ưu tiên `Supabase Postgres` cho môi trường cloud).
+- Build/Tooling: `pnpm`, `ESLint` (type-aware), `tsx` scripts.
+- Deploy: `Vercel` (website + CMS), kèm cấu hình cache trong `vercel.json`.
+
 ## Scripts
 
-- `npm run dev`: chạy local dev server.
-- `npm run build`: build production và kiểm tra budget của entry bundle.
-- `npm run build:app`: build production, prerender Blog và sinh `sitemap.xml`/`robots.txt`, không chạy bundle budget check.
-- `npm run lint`: chạy ESLint với type-aware rules.
-- `npm run preview`: preview bản build.
+- `pnpm dev`: chạy local dev server.
+- `pnpm build`: build production và kiểm tra budget của entry bundle.
+- `pnpm build:app`: build production, prerender Blog và sinh `sitemap.xml`/`robots.txt`, không chạy bundle budget check.
+- `pnpm lint`: chạy ESLint với type-aware rules.
+- `pnpm preview`: preview bản build.
+
+## GitNexus (thay workflow Mermaid thủ công)
+
+GitNexus là lớp code-intelligence ưu tiên cho agent/dev để phân tích kiến trúc và blast radius, thay cho quy trình cập nhật sơ đồ Mermaid thủ công.
+
+### First-run (mỗi máy dev)
+
+1. Index repository:
+   - `npx gitnexus analyze`
+2. Kiểm tra trạng thái index:
+   - `npx gitnexus status`
+3. Chạy MCP server standalone (nếu cần):
+   - `npx gitnexus mcp`
+
+### Cấu hình editor
+
+- Codex (project-local) đã được khai báo trong `.codex/config.toml` với server `gitnexus`.
+- Cursor dùng config global tại `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "gitnexus": {
+      "command": "npx",
+      "args": ["-y", "gitnexus@latest", "mcp"]
+    }
+  }
+}
+```
+
+### Lệnh vận hành thường dùng
+
+- Dùng MCP tools `query`, `context`, `impact`, `detect_changes` để tra cứu theo graph.
+- `npx gitnexus wiki` để sinh tài liệu kiến trúc từ knowledge graph khi cần refresh docs.
 
 ## Kiến trúc chính
 
@@ -43,5 +89,6 @@ Sơ đồ chi tiết nằm trong [ARCHITECTURE.md](/Users/macbook/Documents/Tabo
 
 ## Ghi chú vận hành
 
-- Nếu `npm run build` báo warning về Node version, hãy chuyển đúng version theo `.nvmrc`.
-- Nếu `npm run lint` lỗi do dependency local bị lệch, chạy `npm install` để đồng bộ lại `node_modules`.
+- Với Supabase Pooler, ưu tiên thêm `uselibpqcompat=true&sslmode=require` trong `DATABASE_URL` để tránh lỗi SSL chain khi chạy local.
+- Nếu `pnpm build` báo warning về Node version, hãy chuyển đúng version theo `.nvmrc`.
+- Nếu `pnpm lint` lỗi do dependency local bị lệch, chạy `pnpm install` để đồng bộ lại `node_modules`.

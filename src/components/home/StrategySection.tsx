@@ -4,6 +4,26 @@ import SurfaceCard from '@/components/common/SurfaceCard';
 import { Icon, Badge, Button } from '@/components/ui';
 import type { IconName } from '@/components/ui/Icon';
 
+/** Wavy silhouette: varying column heights (% of card). `glow` adds soft pulse + cyan bloom on that line. */
+const CTA_STRIPE_LINES: ReadonlyArray<{ h: number; glow: boolean; delayMs?: number }> = [
+    { h: 54, glow: true, delayMs: 0 },
+    { h: 78, glow: false },
+    { h: 42, glow: false },
+    { h: 91, glow: true, delayMs: 280 },
+    { h: 63, glow: false },
+    { h: 86, glow: true, delayMs: 620 },
+    { h: 48, glow: false },
+    { h: 72, glow: false },
+    { h: 95, glow: true, delayMs: 140 },
+    { h: 56, glow: false },
+    { h: 81, glow: false },
+    { h: 67, glow: true, delayMs: 900 },
+    { h: 44, glow: false },
+    { h: 88, glow: false },
+    { h: 59, glow: true, delayMs: 450 },
+    { h: 76, glow: false },
+];
+
 const StrategySection: React.FC = () => {
     const strategies: Array<{ title: string; desc: string; icon: IconName }> = [
         {
@@ -115,17 +135,37 @@ const StrategySection: React.FC = () => {
                             </div>
                         </div>
                         
-                        {/* Decorative Stripes from Figure 2 */}
-                        <div className="absolute inset-x-0 top-0 h-full opacity-[0.07] pointer-events-none flex justify-end">
-                            <div className="h-full w-1/2 flex gap-5 pr-12">
-                                {Array.from({ length: 12 }).map((_, i) => (
-                                    <div key={i} className="h-full w-px bg-white"></div>
+                        {/* Wavy vertical stripes (varying height) + random-ish glow pulses */}
+                        <div
+                            className="absolute inset-0 pointer-events-none overflow-hidden rounded-[20px]"
+                            aria-hidden
+                        >
+                            <div
+                                className="absolute inset-y-0 right-0 flex w-[58%] max-w-md items-end justify-end gap-1.5 pr-5 pt-8 pb-0 pl-10 sm:gap-2.5 sm:pr-10 [mask-image:linear-gradient(to_left,black_50%,transparent)]"
+                            >
+                                {CTA_STRIPE_LINES.map((line, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex h-full min-h-[100px] w-[2px] shrink-0 flex-col justify-end sm:w-[3px]"
+                                    >
+                                        <div
+                                            className={
+                                                line.glow
+                                                    ? 'w-full origin-bottom rounded-full bg-gradient-to-b from-sky-300/85 via-blue-400/45 to-blue-900/25 shadow-[0_0_10px_rgba(56,189,248,0.5),0_0_22px_rgba(59,130,246,0.18)] motion-safe:animate-cta-line-glow motion-reduce:animate-none'
+                                                    : 'w-full origin-bottom rounded-full bg-white/[0.09]'
+                                            }
+                                            style={{
+                                                height: `${line.h}%`,
+                                                ...(line.glow && line.delayMs !== undefined
+                                                    ? { animationDelay: `${line.delayMs}ms` }
+                                                    : {}),
+                                            }}
+                                        />
+                                    </div>
                                 ))}
                             </div>
+                            <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-blue-500/10 blur-[100px] pointer-events-none" />
                         </div>
-                        
-                        {/* Glow effect */}
-                        <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
                     </div>
                 </div>
             </SectionContainer>

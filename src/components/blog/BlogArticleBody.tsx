@@ -47,6 +47,21 @@ export default function BlogArticleBody({ sections }: { sections: BlogContentSec
                 {section.quote}
               </blockquote>
             ) : null}
+
+            {section.codeInsights?.length ? (
+              <div className="mt-6 rounded-[20px] border border-emerald-100 bg-emerald-50/80 p-4 dark:border-emerald-900/50 dark:bg-emerald-950/30 md:p-6">
+                <p className="mb-3 text-xs font-semibold tracking-[0.08em] text-emerald-700 uppercase dark:text-emerald-300">
+                  Code Insights
+                </p>
+                <ul className="space-y-2">
+                  {section.codeInsights.map((insight) => (
+                    <li key={insight} className="text-sm leading-relaxed text-emerald-900 dark:text-emerald-100">
+                      {insight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </section>
         ))}
       </div>

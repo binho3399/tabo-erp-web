@@ -11,6 +11,8 @@ export interface BlogCategorySummary extends BlogCategoryDefinition {
   postCount: number
 }
 
+const activePosts = blogPosts
+
 function sortByPublishedAtDesc<T extends BlogPostSummary>(posts: T[]) {
   return [...posts].sort((left, right) => right.publishedAt.localeCompare(left.publishedAt))
 }
@@ -32,57 +34,74 @@ function toSummary(post: BlogPost): BlogPostSummary {
   }
 }
 
+const sortedPosts = sortByPublishedAtDesc(activePosts)
+const sortedPostSummaries = sortedPosts.map(toSummary)
+const newestPostsCache = new Map<number, BlogPostSummary[]>()
+const postBySlug = new Map(activePosts.map((post) => [post.slug, post]))
+const postCountByCategory = sortedPostSummaries.reduce<Record<string, number>>((accumulator, post) => {
+  accumulator[post.category] = (accumulator[post.category] ?? 0) + 1
+  return accumulator
+}, {})
+const categoriesWithPosts: BlogCategorySummary[] = listBlogCategoryDefinitions()
+  .map((category) => ({
+    ...category,
+    postCount: postCountByCategory[category.name] ?? 0,
+  }))
+  .filter((category) => category.postCount > 0)
+const categoryBySlug = new Map(categoriesWithPosts.map((category) => [category.slug, category]))
+const postsByCategorySlug = new Map<string, BlogPostSummary[]>(
+  categoriesWithPosts.map((category) => [
+    category.slug,
+    sortedPostSummaries.filter((post) => post.category === category.name),
+  ]),
+)
+const emptyPosts: BlogPostSummary[] = []
+const indexablePaths = sortedPosts.filter((post) => !post.noindex).map((post) => post.canonicalPath)
+const categoryIndexablePaths = categoriesWithPosts.map((category) => `/blog/category/${category.slug}`)
+
 export const blogRepository = {
   listPosts(): BlogPostSummary[] {
-    return sortByPublishedAtDesc(blogPosts).map(toSummary)
+    return sortedPostSummaries
   },
 
   listNewestPosts(limit = 5): BlogPostSummary[] {
-    return this.listPosts().slice(0, Math.max(limit, 0))
+    const normalizedLimit = Math.max(limit, 0)
+    const cached = newestPostsCache.get(normalizedLimit)
+    if (cached) {
+      return cached
+    }
+
+    const nextValue = sortedPostSummaries.slice(0, normalizedLimit)
+    newestPostsCache.set(normalizedLimit, nextValue)
+    return nextValue
   },
 
   getPostBySlug(slug: string): BlogPost | null {
-    return blogPosts.find((post) => post.slug === slug) ?? null
+    return postBySlug.get(slug) ?? null
   },
 
   listIndexablePaths(): string[] {
-    return sortByPublishedAtDesc(blogPosts)
-      .filter((post) => !post.noindex)
-      .map((post) => post.canonicalPath)
+    return indexablePaths
   },
 
   listCategories(): BlogCategorySummary[] {
-    const posts = this.listPosts()
-    const postCountByCategory = posts.reduce<Record<string, number>>((accumulator, post) => {
-      accumulator[post.category] = (accumulator[post.category] ?? 0) + 1
-      return accumulator
-    }, {})
-
-    return listBlogCategoryDefinitions()
-      .map((category) => ({
-        ...category,
-        postCount: postCountByCategory[category.name] ?? 0,
-      }))
-      .filter((category) => category.postCount > 0)
+    return categoriesWithPosts
   },
 
   getCategoryBySlug(slug: string): BlogCategorySummary | null {
-    const category = this.listCategories().find((item) => item.slug === slug)
-    return category ?? null
+    return categoryBySlug.get(slug) ?? null
   },
 
   listPostsByCategorySlug(slug: string): BlogPostSummary[] {
-    const categoryName = findBlogCategoryBySlug(slug)?.name
-
-    if (!categoryName) {
-      return []
+    if (!findBlogCategoryBySlug(slug)) {
+      return emptyPosts
     }
 
-    return this.listPosts().filter((post) => post.category === categoryName)
+    return postsByCategorySlug.get(slug) ?? emptyPosts
   },
 
   listCategoryIndexablePaths(): string[] {
-    return this.listCategories().map((category) => `/blog/category/${category.slug}`)
+    return categoryIndexablePaths
   },
 
   resolveCategorySlugFromName(name: string): string {

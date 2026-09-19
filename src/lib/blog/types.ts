@@ -10,6 +10,7 @@ export interface BlogContentSection {
   paragraphs: string[]
   bullets?: string[]
   quote?: string
+  codeInsights?: string[]
 }
 
 export interface BlogPostSummary {

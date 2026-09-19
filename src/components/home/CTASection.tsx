@@ -96,7 +96,7 @@ const CTASection: React.FC = () => {
                         <span className="bg-blue-500/10 text-blue-400 border border-blue-500/20 font-semibold tracking-widest text-[10px] px-4 py-1.5 rounded-full mb-5 inline-flex uppercase">
                             Sẵn sàng để bắt đầu?
                         </span>
-                        <h2 className="text-[28px] md:text-[48px] font-normal mb-5 tracking-tight leading-[1.1]">
+                        <h2 className="text-[28px] md:text-[42px] font-normal mb-5 tracking-tight leading-[1.1]">
                             Mọi hành trình lớn đều <br /> bắt đầu từ một <span className="text-blue-500">giải pháp.</span>
                         </h2>
                         <p className="text-slate-400 text-base font-light mb-0 max-w-xl leading-relaxed">

@@ -27,6 +27,8 @@ export interface PricingPlan {
     tagline?: string;
     price: string;
     period?: string;
+    /** Dòng phụ ngay dưới giá / nhãn giá (ví dụ gợi ý báo giá). */
+    priceSubtitle?: string;
     description: string;
     features: string[];
     isPopular?: boolean;

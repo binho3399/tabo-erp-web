@@ -43,6 +43,10 @@ export const blogPosts: BlogPost[] = [
           'Giai đoạn đầu nên tập trung vào đơn hàng, tồn kho, công nợ và báo cáo quản trị cơ bản. Đây là phần tạo ra hiệu quả để đội ngũ thấy lợi ích sớm.',
           'Nếu đưa quá nhiều module vào đợt 1, doanh nghiệp sẽ tán lực đào tạo và khó xác định nguyên nhân khi quy trình bị tắc.',
         ],
+        codeInsights: [
+          'GitNexus impact check: uu tien module don hang, ton kho, cong no truoc khi mo rong CRM/BI.',
+          'Blast radius thuong gap khi mo rong dot 1: route bao cao, blog seo metadata va prefetch flow.',
+        ],
         quote:
           'ERP thành công không phải là dự án đầy tính năng, mà là dự án làm cho dữ liệu và quy trình trở nên thông suốt hơn mỗi ngày.',
       },

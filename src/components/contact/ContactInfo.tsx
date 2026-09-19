@@ -8,7 +8,7 @@ import { contactCards, siteMetadata } from '@/config/site';
 
 const ContactInfo: React.FC = () => {
     return (
-        <section className="py-16 lg:py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden transition-colors duration-500">
+        <section className="pt-10 pb-16 lg:pt-14 lg:pb-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden transition-colors duration-500">
             <SectionContainer className="relative z-10">
                 <div className="flex flex-col gap-16">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">

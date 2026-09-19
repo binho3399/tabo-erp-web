@@ -21,6 +21,7 @@
   --animate-beam-run: beam-run 3s linear infinite;
   --animate-soft-pulse: soft-pulse 8s ease-in-out infinite;
   --animate-breathing: breathing 6s ease-in-out infinite;
+  --animate-cta-line-glow: cta-line-glow 3.5s ease-in-out infinite;
 
   @keyframes marquee {
     0% {
@@ -132,6 +133,19 @@
     50% {
       scale: 1.05;
       opacity: 1;
+    }
+  }
+
+  @keyframes cta-line-glow {
+    0%,
+    100% {
+      opacity: 0.45;
+      filter: brightness(0.85);
+    }
+
+    50% {
+      opacity: 1;
+      filter: brightness(1.35);
     }
   }
 

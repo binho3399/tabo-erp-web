@@ -1,8 +1,10 @@
 import React from 'react';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import CTASection from '@/components/home/CTASection';
+import { useLocation } from 'react-router-dom';
+
 import { CTASkeleton, FooterSkeleton, HeaderSkeleton } from '@/components/common/SkeletonLayouts';
+import CTASection from '@/components/home/CTASection';
+import Footer from '@/components/layout/Footer';
+import Navbar from '@/components/layout/Navbar';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -11,6 +13,8 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, loadingState = 'idle' }) => {
     const isRouteLoading = loadingState === 'route';
+    const { pathname } = useLocation();
+    const shouldRenderCta = !pathname.startsWith('/blog');
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -18,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children, loadingState = 'idle' }) => {
             <main className="flex-grow">
                 {children}
             </main>
-            {isRouteLoading ? <CTASkeleton /> : <CTASection />}
+            {shouldRenderCta ? (isRouteLoading ? <CTASkeleton /> : <CTASection />) : null}
             {isRouteLoading ? <FooterSkeleton /> : <Footer />}
         </div>
     );

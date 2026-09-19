@@ -14,7 +14,7 @@ const SolutionsSection: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start lg:items-stretch">
                     {/* Left Column: Text + CTA */}
                     <div className="lg:col-span-6 lg:self-stretch">
-                        <div className="flex flex-col items-start text-left pt-0 lg:pt-10 lg:sticky lg:top-28 lg:h-fit">
+                        <div className="flex flex-col items-start text-left lg:sticky lg:top-28 lg:h-fit">
                             <Badge variant="primary" className="section-kicker">GIẢI PHÁP</Badge>
                             <h2 className="section-title mb-4 md:mb-5">
                                 Giải quyết mọi<br /><span className="text-blue-500 dark:text-blue-400">nỗi đau</span> doanh nghiệp.

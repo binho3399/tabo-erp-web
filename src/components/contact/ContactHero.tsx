@@ -1,6 +1,43 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Icon, PrefetchLink } from '@/components/ui';
 import { useViewportActivity } from '@/hooks/useViewportActivity';
+import { useSvgPathMotion } from '@/hooks/useSvgPathMotion';
+
+const PATH_CALL = 'M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320';
+const PATH_MAIL = 'M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40';
+const PATH_PIN = 'M -50 180 C 150 180, 300 180, 540 100 C 780 20, 900 260, 1260 260';
+
+interface ContactPathMoverProps {
+    pathD: string;
+    durationSec: number;
+    phaseSec?: number;
+    isActive: boolean;
+    /** Optional id for tests / debugging (e.g. pin mover on contact hero). */
+    moverTrack?: string;
+    children: React.ReactNode;
+}
+
+const ContactPathMover: React.FC<ContactPathMoverProps> = ({
+    pathD,
+    durationSec,
+    phaseSec = 0,
+    isActive,
+    moverTrack,
+    children,
+}) => {
+    const pathRef = useRef<SVGPathElement>(null);
+    const gRef = useRef<SVGGElement>(null);
+    useSvgPathMotion(pathRef, gRef, { durationSec, phaseSec, rotateAuto: true, enabled: isActive });
+
+    return (
+        <>
+            <path ref={pathRef} d={pathD} fill="none" stroke="none" className="opacity-0" aria-hidden />
+            <g ref={gRef} {...(moverTrack ? { 'data-testid': `contact-hero-mover-${moverTrack}` } : {})}>
+                {children}
+            </g>
+        </>
+    );
+};
 
 const ContactHero: React.FC = () => {
     const { ref: sectionRef, isActive } = useViewportActivity<HTMLElement>();
@@ -9,7 +46,7 @@ const ContactHero: React.FC = () => {
         <section
             ref={sectionRef}
             data-motion-active={isActive}
-            className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden min-h-[40vh] flex items-center justify-center transition-colors duration-500"
+            className="relative bg-[#F7F8F8] dark:bg-slate-950 pt-24 pb-10 lg:pt-32 lg:pb-14 overflow-hidden min-h-[32vh] flex items-center justify-center transition-colors duration-500"
         >
             {/* Ambient Blurry Blobs */}
             <div className="absolute top-[-8%] left-[-8%] h-[42%] w-[42%] rounded-full bg-blue-400/16 blur-[88px] pointer-events-none transition-all duration-700 dark:bg-blue-600/8"></div>
@@ -54,6 +91,12 @@ const ContactHero: React.FC = () => {
                             <symbol id="icon-pin" viewBox="0 0 24 24">
                                 <path d="M12,2C8.14,2 5,5.14 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.14 15.86,2 12,2M12,4C14.76,4 17,6.24 17,9C17,11.88 14.22,16.21 12,19.19C9.77,16.24 7,11.85 7,9C7,6.24 9.24,4 12,4M12,7A2,2 0 0,0 10,9A2,2 0 0,0 12,11A2,2 0 0,0 14,9A2,2 0 0,0 12,7Z" fill="currentColor" />
                             </symbol>
+                            <symbol id="icon-call" viewBox="0 0 24 24">
+                                <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.68,14.91 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5C20.55,15.5 21,15.95 21,16.5V20C21,20.55 20.55,21 20,21C10.61,21 3,13.39 3,4C3,3.45 3.45,3 4,3H7.5C8.05,3 8.5,3.45 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.09,8.32 8.82,8.59L6.62,10.79Z" fill="currentColor" />
+                            </symbol>
+                            <symbol id="icon-mail" viewBox="0 0 24 24">
+                                <path d="M20,4H4C2.9,4 2.01,4.9 2.01,6L2,18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V6C22,4.9 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z" fill="currentColor" />
+                            </symbol>
                         </defs>
 
                         {/* Connection Lines (Long, Elegant, Spanning Screen - Now all curved) */}
@@ -67,6 +110,31 @@ const ContactHero: React.FC = () => {
                         <g className="stroke-blue-400/55 dark:stroke-blue-400/30" strokeWidth="1.8" fill="none" strokeDasharray="40 960" pathLength="1000">
                             <path d="M -50 80 C 240 80, 360 240, 600 200 C 840 160, 960 320, 1260 320" className="motion-gated animate-grid-dash" style={{ animationDuration: '10s' }} />
                             <path d="M -50 280 C 240 280, 480 120, 720 160 C 960 200, 1080 40, 1260 40" className="motion-gated animate-grid-dash" style={{ animationDuration: '13s', animationDelay: '1.5s' }} />
+                        </g>
+
+                        {/* Moving nodes: JS-driven path motion — reliable in Chrome after SPA navigation (SMIL animateMotion can stick). */}
+                        <g className="text-blue-600/85 dark:text-blue-300/80">
+                            <ContactPathMover pathD={PATH_CALL} durationSec={11} isActive={isActive}>
+                                <circle cx="0" cy="0" r="12" className="fill-white/90 dark:fill-slate-900/85" />
+                                <circle cx="0" cy="0" r="16" className="fill-blue-500/10 dark:fill-blue-400/20" />
+                                <use href="#icon-call" x="-5" y="-5" width="10" height="10" />
+                            </ContactPathMover>
+                            <ContactPathMover pathD={PATH_MAIL} durationSec={13.5} phaseSec={2.4} isActive={isActive}>
+                                <circle cx="0" cy="0" r="11" className="fill-white/90 dark:fill-slate-900/85" />
+                                <circle cx="0" cy="0" r="14.5" className="fill-cyan-500/10 dark:fill-cyan-400/20" />
+                                <use href="#icon-mail" x="-4.5" y="-4.5" width="9" height="9" />
+                            </ContactPathMover>
+                            <ContactPathMover
+                                pathD={PATH_PIN}
+                                durationSec={15}
+                                phaseSec={4.2}
+                                isActive={isActive}
+                                moverTrack="pin"
+                            >
+                                <circle cx="0" cy="0" r="10.5" className="fill-white/90 dark:fill-slate-900/85" />
+                                <circle cx="0" cy="0" r="14" className="fill-indigo-500/10 dark:fill-indigo-400/20" />
+                                <use href="#icon-pin" x="-4.8" y="-4.8" width="9.6" height="9.6" />
+                            </ContactPathMover>
                         </g>
 
                         {/* Static Pulse Nodes (Dimmed for less contrast - Subtle Pulsing) */}
@@ -84,11 +152,11 @@ const ContactHero: React.FC = () => {
                     </svg>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-center text-center mt-8 lg:mt-0">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full flex flex-col items-start text-left mt-8 lg:mt-0">
                 {/* Sparkles Decoration */}
                 <div className="absolute top-[-90px] left-1/2 -translate-x-1/2 w-full max-w-[700px] h-[240px] pointer-events-none opacity-16 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent blur-2xl"></div>
                 
-                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+                <div className="relative z-10 mb-6 flex flex-wrap items-center justify-start gap-3 text-sm text-slate-500 dark:text-slate-400">
                     <PrefetchLink to="/" className="transition-colors duration-500 hover:text-blue-600 dark:hover:text-blue-400">
                         Trang chủ
                     </PrefetchLink>
@@ -99,7 +167,7 @@ const ContactHero: React.FC = () => {
                 <h1 className="text-4xl sm:text-5xl lg:text-[56px] leading-[1.2] lg:leading-[1.1] font-normal tracking-tight mb-6 text-slate-900 dark:text-white transition-colors relative z-10">
                     Sẵn sàng hỗ trợ <br className="md:hidden" /> <span className="text-blue-500 dark:text-blue-400">doanh nghiệp bạn.</span>
                 </h1>
-                <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl font-normal transition-colors">
+                <p className="text-base text-slate-500 dark:text-slate-400 max-w-2xl lg:max-w-none lg:whitespace-nowrap font-normal transition-colors">
                     Dù bạn có thắc mắc về tính năng, giá cả, hay cần tư vấn giải pháp quản trị,
                     đội ngũ chuyên gia từ Tabo luôn sẵn lòng giải đáp.
                 </p>

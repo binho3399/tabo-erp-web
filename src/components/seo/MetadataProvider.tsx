@@ -28,6 +28,22 @@ interface MetadataProviderProps {
   ssrMetadataRef?: MutableRefObject<DynamicPageMetadata | null>
 }
 
+function buildMetadataCacheKey(metadata: ResolvedMetadata): string {
+  const openGraphImage = metadata.openGraph.image
+  const twitterImage = metadata.twitter.image
+  const robots = metadata.robots
+  const structuredDataSignature = metadata.jsonLd.length
+  return [
+    metadata.title,
+    metadata.description,
+    metadata.canonicalUrl,
+    robots,
+    openGraphImage,
+    twitterImage,
+    String(structuredDataSignature),
+  ].join('|')
+}
+
 export function MetadataProvider({ children, ssrMetadataRef }: MetadataProviderProps) {
   const [dynamicPageMetadata, setDynamicPageMetadataState] = useState<DynamicPageMetadata | null>(null)
 
@@ -39,7 +55,7 @@ export function MetadataProvider({ children, ssrMetadataRef }: MetadataProviderP
         }
 
         const isSamePathname = current.pathname === value.pathname
-        const isSameMetadata = JSON.stringify(current.metadata) === JSON.stringify(value.metadata)
+        const isSameMetadata = buildMetadataCacheKey(current.metadata) === buildMetadataCacheKey(value.metadata)
         return isSamePathname && isSameMetadata ? current : value
       })
       if (ssrMetadataRef) {

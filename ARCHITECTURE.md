@@ -1,230 +1,36 @@
-# Sơ Đồ Kiến Trúc Dự Án Tabo ERP Web
+# Bản Đồ Kiến Trúc Dự Án Tabo ERP Web (GitNexus-first)
 
 Tài liệu này là bản đồ tra cứu nhanh cho agent và dev khi làm việc trên codebase Tabo ERP Web.
-Mục tiêu không chỉ là vẽ component tree, mà còn giảm số lần phải mở source để tìm:
+Nguồn sự thật cho quan hệ phụ thuộc và blast radius là GitNexus (query/context/impact/detect_changes); phần sơ đồ tĩnh trong tài liệu chỉ là snapshot tham khảo.
+
+Mục tiêu chính:
 - Route nào render page nào.
 - Page nào dùng section/component nào.
 - Component nào đang kéo dữ liệu từ `constants/`, `types/`, `lib/`, hoặc `assets/`.
 - Route metadata, prefetch, và SEO cơ bản đang nằm ở đâu.
 - File nào nên đọc trước tùy theo loại task.
 
+## 0. Quy trình GitNexus chuẩn
+
+1. Index/reindex codebase:
+   - `npx gitnexus analyze`
+2. Kiểm tra trạng thái index:
+   - `npx gitnexus status`
+3. Tra cứu ngữ cảnh kiến trúc qua MCP tools:
+   - `query` -> tìm process/module
+   - `context` -> 360 symbol view
+   - `impact` hoặc `detect_changes` -> blast radius trước khi sửa
+4. Khi cần refresh tài liệu dài:
+   - `npx gitnexus wiki`
+
 ## 1. Sơ Đồ Kiến Trúc Tổng Thể
-*Luồng runtime từ entry point đến route, page, section, và các lớp dữ liệu dùng chung.*
+Sơ đồ runtime không còn được duy trì thủ công bằng Mermaid trong tài liệu này.
+Thay vào đó, dùng GitNexus để truy vấn kiến trúc theo ngữ cảnh thực tế của mã nguồn:
 
-```mermaid
-graph TD
-    %% Runtime entry
-    Main[src/main.tsx] --> ThemeProvider[context/ThemeContext.tsx]
-    ThemeProvider --> App[src/App.tsx]
-    App --> SiteConfig[src/config/site.ts]
-    App --> RoutesDef[src/config/routes.ts]
-
-    %% App shell — App.tsx delegates to AppFrame
-    App --> MetadataProvider[components/seo/MetadataProvider.tsx]
-    App --> AppFrame[src/app/AppFrame.tsx]
-
-    AppFrame --> Router[BrowserRouter / Routes]
-    AppFrame --> ScrollToTop[components/layout/ScrollToTop.tsx]
-    AppFrame --> Layout[[components/layout/Layout.tsx]]
-    AppFrame --> RouteMeta[components/seo/RouteDocumentMeta.tsx]
-    AppFrame --> SkeletonLayouts[components/common/SkeletonLayouts.tsx]
-
-    Layout --> Navbar[components/layout/Navbar.tsx]
-    Layout --> CTA[components/home/CTASection.tsx]
-    Layout --> Footer[components/layout/Footer.tsx]
-
-    Navbar --> ThemeToggle[components/ui/ThemeToggle.tsx]
-    Navbar --> UiIndex[components/ui/index.ts]
-    Navbar --> Prefetch[components/ui/PrefetchLink.tsx]
-    Footer --> LogoWhite[src/assets/Logo-white.png]
-    Navbar --> LogoBlack[src/assets/logo-black.png]
-    Navbar --> LogoWhite
-
-    %% Routes (defined in routes.ts, rendered by AppFrame)
-    Router --> RouteHome[Route: /]
-    Router --> RoutePricing[Route: /pricing]
-    Router --> RouteAbout[Route: /about]
-    Router --> RouteContact[Route: /contact]
-    Router --> RouteBlog[Route: /blog]
-    Router --> RouteBlogCategory[Route: /blog/category/:categorySlug]
-    Router --> RouteBlogPost[Route: /blog/:slug]
-    Router --> RouteNotFound[Route: *]
-
-    RouteHome --> HomePage[src/pages/Home.tsx]
-    RoutePricing --> PricingPage[src/pages/Pricing.tsx]
-    RouteAbout --> AboutPage[src/pages/About.tsx]
-    RouteContact --> ContactPage[src/pages/Contact.tsx]
-    RouteBlog --> BlogIndex[src/pages/BlogIndex.tsx]
-    RouteBlogCategory --> BlogCategory[src/pages/BlogCategory.tsx]
-    RouteBlogPost --> BlogPost[src/pages/BlogPost.tsx]
-    RouteNotFound --> NotFound[src/pages/NotFound.tsx]
-
-    %% Home page
-    HomePage --> HomeHero[components/home/HeroSection.tsx]
-    HomePage --> HomeFeatures[components/home/FeaturesSection.tsx]
-    HomePage --> HomeStrip[components/home/StripBanner.tsx]
-    HomePage --> DeferredSection[components/common/DeferredSection.tsx]
-    HomePage --> ErrorBoundary[components/common/ErrorBoundary.tsx]
-    HomePage --> HomeLazy[React.lazy sections]
-
-    HomeLazy --> SolutionsSection[components/home/SolutionsSection.tsx]
-    HomeLazy --> VisionSection[components/home/VisionSection.tsx]
-    HomeLazy --> StrategySection[components/home/StrategySection.tsx]
-    HomeLazy --> PricingSection[components/pricing/PricingSection.tsx]
-    HomeLazy --> TestimonialsSection[components/home/TestimonialsSection.tsx]
-
-    HomeHero --> HomeContent[src/content/home.ts]
-    HomeHero --> ViewportHook[src/hooks/useViewportActivity.ts]
-
-    SolutionsSection --> LandingConstants[src/constants/landing/index.ts]
-    SolutionsSection --> LandingTypes[src/types/landing.ts]
-    HomeFeatures --> LandingConstants
-    HomeFeatures --> LandingTypes
-    HomeFeatures --> ViewportHook
-    PricingSection --> LandingConstants
-    PricingSection --> LandingTypes
-
-    %% Pricing page
-    PricingPage --> PricingHero[components/pricing/PricingHero.tsx]
-    PricingPage --> DeferredSection
-    PricingPage --> PricingLazy[React.lazy PricingSection + Features + FAQ]
-    PricingPage --> SkeletonLayouts
-    PricingLazy --> PricingSection
-    PricingLazy --> PricingFeatures[components/pricing/PricingFeatures.tsx]
-    PricingLazy --> PricingFAQ[components/pricing/PricingFAQ.tsx]
-    PricingHero --> UiIndex
-    PricingHero --> ViewportHook
-    PricingFeatures --> UiIndex
-    PricingFAQ --> UiIndex
-
-    %% About page
-    AboutPage --> AboutHero[components/about/AboutHero.tsx]
-    AboutPage --> AboutMission[components/about/AboutMission.tsx]
-    AboutPage --> DeferredSection
-    AboutPage --> SkeletonLayouts
-    AboutPage --> AboutLazy[React.lazy About sections]
-    AboutLazy --> AboutGrid[components/about/AboutGrid.tsx]
-    AboutLazy --> AboutBottomCTA[components/about/AboutBottomCTA.tsx]
-    AboutLazy --> AboutFAQ[components/about/AboutFAQ.tsx]
-    AboutGrid --> AboutContent[src/content/about.ts]
-    AboutGrid --> AboutAsset[src/assets/about-team.svg]
-    AboutHero --> ViewportHook
-    AboutBottomCTA --> ViewportHook
-
-    %% Contact page
-    ContactPage --> ContactHero[components/contact/ContactHero.tsx]
-    ContactPage --> ContactInfo[components/contact/ContactInfo.tsx]
-    ContactPage --> DeferredSection
-    ContactPage --> ContactFAQ[components/contact/ContactFAQ.tsx]
-    ContactInfo --> LazyMap[components/contact/LazyMapEmbed.tsx]
-    ContactInfo --> SiteConfig
-    ContactHero --> ViewportHook
-
-    %% Blog Index page
-    BlogIndex --> BlogCard[components/blog/BlogCard.tsx]
-    BlogIndex --> BlogRepo[lib/blog/repository.ts]
-    BlogIndex --> BlogSeo[lib/blog/seo.ts]
-    BlogIndex --> SeoHook[components/seo/usePageMetadata.ts]
-    BlogIndex --> UiIndex
-
-    %% Blog Category page
-    BlogCategory --> BlogCard
-    BlogCategory --> BlogRepo
-    BlogCategory --> BlogSeo
-    BlogCategory --> SeoHook
-    BlogCategory --> UiIndex
-
-    %% Blog Post page
-    BlogPost --> BlogPostHeader[components/blog/BlogPostHeader.tsx]
-    BlogPost --> BlogArticleBody[components/blog/BlogArticleBody.tsx]
-    BlogPost --> BlogPostSidebar[components/blog/BlogPostSidebar.tsx]
-    BlogPost --> RelatedPostsSection[components/blog/RelatedPostsSection.tsx]
-    BlogPost --> BlogRepo
-    BlogPost --> BlogSeo
-    BlogPost --> SeoHook
-    BlogPost --> UiIndex
-
-    BlogPostHeader --> BlogTypes[lib/blog/types.ts]
-    BlogPostHeader --> BlogRepo
-    BlogPostHeader --> UiIndex
-    BlogPostSidebar --> UiIndex
-    RelatedPostsSection --> BlogCard
-    RelatedPostsSection --> BlogTypes
-    RelatedPostsSection --> UiIndex
-
-    %% BlogSidebar (used internally by BlogIndex / Category)
-    BlogIndex --> BlogSidebar[components/blog/BlogSidebar.tsx]
-    BlogSidebar --> BlogTypes
-    BlogSidebar --> UiIndex
-
-    BlogRepo --> BlogTypes
-    BlogRepo --> BlogCategoryMap[lib/blog/categories.ts]
-
-    %% Shared UI primitives
-    subgraph UI_Primitives[components/ui]
-        Button[Button.tsx]
-        Badge[Badge.tsx]
-        Accordion[Accordion.tsx]
-        Icon[Icon.tsx]
-        ThemeToggle
-        UiIndex
-    end
-
-    %% Shared data and contracts
-    subgraph Shared_Data[Shared Data Layer]
-        LandingConstants
-        LandingTypes
-        SiteConfig
-        RoutesDef
-        HomeContent
-        AboutContent
-        BlogTypes
-    end
-
-    %% Common utilities
-    subgraph Common[Common / Infra]
-        ErrorBoundary
-        DeferredSection
-        SkeletonLayouts
-        Skeleton[components/common/Skeleton.tsx]
-        ViewportHook
-        Supabase[src/lib/supabase.ts]
-        BlogRepo
-        BlogCategoryMap
-        BlogSeo
-        MetadataProvider
-        RoutePrefetch[src/lib/route-prefetch.ts]
-    end
-
-    %% Shared dependencies
-    UiIndex --> Button
-    UiIndex --> Badge
-    UiIndex --> Accordion
-    UiIndex --> Icon
-    UiIndex --> Prefetch
-    UiIndex --> ThemeToggle
-    Prefetch --> RoutePrefetch
-    SkeletonLayouts --> Skeleton
-
-    HomeHero --> UiIndex
-    HomeFeatures --> UiIndex
-    HomeStrip --> UiIndex
-    HomeStrip --> ViewportHook
-    SolutionsSection --> UiIndex
-    TestimonialsSection --> UiIndex
-    VisionSection --> UiIndex
-    StrategySection --> UiIndex
-
-    AboutHero --> UiIndex
-    AboutMission --> UiIndex
-    AboutGrid --> UiIndex
-    AboutBottomCTA --> UiIndex
-    AboutFAQ --> UiIndex
-
-    ContactHero --> UiIndex
-    ContactInfo --> UiIndex
-    ContactFAQ --> UiIndex
-```
+- `query`: tìm process/cluster liên quan feature.
+- `context`: xem dependency 360 độ cho symbol hoặc module.
+- `impact`/`detect_changes`: xem blast radius trước khi sửa hoặc trước commit.
+- `wiki`: sinh tài liệu kiến trúc theo knowledge graph khi cần snapshot dài.
 
 ## 2. Bản Đồ Đọc Nhanh Cho Agent
 
@@ -264,7 +70,10 @@ Khi cần sửa một phần cụ thể, đọc theo thứ tự này để giả
 | `src/config/site.ts` | Nguồn sự thật cho site metadata, navigation labels, contact info và SEO cơ bản. |
 | `src/pages/` | Mỗi file là một route-level page, chủ yếu chỉ lắp ráp các section. |
 | `src/components/layout/` | Navbar, Footer, ScrollToTop, và shell bố cục chung. |
+| `src/components/layout/navbar/` | Sub-components cho điều hướng desktop/mobile và shared navbar mappings. |
 | `src/components/home/` | Các section của Home, trong đó một phần được lazy load qua `DeferredSection`. |
+| `src/components/home/features/` | Primitive cho `FeaturesSection` (feature chip + ticker) để tách layout khỏi view primitives. |
+| `src/components/home/hero/` | Primitive cho `HeroSection` (avatar badge và phần tử con). |
 | `src/components/pricing/` | Các khối giao diện của trang Pricing; `PricingSection` được tái sử dụng ở Home. |
 | `src/components/about/` | Các section của trang About; phần dưới lazy qua `DeferredSection`. |
 | `src/components/contact/` | Các section của trang Contact; FAQ lazy qua `DeferredSection`. |
@@ -300,7 +109,7 @@ Khi cần sửa một phần cụ thể, đọc theo thứ tự này để giả
 
 ## 5. Quy Tắc Đồng Bộ Cho Agent
 
-Khi thêm hoặc sửa kiến trúc, cập nhật `ARCHITECTURE.md` nếu có một trong các thay đổi sau:
+Khi thêm hoặc sửa kiến trúc, ưu tiên đối chiếu qua GitNexus và chỉ cập nhật `ARCHITECTURE.md` ở mức định hướng nếu có một trong các thay đổi sau:
 - Thêm route mới hoặc page mới.
 - Tách thêm section lớn ra component con.
 - Thêm hoặc đổi metadata route, navigation, hoặc prefetch flow.
@@ -310,4 +119,4 @@ Khi thêm hoặc sửa kiến trúc, cập nhật `ARCHITECTURE.md` nếu có m�
 - Tạo thêm integration/helper ở `lib/`.
 - Đổi hoặc thêm asset branding ở `assets/`.
 
-Nếu chỉ sửa text nhỏ bên trong cùng một section, thường không cần mở rộng sơ đồ, nhưng vẫn nên giữ đúng mối quan hệ import hiện tại.
+Nếu chỉ sửa text nhỏ bên trong cùng một section, thường không cần cập nhật snapshot tĩnh. Tuy nhiên vẫn nên kiểm tra nhanh qua `context`/`impact` để tránh bỏ sót side effect.

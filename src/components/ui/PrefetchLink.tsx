@@ -1,7 +1,7 @@
 import { useEffect, useRef, type FocusEventHandler, type MouseEventHandler } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 
-import { prefetchRoute } from '@/lib/route-prefetch'
+import { canPrefetchRoute, prefetchRoute } from '@/lib/route-prefetch'
 
 const HOVER_INTENT_DELAY_MS = 120
 
@@ -26,7 +26,11 @@ export default function PrefetchLink({
 
   const handlePrefetch = () => {
     clearHoverIntent()
-    prefetchRoute(route)
+    if (!canPrefetchRoute(route)) {
+      return
+    }
+
+    window.setTimeout(() => prefetchRoute(route), 0)
   }
 
   const handleMouseEnter: MouseEventHandler<HTMLAnchorElement> = (event) => {

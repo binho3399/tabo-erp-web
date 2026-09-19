@@ -8,6 +8,8 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
+    target: 'es2022',
+    sourcemap: 'hidden',
     rollupOptions: {
       output: {
         manualChunks(id) {

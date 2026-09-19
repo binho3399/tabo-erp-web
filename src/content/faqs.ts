@@ -101,9 +101,9 @@ export const pricingFaqItems: FaqItem[] = [
       'Chắc chắn rồi. Mọi giao dịch hợp pháp đăng ký gói phần mềm Tabo đều sẽ được hỗ trợ xuất Hóa đơn Giá trị gia tăng (VAT) hợp lệ 100% cho nhu cầu hạch toán.',
   },
   {
-    question: 'Khác biệt giữa Hộ Kinh Doanh và Gói Nâng Cao?',
+    question: 'Khác biệt giữa Hộ Kinh Doanh và Nâng Cao?',
     answer:
-      'Gói Hộ Kinh Doanh tối ưu cho quy trình 1 điểm bán lẻ cốt lõi. Gói Nâng Cao mở khóa toàn bộ nền tảng: Đa chi nhánh, hệ sinh thái API, phân quyền tùy chỉnh và chuyên gia 24/7.',
+      'Gói Hộ Kinh Doanh tối ưu cho quy trình 1 điểm bán lẻ cốt lõi. Nâng Cao mở khóa toàn bộ nền tảng: Đa chi nhánh, hệ sinh thái API, phân quyền tùy chỉnh và chuyên gia 24/7.',
   },
   {
     question: 'Hình thức thanh toán như thế nào?',
